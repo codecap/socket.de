@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/makecodework/order.git"
+    "url": "git+https://github.com/codecap/socket.de.git"
   },
   "keywords": [
     "Socket",
@@ -21,9 +21,9 @@
   "author": "O.Poruchenko",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/makecodework/order/issues"
+    "url": "https://github.com/codecap/socket.de/issues"
   },
-  "homepage": "https://github.com/makecodework/order#readme",
+  "homepage": "https://github.com/codecap/socket.de#readme",
   "devDependencies": {
     "autoprefixer": "^10.3.3",
     "browser-sync": "^2.27.5",

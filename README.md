@@ -48,7 +48,7 @@ All packages are in  `package.json`:
 
 ## Contributing
 
-Pull requests are welcome on GitHub at https://github.com/makecodework/order.
+Pull requests are welcome on GitHub at https://github.com/codecap/order.
 
 ## License
 
