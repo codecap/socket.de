@@ -1,17 +1,31 @@
-- title: 'CSS 3'
-  image: 'css_3.svg'
 
-- title: 'HTML 5'
-  image: 'html_5.svg'
+# openstack
+# kubernetes
+# ansible
+# okd
+# ceph
+# centOS
+# ubuntu
+# linux
+# prometheus
 
-- title: 'VS Code'
-  image: 'vs_code.svg'
 
-- title: 'Java'
-  image: 'java.svg'
 
-- title: 'Python'
-  image: 'python.svg'
+
+- title: 'OpenStack'
+  image: 'openstack.svg'
+
+- title: 'Kubernetes'
+  image: 'kubernetes.svg'
+
+- title: 'OKD'
+  image: 'okd.svg'
+
+- title: 'Ansible'
+  image: 'ansible.svg'
+
+- title: 'Prometheus'
+  image: 'prometheus.svg'
 
 - title: 'PHP'
   image: 'php.svg'
