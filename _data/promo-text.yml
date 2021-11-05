@@ -1,3 +1,6 @@
-- title: 'Управление хранением данных проще с Socket'
-  content: 'Мы позаботимся о ваших потребностях в хранении, чтобы вы могли сосредоточиться на развитии своего бизнеса'
+#- title: 'Управление хранением данных проще с socket'
+- title: 'Eigene Cloud unter Kontrolle? socket hilft'
+  content: >
+    Wir kümmern uns um Ihre eigene Cloud, damit Sie Ihre volle Kraft in Ihr
+    Business investieren können
   image: 'main_img.svg'
