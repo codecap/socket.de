@@ -1,51 +1,34 @@
-- title: 'Программное обеспечение'
+---
+- title: 'Archtektur'
   link: 'Программное обеспечение'
   image: 'service1.svg'
-  content: 'Для надёжного хранения данных требуются оптимизированные серверы хранения.
-      Socket предлагает гибкие варианты конфигурации и индивидуальные системы, идеально адаптированные к вашему случаю использования. Наше решение для управления хранилищем является нашим основным продуктом.'
-
-- title: 'Аппаратное обеспечение'
+  content: >-
+      Damit Ihre Cloud zuverlässig heute funktioniert und für die Anforderungen
+      von morgen angepasst/ausgebaut werden kann, ist die Archutektur von Anfang
+      an sehr wichtig. Wirh elfen Ihnen dabei, eine stabile und aktuelle
+      Architekur für Ihre Cloud zu entwickeln, damit Ihr Unternehnem für
+      Zukunft gut aufgestellt ist.
+- title: 'Aufbau und Betrieb'
   link: 'Аппаратное обеспечение'
   image: 'service2.svg'
-  content: 'Для надёжного хранения данных требуются оптимизированные серверы хранения.
-      Socket предлагает гибкие варианты конфигурации и индивидуальные системы, идеально адаптированные к вашему случаю использования. Наше решение для управления хранилищем является нашим основным продуктом.'
-
-
-
-- title: 'Clouds'
-  link: 'Аппаратное обеспечение'
-  image: 'service2.svg'
-  content: 'Для надёжного хранения данных требуются оптимизированные серверы хранения.
-      Socket предлагает гибкие варианты конфигурации и индивидуальные системы, идеально адаптированные к вашему случаю использования. Наше решение для управления хранилищем является нашим основным продуктом.'
-
-- title: 'Systems'
-  link: 'Аппаратное обеспечение'
-  image: 'service2.svg'
-  content: 'Для надёжного хранения данных требуются оптимизированные серверы хранения.
-      Socket предлагает гибкие варианты конфигурации и индивидуальные системы, идеально адаптированные к вашему случаю использования. Наше решение для управления хранилищем является нашим основным продуктом.'
-
-- title: 'Networks'
-  link: 'Аппаратное обеспечение'
-  image: 'service2.svg'
-  content: 'Для надёжного хранения данных требуются оптимизированные серверы хранения.
-      Socket предлагает гибкие варианты конфигурации и индивидуальные системы, идеально адаптированные к вашему случаю использования. Наше решение для управления хранилищем является нашим основным продуктом.'
-
-- title: 'Storage'
-  link: 'Аппаратное обеспечение'
-  image: 'service2.svg'
-  content: 'Для надёжного хранения данных требуются оптимизированные серверы хранения.
-      Socket предлагает гибкие варианты конфигурации и индивидуальные системы, идеально адаптированные к вашему случаю использования. Наше решение для управления хранилищем является нашим основным продуктом.'
-
-
-
+  content: >-
+    Wir haben viel Erfahrung in Aufbau und Betrieb der Clouds. Wir helfen Ihnen
+    passende Hardware zu finden und die Cloud auf dieser Basis aufzubauen.
+    Unsere Fachkompetenz steht Ihnen vollständug bei der Inbetriebnahme zur
+    Verfügung. Ebenfalls wie auch später für einen erfolgreichen Betrieb.
 - title: 'Consulting'
   link: 'Консультирование'
   image: 'service3.svg'
-  content: 'Для надёжного хранения данных требуются оптимизированные серверы хранения.
-      Socket предлагает гибкие варианты конфигурации и индивидуальные системы, идеально адаптированные к вашему случаю использования. Наше решение для управления хранилищем является нашим основным продуктом.'
-
+  content: >-
+    Wir lieben mit Linux, Netzwerk und Systemen zu arbeiten. Über die Jahre
+    haben wir in diesen Bereichen viel Erfahrung gesammelt und teilen diese
+    gerne mit unseren Kunden. Sie möchten Ihre Cloud Infrasturktur optiemieren?
+    Wir können Ihnen gerne debei helfen.
 - title: 'Schulungen'
   link: 'Обучение'
   image: 'service4.svg'
-  content: 'Для надёжного хранения данных требуются оптимизированные серверы хранения.
-      Socket предлагает гибкие варианты конфигурации и индивидуальные системы, идеально адаптированные к вашему случаю использования. Наше решение для управления хранилищем является нашим основным продуктом.'
+  content: >-
+    Sie möchten Ihre Kenntnisse im Bereich OpenStack vertiefen ? Wir sind
+    flexibel um Inhalte für ein Training zu definieren und diese in einem
+    Workshop zusammen mit Ihrem Team zu besprechen und in der Praxis
+    auszuprobieren
