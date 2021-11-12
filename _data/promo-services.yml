@@ -1,5 +1,5 @@
 ---
-- title: 'Archtektur'
+- title: 'Design und Architektur'
   link: 'Программное обеспечение'
   image: 'service1.svg'
   content: >-
@@ -31,4 +31,4 @@
     Sie möchten Ihre Kenntnisse im Bereich OpenStack vertiefen ? Wir sind
     flexibel um Inhalte für ein Training zu definieren und diese in einem
     Workshop zusammen mit Ihrem Team zu besprechen und in der Praxis
-    auszuprobieren
+    auszuprobieren.
