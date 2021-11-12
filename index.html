@@ -24,17 +24,17 @@ title: Main page
 </section>
 
 <section>
-  <h2>Сервисы</h2>
+  <h2>Services</h2>
   <div class="tabs_block">
     <ul class="tabs">
-      {% for link in site.data.promo-services %}
+      {% for s in site.data.promo-services %}
         {% if forloop.first == true %}
         <li class="active">
-          <a href="">{{ link.link }}</a>
+          <a href="">{{ s.title }}</a>
         </li>
         {% else %}
         <li>
-          <a href="">{{ link.link }}</a>
+          <a href="">{{ s.title }}</a>
         </li>
         {% endif %}
       {% endfor %}
