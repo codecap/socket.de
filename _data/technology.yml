@@ -20,7 +20,7 @@
   image: 'kubernetes.svg'
 
 - title: 'OKD'
-  image: 'okd.svg'
+  image: 'okd002.svg'
 
 - title: 'Ansible'
   image: 'ansible.svg'
