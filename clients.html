@@ -5,13 +5,14 @@ title: Clients
 <section class="page_section">
   <h2>Наши клиенты</h2>
   <div class="clients_block">
+    {# Activate when ready
     {% for client in site.data.promo-clients %}
       <div class="client_block">
         <img src="{{ site.baseurl }}/assets/img/clients/{{ client.image }}" alt="{{ client.title }}">
         {{ client.content | markdownify }}
       </div>
     {% endfor %}
-
+    #}
   </div>
   <!-- Load More Button -->
    <div id="loadmore" >Показать еще <span><img src="{{ site.baseurl }}/assets/img/arrow.svg">  </span></div>
