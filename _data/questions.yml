@@ -1,29 +1,27 @@
 ---
-# - title: 'Что мы можем сделать для вас?'
-#   content: 'Socket предлагает гибкие варианты конфигурации и индивидуальные системы, идеально адаптированные к вашему случаю использования. Наше решение для управления хранилищем является нашим основным продуктом.'
-
-# - title: 'Нужна ли резервная копия узла управления?'
-#   content: 'Наша основная платформа оптимизирована для работы с масштабируемыми и независимыми от поставщика инфраструктурами. Серверы с сетевой загрузкой, оснащённые операционной системой, поддерживаемой, проверенной и предоставляемой Croit, позволяют надёжно и без особых усилий запускать отдельное программное обеспечение.'
-
-# - title: 'Можно ли переместить существующие кластеры?'
-#   content: 'Все конфигурации легко и удобно создаются прямо из современного и удобного веб-интерфейса и активируются в течение нескольких секунд. Он также дополняет существующие инструменты управления IPAM и DCIM и экономит драгоценное время благодаря высокой степени автоматизации с использованием API.'
-
-# - title: 'Что происходит, если я не продлю лицензию?'
-#   content: 'Наше решение поможет вам развивать бизнес, не беспокоясь об обычных проблемах. Благодаря открытости нашего решения отсутствуют эффекты блокировки. Вы всегда можете использовать оборудование любого производителя, а также легко развернуть альтернативные решения Ceph в одном хранилище.'
-
-
 - title: 'Was können wir für Sie tun'
   content: >-
-    Socket предлагает гибкие варианты конфигурации и индивидуальные системы, идеально адаптированные к вашему случаю использования. Наше решение для управления хранилищем является нашим основным продуктом.
+    socket bietet Lösungen nach Maß für private Clouds. Wie schliessen die
+    Infrastruktur an Ihr Netzwerk und Storage Systeme oder bringen eigene mit.
+    Wir setzen auf opensource, können aber auch mit proprietären Lösungen
+    arbeiten.
 
 - title: 'Wie arbeitet socket, wenn es mal hackt'
   content: >-
-    Наша основная платформа оптимизирована для работы с масштабируемыми и независимыми от поставщика инфраструктурами. Серверы с сетевой загрузкой, оснащённые операционной системой, поддерживаемой, проверенной и предоставляемой Croit, позволяют надёжно и без особых усилий запускать отдельное программное обеспечение.
+    Wenn es mal nicht nach Plan läuft, geben wir alles, um Probleme schnelsst
+    möglich zu beseitigen und dem Kunden volle Einsicht in das Geschehen zu
+    ermölichen
 
 - title: 'Wo können unsere Cluster-Lösungen untegebracht werden?'
   content: >-
-    Все конфигурации легко и удобно создаются прямо из современного и удобного веб-интерфейса и активируются в течение нескольких секунд. Он также дополняет существующие инструменты управления IPAM и DCIM и экономит драгоценное время благодаря высокой степени автоматизации с использованием API.
+    Unsere Cloud Lösungen können bei uns in unserem oder on-prenise in Ihrem
+    Rechenzentrum aufgebaut werden.
 
 - title: 'Was passiert nach Ablauf der befatragten Arbeiten'
   content: >-
-    Наше решение поможет вам развивать бизнес, не беспокоясь об обычных проблемах. Благодаря открытости нашего решения отсутствуют эффекты блокировки. Вы всегда можете использовать оборудование любого производителя, а также легко развернуть альтернативные решения Ceph в одном хранилище.
+    Oft arbeiten wir tief in Kundeninfrastrukturen mit Kinden zusammen,
+    Vertrauen ist die Voraussetzung, die Zusammen arbeiten verstehe wir wie
+    ine Beziehung und diese soll am liebsten transparent sein. Nach dem die
+    Arbeiten erledigt sind, hinterlassen wir eine gut strukturierte
+    Dokumentation, alle Vorausstungen für erfolgreichen Betrieb und
+    keine Lock-ins.
