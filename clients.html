@@ -3,9 +3,10 @@ layout: default
 title: Clients
 ---
 <section class="page_section">
-  <h2>Наши клиенты</h2>
+  <h2>Unsere Kunden</h2>
   <div class="clients_block">
     {% comment %}
+    <!-- Liquid: https://shopify.github.io/liquid/tags/template/ -->
     {% for client in site.data.promo-clients %}
       <div class="client_block">
         <img src="{{ site.baseurl }}/assets/img/clients/{{ client.image }}" alt="{{ client.title }}">
@@ -18,8 +19,9 @@ title: Clients
    <div id="loadmore" >Показать еще <span><img src="{{ site.baseurl }}/assets/img/arrow.svg">  </span></div>
 </section>
 <section class="page_section">
-  <h3>Отзывы о нашей работе</h3>
+  <h3>Referenzen</h3>
   <div class="testimonials_block">
+    {% comment %}
     {% for item in site.data.testimonials %}
       <div class="testimonial_block">
         <div class="user">
@@ -33,6 +35,7 @@ title: Clients
         {{ item.content | markdownify }}
       </div>
     {% endfor %}
+    {% endcomment %}
     <div class="testimonial_block">
         <p>Здесь может быть Ваш отзыв</p>
     </div>
