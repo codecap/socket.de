@@ -18,10 +18,10 @@ All packages are in  `package.json`:
 
 ## Structure
 
-### _data
+### Data (_data_)
   All content stored in this folder and is divided into separate yml files.
 
-### _includes
+### Includes (_includes_)
   Each duplicate block of the website is placed into special files and stored in this folder:
 
       header.html
@@ -30,17 +30,17 @@ All packages are in  `package.json`:
       contact.html
       footer.html
 
-### _layouts
+### Layouts (_layouts_)
   The main basic file stored here.
 
     default.html
 
-### _sass
+### sass (_sass_)
   In this folder scss files for all parts of the website. The main file is:
 
     style.scss
 
-### assets
+### Assets
   in this folder are:
 
     js/
@@ -49,6 +49,10 @@ All packages are in  `package.json`:
 ## Contributing
 
 Pull requests are welcome on GitHub at https://github.com/codecap/order.
+
+## Liquid template engine
+[Link](https://shopify.github.io/liquid/)
+
 
 ## License
 
