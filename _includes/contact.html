@@ -5,8 +5,8 @@
           <a href="tel:{{ contact.phone }}" class="contact_phone">{{ contact.phone }}</a>
           <a href="mailto:{{ contact.email }}" class="contact_email">{{ contact.email }}</a>
         {% else %}
-          {% for line in (contact.address | split("\n")) %}
-            <a href="#" class="contact_email">{{ line }} </a><br/>
+          {% for line in (contact.address.lines) %}
+            <a href="{{contact.url}}" class="contact_email">{{ line }}</a><br/>
           {% endfor %}
         {% endif %}
     </div>

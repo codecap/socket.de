@@ -1,9 +1,12 @@
 ---
-- title: 'Nehmen Sie Kontak mit uns auf'
+- title: 'Nehmen Sie Kontakt mit uns auf'
   phone: 06196-2045580
   email: ping@socket.de
 
 - title: 'Anschrift'
-  address: |-
-    Mergenthaleralle 73-75
-    65760 Eschborn
+  url: >-
+    'https://www.google.de/maps/place/Mergenthalerallee+73-75,+65760+Eschborn'
+  address:
+    lines:
+      - Mergenthaleralle 73-75
+      - 65760 Eschborn
