@@ -1,27 +1,23 @@
 ---
-- title: 'Was können wir für Sie tun?'
+- title: 'Was macht socket?'
   content: >-
-    socket bietet Lösungen nach Maß für private Clouds. Wie schliessen die
-    Infrastruktur an Ihr Netzwerk und Storage Systeme oder bringen eigene mit.
-    Wir setzen auf opensource, können aber auch mit proprietären Lösungen
-    arbeiten.
+    socket bietet flexible Lösungen für deine eigene Cloud. Wie schließen die
+    Cloud-Infrastruktur an deine Netzwerk und Storage-Systeme oder bringen
+    eigene mit.
 
-- title: 'Wie arbeitet socket, wenn es mal hackt?'
+- title: 'Welche Technologie nutzt socket?'
   content: >-
-    Wenn es mal nicht nach Plan läuft, geben wir alles, um Probleme schnelsst
-    möglich zu beseitigen und dem Kunden volle Einsicht in das Geschehen zu
-    ermölichen
+    Wir setzen grundsätzlich auf Open-Source-Optionen. Auf Anfrage arbeiten
+    wir aber auch mit proprietären Lösungen.
 
-- title: 'Wo können unsere Cluster-Lösungen untegebracht werden?'
+- title: 'Wo befinden sich die Cloud-Lösungen von socket?'
   content: >-
-    Unsere Cloud Lösungen können bei uns in unserem oder on-prenise in Ihrem
-    Rechenzentrum aufgebaut werden.
+    Die Serverinfrastruktur kann in unseren Räumlichkeiten oder in deinem
+    eigenen Rechenzentrum aufgebaut werden.
 
-- title: 'Was passiert nach Ablauf der befatragten Arbeiten?'
+- title: 'Was passiert nach dem Aufbau der Serverarchitektur?'
   content: >-
-    Oft arbeiten wir tief in Kundeninfrastrukturen mit Kinden zusammen,
-    Vertrauen ist die Voraussetzung, die Zusammen arbeiten verstehe wir wie
-    ine Beziehung und diese soll am liebsten transparent sein. Nach dem die
-    Arbeiten erledigt sind, hinterlassen wir eine gut strukturierte
-    Dokumentation, alle Vorausstungen für erfolgreichen Betrieb und
-    keine Lock-ins.
+    Nach dem Abschluss jedes Auftrages überreichen wir dir eine gut
+    strukturierte Dokumentation. Diese geht detailliert auf sämtliche
+    Voraussetzungen für einen erfolgreichen Betrieb ein. Und Lock-ins?
+    Die gibt’s bei uns garantiert nicht!
