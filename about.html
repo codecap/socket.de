@@ -14,6 +14,18 @@ title: About
       {% endfor %}
     </aside>
   </div>
+
+  <div class="about_block">
+    <div class="question">
+      <h3>Cloud-Architektur & OpenStack für Unternehmen</h3>
+      {% for item in site.data.about %}
+        <div class="question_contet">
+          <h4>{{item.title}}</h4>
+          {{item.content | markdownify }}
+        </div>
+      {% endfor %}
+  </div>
+
   <div class="questions_block">
     <div class="question">
       <h3>Diese Fragen hören wir oft ...</h3>
