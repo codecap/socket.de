@@ -8,5 +8,5 @@
     'https://www.google.de/maps/place/Mergenthalerallee+73-75,+65760+Eschborn'
   address:
     lines:
-      - Mergenthaleralle 73-75
-      - 65760 Eschborn
+      - Mergenthaleralle&nbsp;73-75
+      - 65760&nbsp;Eschborn
