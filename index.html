@@ -15,7 +15,7 @@ title: Main page
   </div>
 
   {% for promo in site.data.promo-text %}
-  {% if forloop.first == true %}
+  {% if forloop.first != true %}
   <div class="promo_block">
     <div class="promo_text">
         <h1>{{ promo.title }}</h1>
