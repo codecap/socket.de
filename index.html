@@ -4,17 +4,30 @@ title: Main page
 ---
 <section>
   <div class="promo_block">
+    {% assign mpromo = site.data.promo-text.first %}
     <div class="promo_text">
-      {% for promo in site.data.promo-text %}
+        <h1>{{ mpromo.title }}</h1>
+        {{ mpromo.content | markdownify }}
+    </div>
+    <div class="promo_img">
+      <img src="{{ site.baseurl }}/assets/img/{{ mpromo.image }}" alt="{{ mpromo.title }}">
+    </div>
+  </div>
+
+  {% for promo in site.data.promo-text %}
+  {% if forloop.first == true %}
+  <div class="promo_block">
+    <div class="promo_text">
         <h1>{{ promo.title }}</h1>
         {{ promo.content | markdownify }}
     </div>
     <div class="promo_img">
-
       <img src="{{ site.baseurl }}/assets/img/{{ promo.image }}" alt="{{ promo.title }}">
     </div>
-    {% endfor %}
+  {% endif %}
+  {% endfor %}
   </div>
+
   <div class="blocks">
     {% for block in site.data.promo-blocks %}
       <div class="block">{{ block.content | markdownify }}</div>
