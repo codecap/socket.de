@@ -7,6 +7,15 @@ title: Services
 
   <div class="services_blocks">
     {% for service in site.data.promo-services %}
+
+      {% if forloop.first == true %}
+            <div class="service_block">
+        <div class="service_text">
+            <h3>{{ service.title }}</h3>
+            {{ service.content | markdownify }}
+        </div>
+      </div>
+      {% else %}
       <div class="service_block">
         <div class="service_img">
           <img src="{{ site.baseurl }}/assets/img/services/{{ service.image }}" alt="{{ service.title }}">
@@ -16,6 +25,7 @@ title: Services
             {{ service.content | markdownify }}
         </div>
       </div>
+      {% endif %}
     {% endfor %}
   </div>
 
