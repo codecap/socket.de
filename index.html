@@ -18,11 +18,8 @@ title: Main page
   {% if forloop.first != true %}
   <div class="promo_block">
     <div class="promo_text">
-        <h1>{{ promo.title }}</h1>
+        <h3>{{ promo.title }}</h3>
         {{ promo.content | markdownify }}
-    </div>
-    <div class="promo_img">
-      <img src="{{ site.baseurl }}/assets/img/{{ promo.image }}" alt="{{ promo.title }}">
     </div>
   {% endif %}
   {% endfor %}
