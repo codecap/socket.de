@@ -2,11 +2,11 @@
     <div class="block">
         <p>{{ contact.title }}</p>
         {% if forloop.first == true %}
-          <a href="tel:{{ contact.phone }}" class="contact_phone">{{ contact.phone | replace(" ", "&nbsp;") }}</a>
+          <a href="tel:{{ contact.phone }}" class="contact_phone">{{ contact.phone | replace " ", "&nbsp;" }}</a>
           <a href="mailto:{{ contact.email }}" class="contact_email">{{ contact.email }}</a>
         {% else %}
           {% for line in (contact.address.lines) %}
-            <a href="#" class="contact_email">{{ line | replace(" ", "&nbsp;")   }}</a><br/>
+            <a href="#" class="contact_email">{{ line | replace " ", "&nbsp;" }}</a><br/>
           {% endfor %}
         {% endif %}
     </div>
