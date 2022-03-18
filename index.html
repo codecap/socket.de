@@ -25,7 +25,7 @@ title: Main page
 
 <section>
   <h2>Services</h2>
-  {% assign fsvc = (site.data.promo-services | slice: 1, 4) %}
+  {% assign fsvc = site.data.promo-services | slice: 1, 4 %}
   <div class="tabs_block">
     <ul class="tabs">
       {% for s in fsvc %}
