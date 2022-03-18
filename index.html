@@ -25,9 +25,10 @@ title: Main page
 
 <section>
   <h2>Services</h2>
+  {% assign fsvc = (site.data.promo-services | slice: 1, 4) %}
   <div class="tabs_block">
     <ul class="tabs">
-      {% for s in (site.data.promo-services | slice: 1, 4 ) %}
+      {% for s in fsvc %}
         {% if forloop.first == true %}
         <li class="active">
           <a href="">{{ s.title }}</a>
@@ -41,7 +42,7 @@ title: Main page
     </ul>
     <div class="tabs-content">
       {% assign count = 0 %}
-      {% for service in (site.data.promo-services | slice: 1, 4) %}
+      {% for service in fsvc %}
         {% if forloop.first == true %}
           <div class="tabs-panel active" data-index="{{ count }}">
             <h3>{{ service.title }}</h3>
