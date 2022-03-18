@@ -41,7 +41,7 @@ title: Main page
     </ul>
     <div class="tabs-content">
       {% assign count = 0 %}
-      {% for service in site.data.promo-services| slice: 1, 4] %}
+      {% for service in (site.data.promo-services | slice: 1, 4]) %}
         {% if forloop.first == true %}
           <div class="tabs-panel active" data-index="{{ count }}">
             <h3>{{ service.title }}</h3>
