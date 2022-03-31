@@ -8,9 +8,19 @@
 </a>
 <nav class="{{ include.navclass }}">
 
+
   <ul class="menu mainNavList">
-    <li><a href="{{ site.baseurl }}/services.html" class="{% if page.url=='/services.html'%}current {%  endif %}">Services</a></li>
+
+    <li><a href="{{ site.t['services'][page.lang] }}.html" class="{% if page.url=='/services.html'%}current {%  endif %}">Services</a></li>
     <!--li><a href="{{ site.baseurl }}/clients.html" class="{% if page.url=='/clients.html'%}current {%endif %}">Kunden</a></li-->
-    <li><a href="{{ site.baseurl }}/about.html" class="{% if page.url=='/about.html'%}current {%endif %}">Wir</a></li>
+    <li><a href="{{ site.t['about'][page.lang] }}.html" class="{% if page.url=='/about.html'%}current {%endif %}">Wir</a></li>
   </ul>
 </nav>
+<!-- <div class="lang">
+  <ul>
+    {% assign postsTrans=site.pages | where:"i18n-link", page.i18n-link | sort: 'lang' %}
+    {% for postTrans in postsTrans %}
+      <li><a class="{% if postTrans.lang==page.lang %}current {%endif %}{{ postTrans.lang }}" href="{{ postTrans.url }}">{{ postTrans.lang }}</a></li>
+    {% endfor %}
+  </ul>
+</div> -->

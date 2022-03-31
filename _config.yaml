@@ -29,6 +29,34 @@ github_username:  codecap
 #theme: socket
 
 
+defaults:
+  -
+    scope:
+       path: ""
+    values:
+       lang: en
+       baseurl: "/"
+  -
+    scope:
+       path: de
+    values:
+       lang: de
+       baseurl: "/de/"
+
+# Value to use into url per language
+langs-value:
+    en: ""
+    de: de
+
+t:
+  services:
+      en: "services"
+      de: "services"
+  about:
+      en: "about"
+      de: "about"
+
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

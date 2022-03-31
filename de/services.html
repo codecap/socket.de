@@ -2,11 +2,11 @@
 layout: default
 title: Services
 i18n-link: services
-lang: en
+lang: de
 ---
 <section class='page_section'>
   <div class="container">
-    {% assign iblock = site.data.promoservices.first %}
+    {% assign iblock = site.data.de.promoservices.first %}
     <h2>{{ iblock.section_title }}</h2>
     <div class="services_blocks">
       {% for service in site.data.promoservices offset:1 %}

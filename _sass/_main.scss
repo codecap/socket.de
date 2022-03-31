@@ -84,3 +84,30 @@ section {
 #map{
   height: 100%;
 }
+.lang {
+
+  width: 60px;
+  ul {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: space-between;
+    li {
+      padding: 4px;
+      a {
+        @include rem(20);
+        font-weight: 500;
+        color: $main_color__text;
+        text-transform: uppercase;
+        &:hover {
+          color: $main_color__blue;
+        }
+        &.current{
+          color: $main_color__blue;
+        }
+      }
+
+    }
+  }
+
+}
