@@ -1,0 +1,18 @@
+---
+- title: 'Experten am Werk'
+  content: >-
+    <p>Dass deine Cloud-Infrastruktur langfristig so flexibel funktioniert, wie sie soll, ist für unsere Experten eine echte Ehrensache.</p>
+    <p>Wir kümmern uns um die Technik – und du behältst jederzeit die Kontrolle.</p>
+  image: 'icon_check.svg'
+
+- title: '15+ Jahre Erfahrung'
+  content: >-
+    <p>Wer heute Teil des socket-Teams ist, denkt sich schon seit vielen Jahren regelmäßig und tiefgehend in Linux und Open Source hinein.</p>
+    <p>Wir haben eigene Clouds gebaut und teilen gerne unser Wissen mit unseren Kunden</p>
+  image: 'icon_star.svg'
+
+- title: 'Modular'
+  content: >-
+    <p>Wir bauen Storage Systeme für Ihre Cloud auf.</p>
+    <p>Jede Infrastruktur wird von socket auf deine Anforderungen angepasst statt umgekehrt.</p>
+  image: 'icon_server.svg'

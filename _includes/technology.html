@@ -1,7 +1,8 @@
 <div class="technology_block">
-  <h3>Wir nutzen folgende Technologien</h3>
+  {% assign heading = site.data.technology.first %}
+  <h3>{{ heading.section_title }}</h3>
   <div class="technologies">
-    {% for tech in site.data.technology %}
+    {% for tech in site.data.technology offset:1 %}
     <div class="tech">
         <img width=50 height=50 src="{{ site.baseurl }}/assets/img/{{ tech.image }}" alt="{{ tech.title }}">
 <!-- <span>{{ tech.title }}</span> -->

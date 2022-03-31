@@ -12,12 +12,15 @@
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
-    flex: 2 1 60%;
-    margin-right: 50px;
+    flex: 2 1 55%;
+    margin-right: 10px;
+    img{
+      object-fit: contain;
+    }
 
   }
   aside {
-    flex: 2 2 30%;
+    flex: 2 0 27%;
     .block{
       background-color: $block_color__background;
       @include rounded(10px);
@@ -54,7 +57,7 @@
   .question,
   .contacts {
     h3{
-      @include rem(70);
+      @include rem(54);
       font-weight: 500;
       margin-bottom: 50px;
 
@@ -66,13 +69,16 @@
 
     .question_contet {
       margin-bottom: 70px;
+      &:last-child{
+        margin-bottom: 100px;
+      }
       max-width: 700px;
       width: 100%;
 
       h4 {
-        @include rem(40);
+        @include rem(32);
         color: $main_color__text;
-        line-height: 60px;
+        line-height: 50px;
         font-weight: 500;
         margin-bottom: 30px;
       }

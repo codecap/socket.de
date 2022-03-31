@@ -1,13 +1,13 @@
 ---
-
+- section_title: 'Services'
 - title: 'Konzeption und Umsetzung von individueller Cloud-Architektur'
-  caption: 'True'
+  image: 'service1.svg'
   content: >-
     Was socket bietet? Eine stabile, skalierbare Cloudarchitektur für
     individuelle Anforderungen. Cloudarchitektur, Aufbau, Consulting
     und Workshops. Unverbindlich anfragen!
 - title: 'Design und Architektur'
-  image: 'service1.svg'
+  image: 'service2.svg'
   content: >-
     Deine Cloud muss von der ersten Minute an zuverlässig laufen.
     Er soll langfristig mit deinem Unternehmen wachsen und sich auch
@@ -15,7 +15,7 @@
     für eine stabile, skalierbare Cloudarchitektur. Diese läuft
     natürlich auf dem neusten Stand der Technik.
 - title: 'Aufbau und Betrieb'
-  image: 'service2.svg'
+  image: 'service3.svg'
   content: >-
     Open Source, spezielle Software und verschiedenste Anbieter: Hast du
     bei der Suche nach der passenden Soft- und Hardware eher die Qual
@@ -25,18 +25,18 @@
     Bei „das habe ich noch vergessen“-Fragen sind wir jederzeit nur
     einen Telefonanruf entfernt.
 - title: 'Consulting'
-  image: 'service3.svg'
+  image: 'service4.svg'
   content: >-
     Du hast einfach keine Zeit, um dich mit „OpenStack“ und „Ceph“ zu
     beschäftigen? Das verstehen wir – du möchtest dich schließlich voll
     und ganz auf dein Unternehmen konzentrieren können. Währenddessen
     halten wir dir in Sachen Cloud-Architektur den Rücken frei. Unser
-    Team berät dich zu passenden Lösungen. Wir besprechen genau die
+    Team berät dich zu passenden Lösungen. Wir bespxrechen genau die
     Dinge, auf die es ankommt. Nicht mehr und nicht weniger. So
     erarbeiten wir gemeinsam hochwertige und flüssige Konzepte, die das
     können, was sie sollen.
 - title: 'Workshops'
-  image: 'service4.svg'
+  image: 'service5.svg'
   content: >-
     Du möchtest selbst hinter die Kulissen deiner Cloud-Lösung blicken?
     Das hören wir gerne! Unsere qualifizierten Mitarbeiter stellen auf

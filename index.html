@@ -2,97 +2,141 @@
 layout: default
 title: Main page
 ---
-<section>
-  <div class="promo_block">
-    {% assign mpromo = site.data.promo-text.first %}
-    <div class="promo_text">
-        <h1>{{ mpromo.title }}</h1>
-        {{ mpromo.content | markdownify }}
-    </div>
-    <div class="promo_img">
-      <img src="{{ site.baseurl }}/assets/img/{{ mpromo.image }}" alt="{{ mpromo.title }}">
+<section class="top_section">
+  <div class="container">
+    <div class="promo_block">
+      {% assign mpromo = site.data.promotext.first %}
+      <div class="promo_text">
+          <h1>{{ mpromo.title }}</h1>
+          {{ mpromo.content | markdownify }}
+      </div>
+      <div class="promo_img">
+        <img src="{{ site.baseurl }}/assets/img/{{ mpromo.image }}" alt="{{ mpromo.title }}">
+      </div>
     </div>
   </div>
-
-  {% for promo in site.data.promo-text %}
-  {% if forloop.first != true %}
-  <div class="promo_block">
-    <div class="promo_text">
-        <h3>{{ promo.title }}</h3>
-        {{ promo.content | markdownify }}
-    </div>
-  {% endif %}
-  {% endfor %}
-  </div>
-
-  <div class="blocks">
-    {% for block in site.data.promo-blocks %}
-      <div class="block">{{ block.content | markdownify }}</div>
-    {% endfor %}
-  </div>
-  {% include technology.html %}
 </section>
+<section class="benefits_section">
+  <div class="container">
+    <div class="intro-title">
+      {% assign iblock = site.data.introblock.first %}
+      <h3>{{ iblock.title }}</h3>
+      {% for desc in iblock.content %}
+        <p>{{desc}}</p>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="intro-block">
+    <div class="container">
+      <div class="promo-blocks">
+        {% for block in site.data.promoblocks %}
+          <div class="promo-block">
+            <img src="{{ site.baseurl }}/assets/img/icons/{{ block.image }}" alt="{{ block.title }}">
+            <h3>{{ block.title }}</h3>
+            {{ block.content | markdownify }}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="blocks">
+        <div class="block">
+          {% for block in site.data.benefitsblocks %}
+          <div class="item_img">
+            <img src="{{ site.baseurl }}/assets/img/benefits/{{ block.image }}" alt="{{ block.title }}">
+          </div>
+          <div class="">
+            <h3>{{ block.title }}</h3>
+            {{ block.content | markdownify }}
+          </div>
 
+          {% endfor %}
+        </div>
+        <div class="block">
+          {% for block in site.data.benefitsright %}
+            <div class="item">
+              <h3>{{ block.title }}</h3>
+              {{ block.content | markdownify }}
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+  </div>
+</section>
 <section>
-  <h2>Services</h2>
-  {% assign fsvc = site.data.promo-services | slice: 1, 4 %}
-  <div class="tabs_block">
-    <ul class="tabs">
-      {% for s in fsvc %}
-        {% if forloop.first == true %}
-        <li class="active">
-          <a href="">{{ s.title }}</a>
-        </li>
-        {% else %}
-        <li>
-          <a href="">{{ s.title }}</a>
-        </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-    <div class="tabs-content">
-      {% assign count = 0 %}
-      {% for service in fsvc %}
-        {% if forloop.first == true %}
-          <div class="tabs-panel active" data-index="{{ count }}">
-            <h3>{{ service.title }}</h3>
-            {{ service.content | markdownify }}
-          </div>
-        {% else %}
-        {% capture count %}{{ count | plus:1 }}{% endcapture %}
-          <div class="tabs-panel" data-index="{{ count }}">
-            <h3>{{ service.title }}</h3>
-            {{service.content | markdownify }}
-          </div>
-        {% endif %}
-      {% endfor %}
+  <div class="container">
+    {% include technology.html %}
+  </div>
+</section>
+<section>
+  <div class="container">
+    {% assign heading = site.data.promoservices.first %}
+    <h2>{{ heading.section_title }}</h2>
+    {% assign fsvc = site.data.promoservices | slice: 1, 4 %}
+    <div class="tabs_block">
+      <ul class="tabs">
+        {% for s in fsvc %}
+          {% if forloop.first == true %}
+          <li class="active">
+            <a href="">{{ s.title }}</a>
+          </li>
+          {% else %}
+          <li>
+            <a href="">{{ s.title }}</a>
+          </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <div class="tabs-content">
+        {% assign count = 0 %}
+        {% for service in fsvc %}
+          {% if forloop.first == true %}
+            <div class="tabs-panel active" data-index="{{ count }}">
+              <h3>{{ service.title }}</h3>
+              {{ service.content | markdownify }}
+            </div>
+          {% else %}
+          {% capture count %}{{ count | plus:1 }}{% endcapture %}
+            <div class="tabs-panel" data-index="{{ count }}">
+              <h3>{{ service.title }}</h3>
+              {{service.content | markdownify }}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 </section>
 {% comment %}
 <section>
-  <h2>Unsere Kunden</h2>
-  <div class="clients_main_block">
-    <div class="clients">
-      {% for client in site.data.promo-clients %}
-        <div class="tech">
-          <a href="{{ site.baseurl }}/clients.html">
-            <img src="{{ site.baseurl }}/assets/img/clients/{{ client.image }}" alt="{{ client.title }}">
-          </a>
-        </div>
-      {% endfor %}
+  <div class="container">
+    <h2>Unsere Kunden</h2>
+    <div class="clients_main_block">
+      <div class="clients">
+        {% for client in site.data.promo-clients %}
+          <div class="tech">
+            <a href="{{ site.baseurl }}/clients.html">
+              <img src="{{ site.baseurl }}/assets/img/clients/{{ client.image }}" alt="{{ client.title }}">
+            </a>
+          </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </section>
 {% endcomment %}
 <section>
-  <h2>Kontakt</h2>
-  <div class="info_block">
-    <div class="contact_block">
-      {% include contact.html %}
-    </div>
-    <div class="map_block">
-      <div id="map"></div>
+  <div class="container">
+    {% assign heading = site.data.contact.first %}
+    <h2>{{ heading.section_title }}</h2>
+    <div class="info_block">
+      <div class="contact_block">
+        {% include contact.html %}
+      </div>
+      <div class="map_block">
+        <div id="map"></div>
+      </div>
     </div>
   </div>
 </section>

@@ -1,64 +1,155 @@
 /* The top of a page */
 .promo_block{
-  margin-top: 100px;
+  // margin-top: 100px;
   overflow: hidden;
-  padding-bottom: 62px;
-
+  padding-bottom: 80px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
   .promo_text {
-    float: left;
-    overflow: hidden;
-    position: absolute;
-    z-index: 1;
+    flex: 1 1 60%;
     h1{
-      @include rem(70);
+      @include rem(48);
       font-weight: 500;
-      line-height: 95px;
-      margin-top: 62px;
-      width: 60%;
+      line-height: 65px;
+      margin-top: 70px;
+      width: 90%;
       display: block;
     }
     p{
       @include rem(24);
       line-height: 37px;
       margin: 30px 0 0;
-      width: 602px;
+      width: 90%;
     }
   }
-  .promo_img{
-    float: right;
-    overflow: hidden;
-    width: 530px;
-    align-self: center;
-    position: relative;
+  .promo_img {
+    flex: 0 0 40%;
   }
+
+  // .promo_text {
+  //   float: left;
+  //   overflow: hidden;
+  //   position: absolute;
+  //   z-index: 1;
+  //   h1{
+  //     @include rem(48);
+  //     font-weight: 500;
+  //     line-height: 65px;
+  //     margin-top: 70px;
+  //     width: 50%;
+  //     display: block;
+  //   }
+  //   p{
+  //     @include rem(24);
+  //     line-height: 37px;
+  //     margin: 30px 0 0;
+  //     width: 650px;
+  //   }
+  // }
+  // .promo_img{
+  //   float: right;
+  //   overflow: hidden;
+  //   width: 500px;
+  //   align-self: center;
+  //   position: relative;
+  // }
 }
 /* #The top of a page */
 /* Intro blocks on the grey background. */
+.intro-title {
+  h3 {
+    @include rem(40);
+    line-height: 49px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  p {
+    @include rem(24);
+    line-height: 37px;
+    font-weight: 400;
+    width: 100%;
+    max-width: 1000px;
+
+  }
+}
+.intro-block {
+  background-color: $block_color__background;
+  padding: 50px 0;
+  margin: 50px 0;
+
+  .promo-blocks {
+    margin: 0;
+    display: grid;
+    grid-column-gap: 5em;
+    grid-template-columns: repeat(3, 1fr);
+    .promo-block {
+      h3{
+        margin: 25px 0 12px;
+        @include rem(24);
+        line-height: 37px;
+      }
+      p{
+        @include rem(20);
+        font-weight: 400;
+        line-height: 31px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+}
 .blocks{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-column-gap: .8em;
   grid-row-gap: 5em;
   margin: 50px 0 0;
 
   .block {
-    background-color: $block_color__background;
-    @include rounded(10px);
-    padding: 50px 34px;
-    display: grid;
+    padding: 0 30px;
 
-    p{
-      @include rem(20);
-      font-weight: 400;
-      line-height: 31px;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h3{
+      @include rem(40);
+      font-weight: 500;
+      line-height: 49px;
+      color: #011E32;
+      margin-bottom: 12px;
 
       &:before{
         content: '';
         border: 2px solid;
         position: relative;
-        left: -34px;
+        display: inline-block;
+        left: -30px;
         border-radius: 10px;
         color: $main_color__blue;
+        height: 35px;
+      }
+    }
+    p {
+      @include rem(20);
+      line-height: 31px;
+      font-weight: 400;
+      margin-bottom: 12px;
+      strong{
+        font-weight: 700;
+      }
+    }
+    .item_img {
+      order: 2;
+
+    }
+
+    .item {
+      &:nth-child(2) {
+        margin-top: 70px;
       }
     }
 

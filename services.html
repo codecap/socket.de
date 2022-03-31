@@ -3,44 +3,27 @@ layout: default
 title: Services
 ---
 <section class='page_section'>
-  <h2>Services</h2>
+  <div class="container">
+    <h2>{{ page.title }}</h2>
+    <div class="services_blocks">
+      {% for service in site.data.promoservices offset:1 %}
+        <div class="service_block">
+          <div class="service_img">
+            <img src="{{ site.baseurl }}/assets/img/services/{{ service.image }}" alt="{{ service.title }}">
+          </div>
+          <div class="service_text">
+              <h3>{{ service.title }}</h3>
+              {{ service.content | markdownify }}
+          </div>
+        </div>
 
-  <div class="services_blocks">
-    {% for service in site.data.promo-services %}
-
-      {% if forloop.first == true %}
-            <div class="service_block">
-        <div class="service_text">
-            <h3>{{ service.title }}</h3>
-            {{ service.content | markdownify }}
-        </div>
-      </div>
-      {% else %}
-      <div class="service_block">
-        <div class="service_img">
-          <img src="{{ site.baseurl }}/assets/img/services/{{ service.image }}" alt="{{ service.title }}">
-        </div>
-        <div class="service_text">
-            <h3>{{ service.title }}</h3>
-            {{ service.content | markdownify }}
-        </div>
-      </div>
-      {% endif %}
-    {% endfor %}
+      {% endfor %}
+    </div>
   </div>
 
 </section>
 <section>
-  <div class="technology_block">
-    <h3>Wir nutzen folgende Technologien</h3>
-    <div class="technologies">
-      {% for tech in site.data.technology %}
-      <div class="tech">
-          <img width=50 height=50 src="{{ site.baseurl }}/assets/img/{{ tech.image }}" alt="{{ tech.title }}">
-          <span>{{ tech.title }}</span>
-          <!-- <a href="#">{{ tech.title }}</a> -->
-      </div>
-      {% endfor %}
-    </div>
+  <div class="container">
+    {% include technology.html %}
   </div>
 </section>

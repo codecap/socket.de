@@ -3,11 +3,12 @@ layout: default
 title: Clients
 ---
 <section class="page_section">
-  <h2>Unsere Kunden</h2>
+  {% assign heading = site.data.promoservices.first %}
+  <h2>{{ heading.section_title }}</h2>
   <div class="clients_block">
     {% comment %}
     <!-- Liquid: https://shopify.github.io/liquid/tags/template/ -->
-    {% for client in site.data.promo-clients %}
+    {% for client in site.data.promoclients offset:1 %}
       <div class="client_block">
         <img src="{{ site.baseurl }}/assets/img/clients/{{ client.image }}" alt="{{ client.title }}">
         {{ client.content | markdownify }}

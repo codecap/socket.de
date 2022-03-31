@@ -34,7 +34,7 @@ a {
 }
 .wrapper,
 footer{
-  padding: 0 15px;
+  // padding: 0 15px;
 }
 header,
 footer{
@@ -49,9 +49,15 @@ h3,h4{
   color: $main_color__blue;
 }
 .container{
-  max-width: 1200px;
+  max-width: 1214px;
   width: 100%;
   margin: 0 auto;
+}
+.top_section {
+  margin-bottom: 0;
+}
+.benefits_section {
+  margin-bottom: 106px;
 }
 section {
   margin-bottom: 170px;
@@ -65,13 +71,13 @@ section {
   margin-bottom: 170px;
   h2 {
     @include rem(70);
-    &.title_about{
-      text-align: center;
-    }
+    // &.title_about{
+    //   text-align: center;
+    // }
   }
   h3{
     @include rem(50);
-    line-height: 61px;
+    line-height: 85px;
     font-weight: 500;
   }
 }

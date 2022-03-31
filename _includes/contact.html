@@ -1,4 +1,4 @@
-{% for contact in site.data.contact %}
+{% for contact in site.data.contact offset:1 %}
     <div class="block">
         <p>{{ contact.title }}</p>
         {% if forloop.first == true %}
