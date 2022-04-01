@@ -20,28 +20,6 @@ lang: en
 </section>
 <section class="benefits_section">
   <div class="container">
-    <div class="intro-title">
-      {% assign iblock = site.data.introblock.first %}
-      <h3>{{ iblock.title }}</h3>
-      {% for desc in iblock.content %}
-        <p>{{desc}}</p>
-      {% endfor %}
-    </div>
-  </div>
-  <div class="intro-block">
-    <div class="container">
-      <div class="promo-blocks">
-        {% for block in site.data.promoblocks %}
-          <div class="promo-block">
-            <img src="{{ site.baseurl }}/assets/img/icons/{{ block.image }}" alt="{{ block.title }}">
-            <h3>{{ block.title }}</h3>
-            {{ block.content | markdownify }}
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-  <div class="container">
     <div class="blocks">
         <div class="block">
           {% for block in site.data.benefitsright %}
@@ -62,6 +40,30 @@ lang: en
           </div>
           {% endfor %}
         </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="intro-title">
+      {% assign iblock = site.data.introblock.first %}
+      <h3>{{ iblock.title }}</h3>
+      {% for desc in iblock.content %}
+        <p>{{desc}}</p>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="intro-block">
+    <div class="container">
+      <div class="promo-blocks">
+        {% for block in site.data.promoblocks %}
+          <div class="promo-block">
+            <img src="{{ site.baseurl }}/assets/img/icons/{{ block.image }}" alt="{{ block.title }}">
+            <h3>{{ block.title }}</h3>
+            {{ block.content | markdownify }}
+          </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </section>
