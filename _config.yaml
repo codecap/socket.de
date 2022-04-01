@@ -19,7 +19,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: socket
-email: ping@socket.de
+email: ping⚙️ssocket.de
 description: >- # this means to ignore newlines until "baseurl:"
   socket.de | Clouds | Systems | Networks
 baseurl:
