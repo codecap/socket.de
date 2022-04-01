@@ -44,6 +44,14 @@ lang: en
   <div class="container">
     <div class="blocks">
         <div class="block">
+          {% for block in site.data.benefitsright %}
+            <div class="item">
+              <h3>{{ block.title }}</h3>
+              {{ block.content | markdownify }}
+            </div>
+          {% endfor %}
+        </div>
+        <div class="block">
           {% for block in site.data.benefitsblocks %}
           <div class="item_img">
             <img src="{{ site.baseurl }}/assets/img/benefits/{{ block.image }}" alt="{{ block.title }}">
@@ -52,15 +60,6 @@ lang: en
             <h3>{{ block.title }}</h3>
             {{ block.content | markdownify }}
           </div>
-
-          {% endfor %}
-        </div>
-        <div class="block">
-          {% for block in site.data.benefitsright %}
-            <div class="item">
-              <h3>{{ block.title }}</h3>
-              {{ block.content | markdownify }}
-            </div>
           {% endfor %}
         </div>
     </div>
