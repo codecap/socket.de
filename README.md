@@ -35,7 +35,7 @@ All packages are in  `package.json`:
 
     default.html
 
-### sass (_sass_)
+### Sass (_sass_)
   In this folder scss files for all parts of the website. The main file is:
 
     style.scss
@@ -45,7 +45,18 @@ All packages are in  `package.json`:
 
     js/
     images/
+### Languages (_lang_)
+  Languages are located in separated folders:
+  >
+  >  - English - en
+  >  - Deutsch - de
 
+  Language's settings in  `_config.yml`:
+```yaml
+  defaults: path to appropriate files and language's sign
+  langs-value: Value to use into url per language
+  t: the name of translated url (_name of page_)
+```
 ## Contributing
 
 Pull requests are welcome on GitHub at https://github.com/codecap/order.
