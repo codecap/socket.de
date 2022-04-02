@@ -1,1 +1,67 @@
-function initMap(){var e={lat:50.13603820381762,lng:8.57100497383925},t=new google.maps.Map(document.getElementById("map"),{zoom:15,center:e});new google.maps.Marker({position:e,map:t,icon:"assets/img/location.svg"})}jQuery(document).ready(function(e){e("#hamburger").on("click",function(){e(this).toggleClass("hamburger__open"),e(".nav-top").toggleClass("open"),e("html").toggleClass("fixed")})});const tabLinks=document.querySelectorAll(".tabs a"),tabPanels=document.querySelectorAll(".tabs-panel");for(let a of tabLinks)a.addEventListener("click",e=>{e.preventDefault(),document.querySelector(".tabs li.active").classList.remove("active"),document.querySelector(".tabs-panel.active").classList.remove("active");const t=a.parentElement,n=(t.classList.add("active"),[...t.parentElement.children].indexOf(t)),l=[...tabPanels].filter(e=>e.getAttribute("data-index")==n);l[0].classList.add("active")});const loadmore=document.querySelector("#loadmore");let currentItems=2;loadmore.addEventListener("click",e=>{e.preventDefault();const t=[...document.querySelectorAll(".clients_block .client_block")];var n=t.length-2;for(let e=currentItems;e<=currentItems+2;e++)t[e]&&e!=n&&(t[e].style.display="block");(currentItems+=2)>=t.length&&(event.target.style.display="none")});
+jQuery(document).ready(function($){
+	// Responsive menu with hamburger.
+	$("#hamburger").on("click", function(){
+		  $(this).toggleClass("hamburger__open");
+		  $( ".nav-top" ).toggleClass( "open" );
+		  $("html").toggleClass( "fixed" );
+	}); // #Responsive menu with hamburger.
+
+
+});
+
+// Google map.
+function initMap(){
+  // The location of Uluru
+    const sl = { lat: 50.13603820381762, lng: 8.57100497383925 };
+    // The map, centered at Uluru
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 15,
+      center: sl,
+    });
+    // The marker, positioned at Uluru
+    const iconFolder = 'assets/img/icons/';
+    const marker = new google.maps.Marker({
+      position: sl,
+      map: map,
+      icon: `${iconFolder}location.svg`,
+    });
+}
+// #Google map.
+
+// Tabs with services at home page.
+const tabLinks = document.querySelectorAll(".tabs a");
+const tabPanels = document.querySelectorAll(".tabs-panel");
+for (let el of tabLinks) {
+  el.addEventListener("click", e => {
+    e.preventDefault();
+
+    document.querySelector(".tabs li.active").classList.remove("active");
+    document.querySelector(".tabs-panel.active").classList.remove("active");
+
+    const parentListItem = el.parentElement;
+    parentListItem.classList.add("active");
+    const index = [...parentListItem.parentElement.children].indexOf(parentListItem);
+
+    const panel = [...tabPanels].filter(el => el.getAttribute("data-index") == index);
+    panel[0].classList.add("active");
+    });
+  }
+
+// Load More
+const loadmore = document.querySelector('#loadmore');
+let currentItems = 2;
+loadmore.addEventListener('click', (e) => {
+	e.preventDefault();
+    const elementList = [...document.querySelectorAll('.clients_block .client_block')];
+		const el = elementList.length - 2; // Take the penultimate item
+		for (let i = currentItems; i <= currentItems + 2; i++) {
+			  if (elementList[i] && i != el) {
+					elementList[i].style.display = 'block';
+        }
+    }
+    currentItems += 2;
+
+    if (currentItems >= elementList.length) {
+        event.target.style.display = 'none';
+    }
+});

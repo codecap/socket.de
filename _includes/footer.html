@@ -2,13 +2,17 @@
   <div class="container">
     <div class="footer">
       <div class="logo">
-        <a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/assets/img/logo_Socket.svg" alt="logo"></a>
+        {% if page.lang == "en" %}
+          <a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/assets/img/icons/logo_Socket.svg" alt="logo"></a>
+        {% else %}
+        <a href="{{ site.baseurl }}/de/"><img src="{{ site.baseurl }}/assets/img/icons/logo_Socket.svg" alt="logo"></a>
+        {% endif %}
       </div>
       {% include nav.html navclass='nav-footer' %}
       <div class="footer_icon">
         <ul>
           {% for link in site.data.social %}
-            <li><a href="{{ link.link }}" target="_blank"><img src="{{site.baseurl}}/assets/img/{{ link.image }}" alt="{{link.title}}"></a></li>
+            <li><a href="{{ link.link }}" target="_blank"><img src="{{site.baseurl}}/assets/img/icons/{{ link.image }}" alt="{{link.title}}"></a></li>
           {% endfor %}
         </ul>
       </div>

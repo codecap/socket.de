@@ -3,42 +3,47 @@ layout: default
 title: Clients
 ---
 <section class="page_section">
-  {% assign heading = site.data.promoservices.first %}
-  <h2>{{ heading.section_title }}</h2>
-  <div class="clients_block">
-    {% comment %}
-    <!-- Liquid: https://shopify.github.io/liquid/tags/template/ -->
-    {% for client in site.data.promoclients offset:1 %}
-      <div class="client_block">
-        <img src="{{ site.baseurl }}/assets/img/clients/{{ client.image }}" alt="{{ client.title }}">
-        {{ client.content | markdownify }}
-      </div>
-    {% endfor %}
-    {% endcomment %}
+  <div class="container">
+    {% assign heading = site.data.promoservices.first %}
+    <h2>{{ heading.section_title }}</h2>
+    <div class="clients_block">
+      {% comment %}
+      <!-- Liquid: https://shopify.github.io/liquid/tags/template/ -->
+      {% for client in site.data.promoclients offset:1 %}
+        <div class="client_block">
+          <img src="{{ site.baseurl }}/assets/img/clients/{{ client.image }}" alt="{{ client.title }}">
+          {{ client.content | markdownify }}
+        </div>
+      {% endfor %}
+      {% endcomment %}
+    </div>
+    <!-- Load More Button -->
+     <div id="loadmore" >Mehr anzeigen <span><img src="{{ site.baseurl }}/assets/img/icons/arrow.svg">  </span></div>
   </div>
-  <!-- Load More Button -->
-   <div id="loadmore" >Mehr anzeigen <span><img src="{{ site.baseurl }}/assets/img/arrow.svg">  </span></div>
+
 </section>
 <section class="page_section">
-  <h3>Referenzen</h3>
-  <div class="testimonials_block">
-    {% comment %}
-    {% for item in site.data.testimonials %}
-      <div class="testimonial_block">
-        <div class="user">
-          <img src="{{ site.baseurl }}/assets/img/testimonials/{{ item.image }}" alt="">
-          <p>
-            {{ item.name }}
-            <span>{{ item.position }}</span>
-          </p>
+  <div class="container">
+    <h3>Referenzen</h3>
+    <div class="testimonials_block">
+      {% comment %}
+      {% for item in site.data.testimonials %}
+        <div class="testimonial_block">
+          <div class="user">
+            <img src="{{ site.baseurl }}/assets/img/testimonials/{{ item.image }}" alt="">
+            <p>
+              {{ item.name }}
+              <span>{{ item.position }}</span>
+            </p>
+          </div>
+          <h4>{{ item.title }}</h4>
+          {{ item.content | markdownify }}
         </div>
-        <h4>{{ item.title }}</h4>
-        {{ item.content | markdownify }}
+      {% endfor %}
+      {% endcomment %}
+      <div class="testimonial_block">
+          <p>Hier kann auch Ihre Referenz stehen</p>
       </div>
-    {% endfor %}
-    {% endcomment %}
-    <div class="testimonial_block">
-        <p>Hier kann auch Ihre Referenz stehen</p>
     </div>
   </div>
 </section>

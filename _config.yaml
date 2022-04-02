@@ -34,14 +34,14 @@ defaults:
     scope:
        path: ""
     values:
-       lang: en
+       lang: de
        baseurl: "/"
   -
     scope:
-       path: de
+       path: en
     values:
-       lang: de
-       baseurl: "/de/"
+       lang: en
+       baseurl: "/en/"
 
 # Value to use into url per language
 langs-value:

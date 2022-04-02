@@ -19,7 +19,7 @@ function initMap(){
       center: sl,
     });
     // The marker, positioned at Uluru
-    const iconFolder = 'assets/img/';
+    const iconFolder = 'assets/img/icons/';
     const marker = new google.maps.Marker({
       position: sl,
       map: map,

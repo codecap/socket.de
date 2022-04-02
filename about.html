@@ -11,7 +11,7 @@ ref: about
     <h2 class="title_about">{{ iblock.page_section_title }}</h2>
     <div class="about_block">
       <div class="img_block">
-        <img src="{{ site.baseurl }}/assets/img/about.svg" alt="about">
+        <img src="{{ site.baseurl }}/assets/img/misc/about.svg" alt="about">
       </div>
       <aside class="about_blocks">
         {% for block in site.data.aboutpromo %}
@@ -22,7 +22,6 @@ ref: about
 
     <div class="questions_block">
       <div class="question">
-
         {% for item in site.data.about offset:1 %}
           {% if forloop.first == true %}
             <h3>{{ item.question_title }}</h3>

@@ -2,6 +2,7 @@
 layout: default
 title: Main page
 i18n-link: index
+images:
 lang: de
 ---
 <section class="top_section">
@@ -13,7 +14,7 @@ lang: de
           {{ mpromo.content | markdownify }}
       </div>
       <div class="promo_img">
-        <img src="{{ site.baseurl }}/assets/img/{{ mpromo.image }}" alt="{{ mpromo.title }}">
+        <img src="/assets/img/misc/{{ mpromo.image }}" alt="{{ mpromo.title }}">
       </div>
     </div>
   </div>
