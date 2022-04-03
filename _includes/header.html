@@ -3,9 +3,9 @@
     <div class="header">
       <div class="logo">
         {% if page.lang == "en" %}
-          <a href="/"><img src="/assets/img/icons/logo_Socket.svg" alt="logo"></a>
+          <a href="{{ site.baseurl }}/"><img src="/assets/img/icons/logo_Socket.svg" alt="logo"></a>
         {% else %}
-        <a href="/de/"><img src="/assets/img/icons/logo_Socket.svg" alt="logo"></a>
+        <a href="{{ site.baseurl }}/de/"><img src="/assets/img/icons/logo_Socket.svg" alt="logo"></a>
         {% endif %}
       </div>
         {% include nav.html navclass='nav-top' %}
