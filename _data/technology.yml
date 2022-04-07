@@ -1,27 +1,27 @@
 
 # https://github.com/bwks/vendor-icons-svg
 # https://vecta.io/symbols/76/brands-ca-cl/42/ceph-icon
-- section_title: 'Wir nutzen folgende Technologien'
+- section_title: 'Wir setzen auf Open Source'
 - title: 'OpenStack'
   image: 'openstack.svg'
 
 - title: 'Kubernetes'
   image: 'kubernetes.svg'
 
-- title: 'OKD'
-  image: 'okd002.svg'
-
-- title: 'Ansible'
-  image: 'ansible.svg'
+- title: 'Ceph'
+  image: 'ceph.svg'
 
 - title: 'Prometheus'
   image: 'prometheus.svg'
 
-- title: 'CoreOS'
-  image: 'coreos.svg'
+# - title: 'Open Source'
+#   image: 'opensource.org'
 
-- title: 'Ceph'
-  image: 'ceph.svg'
+# - title: 'Ansible'
+#   image: 'ansible.svg'
 
-- title: 'Python'
-  image: 'python.svg'
+# - title: 'OKD'
+#   image: 'okd002.svg'
+
+# - title: 'CoreOS'
+#   image: 'coreos.svg'
