@@ -12,7 +12,8 @@ lmore: Mehr anzeigen
     <div class="clients_block">
       {% comment %}
       <!-- Liquid: https://shopify.github.io/liquid/tags/template/ -->
-      {% for client in site.data.en.promoclients.sdata %}
+      {% assign blocks = site.data.en.promoclients.sdata %}
+      {% for client in blocks %}
         <div class="client_block">
           <img src="{{ site.baseurl }}/assets/img/clients/{{ client.image }}" alt="{{ client.title }}">
           {{ client.content | markdownify }}
@@ -27,7 +28,8 @@ lmore: Mehr anzeigen
 </section>
 <section class="page_section">
   <div class="container">
-    <h3>Referenzen</h3>
+    {% assign heading = site.data.en.testimonials.stitle.section_title %}
+    <h3>{{ heading }}</h3>
     <div class="testimonials_block">
       {% comment %}
       {% for item in site.data.en.testimonials %}

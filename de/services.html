@@ -8,7 +8,8 @@ lang: de
   <div class="container">
     <h2>{{ site.data.de.promoservices.stitle.section_title }}</h2>
     <div class="services_blocks">
-      {% for service in site.data.de.promoservices.sdata  %}
+      {% assign blocks = site.data.de.promoservices.sdata %}
+      {% for service in blocks  %}
         <div class="service_block">
           <div class="service_img">
             <img src="{{ site.baseurl }}/assets/img/services/{{ service.image }}" alt="{{ service.title }}">

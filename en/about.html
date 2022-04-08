@@ -13,7 +13,8 @@ page_section_title: "About Us"
         <img src="{{ site.baseurl }}/assets/img/misc/about.svg" alt="about">
       </div>
       <aside class="about_blocks">
-        {% for block in site.data.en.aboutpromo %}
+        {% assign blocks = site.data.en.aboutpromo %}
+        {% for block in blocks %}
           <div class="block">{{ block.content | markdownify }}</div>
         {% endfor %}
       </aside>
@@ -21,7 +22,8 @@ page_section_title: "About Us"
 
     <div class="questions_block">
       <div class="question">
-        {% for item in site.data.en.about %}
+        {% assign blocks = site.data.en.about %}
+        {% for item in blocks %}
           {% if forloop.first == true %}
             <h3>{{ item.main_title }}</h3>
           {% else %}
@@ -32,7 +34,8 @@ page_section_title: "About Us"
           {% endif %}
         {% endfor %}
 
-        {% for question in site.data.en.questions %}
+        {% assign blocks = site.data.en.questions %}
+        {% for question in blocks %}
           {% if forloop.first == true %}
             <h3>{{ question.main_title }}</h3>
           {% else %}
