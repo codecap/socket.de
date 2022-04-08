@@ -1,5 +1,4 @@
 <a class="toggleMainNav" href="javascript:" title="show navigation">
-    <!--  the famous burger  -->
     <div id="hamburger">
         <em class="line"></em>
         <em class="line"></em>
@@ -7,13 +6,10 @@
     </div>
 </a>
 <nav class="{{ include.navclass }}">
-
-
   <ul class="menu mainNavList">
-
-    <li><a href="{{ site.t['services'][page.lang] }}.html" class="{% if page.url=='/services.html'%}current {%  endif %}">Services</a></li>
+    <li><a href="{{ site.t['services'][page.lang] }}" class="{% if page.url contains '/services.html' %} current {%  endif %}">{{ site.menu['services'][page.lang] }}</a></li>
     <!-- <li><a href="{{ site.baseurl }}/clients.html" class="{% if page.url=='/clients.html'%}current {%endif %}">Kunden</a></li> -->
-    <li><a href="{{ site.t['about'][page.lang] }}.html" class="{% if page.url=='/about.html'%}current {%endif %}">Wir</a></li>
+    <li><a href="{{ site.t['about'][page.lang] }}" class="{% if page.url contains '/about.html' %}current {%endif %}">{{ site.menu['about'][page.lang] }}</a></li>
   </ul>
 </nav>
 <!-- <div class="lang">

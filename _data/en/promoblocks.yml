@@ -1,0 +1,16 @@
+---
+- title: 'Experten am Werk'
+  content: >-
+    Dass deine Cloud-Infrastruktur langfristig so flexibel funktioniert, wie sie soll, ist für unsere Experten eine echte Ehrensache.
+    Wir kümmern uns um die Technik – und du behältst jederzeit die Kontrolle.
+  image: 'icon_check.svg'
+
+- title: '15+ Jahre Erfahrung'
+  content: >-
+    Wer heute Teil des socket-Teams ist, denkt sich schon seit vielen Jahren regelmäßig und tiefgehend in Linux und Open Source hinein.
+  image: 'icon_star.svg'
+
+- title: 'Modular'
+  content: >-
+    Jede Infrastruktur wird von socket auf deine Anforderungen angepasst statt umgekehrt.
+  image: 'icon_server.svg'

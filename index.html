@@ -2,61 +2,39 @@
 layout: default
 title: Main page
 i18n-link: index
-lang: en
+lang: de
 ---
 <section class="top_section">
   <div class="container">
     <div class="promo_block">
-      {% assign mpromo = site.data.promotext.first %}
+      {% assign mpromo = site.data.de.promotext %}
+      {% for item in mpromo %}
       <div class="promo_text">
-          <h1>{{ mpromo.title }}</h1>
-          {{ mpromo.content | markdownify }}
+        <h1>{{ item.title }}</h1>
+        {{ item.content | markdownify }}
       </div>
       <div class="promo_img">
-        <img src="{{ site.baseurl }}/assets/img/misc/{{ mpromo.image }}" alt="{{ mpromo.title }}">
+        <img src="{{ site.baseurl }}/assets/img/misc/{{ item.image }}" alt="{{ item.title }}">
       </div>
+      {% endfor %}
     </div>
   </div>
 </section>
-<section class="benefits_section">
-  <div class="container">
-    <div class="blocks">
-        <div class="block">
-          {% for block in site.data.benefitsright %}
-            <div class="item">
-              <h3>{{ block.title }}</h3>
-              {{ block.content | markdownify }}
-            </div>
-          {% endfor %}
-        </div>
-        <div class="block">
-          {% for block in site.data.benefitsblocks %}
-          <div class="item_img">
-            <img src="{{ site.baseurl }}/assets/img/benefits/{{ block.image }}" alt="{{ block.title }}">
-          </div>
-          <div class="">
-            <h3>{{ block.title }}</h3>
-            {{ block.content | markdownify }}
-          </div>
-          {% endfor %}
-        </div>
-    </div>
-  </div>
-</section>
-<section>
+<section class="arg_block">
   <div class="container">
     <div class="intro-title">
-      {% assign iblock = site.data.introblock.first %}
-      <h3>{{ iblock.title }}</h3>
-      {% for desc in iblock.content %}
-        <p>{{desc}}</p>
+      {% assign iblock = site.data.de.introblock %}
+      {% for item in iblock %}
+      <h3>{{ item.title }}</h3>
+        <p>{{ item.content | markdownify }}</p>
       {% endfor %}
     </div>
   </div>
   <div class="intro-block">
     <div class="container">
       <div class="promo-blocks">
-        {% for block in site.data.promoblocks %}
+        {% assign blocks = site.data.de.promoblocks %}
+        {% for block in blocks %}
           <div class="promo-block">
             <img src="{{ site.baseurl }}/assets/img/icons/{{ block.image }}" alt="{{ block.title }}">
             <h3>{{ block.title }}</h3>
@@ -67,6 +45,33 @@ lang: en
     </div>
   </div>
 </section>
+<section class="benefits_section">
+  <div class="container">
+    <div class="blocks">
+        <div class="block">
+          {% assign blocks = site.data.de.benefitsblocks %}
+          {% for block in blocks %}
+          <div class="item_img">
+            <img src="{{ site.baseurl }}/assets/img/benefits/{{ block.image }}" alt="{{ block.title }}">
+          </div>
+          <div class="">
+            <h3>{{ block.title }}</h3>
+            {{ block.content | markdownify }}
+          </div>
+          {% endfor %}
+        </div>
+        <div class="block">
+          {% assign blocks = site.data.de.benefitsright %}
+          {% for block in blocks %}
+            <div class="item">
+              <h3>{{ block.title }}</h3>
+              {{ block.content | markdownify }}
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+  </div>
+</section>
 <section>
   <div class="container">
     {% include technology.html %}
@@ -74,9 +79,10 @@ lang: en
 </section>
 <section>
   <div class="container">
-    {% assign heading = site.data.promoservices.first %}
-    <h2>{{ heading.section_title }}</h2>
-    {% assign fsvc = site.data.promoservices | slice: 1, 4 %}
+    {% assign heading = site.data.de.promoservices.stitle.section_title %}
+    <h2>{{ heading }}</h2>
+    <!-- {% assign fsvc = site.data.de.promoservices.sdata | slice: 0, 4 %} -->
+    {% assign fsvc = site.data.de.promoservices.sdata %}
     <div class="tabs_block">
       <ul class="tabs">
         {% for s in fsvc %}
@@ -131,8 +137,7 @@ lang: en
 {% endcomment %}
 <section>
   <div class="container">
-    {% assign heading = site.data.contact.first %}
-    <h2>{{ heading.section_title }}</h2>
+    <h2>{{ site.data.de.contact.stitle.section_title }}</h2>
     <div class="info_block">
       <div class="contact_block">
         {% include contact.html %}

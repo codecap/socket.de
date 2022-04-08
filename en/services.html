@@ -6,10 +6,9 @@ lang: en
 ---
 <section class='page_section'>
   <div class="container">
-    {% assign iblock = site.data.promoservices.first %}
-    <h2>{{ iblock.section_title }}</h2>
+    <h2>{{ site.data.en.promoservices.stitle.section_title }}</h2>
     <div class="services_blocks">
-      {% for service in site.data.promoservices offset:1 %}
+      {% for service in site.data.en.promoservices.sdata  %}
         <div class="service_block">
           <div class="service_img">
             <img src="{{ site.baseurl }}/assets/img/services/{{ service.image }}" alt="{{ service.title }}">

@@ -1,6 +1,5 @@
 ---
-- page_section_title: "Über uns"
-- question_title: OpenStack für Unternehmen
+- main_title: OpenStack für Unternehmen
 - title: 'Kompetente & persönliche Beratung für die perfekte Cloud-Infrastruktur.'
   content: >-
     Bei socket ist jeder Kunde ein langfristiger Geschäftspartner. Lerne uns
@@ -14,7 +13,6 @@
     können wir dir zur perfekten Cloudarchitektur verhelfen. Eine gute
     Beziehung zu unseren Kunden – die wir viel eher als Partner sehen –
     ist dabei mehr als nur die halbe Miete.
-
 - title: 'Und wenn mal was nicht so läuft, wie es soll?'
   content: >-
     Das kommt auch bei den besten Cloudservice-Anbietern vor. Wenn es
@@ -26,7 +24,6 @@
     Cloud-Architektur wiederhergestellt. In jedem Fall steht
     Transparenz aber ganz oben auf unserer Prioritätenliste. Die
     wünschen wir uns im Gegenzug auch von dir.
-
 - title: 'Sensible Daten – vertraulich behandelt und gut geschützt'
   content: >-
     Beim Aufbau der Cloud-Architektur müssen wir oft tief in die

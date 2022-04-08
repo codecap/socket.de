@@ -3,17 +3,17 @@ layout: default
 title: About
 i18n-link: about
 lang: de
+page_section_title: "Über uns"
 ---
 <section class='page_section'>
   <div class="container">
-    {% assign iblock = site.data.de.about.first %}
-    <h2 class="title_about">{{ iblock.page_section_title }}</h2>
+    <h2 class="title_about">{{ page.page_section_title }}</h2>
     <div class="about_block">
       <div class="img_block">
         <img src="{{ site.baseurl }}/assets/img/misc/about.svg" alt="about">
       </div>
       <aside class="about_blocks">
-        {% for block in site.data.aboutpromo %}
+        {% for block in site.data.de.aboutpromo %}
           <div class="block">{{ block.content | markdownify }}</div>
         {% endfor %}
       </aside>
@@ -21,32 +21,32 @@ lang: de
 
     <div class="questions_block">
       <div class="question">
-
-        {% for item in site.data.about offset:1 %}
+        {% for item in site.data.de.about %}
           {% if forloop.first == true %}
-            <h3>{{ item.question_title }}</h3>
+            <h3>{{ item.main_title }}</h3>
           {% else %}
             <div class="question_contet">
               <h4>{{item.title}}</h4>
-              {{item.content | markdownify }}
+              {{ item.content | markdownify }}
             </div>
           {% endif %}
         {% endfor %}
 
-        {% assign iblock = site.data.questions.first %}
-        <h3>{{ iblock.second_question_title }}</h3>
-        {% for question in site.data.questions offset:1 %}
-          <div class="question_contet">
-            <h4>{{question.title}}</h4>
-            {{question.content | markdownify }}
-          </div>
+        {% for question in site.data.de.questions %}
+          {% if forloop.first == true %}
+            <h3>{{ question.main_title }}</h3>
+          {% else %}
+            <div class="question_contet">
+              <h4>{{question.title}}</h4>
+              {{question.content | markdownify }}
+            </div>
+          {% endif %}
         {% endfor %}
       </div>
 
       <div class="contacts">
         <div class="contact_block">
-          {% assign iblock = site.data.contact.first %}
-          <h3>{{ iblock.section_title }}</h3>
+          <h2>{{ site.data.de.contact.stitle.section_title }}</h2>
           <div class="blocks_with_contact">
             {% include contact.html %}
           </div>

@@ -1,17 +1,18 @@
 ---
 layout: default
 title: Clients
-i18n-link: about
+i18n-link: clients
 lang: de
+lmore: Mehr anzeigen
 ---
 <section class="page_section">
   <div class="container">
-    {% assign heading = site.data.de.promoservices.first %}
-    <h2>{{ heading.section_title }}</h2>
+    {% assign heading = site.data.de.promoservices.stitle.section_title %}
+    <h2>{{ heading }}</h2>
     <div class="clients_block">
       {% comment %}
       <!-- Liquid: https://shopify.github.io/liquid/tags/template/ -->
-      {% for client in site.data.promoclients offset:1 %}
+      {% for client in site.data.de.promoclients.sdata %}
         <div class="client_block">
           <img src="{{ site.baseurl }}/assets/img/clients/{{ client.image }}" alt="{{ client.title }}">
           {{ client.content | markdownify }}
@@ -20,7 +21,7 @@ lang: de
       {% endcomment %}
     </div>
     <!-- Load More Button -->
-     <div id="loadmore" >Mehr anzeigen <span><img src="{{ site.baseurl }}/assets/img/icons/arrow.svg">  </span></div>
+     <div id="loadmore" >{{ page.lmore }} <span><img src="{{ site.baseurl }}/assets/img/icons/arrow.svg">  </span></div>
   </div>
 
 </section>
@@ -29,7 +30,7 @@ lang: de
     <h3>Referenzen</h3>
     <div class="testimonials_block">
       {% comment %}
-      {% for item in site.data.testimonials %}
+      {% for item in site.data.de.testimonials %}
         <div class="testimonial_block">
           <div class="user">
             <img src="{{ site.baseurl }}/assets/img/testimonials/{{ item.image }}" alt="">

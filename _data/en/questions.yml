@@ -1,0 +1,24 @@
+---
+- main_title: Diese Fragen hören wir oft ...
+- title: 'Was macht socket?'
+  content: >-
+    socket bietet flexible Lösungen für deine eigene Cloud. Wie schließen die
+    Cloud-Infrastruktur an deine Netzwerk und Storage-Systeme oder bringen
+    eigene mit.
+
+- title: 'Welche Technologie nutzt socket?'
+  content: >-
+    Wir setzen grundsätzlich auf Open-Source-Optionen. Auf Anfrage arbeiten
+    wir aber auch mit proprietären Lösungen.
+
+- title: 'Wo befinden sich die Cloud-Lösungen von socket?'
+  content: >-
+    Die Serverinfrastruktur kann in unseren Räumlichkeiten oder in deinem
+    eigenen Rechenzentrum aufgebaut werden.
+
+- title: 'Was passiert nach dem Aufbau der Serverarchitektur?'
+  content: >-
+    Nach dem Abschluss jedes Auftrages überreichen wir dir eine gut
+    strukturierte Dokumentation. Diese geht detailliert auf sämtliche
+    Voraussetzungen für einen erfolgreichen Betrieb ein. Und Lock-ins?
+    Die gibt’s bei uns garantiert nicht!

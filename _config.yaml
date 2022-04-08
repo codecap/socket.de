@@ -26,35 +26,25 @@ baseurl:
 url: https://socket.de
 twitter_username:
 github_username:  codecap
+permalink:
 #theme: socket
 
-
-defaults:
-  -
-    scope:
-       path: ""
-    values:
-       lang: de
-       baseurl: "/"
-  -
-    scope:
-       path: en
-    values:
-       lang: en
-       baseurl: "/en/"
-
-# Value to use into url per language
-langs-value:
-    en: ""
-    de: de
-
+# Value to use in menu per language
+menu:
+  services:
+    en: "Services"
+    de: "Services"
+  about:
+    en: "About"
+    de: "Wir"
+# Path to the translated page
 t:
   services:
-      en: "services"
-      de: "services"
+    en: "/en/services"
+    de: "/de/services"
   about:
-      en: "about"
-      de: "about"
+    en: "/en/about"
+    de: "/de/about"
 
 
 # Exclude from processing.

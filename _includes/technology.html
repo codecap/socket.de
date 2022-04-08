@@ -1,8 +1,8 @@
+{% if page.lang == 'de' %}
 <div class="technology_block">
-  {% assign heading = site.data.technology.first %}
-  <h3>{{ heading.section_title }}</h3>
+  <h3>{{ site.data.[page.lang].technology.stitle.section_title }}</h3>
   <div class="technologies">
-    {% for tech in site.data.technology offset:1 %}
+    {% for tech in site.data.de.technology.tdata %}
     <div class="tech">
         <img width=50 height=50 src="{{ site.baseurl }}/assets/img/techstack/{{ tech.image }}" alt="{{ tech.title }}">
 <!-- <span>{{ tech.title }}</span> -->
@@ -11,3 +11,18 @@
     {% endfor %}
   </div>
 </div>
+{% else %}
+<div class="technology_block">
+  <h3>{{ site.data.[page.lang].technology.stitle.section_title }}</h3>
+  <div class="technologies">
+    {% for tech in site.data.en.technology.tdata %}
+    <div class="tech">
+        <img width=50 height=50 src="{{ site.baseurl }}/assets/img/techstack/{{ tech.image }}" alt="{{ tech.title }}">
+<!-- <span>{{ tech.title }}</span> -->
+        <a href="{{ site.baseurl }}/services.html">{{ tech.title }}</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endif %}

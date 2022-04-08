@@ -53,9 +53,8 @@ All packages are in  `package.json`:
 
   Language's settings in  `_config.yml`:
 ```yaml
-  defaults: path to appropriate files and language's sign
-  langs-value: Value to use into url per language
-  t: the name of translated url (_name of page_)
+  menu: Value to use in menu per language
+  t: Path to the translated page (_name of page_)
 ```
 ## Contributing
 

@@ -1,14 +1,35 @@
-{% for contact in site.data.contact offset:1 %}
-    <div class="block">
-        <p>{{ contact.title }}</p>
-        {% if forloop.first == true %}
-          <a href="tel:{{ contact.phone }}" class="contact_phone">{{ (contact.phone | replace: " ", "&nbsp;") }}</a>
-          <a href="mailto:{{ contact.email }}" class="contact_email">{{ contact.email }}</a>
-        {% else %}
-          {% for line in (contact.address.lines) %}
-            <a href="#" class="contact_email">{{ (line | replace: " ", "&nbsp;") }}</a><br/>
-          {% endfor %}
-        {% endif %}
-    </div>
+{% if page.lang == 'de' %}
+  {% for item in site.data.de.contact.cdata %}
+      <div class="block">
+          <p>{{ item.title }}</p>
+          <a href="tel:{{ item.phone }}" class="contact_phone">{{ (item.phone | replace: " ", "&nbsp;") }}</a>
+          <a href="mailto:{{ item.email }}" class="contact_email">{{ item.email }}</a>
+      </div>
+  {% endfor %}
 
-{% endfor %}
+  {% for item in site.data.de.contact.adata %}
+    <div class="block">
+        <p>{{ item.title }}</p>
+        {% for i in (item.address.lines) %}
+          <a href="#" class="contact_email">{{ (i | replace: " ", "&nbsp;") }}</a><br/>
+        {% endfor %}
+    </div>
+  {% endfor %}
+{% else %}
+  {% for item in site.data.en.contact.cdata %}
+    <div class="block">
+        <p>{{ item.title }}</p>
+        <a href="tel:{{ item.phone }}" class="contact_phone">{{ (item.phone | replace: " ", "&nbsp;") }}</a>
+        <a href="mailto:{{ item.email }}" class="contact_email">{{ item.email }}</a>
+    </div>
+  {% endfor %}
+
+  {% for item in site.data.en.contact.adata %}
+    <div class="block">
+        <p>{{ item.title }}</p>
+        {% for i in (item.address.lines) %}
+          <a href="#" class="contact_email">{{ (i | replace: " ", "&nbsp;") }}</a><br/>
+        {% endfor %}
+    </div>
+  {% endfor %}
+{% endif %}

@@ -1,0 +1,15 @@
+---
+stitle:
+  section_title: 'Kontact'
+cdata:
+  - title: 'Kontaktieren Sie uns'
+    phone: 06196 204 55 80
+    email: ping⚙️socket.de
+adata:
+  - title: 'Anschrift'
+    url: >-
+      'https://www.google.de/maps/place/Mergenthalerallee+73-75,+65760+Eschborn'
+    address:
+      lines:
+        - Mergenthaleralle 73-75
+        - 65760 Eschborn
