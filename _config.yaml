@@ -22,7 +22,7 @@ title: socket
 email: ping⚙️ssocket.de
 description: >- # this means to ignore newlines until "baseurl:"
   socket.de | Clouds | Systems | Networks
-baseurl: 
+baseurl: /socket.de
 url: https://socket.de
 twitter_username:
 github_username:  codecap
