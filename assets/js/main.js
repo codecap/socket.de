@@ -9,7 +9,6 @@ jQuery(document).ready(function($){
 
 });
 
-console.log(window.location.href)
 // Google map.
 function initMap(){
   // The location of Uluru
@@ -22,7 +21,6 @@ function initMap(){
     let url = window.location.href
     // The marker, positioned at Uluru
     const iconFolder = url + 'assets/img/icons/';
-    alert(iconFolder)
     const marker = new google.maps.Marker({
       position: sl,
       map: map,
