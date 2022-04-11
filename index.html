@@ -75,7 +75,7 @@ lang: de
 <section>
   <div class="container">
     {% assign heading = site.data.de.promoservices.stitle.section_title %}
-    <h2>{{ heading }}</h2>
+    <h3>{{ heading }}</h3>
     {% assign fsvc = site.data.de.promoservices.sdata | slice: 1, 10 %}
     <div class="tabs_block">
       <ul class="tabs">
@@ -119,7 +119,7 @@ lang: de
 {% comment %}
 <section>
   <div class="container">
-    <h2>Unsere Kunden</h2>
+    <h3>Unsere Kunden</h3>
     <div class="clients_main_block">
       <div class="clients">
         {% for client in site.data.promo-clients %}
@@ -136,7 +136,7 @@ lang: de
 {% endcomment %}
 <section>
   <div class="container">
-    <h2>{{ site.data.de.contact.stitle.section_title }}</h2>
+    <h3>{{ site.data.de.contact.stitle.section_title }}</h3>
     <div class="info_block">
       <div class="contact_block">
         {% include contact.html %}
