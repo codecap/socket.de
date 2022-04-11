@@ -79,10 +79,7 @@ lang: de
 </section>
 <section>
   <div class="container">
-
-    <h2>{{ heading }}</h2>
-    <!-- {% assign fsvc = site.data.de.promoservices.sdata | slice: 0, 4 %} -->
-    {% assign fsvc = site.data.de.promoservices.sdata %}
+    {% assign fsvc = site.data.de.promoservices.sdata | slice: 1, 10 %}
     <div class="tabs_block">
       <ul class="tabs">
         {% for s in fsvc %}
