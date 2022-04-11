@@ -79,6 +79,8 @@ lang: de
 </section>
 <section>
   <div class="container">
+    {% assign heading = site.data.de.promoservices.stitle.section_title %}
+    <h2>{{ heading }}</h2>
     {% assign fsvc = site.data.de.promoservices.sdata | slice: 1, 10 %}
     <div class="tabs_block">
       <ul class="tabs">
