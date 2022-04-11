@@ -10,8 +10,8 @@
     <li><a href="{{ site.baseurl }}{{ site.t['services'][page.lang] }}" class="{% if page.url contains '/services.html' %} current {%  endif %}">{{ site.menu['services'][page.lang] }}</a></li>
     <!-- <li><a href="{{ site.t['clients'][page.lang] }}" class="{% if page.url contains '/clients.html'%}current {%endif %}">Kunden</a></li> -->
     <li><a href="{{ site.baseurl }}{{ site.t['about'][page.lang] }}" class="{% if page.url contains '/about.html' %}current {%endif %}">{{ site.menu['about'][page.lang] }}</a></li>
-    {%- if include.navclass == "nav-footer" -%}
-    <li><a href="{{ site.baseurl }}/imprint.html" class="{% if page.url=='/imprint.html'%}current {%endif %}">Impressum</a></li>
+    {% if include.navclass == "nav-footer" -%}
+    <li><a href="{{ site.baseurl }}{{ site.t['imprint'][page.lang] }}" class="{% if page.url contains '/imprint' %}current {%endif %}">{{ site.menu['imprint'][page.lang] }}</a></li>
     {%- endif -%}
   </ul>
 </nav>
