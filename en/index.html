@@ -10,8 +10,8 @@ lang: en
       {% assign mpromo = site.data.en.promotext %}
       {% for item in mpromo %}
       <div class="promo_text">
-          <h1>{{ item.title }}</h1>
-          {{ item.content | markdownify }}
+        <h1>{{ item.title }}</h1>
+        {{ item.content | markdownify }}
       </div>
       <div class="promo_img">
         <img src="{{ site.baseurl }}/assets/img/misc/{{ item.image }}" alt="{{ item.title }}">
@@ -95,13 +95,13 @@ lang: en
         {% assign count = 0 %}
         {% for service in fsvc %}
           {% if forloop.first == true %}
-            <div class="tabs-panel active" data-inenx="{{ count }}">
+            <div class="tabs-panel active" data-index="{{ count }}">
               <h3>{{ service.title }}</h3>
               {{ service.content | markdownify }}
             </div>
           {% else %}
           {% capture count %}{{ count | plus:1 }}{% endcapture %}
-            <div class="tabs-panel" data-inenx="{{ count }}">
+            <div class="tabs-panel" data-index="{{ count }}">
               <h3>{{ service.title }}</h3>
               {{service.content | markdownify }}
             </div>
