@@ -74,11 +74,6 @@ lang: en
 </section>
 <section>
   <div class="container">
-    {% include technology.html %}
-  </div>
-</section>
-<section>
-  <div class="container">
     {% assign heading = site.data.en.promoservices.stitle.section_title %}
     <h2>{{ heading }}</h2>
     {% assign fsvc = site.data.de.promoservices.sdata | slice: 1, 10 %}
@@ -114,6 +109,11 @@ lang: en
         {% endfor %}
       </div>
     </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    {% include technology.html %}
   </div>
 </section>
 {% comment %}
