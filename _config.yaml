@@ -37,6 +37,9 @@ menu:
   about:
     en: "About"
     de: "Wir"
+  imprint:
+    en: "Imprint"
+    de: "Impressum"
 # Path to the translated page
 t:
   services:
@@ -45,6 +48,9 @@ t:
   about:
     en: "/en/about"
     de: "/de/about"
+  imprint:
+    en: "/en/imprint"
+    de: "/de/imprint"
 
 
 # Exclude from processing.

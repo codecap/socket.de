@@ -10,8 +10,8 @@ lang: en
       {% assign mpromo = site.data.en.promotext %}
       {% for item in mpromo %}
       <div class="promo_text">
-          <h1>{{ item.title }}</h1>
-          {{ item.content | markdownify }}
+        <h1>{{ item.title }}</h1>
+        {{ item.content | markdownify }}
       </div>
       <div class="promo_img">
         <img src="{{ site.baseurl }}/assets/img/misc/{{ item.image }}" alt="{{ item.title }}">
@@ -74,15 +74,9 @@ lang: en
 </section>
 <section>
   <div class="container">
-    {% include technology.html %}
-  </div>
-</section>
-<section>
-  <div class="container">
     {% assign heading = site.data.en.promoservices.stitle.section_title %}
-    <h2>{{ heading }}</h2>
-    <!-- {% assign fsvc = site.data.en.promoservices.sdata | slice: 0, 4 %} -->
-    {% assign fsvc = site.data.en.promoservices.sdata %}
+    <h3>{{ heading }}</h3>
+    {% assign fsvc = site.data.de.promoservices.sdata | slice: 1, 10 %}
     <div class="tabs_block">
       <ul class="tabs">
         {% for s in fsvc %}
@@ -101,13 +95,13 @@ lang: en
         {% assign count = 0 %}
         {% for service in fsvc %}
           {% if forloop.first == true %}
-            <div class="tabs-panel active" data-inenx="{{ count }}">
+            <div class="tabs-panel active" data-index="{{ count }}">
               <h3>{{ service.title }}</h3>
               {{ service.content | markdownify }}
             </div>
           {% else %}
           {% capture count %}{{ count | plus:1 }}{% endcapture %}
-            <div class="tabs-panel" data-inenx="{{ count }}">
+            <div class="tabs-panel" data-index="{{ count }}">
               <h3>{{ service.title }}</h3>
               {{service.content | markdownify }}
             </div>
@@ -117,10 +111,15 @@ lang: en
     </div>
   </div>
 </section>
+<section>
+  <div class="container">
+    {% include technology.html %}
+  </div>
+</section>
 {% comment %}
 <section>
   <div class="container">
-    <h2>Unsere Kunenn</h2>
+    <h3>Unsere Kunden</h3>
     <div class="clients_main_block">
       <div class="clients">
         {% for client in site.data.promo-clients %}
@@ -137,7 +136,7 @@ lang: en
 {% endcomment %}
 <section>
   <div class="container">
-    <h2>{{ site.data.en.contact.stitle.section_title }}</h2>
+    <h3>{{ site.data.en.contact.stitle.section_title }}</h3>
     <div class="info_block">
       <div class="contact_block">
         {% include contact.html %}
