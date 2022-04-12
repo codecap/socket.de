@@ -14,7 +14,7 @@ lang: de
       <aside class="imprint_blocks">
         {% for block in iitems  %}
           <br/>
-          <h3 class="title_imprint">{{ block.title }}</h2>
+          <h3 class="title_imprint">{{ block.title }}</h3>
           <br/>
           <div class="block">{{ block.content | newline_to_br | markdownify }}</div>
         {% endfor %}

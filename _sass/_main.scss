@@ -48,6 +48,17 @@ h2,
 h3,h4{
   color: $main_color__blue;
 }
+h3 {
+  @include rem(50);
+  line-height: 49px;
+  font-weight: 500;
+  margin-bottom: 50px;
+}
+p{
+  @include rem(20);
+  font-weight: 400;
+  line-height: 31px;
+}
 .container{
   max-width: 1214px;
   width: 100%;
@@ -74,9 +85,6 @@ section {
   margin-bottom: 170px;
   h2 {
     @include rem(70);
-    // &.title_about{
-    //   text-align: center;
-    // }
   }
   h3{
     @include rem(50);

@@ -212,9 +212,13 @@
   .technology_block {
     .technologies {
       grid-template-columns: repeat(2,1fr);
-      grid-row-gap: 80px;
-      grid-column-gap: 79px;
+      grid-row-gap: 70px;
+      grid-column-gap: 80px;
       .tech {
+        img{
+          height: 80px;
+          width: 80px;
+        }
           a,span {
             @include rem(24);
             font-weight: 400;
@@ -439,7 +443,7 @@
       @include rem(70);
     }
     .technology_block h3 {
-      @include rem(35);
+      @include rem(42);
     }
     .promo_block {
       grid-template-columns: repeat(1,1fr);
@@ -628,7 +632,7 @@
 
   .blocks{
     .block {
-      padding: 0 34px;
+      padding: 0;
       h3 {
         @include rem(32);
         line-height: 39px;
@@ -670,9 +674,9 @@
   }
   .technology_block{
     h3 {
-      line-height: 32px;
+      line-height: 58px;
       text-align: center;
-      @include rem(28);
+      @include rem(50);
     }
   }
   .technology_block {
@@ -875,12 +879,13 @@
 @media screen and (max-width: 415px) {
   .technology_block {
     h3 {
-      @include rem(24)
+      @include rem(50);
+      line-height: 58px;
 
     }
     .technologies{
       grid-row-gap: 60px;
-      grid-column-gap: 30px;
+      // grid-column-gap: 30px;
       .tech {
         // flex-wrap: wrap;
         // flex-direction: column;
@@ -909,6 +914,13 @@
         line-height: 43px;
       }
     }
+  }
+
+  .technology_block {
+    .technologies{
+      grid-column-gap: 40px;
+
+      }
   }
 
   .contact_block {
@@ -944,6 +956,13 @@
 }
 /* On screens that are 320px or less */
 @media screen and (max-width: 320px) {
+  .technology_block {
+    h3 {
+      @include rem(42);
+      line-height: 55px;
+
+    }
+  }
   .page_section {
     margin-top: 50px;
 
