@@ -48,6 +48,10 @@ h2,
 h3,h4{
   color: $main_color__blue;
 }
+h4 {
+  @include rem(28);
+  line-height: 50px;
+}
 h3 {
   @include rem(50);
   line-height: 49px;
