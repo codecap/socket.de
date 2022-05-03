@@ -2,40 +2,52 @@
 stitle:
   section_title: 'Services'
 sdata:
-  - #title: 'Konzeption und Umsetzung von individueller Cloud-Architektur'
-    # image: 'service1.svg'
-    content: >-
-      Große Public Cloud-Anbieter passen nicht zu deinem Unternehmen. Du
-      willst dich nicht mit Datenschutz-Themen beschäftigen. Oder du hast
-      einfach keine Lust, dich selbst um einen Cloudspeicher zu kümmern. Wir
-      haben die Lösung: Lass doch uns deine __flexible und skalierbare Cloud
-      auf Basis von OpenStack und Ceph__ zusammenstellen! So simpel sieht’s
-      aus: Wir kümmern uns um die Cloud-Architektur. Und du kannst dich ganz
-      auf dein Unternehmen konzentrieren.<br/>
-      <br/>
-      Wenn du dich auf dem Markt umsiehst, findest du jede Menge spanende
-      DevOps-Tools (Kubernetes, Rancher, Terraform, Ansible). Mit denen
-      kannst du deine Workloads in der Cloud hervorragend gestalten.
-      Allerdings brauchst du meist eine Cloud-Infrastruktur, die in deinem
-      Heimnetzwerk vielleicht noch nicht vorhanden ist. Wir stellen deine
-      Cloud gerne zusammen – samt Storage, LoadBalancer und Monitoring.
-      Natürlich aus einer Hand (und einem Haus). Du musst nur noch deine
-      Daten einspeisen.<br/>
-      <br/>
-      Und weil wir auf Open Source setzen, gibt es für dich keine Vendor
-      Lock-Ins – Workloads können bei Bedarf jederzeit in eine andere Cloud
-      übertragen werden.<br/>
-  - title: 'Konzeption und Umsetzung von individueller Cloud-Architektur'
+  #- title: 'Konzeption und Umsetzung von individueller Cloud-Architektur'
+  - title: 'Individuelle Cloud für deine Projekte'
     image: 'service1.svg'
     content: >-
-      Was socket bietet? Eine stabile, skalierbare Cloudarchitektur für
-      individuelle Anforderungen. Cloudarchitektur, Aufbau, Consulting
-      und Workshops. Unverbindlich anfragen!
+      Wir helfen dir für deine Projekte eine __flexible und skalierbare Cloud
+      auf Basis von OpenStack und Ceph__ aufzubauen.
+      Damit wirst du in deinem Heimnetzwerk die modernen DevOps Techniken und
+      Tools für deine Software anwenden können:
+        * Infrastructre as Code und GitOps
+        * Kubernetes / Openshift / OKD
+        * Ansible / Terraform / Chef
+        * Rancher
+        * Database as a Service
+
+      Du bekommst deine Cloud aus einer Hand fertig gestellt, wir bleieben als
+      zuverlässig Ansprächpartner weiterhin für dich da.
+    # 1. Version
+    #   Was socket bietet? Eine stabile, skalierbare Cloudarchitektur für
+    #   individuelle Anforderungen. Cloudarchitektur, Aufbau, Consulting
+    #   und Workshops. Unverbindlich anfragen!
+    # 2. Version
+    #   Große Public Cloud-Anbieter passen nicht zu deinem Unternehmen. Du
+    #   willst dich nicht mit Datenschutz-Themen beschäftigen. Oder du hast
+    #   einfach keine Lust, dich selbst um einen Cloudspeicher zu kümmern. Wir
+    #   haben die Lösung: Lass doch uns deine __flexible und skalierbare Cloud
+    #   auf Basis von OpenStack und Ceph__ zusammenstellen! So simpel sieht’s
+    #   aus: Wir kümmern uns um die Cloud-Architektur. Und du kannst dich ganz
+    #   auf dein Unternehmen konzentrieren.<br/>
+    #   <br/>
+    #   Wenn du dich auf dem Markt umsiehst, findest du jede Menge spanende
+    #   DevOps-Tools (Kubernetes, Rancher, Terraform, Ansible). Mit denen
+    #   kannst du deine Workloads in der Cloud hervorragend gestalten.
+    #   Allerdings brauchst du meist eine Cloud-Infrastruktur, die in deinem
+    #   Heimnetzwerk vielleicht noch nicht vorhanden ist. Wir stellen deine
+    #   Cloud gerne zusammen – samt Storage, LoadBalancer und Monitoring.
+    #   Natürlich aus einer Hand (und einem Haus). Du musst nur noch deine
+    #   Daten einspeisen.<br/>
+    #   <br/>
+    #   Und weil wir auf Open Source setzen, gibt es für dich keine Vendor
+    #   Lock-Ins – Workloads können bei Bedarf jederzeit in eine andere Cloud
+    #   übertragen werden.<br/>
   - title: 'Design und Architektur'
     image: 'service2.svg'
     content: >-
       Deine Cloud muss von der ersten Minute an zuverlässig laufen.
-      Er soll langfristig mit deinem Unternehmen wachsen und sich auch
+      Sie soll langfristig mit deinem Unternehmen wachsen und sich auch
       mühelos auf neue Anforderungen anpassen. socket legt das Fundament
       für eine stabile, skalierbare Cloudarchitektur. Diese läuft
       natürlich auf dem neusten Stand der Technik.
