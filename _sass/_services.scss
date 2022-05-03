@@ -27,6 +27,15 @@ section{
         @include rem(18);
         line-height: 28px;
       }
+      ul {
+        list-style: disc;
+        list-style-position: inside;
+        margin: 10px 0 10px 20px;
+        li {
+          line-height: 28px;
+          @include rem(18);
+        }
+      }
     }
     &:nth-child(even){
       .service_img {
