@@ -1,0 +1,97 @@
+---
+layout: default
+title: New Page
+i18n-link: newpage
+lang: de
+---
+
+<section class='page_section'>
+  <div class="container">
+    <h2 class="title_about">{{ page.page_section_title }}</h2>
+
+    <div class="questions_block">
+      <div class="question">
+        <table id="nptable">
+            {% assign blocks = site.data.de.tdata %}
+            {% for row in blocks %}
+                {% if forloop.first %}
+                  <tr>
+                    {% for pair in row %}
+                      <th>{{ pair[0] }}</th>
+                    {% endfor %}
+                  </tr>
+                {% endif %}
+                {% tablerow pair in row %}
+                  <span id="{{ pair[1] | slugify }}">
+                      {{ pair[1] }}
+                  </span>
+                {% endtablerow %}
+              {% endfor %}
+        </table>
+
+        <div class="list_block">
+          {% for item in site.data.de.tabledata.firstlist %}
+          <div >
+            <p>{{item.title}}</p>
+            <ul>
+              {% for entry in item.subfolderitems %}
+                <li>{{ entry }}</li>
+                {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="list_block">
+          {% for item in site.data.de.tabledata.secondlist %}
+          <div >
+            <p>{{item.title}}</p>
+            <ul>
+              {% for entry in item.subfolderitems %}
+                <li>{{ entry }}</li>
+                {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="list_block">
+          {% for item in site.data.de.tabledata.thirdlist %}
+          <div >
+            <p>{{item.title}}</p>
+            <ul>
+              {% for entry in item.subfolderitems %}
+                <li>{{ entry }}</li>
+                {% endfor %}
+            </ul>
+          </div>
+
+          {% endfor %}
+        </div>
+        <div class="list_block">
+          {% for item in site.data.de.tabledata.lastlist %}
+          <div >
+            <p>{{item.title}}</p>
+            <ul>
+
+              {% for entry in item.subfolderitems %}
+                <li>{{ entry }}</li>
+                {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </div>
+
+
+        {% include technology.html %}
+      </div>
+
+      <div class="contacts">
+        <div class="contact_block">
+          <h3>{{ site.data.de.contact.stitle.section_title }}</h3>
+          <div class="blocks_with_contact">
+            {% include contact.html %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

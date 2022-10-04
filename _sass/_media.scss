@@ -902,8 +902,12 @@
     }
 
   }
+  .list_block {
+    flex-wrap: wrap;
+  }
 }
 @media screen and (max-width: 380px) {
+
   .questions_block {
     .question,
     .contacts{

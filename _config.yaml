@@ -40,6 +40,9 @@ menu:
   imprint:
     en: "Imprint"
     de: "Impressum"
+  newpage:
+    en: "Newpage"
+    de: "Newpage"
 # Path to the translated page
 t:
   services:
@@ -51,6 +54,9 @@ t:
   imprint:
     en: "/en/imprint"
     de: "/de/imprint"
+  newpage:
+    en: "/en/newpage"
+    de: "/de/newpage"
 
 
 # Exclude from processing.

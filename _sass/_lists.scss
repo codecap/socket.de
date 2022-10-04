@@ -1,0 +1,21 @@
+.list_block {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 20px;
+  div {
+    border: 1px solid $table_border__color;
+    width: 100%;
+
+    ul {
+      margin-left: 20px;
+      li {
+        line-height: 31px;
+        list-style-type: " - ";
+        list-style-position: inside;
+      }
+    }
+  }
+
+
+  }
