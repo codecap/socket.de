@@ -3,21 +3,21 @@ stitle:
   section_title: 'Services'
 sdata:
   #- title: 'Konzeption und Umsetzung von individueller Cloud-Architektur'
-  - title: 'Individuelle Cloud für deine Projekte'
+  - title: 'Individuelle Cloudlösung'
     image: 'service1.svg'
     content: >-
-      Wir helfen dir für deine Projekte eine __flexible und skalierbare Cloud
+      Wir helfen dir, für deine Projekte eine __flexible und skalierbare Cloud
       auf Basis von OpenStack und Ceph__ aufzubauen.
-      Damit wirst du in deinem Heimnetzwerk die modernen DevOps Techniken und
-      Tools für deine Software anwenden können:
-        * Infrastructre as Code und GitOps
+      Damit kannst du in deinem Heimnetzwerk die modernen DevOps Techniken und
+      Tools für deine Software anwenden:
+        * Infrastructre as Code and GitOps
         * Kubernetes / Openshift / OKD
         * Ansible / Terraform / Chef
         * Rancher
         * Database as a Service
 
-      Du bekommst deine Cloud aus einer Hand fertig gestellt, wir bleieben als
-      zuverlässig Ansprächpartner weiterhin für dich da.
+      Deine Cloud wird aus einer Hand fertiggestellt. Als zuverlässige
+      Ansprächpartner bleiben wir natürlich weiterhin für dich da.
     # 1. Version
     #   Was socket bietet? Eine stabile, skalierbare Cloudarchitektur für
     #   individuelle Anforderungen. Cloudarchitektur, Aufbau, Consulting
@@ -46,10 +46,10 @@ sdata:
   - title: 'Design und Architektur'
     image: 'service2.svg'
     content: >-
-      Deine Cloud muss von der ersten Minute an zuverlässig laufen.
+      Deine Cloud muss von der ersten Minute an stabil funktionieren.
       Sie soll langfristig mit deinem Unternehmen wachsen und sich auch
       mühelos auf neue Anforderungen anpassen. socket legt das Fundament
-      für eine stabile, skalierbare Cloudarchitektur. Diese läuft
+      für eine sichere, skalierbare Cloudarchitektur. Diese läuft
       natürlich auf dem neusten Stand der Technik.
   - title: 'Aufbau und Betrieb'
     image: 'service3.svg'
@@ -68,7 +68,7 @@ sdata:
       beschäftigen? Das verstehen wir – du möchtest dich schließlich voll
       und ganz auf dein Unternehmen konzentrieren können. Währenddessen
       halten wir dir in Sachen Cloud-Architektur den Rücken frei. Unser
-      Team berät dich zu passenden Lösungen. Wir bespxrechen genau die
+      Team berät dich zu passenden Lösungen. Wir besprechen genau die
       Dinge, auf die es ankommt. Nicht mehr und nicht weniger. So
       erarbeiten wir gemeinsam hochwertige und flüssige Konzepte, die das
       können, was sie sollen.
