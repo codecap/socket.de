@@ -1,17 +1,15 @@
 ---
 table:
 - header: "Header1"
-  cell: Cell1
-  cell: Cell1
-- header: "Header2"
   subcontent:
-    Cell2
-    Cell2
+    - Cell
+    - Cell
+    - Cell
 - header: "Header3"
   subcontent:
-    Cell3
-    Cell3
-    Cell3
+    - Cell3
+    - Cell3
+    - Cell3
 
 firstlist:
 - title: List

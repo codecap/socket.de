@@ -11,24 +11,21 @@ lang: de
 
     <div class="questions_block">
       <div class="question">
-        <table id="nptable">
-            {% assign blocks = site.data.de.tdata %}
-            {% for row in blocks %}
-                {% if forloop.first %}
-                  <tr>
-                    {% for pair in row %}
-                      <th>{{ pair[0] }}</th>
-                    {% endfor %}
-                  </tr>
-                {% endif %}
-                {% tablerow pair in row %}
-                  <span id="{{ pair[1] | slugify }}">
-                      {{ pair[1] }}
-                  </span>
-                {% endtablerow %}
+        {% assign table = site.data.de.tdata %}
+        <table>
+          {% for row in table %}
+            {% if forloop.first %}
+            <tr>
+              {% for pair in row %}
+                <th>{{ pair[0] }}</th>
               {% endfor %}
+            </tr>
+            {% endif %}
+            {% tablerow pair in row %}
+              {{ pair[1] }}
+            {% endtablerow %}
+          {% endfor %}
         </table>
-
         <div class="list_block">
           {% for item in site.data.de.tabledata.firstlist %}
           <div >
@@ -79,8 +76,6 @@ lang: de
           </div>
           {% endfor %}
         </div>
-
-
         {% include technology.html %}
       </div>
 
