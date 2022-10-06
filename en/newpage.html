@@ -2,16 +2,17 @@
 layout: default
 title: New Page
 i18n-link: newpage
-lang: de
+lang: en
 page_section_title: "New Page"
 ---
 
 <section class='page_section'>
   <div class="container">
     <h2 class="title_about">{{ page.page_section_title }}</h2>
+
     <div class="questions_block">
       <div class="question">
-        {% assign table = site.data.de.tabledata %}
+        {% assign table = site.data.en.tabledata %}
         <table id="nptable" >
           {% for row in table %}
             {% if forloop.first %}
@@ -27,7 +28,7 @@ page_section_title: "New Page"
           {% endfor %}
         </table>
         <div class="list_block">
-          {% for item in site.data.de.listsdata.firstlist %}
+          {% for item in site.data.en.listsdata.firstlist %}
           <div >
             <p>{{item.title}}</p>
             <ul>
@@ -39,7 +40,7 @@ page_section_title: "New Page"
           {% endfor %}
         </div>
         <div class="list_block">
-          {% for item in site.data.de.listsdata.secondlist %}
+          {% for item in site.data.en.listsdata.secondlist %}
           <div >
             <p>{{item.title}}</p>
             <ul>
@@ -51,7 +52,7 @@ page_section_title: "New Page"
           {% endfor %}
         </div>
         <div class="list_block">
-          {% for item in site.data.de.listsdata.thirdlist %}
+          {% for item in site.data.en.listsdata.thirdlist %}
           <div >
             <p>{{item.title}}</p>
             <ul>
@@ -60,15 +61,13 @@ page_section_title: "New Page"
                 {% endfor %}
             </ul>
           </div>
-
           {% endfor %}
         </div>
         <div class="list_block">
-          {% for item in site.data.de.listsdata.lastlist %}
+          {% for item in site.data.en.listsdata.lastlist %}
           <div >
             <p>{{item.title}}</p>
             <ul>
-
               {% for entry in item.subfolderitems %}
                 <li>{{ entry }}</li>
                 {% endfor %}
@@ -78,7 +77,6 @@ page_section_title: "New Page"
         </div>
         {% include technology.html %}
       </div>
-
       <div class="contacts">
         <div class="contact_block">
           <h3>{{ site.data.de.contact.stitle.section_title }}</h3>

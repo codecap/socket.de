@@ -1,16 +1,4 @@
 ---
-table:
-- header: "Header1"
-  subcontent:
-    - Cell
-    - Cell
-    - Cell
-- header: "Header3"
-  subcontent:
-    - Cell3
-    - Cell3
-    - Cell3
-
 firstlist:
 - title: List
   subfolderitems:
