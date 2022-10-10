@@ -13,16 +13,12 @@ page_section_title: "Skill Profile"
       <div class="question">
         {% assign table = site.data.de.vnatable %}
         <table id="nptable" >
+          <tr>
+            <td rowspan="6"><img src="https://www.xing.com/image/0_e_2_8e340a718_11349211_5/vladislav-nazarenko-foto.1024x1024.jpg"/></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
           {% for row in table %}
-            {% comment %}
-            {% if forloop.first %}
-            <tr>
-              {% for header in row %}
-                <th>{{ header[0] }}</th>
-              {% endfor %}
-            </tr>
-            {% endif %}
-            {% endcomment %}
             {% tablerow cells in row %}
               {{ cells[1] }}
             {% endtablerow %}
