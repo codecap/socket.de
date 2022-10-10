@@ -1,9 +1,9 @@
 ---
 layout: default
-title: New Page
-i18n-link: newpage
+title: vna
+i18n-link: vna
 lang: de
-page_section_title: "New Page"
+page_section_title: "Skill Profile"
 ---
 
 <section class='page_section'>
@@ -11,9 +11,10 @@ page_section_title: "New Page"
     <h2 class="title_about">{{ page.page_section_title }}</h2>
     <div class="questions_block">
       <div class="question">
-        {% assign table = site.data.de.tabledata %}
+        {% assign table = site.data.de.vnatable %}
         <table id="nptable" >
           {% for row in table %}
+            {% comment %}
             {% if forloop.first %}
             <tr>
               {% for header in row %}
@@ -21,13 +22,14 @@ page_section_title: "New Page"
               {% endfor %}
             </tr>
             {% endif %}
+            {% endcomment %}
             {% tablerow cells in row %}
               {{ cells[1] }}
             {% endtablerow %}
           {% endfor %}
         </table>
         <div class="list_block">
-          {% for item in site.data.de.listsdata.firstlist %}
+          {% for item in site.data.de.vnalists.firstlist %}
           <div >
             <p>{{item.title}}</p>
             <ul>
@@ -39,7 +41,7 @@ page_section_title: "New Page"
           {% endfor %}
         </div>
         <div class="list_block">
-          {% for item in site.data.de.listsdata.secondlist %}
+          {% for item in site.data.de.vnalists.secondlist %}
           <div >
             <p>{{item.title}}</p>
             <ul>
@@ -51,7 +53,7 @@ page_section_title: "New Page"
           {% endfor %}
         </div>
         <div class="list_block">
-          {% for item in site.data.de.listsdata.thirdlist %}
+          {% for item in site.data.de.vnalists.thirdlist %}
           <div >
             <p>{{item.title}}</p>
             <ul>
@@ -60,15 +62,13 @@ page_section_title: "New Page"
                 {% endfor %}
             </ul>
           </div>
-
           {% endfor %}
         </div>
         <div class="list_block">
-          {% for item in site.data.de.listsdata.lastlist %}
+          {% for item in site.data.de.vnalists.lastlist %}
           <div >
             <p>{{item.title}}</p>
             <ul>
-
               {% for entry in item.subfolderitems %}
                 <li>{{ entry }}</li>
                 {% endfor %}
@@ -78,7 +78,6 @@ page_section_title: "New Page"
         </div>
         {% include technology.html %}
       </div>
-
       <div class="contacts">
         <div class="contact_block">
           <h3>{{ site.data.de.contact.stitle.section_title }}</h3>

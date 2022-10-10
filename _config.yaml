@@ -40,9 +40,9 @@ menu:
   imprint:
     en: "Imprint"
     de: "Impressum"
-  newpage:
-    en: "Newpage"
-    de: "Newpage"
+  vna:
+    en: "Skill Profile"
+    de: "Skill Profile"
 # Path to the translated page
 t:
   services:
@@ -54,9 +54,9 @@ t:
   imprint:
     en: "/en/imprint"
     de: "/de/imprint"
-  newpage:
-    en: "/en/newpage"
-    de: "/de/newpage"
+  vna:
+    en: "/en/vna"
+    de: "/de/vna"
 
 
 # Exclude from processing.

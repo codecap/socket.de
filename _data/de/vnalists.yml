@@ -1,0 +1,68 @@
+---
+firstlist:
+  - title: Operating Systems
+    subfolderitems:
+      - RedHat
+      - Debian
+      - Ubuntu
+      - SuSE
+  - title: Clustering
+    subfolderitems:
+      - HAProxy
+      - Pacemaker
+      - Keepalive
+      - Squid
+  - title: Virtualization
+    subfolderitems:
+      - KVM
+      - VMWare
+      - Docker
+      - containerd
+secondlist:
+  - title: Cloud
+    subfolderitems:
+      - Kubernetes
+      - OpenStack
+      - OpenShift
+      - Microsoft Azure
+      - Google Cloud
+  - title: Languages
+    subfolderitems:
+      - Python
+      - Ruby
+      - C/C++
+      - Shell/Bash
+      - PowerShell
+  - title: Databases
+    subfolderitems:
+      - MySQL
+      - PostgreSQL
+      - MongoDB
+      - couchbase
+      - memcache
+thirdlist:
+  - title: Config Mgmt
+    subfolderitems:
+      - Ansible
+      - Puppet
+  - title: Web Server
+    subfolderitems:
+      - Nginx
+      - Apache
+  - title: App Server
+    subfolderitems:
+      - Tomcat
+      - JBoss
+lastlist:
+  - title: Zertifizierungen
+    subfolderitems:
+      - Certified OpenStack Administrator
+      - Certified Kubernetes Administrator
+      - Red Hat Certified Specialist in Ansible Automation
+      - Cisco Certified Network Associate Routing and Switching (CCNA)
+      - Cisco Certified Entry Networking Technician (CCENT)
+      - Puppet Certified Professional
+      - SuSE Cerified Linux Administrator
+      - ITIL 2011 Foundation
+      - Red Hat Certified System Administrator
+      - MySQL Certified Professional Database Administrator

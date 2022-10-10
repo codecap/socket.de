@@ -1,20 +1,20 @@
 ---
 layout: default
-title: New Page
-i18n-link: newpage
+title: vna
+i18n-link: vna
 lang: en
-page_section_title: "New Page"
+page_section_title: "Skill Profile"
 ---
 
 <section class='page_section'>
   <div class="container">
     <h2 class="title_about">{{ page.page_section_title }}</h2>
-
     <div class="questions_block">
       <div class="question">
-        {% assign table = site.data.en.tabledata %}
+        {% assign table = site.data.en.vnatable %}
         <table id="nptable" >
           {% for row in table %}
+            {% comment %}
             {% if forloop.first %}
             <tr>
               {% for header in row %}
@@ -22,13 +22,14 @@ page_section_title: "New Page"
               {% endfor %}
             </tr>
             {% endif %}
+            {% endcomment %}
             {% tablerow cells in row %}
               {{ cells[1] }}
             {% endtablerow %}
           {% endfor %}
         </table>
         <div class="list_block">
-          {% for item in site.data.en.listsdata.firstlist %}
+          {% for item in site.data.en.vnalists.firstlist %}
           <div >
             <p>{{item.title}}</p>
             <ul>
@@ -40,7 +41,7 @@ page_section_title: "New Page"
           {% endfor %}
         </div>
         <div class="list_block">
-          {% for item in site.data.en.listsdata.secondlist %}
+          {% for item in site.data.en.vnalists.secondlist %}
           <div >
             <p>{{item.title}}</p>
             <ul>
@@ -52,7 +53,7 @@ page_section_title: "New Page"
           {% endfor %}
         </div>
         <div class="list_block">
-          {% for item in site.data.en.listsdata.thirdlist %}
+          {% for item in site.data.en.vnalists.thirdlist %}
           <div >
             <p>{{item.title}}</p>
             <ul>
@@ -64,7 +65,7 @@ page_section_title: "New Page"
           {% endfor %}
         </div>
         <div class="list_block">
-          {% for item in site.data.en.listsdata.lastlist %}
+          {% for item in site.data.en.vnalists.lastlist %}
           <div >
             <p>{{item.title}}</p>
             <ul>
