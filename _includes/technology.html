@@ -1,30 +1,28 @@
 {% if page.lang == 'de' %}
 <div class="technology_block">
-  <h3>{{ site.data.de.technology.stitle.section_title }}</h3>
-  <div class="technologies">
-    {% for tech in site.data.de.technology.tdata %}
-    <div class="tech">
-        <!--img src="{{ site.baseurl }}/assets/img/techstack/{{ tech.image }}" alt="{{ tech.title }}"-->
-        <img src="{{ site.baseurl }}/assets/img/techstack/{{ tech.image }}" alt="{{ tech.title }}">
-        <br/>
-<!-- <span>{{ tech.title }}</span> -->
-        <a href="{{ site.baseurl }}{{ site.t['services'][page.lang] }}">{{ tech.title }}</a>
-    </div>
-    {% endfor %}
-  </div>
+	<h3>{{ site.data.de.technology.stitle.section_title }}</h3>
+	<div class="technologies">
+		{% for tech in site.data.de.technology.tdata %}
+		<div class="tech">
+			<!--img src="{{ site.baseurl }}/assets/img/techstack/{{ tech.image }}" alt="{{ tech.title }}"-->
+			<img src="{{ site.baseurl }}/assets/img/techstack/{{ tech.image }}" alt="{{ tech.title }}">
+			<br />
+			<a href="{{ site.baseurl }}{{ site.t['services'][page.lang] }}">{{ tech.title }}</a>
+		</div>
+		{% endfor %}
+	</div>
 </div>
 {% else %}
 <div class="technology_block">
-  <h3>{{ site.data.en.technology.stitle.section_title }}</h3>
-  <div class="technologies">
-    {% for tech in site.data.en.technology.tdata %}
-    <div class="tech">
-        <img src="{{ site.baseurl }}/assets/img/techstack/{{ tech.image }}" alt="{{ tech.title }}">
-<!-- <span>{{ tech.title }}</span> -->
-        <a href="{{ site.baseurl }}{{ site.t['services'][page.lang] }}">{{ tech.title }}</a>
-    </div>
-    {% endfor %}
-  </div>
+	<h3>{{ site.data.en.technology.stitle.section_title }}</h3>
+	<div class="technologies">
+		{% for tech in site.data.en.technology.tdata %}
+		<div class="tech">
+			<img src="{{ site.baseurl }}/assets/img/techstack/{{ tech.image }}" alt="{{ tech.title }}">
+			<a href="{{ site.baseurl }}{{ site.t['services'][page.lang] }}">{{ tech.title }}</a>
+		</div>
+		{% endfor %}
+	</div>
 </div>
 
 {% endif %}

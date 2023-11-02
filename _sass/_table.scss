@@ -2,10 +2,24 @@ table {
   width: 100%;
   margin-bottom: 20px;
   border-collapse: collapse;
+	
   th, td {
-    border: 1px solid $table_border__color;
-    padding: 12px 5px;
+    //border: 1px solid $table_border__color;
+    &.tab_img {
+			padding: 0 10px 0 0;
+		}
+		&.col1,
+		&.col2 {
+			padding: 10px 5px;
+		}
+		&.col1 {
+			color: #005f9f;
+			font-weight: bold;
+		}
+		&.col2 {	
+			width: 35%;
+		}
   }
 }
-#nptable tr:nth-child(even){background-color: $block_color__background;}
-#nptable tr:hover {background-color: #ddd;}
+//#nptable tr:nth-child(even){background-color: $block_color__background;}
+// #nptable tr:hover {background-color: #ddd;}

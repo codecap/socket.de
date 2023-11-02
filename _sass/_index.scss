@@ -189,7 +189,6 @@
           color: $main_color__blue;
         }
       }
-
     }
   }
   .technologies {
@@ -197,13 +196,11 @@
       flex-direction: column;
       justify-content: center;
       img {
-        width: 100px;
+        width: auto;
         height: 100px;
         margin: 0 auto;
       }
-      a,span {
-        // margin-left: 20px;
-      }
+      
     }
   }
   .clients {

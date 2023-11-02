@@ -7,85 +7,81 @@ page_section_title: "Skill Profile"
 ---
 
 <section class='page_section'>
-  <div class="container">
-    <h2 class="title_about">{{ page.page_section_title }}</h2>
-    <div class="questions_block">
-      <div class="question">
-        {% assign table = site.data.en.vnatable %}
-        <table id="nptable" >
-          {% for row in table %}
-            {% comment %}
-            {% if forloop.first %}
-            <tr>
-              {% for header in row %}
-                <th>{{ header[0] }}</th>
-              {% endfor %}
-            </tr>
-            {% endif %}
-            {% endcomment %}
-            {% tablerow cells in row %}
-              {{ cells[1] }}
-            {% endtablerow %}
-          {% endfor %}
-        </table>
-        <div class="list_block">
-          {% for item in site.data.en.vnalists.firstlist %}
-          <div >
-            <p>{{item.title}}</p>
-            <ul>
-              {% for entry in item.subfolderitems %}
-                <li>{{ entry }}</li>
-                {% endfor %}
-            </ul>
-          </div>
-          {% endfor %}
-        </div>
-        <div class="list_block">
-          {% for item in site.data.en.vnalists.secondlist %}
-          <div >
-            <p>{{item.title}}</p>
-            <ul>
-              {% for entry in item.subfolderitems %}
-                <li>{{ entry }}</li>
-                {% endfor %}
-            </ul>
-          </div>
-          {% endfor %}
-        </div>
-        <div class="list_block">
-          {% for item in site.data.en.vnalists.thirdlist %}
-          <div >
-            <p>{{item.title}}</p>
-            <ul>
-              {% for entry in item.subfolderitems %}
-                <li>{{ entry }}</li>
-                {% endfor %}
-            </ul>
-          </div>
-          {% endfor %}
-        </div>
-        <div class="list_block">
-          {% for item in site.data.en.vnalists.lastlist %}
-          <div >
-            <p>{{item.title}}</p>
-            <ul>
-              {% for entry in item.subfolderitems %}
-                <li>{{ entry }}</li>
-                {% endfor %}
-            </ul>
-          </div>
-          {% endfor %}
-        </div>
-        {% include technology.html %}
-      </div>
-      <div class="contacts">
-        <div class="contact_block">
-          <h3>{{ site.data.de.contact.stitle.section_title }}</h3>
-          <div class="blocks_with_contact">
-            {% include contact.html %}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="container">
+		<h2 class="title_about">{{ page.page_section_title }}</h2>
+		<div class="questions_block">
+			<div class="question">
+				{% assign table = site.data.en.vnatable %}
+				<table id="nptable">
+					<tr>
+						<td rowspan="6" class="tab_img"><img
+								src="https://www.xing.com/image/0_e_2_8e340a718_11349211_5/vladislav-nazarenko-foto.1024x1024.jpg" />
+						</td>
+					</tr>
+					{% for row in table %}
+					{% tablerow cells in row %}
+					{{ cells[1] }}
+					{% endtablerow %}
+					{% endfor %}
+				</table>
+				<div class="list_block">
+					{% for item in site.data.en.vnalists.firstlist %}
+					<div>
+						<p>{{item.title}}</p>
+						<ul>
+							{% for entry in item.subfolderitems %}
+							<li>{{ entry }}</li>
+							{% endfor %}
+						</ul>
+					</div>
+					{% endfor %}
+				</div>
+				<div class="list_block">
+					{% for item in site.data.en.vnalists.secondlist %}
+					<div>
+						<p>{{item.title}}</p>
+						<ul>
+							{% for entry in item.subfolderitems %}
+							<li>{{ entry }}</li>
+							{% endfor %}
+						</ul>
+					</div>
+					{% endfor %}
+				</div>
+				<div class="list_block">
+					{% for item in site.data.en.vnalists.thirdlist %}
+					<div>
+						<p>{{item.title}}</p>
+						<ul>
+							{% for entry in item.subfolderitems %}
+							<li>{{ entry }}</li>
+							{% endfor %}
+						</ul>
+					</div>
+					{% endfor %}
+				</div>
+				<div class="list_block">
+					{% for item in site.data.en.vnalists.lastlist %}
+					<div>
+						<p>{{item.title}}</p>
+						<ul>
+							{% for entry in item.subfolderitems %}
+							<li>{{ entry }}</li>
+							{% endfor %}
+						</ul>
+					</div>
+					{% endfor %}
+				</div>
+				{% include technology.html %}
+			</div>
+			<div class="contacts">
+				<div class="contact_block">
+					<h3>{{ site.data.de.contact.stitle.section_title }}</h3>
+					<div class="blocks_with_contact">
+						{% include contact.html %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>

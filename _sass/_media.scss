@@ -78,6 +78,19 @@
       grid-template-columns: repeat(3, 1fr);
     }
   }
+	table {
+    display: block;
+		tr {
+			margin-bottom: 10px;
+			display: flex;
+			> td {padding: 0 0 12px; width: 100%;}
+		}
+		td.col1, td.col2, th {
+			display: block;
+			width: 50%;
+			padding: 12px 5px;
+		}
+  }
   .tabs_block {
     grid-template-columns: 450px repeat(1, 1fr);
     grid-column-gap: 35px;
@@ -216,8 +229,8 @@
       grid-column-gap: 80px;
       .tech {
         img{
-          height: 80px;
-          width: 80px;
+          // height: 80px;
+          // width: 80px;
         }
           a,span {
             @include rem(24);
@@ -462,6 +475,16 @@
     .technology_block .clients {
       grid-template-columns: repeat(3,1fr);
     }
+		.list_block {
+			gap: 10px;
+			
+			&:last-child {
+				width: 100%;
+			}
+		}
+		.list_block div {
+			padding: 20px 20px;
+		}
     .questions_block {
       .contact_block {
         .blocks_with_contact {
@@ -643,13 +666,18 @@
       }
     }
   }
+	.list_block {
+			gap: 10px;
+			
+			flex-wrap: wrap;
+		}
   .tabs_block {
     width: 100%;
     .tabs,
     .tabs-content {
       width: 100%;
     }
-    .tabs,{
+    .tabs{
 
       li {
         a {
@@ -829,7 +857,9 @@
   }
   .questions_block {
     flex-direction: column;
-
+		.question {
+			margin-bottom: 70px;
+		}
     .question,
     .contacts{
       margin-right: 0;
@@ -1009,6 +1039,9 @@
       padding: 0;
     }
   }
+	td.col1, td.col2, th {
+			width: 70% !important;
+		}
 
   .tabs_block {
     .tabs-panel {
