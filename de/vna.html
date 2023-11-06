@@ -64,9 +64,12 @@ page_section_title: "Skill Profile"
 					{% for item in site.data.de.vnalists.lastlist %}
 					<div>
 						<p>{{item.title}}</p>
-						<ul>
+						<ul class="last_items">
 							{% for entry in item.subfolderitems %}
-							<li>{{ entry }}</li>
+							<li>
+								<img src="{{ site.baseurl }}/assets/img/certificates/{{ entry.image }}" alt="{{ entry.title }}">
+								{{ entry.title }}
+							</li>
 							{% endfor %}
 						</ul>
 					</div>

@@ -27,7 +27,6 @@
 
     h3 {
       @include rem(40);
-      //line-height: 54px;
       margin-bottom: 50px;
     }
   }
@@ -158,6 +157,23 @@
       }
   }
 }
+table td.tab_img, table th.tab_img {
+	padding: 0;
+}
+.list_block {
+			gap: 10px;
+			
+			flex-wrap: wrap;
+
+			.last_items {
+				li {
+				flex: 1 0 40% !important;
+				img {
+					width: 80%;
+				}
+			}
+		}
+	}
 }
 /* On screens that are 768px or less */
 @media screen and (max-width: 768px) {
@@ -405,6 +421,20 @@
   }
 
   }
+	.list_block {
+			gap: 10px;
+			
+			flex-wrap: wrap;
+
+			.last_items {
+				li {
+				flex: 1 0 40% !important;
+				img {
+					width: 80%;
+				}
+			}
+		}
+	}
   .questions_block {
     flex-direction: column;
     margin-top: 130px;
@@ -670,7 +700,17 @@
 			gap: 10px;
 			
 			flex-wrap: wrap;
+
+			.last_items {
+				flex-wrap: wrap;
+				li {
+				flex: 1 0 50% !important;
+				img {
+					width: 80%;
+				}
+			}
 		}
+	}
   .tabs_block {
     width: 100%;
     .tabs,

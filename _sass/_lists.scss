@@ -14,7 +14,7 @@
 
 		p {
 			margin-bottom: 10px;
-			color: #005f9f;		
+			color: #005f9f;
 		}
 
     ul {
@@ -25,6 +25,27 @@
         list-style-position: inside;
       }
     }
+		.last_items {
+			display: flex;
+			flex-wrap: wrap;
+  		gap: 20px;
+			li {
+				flex: 0 0 30%;
+				display: block;
+				text-align: center;
+				align-content: center;
+				img {
+					margin: 0 auto;
+					width: 80%;
+				}
+				&:last-child {
+					img {
+					//	width: 40%;
+					}
+				}
+			}
+			
+		}
   }
 
 

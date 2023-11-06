@@ -56,13 +56,23 @@ thirdlist:
 lastlist:
   - title: Zertifizierungen
     subfolderitems:
-      - Certified OpenStack Administrator
-      - Certified Kubernetes Administrator
-      - Red Hat Certified Specialist in Ansible Automation
-      - Cisco Certified Network Associate Routing and Switching (CCNA)
-      - Cisco Certified Entry Networking Technician (CCENT)
-      - Puppet Certified Professional
-      - SuSE Cerified Linux Administrator
-      - ITIL 2011 Foundation
-      - Red Hat Certified System Administrator
-      - MySQL Certified Professional Database Administrator
+      - title: Certified OpenStack Administrator
+        image: "openstack.png"
+      - title: Certified Kubernetes Administrator
+        image: "cka_from_kubernets.png"
+      - title: Red Hat Certified Specialist in Ansible Automation
+        image: "redhat.png"
+      - title: Cisco Certified Network Associate Routing and Switching (CCNA)
+        image: "ccna.png"
+      - title: Puppet Certified Professional
+        image: "puppet-certified.png"
+      - title: Cisco Certified Entry Networking Technician (CCENT)
+        image: "ccn.png"
+      - title: SuSE Cerified Linux Administrator
+        image: "SUSE_Cert-Admin_Linux.png"
+      - title: ITIL 2011 Foundation
+        image: "itil-Certifications.png"
+      - title: Red Hat Certified System Administrator
+        image: "rhcsa.png"
+      - title: MySQL Certified Professional Database Administrator
+        image: "mysql_oracle_certification.png"
