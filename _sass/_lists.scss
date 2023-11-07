@@ -25,20 +25,15 @@
 		.last_items {
 			display: flex;
 			flex-wrap: wrap;
-  		gap: 20px;
+  		gap: 30px;
 			li {
-				flex: 0 0 30%;
+				flex: 1 0 15%;
 				display: block;
 				text-align: center;
 				align-content: center;
 				img {
 					margin: 0 auto;
-					width: 80%;
-				}
-				&:last-child {
-					img {
-					//	width: 40%;
-					}
+					// width: 80%;
 				}
 			}
 			
