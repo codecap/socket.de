@@ -8,6 +8,7 @@
     }
   }
 }
+/* On screens that are 1200px or less */
 @media screen and (max-width: 1200px) {
   .container {
     padding: 0 20px;
@@ -59,7 +60,6 @@
       align-self: center;
     }
   }
-
   .blocks {
     .block {
       p {
@@ -78,16 +78,13 @@
     }
   }
 	table {
-    display: block;
-		tr {
+    tr {
 			margin-bottom: 10px;
-			display: flex;
-			> td {padding: 0 0 12px; width: 100%;}
+			> td {padding: 0 0 12px; width: 100%; }
 		}
 		td.col1, td.col2, th {
-			display: block;
-			width: 50%;
-			padding: 12px 5px;
+			width: auto;
+			padding: 0 0 0 15px;
 		}
   }
   .tabs_block {
@@ -163,7 +160,7 @@ table td.tab_img, table th.tab_img {
 .list_block {
 			gap: 10px;
 			
-			flex-wrap: wrap;
+			// flex-wrap: wrap;
 
 			.last_items {
 				li {
@@ -244,10 +241,10 @@ table td.tab_img, table th.tab_img {
       grid-row-gap: 70px;
       grid-column-gap: 80px;
       .tech {
-        img{
-          // height: 80px;
-          // width: 80px;
-        }
+        // img{
+        //   // height: 80px;
+        //   // width: 80px;
+        // }
           a,span {
             @include rem(24);
             font-weight: 400;
@@ -423,12 +420,9 @@ table td.tab_img, table th.tab_img {
   }
 	.list_block {
 			gap: 10px;
-			
-			flex-wrap: wrap;
-
 			.last_items {
 				li {
-				flex: 1 0 40% !important;
+				flex: 1 0 20% !important;
 				img {
 					width: 80%;
 				}
@@ -507,6 +501,16 @@ table td.tab_img, table th.tab_img {
     }
 		.list_block {
 			gap: 10px;
+
+			.last_items {
+				flex-wrap: wrap;
+				li {
+					flex: 1 0 20% !important;
+					img {
+						width: 100%;
+					}
+				}
+			}
 			
 			&:last-child {
 				width: 100%;
@@ -685,7 +689,6 @@ table td.tab_img, table th.tab_img {
       }
     }
   }
-
   .blocks{
     .block {
       padding: 0;
@@ -707,11 +710,8 @@ table td.tab_img, table th.tab_img {
 			.last_items {
 				flex-wrap: wrap;
 				li {
-				flex: 1 0 50% !important;
-				img {
-					width: 80%;
+					flex: 1 0 40% !important;
 				}
-			}
 		}
 	}
   .tabs_block {
@@ -930,6 +930,25 @@ table td.tab_img, table th.tab_img {
       }
     }
   }
+	/* VNA */
+	table {
+		tr {
+			display: flex;
+			> td {padding: 0 0 12px; width: 100%;}
+		}
+		th, td{
+			&.col1,
+			&.col2 {
+				padding: 12px 5px !important;
+			}
+			&.col1 {
+				width: 60% !important;
+			}
+			&.col2 {
+				width: 100% !important;
+			}
+		}
+  }
   footer {
     .footer {
       flex-direction: column;
@@ -946,6 +965,7 @@ table td.tab_img, table th.tab_img {
     }
   }
 }
+/* On screens that are 415px or less */
 @media screen and (max-width: 415px) {
   .technology_block {
     h3 {
@@ -976,6 +996,7 @@ table td.tab_img, table th.tab_img {
     flex-wrap: wrap;
   }
 }
+/* On screens that are 380px or less */
 @media screen and (max-width: 380px) {
 
   .questions_block {
