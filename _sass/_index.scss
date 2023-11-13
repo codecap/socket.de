@@ -177,7 +177,7 @@
       align-items: center;
       a,
       span{
-          @include rem(28);
+          @include rem(24);
           line-height: 43px;
           font-weight: 400;
           color: $main_color__text;

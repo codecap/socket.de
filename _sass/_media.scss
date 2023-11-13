@@ -164,9 +164,9 @@ table td.tab_img, table th.tab_img {
 
 			.last_items {
 				li {
-				flex: 1 0 40% !important;
+				flex: 1 0 20% !important;
 				img {
-					width: 80%;
+					width: 100%;
 				}
 			}
 		}
@@ -423,9 +423,6 @@ table td.tab_img, table th.tab_img {
 			.last_items {
 				li {
 				flex: 1 0 20% !important;
-				img {
-					width: 80%;
-				}
 			}
 		}
 	}

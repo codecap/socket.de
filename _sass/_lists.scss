@@ -1,3 +1,4 @@
+@import '_mixins.scss';
 .list_block {
   display: flex;
   justify-content: space-between;
@@ -13,6 +14,7 @@
 		p {
 			margin-bottom: 20px;
 			color: $main_color__blue;
+			@include rem(24);
 		}
 
     ul {

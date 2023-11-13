@@ -16,7 +16,6 @@ body{
   display: -ms-flex;
   display: flex;
   flex-direction: column;
-
   min-width: 320px;
   font-family: 'Montserrat', sans-serif;
 }
@@ -31,10 +30,6 @@ ul,ol{
 a {
   text-decoration: none;
 
-}
-.wrapper,
-footer{
-  // padding: 0 15px;
 }
 header,
 footer{

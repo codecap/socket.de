@@ -2,9 +2,7 @@ table {
   width: 100%;
   margin-bottom: 20px;
   border-collapse: collapse;
-	
   th, td {
-    // border: 1px solid $table_border__color;
     &.tab_img {
 			width: 30%;
 		}
@@ -16,9 +14,5 @@ table {
 			color: $main_color__blue;
 			font-weight: bold;
 		}
-		// &.col2 {	
-		// 	width: 35%;
-		// 	text-align: right;
-		// }
   }
 }
