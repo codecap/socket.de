@@ -278,11 +278,9 @@ table td.tab_img, table th.tab_img {
   .tabs li {
     width: 100%;
   }
-
   .tabs li:not(:last-child) {
     margin-right: 0;
   }
-
   .tabs li a {
     border-radius: 0;
     opacity: 1;
@@ -291,7 +289,6 @@ table td.tab_img, table th.tab_img {
     @include rem(14);
     padding: 10px 0;
   }
-
   .tabs li.active a::before {
     content: " ";
     padding-right: 2px;
@@ -338,15 +335,12 @@ table td.tab_img, table th.tab_img {
         @include rem(20);
         line-height: 29px;
       }
-
       a {
         &.contact_email {
           width: 100%;
         }
       }
-
     }
-
   }
   section {
     .service_block {
@@ -384,7 +378,6 @@ table td.tab_img, table th.tab_img {
       }
     }
   }
-
   .testimonials_block {
     grid-template-columns: repeat(2,1fr);
     .testimonial_block {
