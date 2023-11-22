@@ -1,65 +1,78 @@
 ---
 firstlist:
-- title: List
-  subfolderitems:
-    - item1
-    - item2
-    - item3
-    - item4
-- title: List
-  subfolderitems:
-    - item1
-    - item2
-    - item3
-    - item4
-- title: List
-  subfolderitems:
-    - item1
-    - item2
-    - item3
-    - item4
+  - title: Operating Systems
+    subfolderitems:
+      - RedHat
+      - Debian
+      - Ubuntu
+      - SuSE
+  - title: Clustering
+    subfolderitems:
+      - HAProxy
+      - Pacemaker
+      - Keepalive
+      - Squid
+  - title: Virtualization
+    subfolderitems:
+      - KVM
+      - VMWare
+      - Docker
+      - containerd
 secondlist:
-- title: List
-  subfolderitems:
-    - item1
-    - item2
-    - item3
-    - item4
-- title: List
-  subfolderitems:
-    - item1
-    - item2
-    - item3
-    - item4
-- title: List
-  subfolderitems:
-    - item1
-    - item2
-    - item3
-    - item4
+  - title: Cloud
+    subfolderitems:
+      - Kubernetes
+      - OpenStack
+      - OpenShift
+      - Microsoft Azure
+      - Google Cloud
+  - title: Languages
+    subfolderitems:
+      - Python
+      - Ruby
+      - C/C++
+      - Shell/Bash
+      - PowerShell
+  - title: Databases
+    subfolderitems:
+      - MySQL
+      - PostgreSQL
+      - MongoDB
+      - couchbase
+      - memcache
 thirdlist:
-- title: List
-  subfolderitems:
-    - item1
-    - item2
-    - item3
-    - item4
-- title: List
-  subfolderitems:
-    - item1
-    - item2
-    - item3
-    - item4
-- title: List
-  subfolderitems:
-    - item1
-    - item2
-    - item3
-    - item4
+  - title: Config Mgmt
+    subfolderitems:
+      - Ansible
+      - Puppet
+  - title: Web Server
+    subfolderitems:
+      - Nginx
+      - Apache
+  - title: App Server
+    subfolderitems:
+      - Tomcat
+      - JBoss
 lastlist:
-- title: List
-  subfolderitems:
-    - item1
-    - item2
-    - item3
-    - item4
+  - title: Certifications
+    subfolderitems:
+      - title: Certified OpenStack Administrator
+        image: "openstack.png"
+      - title: Certified Kubernetes Administrator
+        image: "cka_from_kubernets.png"
+      - title: Red Hat Certified Specialist in Ansible Automation
+        image: "redhat.png"
+      - title: Cisco Certified Network Associate Routing and Switching (CCNA)
+        image: "ccna.png"
+      - title: Puppet Certified Professional
+        image: "puppet-certified.png"
+      - title: Cisco Certified Entry Networking Technician (CCENT)
+        image: "ccn.png"
+      - title: SuSE Cerified Linux Administrator
+        image: "SUSE_Cert-Admin_Linux.png"
+      - title: ITIL 2011 Foundation
+        image: "itil-Certifications.png"
+      - title: Red Hat Certified System Administrator
+        image: "rhcsa.png"
+      - title: MySQL Certified Professional Database Administrator
+        image: "mysql_oracle_certification.png"

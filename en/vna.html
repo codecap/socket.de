@@ -9,7 +9,7 @@ page_section_title: "Skill Profile"
 <section class='page_section'>
 	<div class="container">
 		<h2 class="title_about">{{ page.page_section_title }}</h2>
-		<div class="questions_block">
+		<div class="questions_block vna_block">
 			<div class="question">
 				{% assign table = site.data.en.vnatable %}
 				<table id="nptable">
@@ -64,9 +64,11 @@ page_section_title: "Skill Profile"
 					{% for item in site.data.en.vnalists.lastlist %}
 					<div>
 						<p>{{item.title}}</p>
-						<ul>
+						<ul class="last_items">
 							{% for entry in item.subfolderitems %}
-							<li>{{ entry }}</li>
+							<li>
+								<img src="{{ site.baseurl }}/assets/img/certificates/{{ entry.image }}" alt="{{ entry.title }}">
+							</li>
 							{% endfor %}
 						</ul>
 					</div>
@@ -76,7 +78,7 @@ page_section_title: "Skill Profile"
 			</div>
 			<div class="contacts">
 				<div class="contact_block">
-					<h3>{{ site.data.de.contact.stitle.section_title }}</h3>
+					<h3>{{ site.data.en.contact.stitle.section_title }}</h3>
 					<div class="blocks_with_contact">
 						{% include contact.html %}
 					</div>

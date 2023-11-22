@@ -1,12 +1,12 @@
 ---
 stitle:
-  section_title: 'Kontact'
+  section_title: "Contact"
 cdata:
-  - title: 'Sprich uns an'
+  - title: "Contact us"
     phone: 06196 204 55 80
     email: ping📯socket.de
 adata:
-  - title: 'Anschrift'
+  - title: "Address"
     url: >-
       'https://www.google.de/maps/place/Mergenthalerallee+73-75,+65760+Eschborn'
     address:
