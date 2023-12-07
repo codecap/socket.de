@@ -63,7 +63,7 @@ lastlist:
       - title: Certified Kubernetes Administrator
         image: "cka_from_kubernets.png"
       - title: Red Hat Certified Specialist in Ansible Automation
-        image: "redhat.png"
+        image: "ansible-automation.png"
       - title: Cisco Certified Network Associate Routing and Switching (CCNA)
         image: "ccna.png"
       - title: Puppet Certified Professional
