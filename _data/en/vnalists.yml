@@ -56,6 +56,8 @@ thirdlist:
 lastlist:
   - title: Certifications
     subfolderitems:
+      - title: Red Hat Certified Specialist in Ceph Cloud Storage
+        image: "ceph-cloud-storage.png"
       - title: Certified OpenStack Administrator
         image: "openstack.png"
       - title: Certified Kubernetes Administrator
@@ -66,8 +68,6 @@ lastlist:
         image: "ccna.png"
       - title: Puppet Certified Professional
         image: "puppet-certified.png"
-      - title: Cisco Certified Entry Networking Technician (CCENT)
-        image: "ccn.png"
       - title: SuSE Cerified Linux Administrator
         image: "SUSE_Cert-Admin_Linux.png"
       - title: ITIL 2011 Foundation
