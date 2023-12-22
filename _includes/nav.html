@@ -1,25 +1,32 @@
 <a class="toggleMainNav" href="javascript:" title="show navigation">
-    <div id="hamburger">
-        <em class="line"></em>
-        <em class="line"></em>
-        <em class="line"></em>
-    </div>
+	<div id="hamburger">
+		<em class="line"></em>
+		<em class="line"></em>
+		<em class="line"></em>
+	</div>
 </a>
 <nav class="{{ include.navclass }}">
-  <ul class="menu mainNavList">
-    <li><a href="{{ site.baseurl }}{{ site.t['services'][page.lang] }}" class="{% if page.url contains '/services.html' %} current {%  endif %}">{{ site.menu['services'][page.lang] }}</a></li>
-    <!-- <li><a href="{{ site.t['clients'][page.lang] }}" class="{% if page.url contains '/clients.html'%}current {%endif %}">Kunden</a></li> -->
-    <li><a href="{{ site.baseurl }}{{ site.t['about'][page.lang] }}" class="{% if page.url contains '/about.html' %}current {%endif %}">{{ site.menu['about'][page.lang] }}</a></li>
-    {% if include.navclass == "nav-footer" -%}
-    <li><a href="{{ site.baseurl }}{{ site.t['imprint'][page.lang] }}" class="{% if page.url contains '/imprint' %}current {%endif %}">{{ site.menu['imprint'][page.lang] }}</a></li>
-    {%- endif -%}
-  </ul>
+	<ul class="menu mainNavList">
+		<li><a href="{{ site.baseurl }}{{ site.t['services'][page.lang] }}"
+				class="{% if page.url contains '/services.html' %} current {%  endif %}">{{ site.menu['services'][page.lang]
+				}}</a></li>
+		<!-- <li><a href="{{ site.t['clients'][page.lang] }}" class="{% if page.url contains '/clients.html'%}current {%endif %}">Kunden</a></li> -->
+		<li><a href="{{ site.baseurl }}{{ site.t['about'][page.lang] }}"
+				class="{% if page.url contains '/about.html' %}current {%endif %}">{{ site.menu['about'][page.lang] }}</a></li>
+		<li><a href="{{ site.baseurl }}{{ site.t['vna'][page.lang] }}"
+				class="{% if page.url contains '/vna.html' %}current {%endif %}">{{ site.menu['vna'][page.lang] }}</a></li>
+		{% if include.navclass == "nav-footer" -%}
+		<li><a href="{{ site.baseurl }}{{ site.t['imprint'][page.lang] }}"
+				class="{% if page.url contains '/imprint' %}current {%endif %}">{{ site.menu['imprint'][page.lang] }}</a></li>
+		{%- endif -%}
+	</ul>
 </nav>
 <!-- <div class="lang">
-  <ul>
-    {% assign postsTrans=site.pages | where:"i18n-link", page.i18n-link | sort: 'lang' %}
-    {% for postTrans in postsTrans %}
-      <li><a class="{% if postTrans.lang==page.lang %}current {%endif %}{{ postTrans.lang }}" href="{{ postTrans.url }}">{{ postTrans.lang }}</a></li>
-    {% endfor %}
-  </ul>
+	<ul>
+		{% assign postsTrans=site.pages | where:"i18n-link", page.i18n-link | sort: 'lang' %}
+		{% for postTrans in postsTrans %}
+		<li><a class="{% if postTrans.lang==page.lang %}current {%endif %}{{ postTrans.lang }}"
+				href="{{ postTrans.url }}">{{ postTrans.lang }}</a></li>
+		{% endfor %}
+	</ul>
 </div> -->
