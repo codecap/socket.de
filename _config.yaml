@@ -29,6 +29,9 @@ github_username: codecap
 permalink:
 #theme: socket
 
+plugins:
+  - jekyll-redirect-from
+
 # Value to use in menu per language
 menu:
   services:
@@ -47,16 +50,16 @@ menu:
 t:
   services:
     en: "/en/services"
-    de: "/de/services"
+    de: "/services"
   about:
     en: "/en/about"
-    de: "/de/about"
+    de: "/about"
   imprint:
     en: "/en/imprint"
-    de: "/de/imprint"
+    de: "/imprint"
   vna:
     en: "/en/vna"
-    de: "/de/vna"
+    de: "/vna"
 
 # Exclude from processing.
 # The following items will not be processed, by default.

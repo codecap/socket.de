@@ -12,7 +12,6 @@ jQuery(document).ready(function ($) {
 
   // get current path
   let path = window.location.pathname;
-  // get first path (where langauge is usually set)
   let pathFirstString = path.split("/")[1];
   // check if first path matches one of our supported languages
   // if it does, update path variable to remove the first path

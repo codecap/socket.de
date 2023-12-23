@@ -3,22 +3,23 @@ layout: default
 title: Imprint
 i18n-link: imprint
 lang: de
+permalink: /imprint
 ---
 <section class='page_section'>
-  <div class="container">
-    {% assign iblock = site.data.de.imprint.first               %}
-    {% assign isize  = site.data.de.imprint.size                %}
-    {% assign iitems = site.data.de.imprint | slice: 1, 10      %}
-    <h2 class="title_imprint">{{ iblock.title }}</h2>
-    <div class="imprint_block">
-      <aside class="imprint_blocks">
-        {% for block in iitems  %}
-          <br/>
-          <h3 class="title_imprint">{{ block.title }}</h3>
-          <br/>
-          <div class="block">{{ block.content | newline_to_br | markdownify }}</div>
-        {% endfor %}
-      </aside>
-    </div>
-  </div>
+	<div class="container">
+		{% assign iblock = site.data.de.imprint.first %}
+		{% assign isize = site.data.de.imprint.size %}
+		{% assign iitems = site.data.de.imprint | slice: 1, 10 %}
+		<h2 class="title_imprint">{{ iblock.title }}</h2>
+		<div class="imprint_block">
+			<aside class="imprint_blocks">
+				{% for block in iitems %}
+				<br />
+				<h3 class="title_imprint">{{ block.title }}</h3>
+				<br />
+				<div class="block">{{ block.content | newline_to_br | markdownify }}</div>
+				{% endfor %}
+			</aside>
+		</div>
+	</div>
 </section>
