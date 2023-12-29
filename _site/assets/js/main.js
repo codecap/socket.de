@@ -6,32 +6,32 @@ jQuery(document).ready(function ($) {
     $("html").toggleClass("fixed");
   }); // #Responsive menu with hamburger.
 
-  var userLang = navigator.language || navigator.userLanguage;
-  var supportedLanguages = ["de", "en"]; // Replace with your supported languages
-  var defaultLanguage = "de"; // Replace with your default language
+  // var userLang = navigator.language || navigator.userLanguage;
+  // var supportedLanguages = ["de", "en"]; // Replace with your supported languages
+  // var defaultLanguage = "en"; // Replace with your default language
 
-  // get current path
-  let path = window.location.pathname;
-  let pathFirstString = path.split("/")[1];
-  // check if first path matches one of our supported languages
-  // if it does, update path variable to remove the first path
-  if (supportedLanguages.indexOf(pathFirstString) !== -1) {
-    path = "/" + path.split("/").slice(2).join("/");
-  }
-  // Check if the browser language is supported, otherwise redirect to the default language
-  if (supportedLanguages.indexOf(userLang) === -1) {
-    if (path != window.location.pathname) {
-      window.location.href = window.location.origin + path;
-    }
-  } else if (pathFirstString != userLang) {
-    // if userLang does not equal the defaultLanguage, go to userLang URL
-    if (userLang != defaultLanguage) {
-      window.location.href = window.location.origin + "/" + userLang + path;
-      // else if user is not currently on default page, go to default page
-    } else if (path != window.location.pathname) {
-      window.location.href = window.location.origin + path;
-    }
-  }
+  // // get current path
+  // let path = window.location.pathname;
+  // let pathFirstString = path.split("/")[1];
+  // // check if first path matches one of our supported languages
+  // // if it does, update path variable to remove the first path
+  // if (supportedLanguages.indexOf(pathFirstString) !== -1) {
+  //   path = "/" + path.split("/").slice(2).join("/");
+  // }
+  // // Check if the browser language is supported, otherwise redirect to the default language
+  // if (supportedLanguages.indexOf(userLang) === -1) {
+  //   if (path != window.location.pathname) {
+  //     window.location.href = window.location.origin + path;
+  //   }
+  // } else if (pathFirstString != userLang) {
+  //   // if userLang does not equal the defaultLanguage, go to userLang URL
+  //   if (userLang != defaultLanguage) {
+  //     window.location.href = window.location.origin + "/" + userLang + path;
+  //     // else if user is not currently on default page, go to default page
+  //   } else if (path != window.location.pathname) {
+  //     window.location.href = window.location.origin + path;
+  //   }
+  // }
 });
 
 // Google map.
