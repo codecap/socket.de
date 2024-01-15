@@ -1,0 +1,21 @@
+---
+lang: en
+---
+{% assign data = site.data[page.lang].errors %}
+<section class='page_section'>
+	<div class="container">
+		<div class="fof">
+			<div class="logo404">
+				<a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/assets/img/icons/logo_Socket.svg" alt="logo"></a>
+			</div>
+			{% for item in data %}
+			<h1>{{ item.title }}</h1>
+			<div class="errors-info">
+				<h4>{{ item.info }}</h4>
+				<p>{{ item.suggestion }}</p>
+			</div>
+			{% endfor %}
+			{% include nav.html navclass='nav-404' %}
+		</div>
+	</div>
+</section>

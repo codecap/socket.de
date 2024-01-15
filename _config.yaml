@@ -22,7 +22,8 @@ title: socket
 email: ping📯ssocket.de
 description: >- # this means to ignore newlines until "baseurl:"
   socket.de | Clouds | Systems | Networks
-baseurl:
+baseurl: ""
+default_language: "en"
 url: https://socket.de
 twitter_username:
 github_username: codecap
@@ -49,16 +50,16 @@ menu:
 # Path to the translated page
 t:
   services:
-    en: "/en/services"
+    en: "/service"
     de: "/services"
   about:
-    en: "/en/about"
-    de: "/about"
+    en: "/about"
+    de: "/wir"
   imprint:
-    en: "/en/imprint"
-    de: "/imprint"
+    en: "/imprint"
+    de: "/impressum"
   vna:
-    en: "/en/vna"
+    en: "/profile"
     de: "/vna"
 
 # Exclude from processing.

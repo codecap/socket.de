@@ -7,6 +7,15 @@
   #{$property}: math.div($pxValue, $standard-size) + rem;
 }
 
+/**
+ * breakpoint
+ */
+@mixin breakpoint($brp) {
+    @media(max-width: $brp) {
+        @content;
+    }
+}
+
 @mixin button($color: $red, $text_color: $white) {
   display: inline-block;
   outline: none;

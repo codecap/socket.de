@@ -4,35 +4,102 @@ jQuery(document).ready(function ($) {
     $(this).toggleClass("hamburger__open");
     $(".nav-top").toggleClass("open");
     $("html").toggleClass("fixed");
-  }); // #Responsive menu with hamburger.
+  });
 
-  // var userLang = navigator.language || navigator.userLanguage;
-  // var supportedLanguages = ["de", "en"]; // Replace with your supported languages
-  // var defaultLanguage = "en"; // Replace with your default language
-
-  // // get current path
-  // let path = window.location.pathname;
-  // let pathFirstString = path.split("/")[1];
-  // // check if first path matches one of our supported languages
-  // // if it does, update path variable to remove the first path
-  // if (supportedLanguages.indexOf(pathFirstString) !== -1) {
-  //   path = "/" + path.split("/").slice(2).join("/");
-  // }
-  // // Check if the browser language is supported, otherwise redirect to the default language
-  // if (supportedLanguages.indexOf(userLang) === -1) {
-  //   if (path != window.location.pathname) {
-  //     window.location.href = window.location.origin + path;
-  //   }
-  // } else if (pathFirstString != userLang) {
-  //   // if userLang does not equal the defaultLanguage, go to userLang URL
-  //   if (userLang != defaultLanguage) {
-  //     window.location.href = window.location.origin + "/" + userLang + path;
-  //     // else if user is not currently on default page, go to default page
-  //   } else if (path != window.location.pathname) {
-  //     window.location.href = window.location.origin + path;
-  //   }
-  // }
+  // #Responsive menu with hamburger.
 });
+
+// ====== Loading data depends on browser loale ====== //
+function getBrowserLanguage() {
+  return navigator.language || navigator.userLanguage;
+}
+
+function loadLanguageContent() {
+  var browserLanguage = getBrowserLanguage().toLowerCase();
+  var contentPath = browserLanguage.startsWith("de")
+    ? "/de/index.html"
+    : "/en/index.html";
+
+  // Відображаємо прелоадер
+  var loader = document.getElementById("loader");
+  loader.style.display = "flex";
+
+  // Використовуємо Ajax-запит для отримання вмісту
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    loader.style.display = "none";
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // Замінюємо вміст на сторінці отриманим від сервера
+        document.getElementById("content").innerHTML = xhr.responseText;
+      } else {
+        loadEnContent();
+      }
+    }
+  };
+  xhr.open("GET", contentPath, true);
+  xhr.send();
+}
+// Функція для завантаження контенту 404 (en/404.html) у випадку не підтримуваної мови браузером
+function loadEnContent() {
+  var xhrDefault = new XMLHttpRequest();
+  xhrDefault.onreadystatechange = function () {
+    if (xhrDefault.readyState === XMLHttpRequest.DONE) {
+      // Вставити стандартний контент 404 на сторінку
+      document.getElementById("content").innerHTML = xhrDefault.responseText;
+    }
+  };
+  // Завантажити стандартний контент 404 (en/404.html)
+  xhrDefault.open("GET", "en/index.html", true);
+  xhrDefault.send();
+}
+
+document.onreadystatechange = function () {
+  if (document.readyState === "complete") {
+    loadLanguageContent();
+  }
+};
+// ====== #Loading data depends on browser loale ====== //
+
+// ====== Loading 404 content depends on browser loale ====== //
+var userLanguage = navigator.language || navigator.userLanguage;
+
+// Функція для завантаження контенту з файлу
+function loadContent(language) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        // Вставити контент на сторінку
+        document.getElementById("content-404").innerHTML = xhr.responseText;
+      } else {
+        // Завантажити стандартний контент 404 (en/404.html), якщо файл для визначеної мови не знайдено
+        loadDefaultContent();
+      }
+    }
+  };
+  // Спробувати завантажити контент для визначеної мови
+  xhr.open("GET", language + "/404.html", true);
+  xhr.send();
+}
+// Функція для завантаження контенту 404 (en/404.html) у випадку не підтримуваної мови браузером
+function loadDefaultContent() {
+  var xhrDefault = new XMLHttpRequest();
+  xhrDefault.onreadystatechange = function () {
+    if (xhrDefault.readyState === 4 && xhrDefault.status === 200) {
+      // Вставити стандартний контент 404 на сторінку
+      document.getElementById("content-404").innerHTML =
+        xhrDefault.responseText;
+    }
+  };
+  // Завантажити стандартний контент 404 (en/404.html)
+  xhrDefault.open("GET", "en/404.html", true);
+  xhrDefault.send();
+}
+
+// Викликати функцію для завантаження контенту відповідно до мови
+loadContent(userLanguage);
+// ====== #Loading 404 content depends on browser loale ====== //
 
 // Google map.
 function initMap() {

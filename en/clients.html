@@ -5,50 +5,52 @@ i18n-link: clients
 lang: en
 lmore: Mehr anzeigen
 ---
+{% include header.html %}
 <section class="page_section">
-  <div class="container">
-    {% assign heading = site.data.en.promoservices.stitle.section_title %}
-    <h2>{{ heading }}</h2>
-    <div class="clients_block">
-      {% comment %}
-      <!-- Liquid: https://shopify.github.io/liquid/tags/template/ -->
-      {% assign blocks = site.data.en.promoclients.sdata %}
-      {% for client in blocks %}
-        <div class="client_block">
-          <img src="{{ site.baseurl }}/assets/img/clients/{{ client.image }}" alt="{{ client.title }}">
-          {{ client.content | markdownify }}
-        </div>
-      {% endfor %}
-      {% endcomment %}
-    </div>
-    <!-- Load More Button -->
-     <div id="loadmore" >{{ page.lmore }} <span><img src="{{ site.baseurl }}/assets/img/icons/arrow.svg">  </span></div>
-  </div>
+	<div class="container">
+		{% assign heading = site.data.en.promoservices.stitle.section_title %}
+		<h2>{{ heading }}</h2>
+		<div class="clients_block">
+			{% comment %}
+			<!-- Liquid: https://shopify.github.io/liquid/tags/template/ -->
+			{% assign blocks = site.data.en.promoclients.sdata %}
+			{% for client in blocks %}
+			<div class="client_block">
+				<img src="{{ site.baseurl }}/assets/img/clients/{{ client.image }}" alt="{{ client.title }}">
+				{{ client.content | markdownify }}
+			</div>
+			{% endfor %}
+			{% endcomment %}
+		</div>
+		<!-- Load More Button -->
+		<div id="loadmore">{{ page.lmore }} <span><img src="{{ site.baseurl }}/assets/img/icons/arrow.svg"> </span></div>
+	</div>
 
 </section>
 <section class="page_section">
-  <div class="container">
-    {% assign heading = site.data.en.testimonials.section_title %}
-    <h3>{{ heading }}</h3>
-    <div class="testimonials_block">
-      {% comment %}
-      {% for item in site.data.en.testimonials %}
-        <div class="testimonial_block">
-          <div class="user">
-            <img src="{{ site.baseurl }}/assets/img/testimonials/{{ item.image }}" alt="">
-            <p>
-              {{ item.name }}
-              <span>{{ item.position }}</span>
-            </p>
-          </div>
-          <h4>{{ item.title }}</h4>
-          {{ item.content | markdownify }}
-        </div>
-      {% endfor %}
-      {% endcomment %}
-      <div class="testimonial_block">
-          <p>Hier kann auch Ihre Referenz stehen</p>
-      </div>
-    </div>
-  </div>
+	<div class="container">
+		{% assign heading = site.data.en.testimonials.section_title %}
+		<h3>{{ heading }}</h3>
+		<div class="testimonials_block">
+			{% comment %}
+			{% for item in site.data.en.testimonials %}
+			<div class="testimonial_block">
+				<div class="user">
+					<img src="{{ site.baseurl }}/assets/img/testimonials/{{ item.image }}" alt="">
+					<p>
+						{{ item.name }}
+						<span>{{ item.position }}</span>
+					</p>
+				</div>
+				<h4>{{ item.title }}</h4>
+				{{ item.content | markdownify }}
+			</div>
+			{% endfor %}
+			{% endcomment %}
+			<div class="testimonial_block">
+				<p>Hier kann auch Ihre Referenz stehen</p>
+			</div>
+		</div>
+	</div>
 </section>
+{% include footer.html %}

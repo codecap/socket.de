@@ -3,8 +3,9 @@ layout: default
 title: Imprint
 i18n-link: imprint
 lang: de
-permalink: /imprint
+permalink: /impressum
 ---
+{% include header.html %}
 <section class='page_section'>
 	<div class="container">
 		{% assign iblock = site.data.de.imprint.first %}
@@ -23,3 +24,4 @@ permalink: /imprint
 		</div>
 	</div>
 </section>
+{% include footer.html %}

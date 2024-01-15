@@ -5,6 +5,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta name="lang" content="de">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -14,28 +15,39 @@
 	</head>
 
 	<body>
-		<div class="wrapper">
-			<header>
-  <div class="container">
-    <div class="header">
-      <div class="logo">
-        
-          <a href="/"><img src="/assets/img/icons/logo_Socket.svg" alt="logo"></a>
-        
-      </div>
-        <a class="toggleMainNav" href="javascript:" title="show navigation">
+		<!-- adaptive menu -->
+		
+<!-- adaptive menu -->
+<a class="toggleMainNav" href="javascript:void(0)" title="show navigation">
 	<div id="hamburger">
 		<em class="line"></em>
 		<em class="line"></em>
 		<em class="line"></em>
 	</div>
 </a>
-<nav class="nav-top">
+<!-- #adaptive menu -->
+
+		<!-- #adaptive menu -->
+		<!-- Прелоадер -->
+		<div id="loader">
+			<p>Loading...</p>
+		</div>
+		<div class="wrapper">
+	<header>
+		<div class="container">
+			<div class="header">
+				<div class="logo">
+					<a href="/"><img src="/assets/img/icons/logo_Socket.svg" alt="logo"></a>
+					<!-- 
+				<a href="/de/"><img src="/assets/img/icons/logo_Socket.svg" alt="logo"></a>
+				 -->
+				</div>
+				<nav class="nav-top">
 	<ul class="menu mainNavList">
 		<li><a href="/services"
 				class="">Services</a></li>
 		<!-- <li><a href="" class="">Kunden</a></li> -->
-		<li><a href="/about"
+		<li><a href="/wir"
 				class="">Wir</a></li>
 		<li><a href="/vna"
 				class="">Profile</a></li>
@@ -49,15 +61,14 @@
 				href="/vna">de</a></li>
 		
 		<li><a class="en"
-				href="/en/vna.html">en</a></li>
+				href="/profile">en</a></li>
 		
 	</ul>
 </div> -->
-    </div>
-  </div>
-</header>
-
-			<section class='page_section'>
+			</div>
+		</div>
+	</header>
+<section class='page_section'>
 	<div class="container">
 		<h2 class="title_about">Skill Profile</h2>
 		<div class="questions_block vna_block">
@@ -381,8 +392,8 @@
 		</div>
 	</div>
 </section>
-		</div>
-		<footer>
+</div>
+<footer>
 	<div class="container">
 		<div class="footer">
 			<div class="logo">
@@ -390,23 +401,16 @@
 				<a href="/"><img src="/assets/img/icons/logo_Socket.svg" alt="logo"></a>
 				
 			</div>
-			<a class="toggleMainNav" href="javascript:" title="show navigation">
-	<div id="hamburger">
-		<em class="line"></em>
-		<em class="line"></em>
-		<em class="line"></em>
-	</div>
-</a>
-<nav class="nav-footer">
+			<nav class="nav-footer">
 	<ul class="menu mainNavList">
 		<li><a href="/services"
 				class="">Services</a></li>
 		<!-- <li><a href="" class="">Kunden</a></li> -->
-		<li><a href="/about"
+		<li><a href="/wir"
 				class="">Wir</a></li>
 		<li><a href="/vna"
 				class="">Profile</a></li>
-		<li><a href="/imprint"
+		<li><a href="/impressum"
 				class="">Impressum</a></li></ul>
 </nav>
 <!-- <div class="lang">
@@ -417,7 +421,7 @@
 				href="/vna">de</a></li>
 		
 		<li><a class="en"
-				href="/en/vna.html">en</a></li>
+				href="/profile">en</a></li>
 		
 	</ul>
 </div> -->
@@ -438,7 +442,7 @@
 		</div>
 		<div class="copyright">
 			<!-- FIXME -->
-			<span>&copy; 2023 Alle Rechte vorbehalten.</span>
+			<span>&copy; 2024 Alle Rechte vorbehalten.</span>
 		</div>
 	</div>
 </footer>

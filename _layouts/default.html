@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang }}">
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta name="lang" content="{{ page.lang }}">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/favicon.ico">
@@ -14,11 +15,14 @@
 	</head>
 
 	<body>
-		<div class="wrapper">
-			{% include header.html %}
-			{{ content }}
+		<!-- adaptive menu -->
+		{% include menu_hamb.html %}
+		<!-- #adaptive menu -->
+		<!-- Прелоадер -->
+		<div id="loader">
+			<p>Loading...</p>
 		</div>
-		{% include footer.html %}
+		{{ content}}
 		<script async defer
 			src="https://maps.googleapis.com/maps/api/js?key={{ site.data.settings.google_maps_conf.key }}&callback=initMap&libraries=&v=weekly">
 			</script>

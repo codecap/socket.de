@@ -535,16 +535,7 @@ table td.tab_img, table th.tab_img {
       line-height: 59px;
     }
   }
-  header {
-     .header {
-       display: block;
-
-       .logo {
-         img {
-           height: 70px;
-         }
-       }
-       /*defining the hamburger*/
+	/*defining the hamburger*/
        #hamburger {
          display:block;
          position:absolute;
@@ -598,6 +589,16 @@ table td.tab_img, table th.tab_img {
          transform: translateY(-8px) rotate(-45deg);
          margin-top: -13px;
        }
+  header {
+     .header {
+       display: block;
+
+       .logo {
+         img {
+           height: 70px;
+         }
+       }
+       
      }
   }
   .nav-top

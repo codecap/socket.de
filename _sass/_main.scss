@@ -58,6 +58,10 @@ p{
   font-weight: 400;
   line-height: 31px;
 }
+#content {
+	display: flex;
+	flex-direction: column;
+}
 .container{
   max-width: 1214px;
   width: 100%;

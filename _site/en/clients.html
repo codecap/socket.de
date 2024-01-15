@@ -5,6 +5,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta name="lang" content="en">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -14,30 +15,41 @@
 	</head>
 
 	<body>
-		<div class="wrapper">
-			<header>
-  <div class="container">
-    <div class="header">
-      <div class="logo">
-        
-        <a href="/en/"><img src="/assets/img/icons/logo_Socket.svg" alt="logo"></a>
-        
-      </div>
-        <a class="toggleMainNav" href="javascript:" title="show navigation">
+		<!-- adaptive menu -->
+		
+<!-- adaptive menu -->
+<a class="toggleMainNav" href="javascript:void(0)" title="show navigation">
 	<div id="hamburger">
 		<em class="line"></em>
 		<em class="line"></em>
 		<em class="line"></em>
 	</div>
 </a>
-<nav class="nav-top">
+<!-- #adaptive menu -->
+
+		<!-- #adaptive menu -->
+		<!-- Прелоадер -->
+		<div id="loader">
+			<p>Loading...</p>
+		</div>
+		<div class="wrapper">
+	<header>
+		<div class="container">
+			<div class="header">
+				<div class="logo">
+					<a href="/"><img src="/assets/img/icons/logo_Socket.svg" alt="logo"></a>
+					<!-- 
+				<a href="/en/"><img src="/assets/img/icons/logo_Socket.svg" alt="logo"></a>
+				 -->
+				</div>
+				<nav class="nav-top">
 	<ul class="menu mainNavList">
-		<li><a href="/en/services"
+		<li><a href="/service"
 				class="">Services</a></li>
 		<!-- <li><a href="" class="current ">Kunden</a></li> -->
-		<li><a href="/en/about"
+		<li><a href="/about"
 				class="">About</a></li>
-		<li><a href="/en/vna"
+		<li><a href="/profile"
 				class="">Profile</a></li>
 		</ul>
 </nav>
@@ -53,37 +65,35 @@
 		
 	</ul>
 </div> -->
-    </div>
-  </div>
-</header>
-
-			<section class="page_section">
-  <div class="container">
-    
-    <h2>Services</h2>
-    <div class="clients_block">
-      
-    </div>
-    <!-- Load More Button -->
-     <div id="loadmore" >Mehr anzeigen <span><img src="/assets/img/icons/arrow.svg">  </span></div>
-  </div>
+			</div>
+		</div>
+	</header>
+<section class="page_section">
+	<div class="container">
+		
+		<h2>Services</h2>
+		<div class="clients_block">
+			
+		</div>
+		<!-- Load More Button -->
+		<div id="loadmore">Mehr anzeigen <span><img src="/assets/img/icons/arrow.svg"> </span></div>
+	</div>
 
 </section>
 <section class="page_section">
-  <div class="container">
-    
-    <h3></h3>
-    <div class="testimonials_block">
-      
-      <div class="testimonial_block">
-          <p>Hier kann auch Ihre Referenz stehen</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+	<div class="container">
+		
+		<h3></h3>
+		<div class="testimonials_block">
+			
+			<div class="testimonial_block">
+				<p>Hier kann auch Ihre Referenz stehen</p>
+			</div>
 		</div>
-		<footer>
+	</div>
+</section>
+</div>
+<footer>
 	<div class="container">
 		<div class="footer">
 			<div class="logo">
@@ -91,23 +101,16 @@
 				<a href="/en/"><img src="/assets/img/icons/logo_Socket.svg" alt="logo"></a>
 				
 			</div>
-			<a class="toggleMainNav" href="javascript:" title="show navigation">
-	<div id="hamburger">
-		<em class="line"></em>
-		<em class="line"></em>
-		<em class="line"></em>
-	</div>
-</a>
-<nav class="nav-footer">
+			<nav class="nav-footer">
 	<ul class="menu mainNavList">
-		<li><a href="/en/services"
+		<li><a href="/service"
 				class="">Services</a></li>
 		<!-- <li><a href="" class="current ">Kunden</a></li> -->
-		<li><a href="/en/about"
+		<li><a href="/about"
 				class="">About</a></li>
-		<li><a href="/en/vna"
+		<li><a href="/profile"
 				class="">Profile</a></li>
-		<li><a href="/en/imprint"
+		<li><a href="/imprint"
 				class="">Imprint</a></li></ul>
 </nav>
 <!-- <div class="lang">
@@ -139,7 +142,7 @@
 		</div>
 		<div class="copyright">
 			<!-- FIXME -->
-			<span>&copy; 2023 Alle Rechte vorbehalten.</span>
+			<span>&copy; 2024 Alle Rechte vorbehalten.</span>
 		</div>
 	</div>
 </footer>

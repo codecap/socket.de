@@ -1,14 +1,16 @@
 ---
 layout: default
-title: vna
+title: Profile
 i18n-link: vna
 lang: en
 page_section_title: "Skill Profile"
+permalink: /profile
 ---
-
+{% include header.html %}
 <section class='page_section'>
 	<div class="container">
 		<h2 class="title_about">{{ page.page_section_title }}</h2>
+
 		<div class="questions_block vna_block">
 			<div class="question">
 				{% assign table = site.data.en.vnatable %}
@@ -87,3 +89,4 @@ page_section_title: "Skill Profile"
 		</div>
 	</div>
 </section>
+{% include footer.html %}
