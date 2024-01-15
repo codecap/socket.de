@@ -30,9 +30,6 @@ github_username: codecap
 permalink:
 #theme: socket
 
-plugins:
-  - jekyll-redirect-from
-
 # Value to use in menu per language
 menu:
   services:
