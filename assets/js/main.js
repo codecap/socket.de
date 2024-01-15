@@ -33,29 +33,11 @@ function loadLanguageContent() {
         // Замінюємо вміст на сторінці отриманим від сервера
         document.getElementById("content").innerHTML = xhr.responseText;
         // ======  tabs on the main page ====//
-        const tabLinks = document.querySelectorAll(".tabs a");
-        const tabPanels = document.querySelectorAll(".tabs-panel");
-        for (let el of tabLinks) {
-          el.addEventListener("click", (e) => {
-            e.preventDefault();
-            document
-              .querySelector(".tabs li.active")
-              .classList.remove("active");
-            document
-              .querySelector(".tabs-panel.active")
-              .classList.remove("active");
-            const parentListItem = el.parentElement;
-            parentListItem.classList.add("active");
-            const index = [...parentListItem.parentElement.children].indexOf(
-              parentListItem
-            );
-            const panel = [...tabPanels].filter(
-              (el) => el.getAttribute("data-index") == index
-            );
-            panel[0].classList.add("active");
-          });
-        }
-        // ======  tabs on the main page ====//
+        tabsOnMain();
+        // ======  #tabs on the main page ====//
+        // ====== GoogleMaps ====//
+        initMap();
+        // ====== #GoogleMaps ====//
       } else {
         loadEnContent();
       }
@@ -84,7 +66,28 @@ document.onreadystatechange = function () {
   }
 };
 // ====== #Loading data depends on browser loale ====== //
-
+// ======  tabs on the main page ====//
+function tabsOnMain() {
+  const tabLinks = document.querySelectorAll(".tabs a");
+  const tabPanels = document.querySelectorAll(".tabs-panel");
+  for (let el of tabLinks) {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.querySelector(".tabs li.active").classList.remove("active");
+      document.querySelector(".tabs-panel.active").classList.remove("active");
+      const parentListItem = el.parentElement;
+      parentListItem.classList.add("active");
+      const index = [...parentListItem.parentElement.children].indexOf(
+        parentListItem
+      );
+      const panel = [...tabPanels].filter(
+        (el) => el.getAttribute("data-index") == index
+      );
+      panel[0].classList.add("active");
+    });
+  }
+}
+// ======  tabs on the main page ====//
 // ====== Loading 404 content depends on browser loale ====== //
 var userLanguage = navigator.language || navigator.userLanguage;
 
