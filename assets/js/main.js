@@ -32,7 +32,7 @@ function getConfigPageData(path) {
   var pages = [
     { url: "/service", de: "/de/services", en: "/en/services" },
     { url: "/about", de: "/de/about", en: "/en/about" },
-    { url: "/vna/", de: "/de/vna", en: "/en/vna" },
+    { url: "/vna", de: "/de/vna", en: "/en/vna" },
   ];
 
   return pages.find(function (page) {
