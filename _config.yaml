@@ -47,17 +47,17 @@ menu:
 # Path to the translated page
 t:
   services:
-    en: "/service"
-    de: "/services"
+    en: "/en/services"
+    de: "/de/services"
   about:
-    en: "/about"
-    de: "/wir"
+    en: "/en/about"
+    de: "/de/about"
   imprint:
-    en: "/imprint"
-    de: "/impressum"
+    en: "/en/imprint"
+    de: "/de/impressum"
   vna:
-    en: "/profile"
-    de: "/vna"
+    en: "/en/vna"
+    de: "/de/vna"
 
 # Exclude from processing.
 # The following items will not be processed, by default.

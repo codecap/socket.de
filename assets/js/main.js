@@ -5,9 +5,40 @@ jQuery(document).ready(function ($) {
     $(".nav-top").toggleClass("open");
     $("html").toggleClass("fixed");
   });
-
-  // #Responsive menu with hamburger.
 });
+//==== #Responsive menu with hamburger.
+// Отримуємо мову браузера
+var browserLanguage = navigator.language || navigator.userLanguage;
+
+// Визначаємо базовий URL для перенаправлення
+//var baseUrl = "https://socket.de";
+var baseUrl = "http://127.0.0.1:4000";
+
+// Отримуємо поточний шлях
+var currentPath = window.location.pathname;
+
+// Шукаємо сторінку в конфігураційному файлі
+var pageData = getConfigPageData(currentPath);
+
+if (pageData) {
+  // Формуємо URL відповідно до мови браузера
+  var redirectUrl =
+    baseUrl + pageData[browserLanguage.startsWith("de") ? "de" : "en"];
+  // Перенаправляємо користувача
+  window.location.href = redirectUrl;
+}
+// Функція для отримання даних про сторінку з конфігурації
+function getConfigPageData(path) {
+  var pages = [
+    { url: "/service", de: "/de/services", en: "/en/services" },
+    { url: "/about", de: "/de/about", en: "/en/about" },
+    { url: "/vna/", de: "/de/vna", en: "/en/vna" },
+  ];
+
+  return pages.find(function (page) {
+    return page.url === path;
+  });
+}
 
 // ====== Loading data depends on browser loale ====== //
 function getBrowserLanguage() {
@@ -123,7 +154,6 @@ function loadDefaultContent() {
   xhrDefault.open("GET", "en/404.html", true);
   xhrDefault.send();
 }
-
 // Викликати функцію для завантаження контенту відповідно до мови
 loadContent(userLanguage);
 // ====== #Loading 404 content depends on browser loale ====== //
