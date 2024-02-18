@@ -11,8 +11,7 @@ jQuery(document).ready(function ($) {
 var browserLanguage = navigator.language || navigator.userLanguage;
 
 // Визначаємо базовий URL для перенаправлення
-//var baseUrl = "https://socket.de";
-var baseUrl = "http://127.0.0.1:4000";
+var baseUrl = "https://socket.de";
 
 // Отримуємо поточний шлях
 var currentPath = window.location.pathname;
@@ -33,6 +32,7 @@ function getConfigPageData(path) {
     { url: "/service", de: "/de/services", en: "/en/services" },
     { url: "/about", de: "/de/about", en: "/en/about" },
     { url: "/vna", de: "/de/vna", en: "/en/vna" },
+    { url: "/imprint", de: "/de/imprint", en: "/" },
   ];
 
   return pages.find(function (page) {

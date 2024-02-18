@@ -33,6 +33,7 @@ function getConfigPageData(path) {
     { url: "/service", de: "/de/services", en: "/en/services" },
     { url: "/about", de: "/de/about", en: "/en/about" },
     { url: "/vna", de: "/de/vna", en: "/en/vna" },
+    { url: "/imprint", de: "/de/imprint", en: "/" },
   ];
 
   return pages.find(function (page) {
