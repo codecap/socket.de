@@ -8,9 +8,9 @@
 		<li><a href="{{ site.baseurl }}{{ site.t['about'][page.lang] }}"
 				class="{% if page.url contains '/about' %} current {% elsif page.url contains '/wir' %} current {%endif %}">{{
 				site.menu['about'][page.lang] }}</a></li>
-		<li><a href="{{ site.baseurl }}{{ site.t['vna'][page.lang] }}"
+		<!-- <li><a href="{{ site.baseurl }}{{ site.t['vna'][page.lang] }}"
 				class="{% if page.url contains '/vna' %} current {% elsif page.url contains '/profile' %} current {%endif %}">{{
-				site.menu['vna'][page.lang] }}</a></li>
+				site.menu['vna'][page.lang] }}</a></li> -->
 		{% if include.navclass == "nav-footer" -%}
 		<li><a href="{{ site.baseurl }}{{ site.t['imprint'][page.lang] }}"
 				class="{% if page.url contains '/imprint' %}current {%endif %}">{{ site.menu['imprint'][page.lang] }}</a></li>

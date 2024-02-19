@@ -11,8 +11,7 @@ jQuery(document).ready(function ($) {
 var browserLanguage = navigator.language || navigator.userLanguage;
 
 // Визначаємо базовий URL для перенаправлення
-//var baseUrl = "https://socket.de";
-var baseUrl = "http://127.0.0.1:4000";
+var baseUrl = "https://socket.de";
 
 // Отримуємо поточний шлях
 var currentPath = window.location.pathname;
@@ -27,13 +26,18 @@ if (pageData) {
   // Перенаправляємо користувача
   window.location.href = redirectUrl;
 }
+
 // Функція для отримання даних про сторінку з конфігурації
 function getConfigPageData(path) {
   var pages = [
     { url: "/service", de: "/de/services", en: "/en/services" },
+    { url: "/service/", de: "/de/services", en: "/en/services" },
     { url: "/about", de: "/de/about", en: "/en/about" },
+    { url: "/about/", de: "/de/about", en: "/en/about" },
     { url: "/vna", de: "/de/vna", en: "/en/vna" },
-    { url: "/imprint", de: "/de/imprint", en: "/" },
+    { url: "/vna/", de: "/de/vna", en: "/en/vna" },
+    { url: "/imprint", de: "/de/imprint", en: "/en/imprint" },
+    { url: "/imprint/", de: "/de/imprint", en: "/en/imprint" },
   ];
 
   return pages.find(function (page) {
@@ -52,6 +56,8 @@ function loadLanguageContent() {
     ? "/de/index.html"
     : "/en/index.html";
 
+  var currentUrl = window.location.href;
+
   // Відображаємо прелоадер
   var loader = document.getElementById("loader");
   loader.style.display = "flex";
@@ -62,14 +68,30 @@ function loadLanguageContent() {
     loader.style.display = "none";
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
-        // Замінюємо вміст на сторінці отриманим від сервера
-        document.getElementById("content").innerHTML = xhr.responseText;
-        // ======  tabs on the main page ====//
-        tabsOnMain();
-        // ======  #tabs on the main page ====//
-        // ====== GoogleMaps ====//
-        initMap();
-        // ====== #GoogleMaps ====//
+        if (
+          currentUrl.endsWith("/de") ||
+          currentUrl.endsWith("/de/") ||
+          currentUrl.endsWith("/en/") ||
+          currentUrl.endsWith("/en")
+        ) {
+          // ======  tabs on the main page ====//
+          tabsOnMain();
+          // ======  #tabs on the main page ====//
+          // ====== GoogleMaps ====//
+          initMap();
+          // ====== #GoogleMaps ====//
+          // Замінюємо вміст на сторінці отриманим від сервера
+          document.getElementById("content").innerHTML = xhr.responseText;
+        } else {
+          // Замінюємо вміст на сторінці отриманим від сервера
+          document.getElementById("content").innerHTML = xhr.responseText;
+          // ======  tabs on the main page ====//
+          tabsOnMain();
+          // ======  #tabs on the main page ====//
+          // ====== GoogleMaps ====//
+          initMap();
+          // ====== #GoogleMaps ====//
+        }
       } else {
         loadEnContent();
       }
