@@ -15,6 +15,8 @@ var baseUrl = "https://socket.de";
 
 // Отримуємо поточний шлях
 var currentPath = window.location.pathname;
+// var loader = document.getElementById("loader");
+// loader.style.display = "flex";
 
 // Шукаємо сторінку в конфігураційному файлі
 var pageData = getConfigPageData(currentPath);
@@ -23,6 +25,7 @@ if (pageData) {
   // Формуємо URL відповідно до мови браузера
   var redirectUrl =
     baseUrl + pageData[browserLanguage.startsWith("de") ? "de" : "en"];
+  // loader.style.display = "none";
   // Перенаправляємо користувача
   window.location.href = redirectUrl;
 }
@@ -41,6 +44,8 @@ function getConfigPageData(path) {
   ];
 
   return pages.find(function (page) {
+    // Відображаємо прелоадер
+
     return page.url === path;
   });
 }
@@ -115,8 +120,11 @@ function loadEnContent() {
 }
 
 document.onreadystatechange = function () {
+  var userLanguage = navigator.language || navigator.userLanguage;
   if (document.readyState === "complete") {
     loadLanguageContent();
+  } else {
+    loadContent(userLanguage);
   }
 };
 // ====== #Loading data depends on browser loale ====== //
@@ -178,7 +186,7 @@ function loadDefaultContent() {
   xhrDefault.send();
 }
 // Викликати функцію для завантаження контенту відповідно до мови
-loadContent(userLanguage);
+// loadContent(userLanguage);
 // ====== #Loading 404 content depends on browser loale ====== //
 
 // Google map.
