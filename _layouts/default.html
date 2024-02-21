@@ -19,7 +19,10 @@
 		{% include menu_hamb.html %}
 		<!-- #adaptive menu -->
 		<!-- Прелоадер -->
-		<div id="loader"></div>
+		<div id="loader">
+			<!-- <img src="{{ site.baseurl }}/assets/img/icons/logo_Socket.svg" alt=""> -->
+			<!-- <p>Loading...</p> -->
+		</div>
 		{{ content}}
 		<script async defer
 			src="https://maps.googleapis.com/maps/api/js?key={{ site.data.settings.google_maps_conf.key }}&callback=initMap&libraries=&v=weekly">

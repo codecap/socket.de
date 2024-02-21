@@ -15,8 +15,6 @@ var baseUrl = "https://socket.de";
 
 // Отримуємо поточний шлях
 var currentPath = window.location.pathname;
-// var loader = document.getElementById("loader");
-// loader.style.display = "flex";
 
 // Шукаємо сторінку в конфігураційному файлі
 var pageData = getConfigPageData(currentPath);
@@ -25,7 +23,7 @@ if (pageData) {
   // Формуємо URL відповідно до мови браузера
   var redirectUrl =
     baseUrl + pageData[browserLanguage.startsWith("de") ? "de" : "en"];
-  // loader.style.display = "none";
+
   // Перенаправляємо користувача
   window.location.href = redirectUrl;
 }
@@ -44,8 +42,6 @@ function getConfigPageData(path) {
   ];
 
   return pages.find(function (page) {
-    // Відображаємо прелоадер
-
     return page.url === path;
   });
 }
@@ -54,6 +50,15 @@ function getConfigPageData(path) {
 function getBrowserLanguage() {
   return navigator.language || navigator.userLanguage;
 }
+// Показати прелоадер при завантаженні сторінки
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("loader").style.display = "flex";
+});
+
+// Приховати прелоадер після завершення завантаження сторінки
+window.addEventListener("load", function () {
+  document.getElementById("loader").style.display = "none";
+});
 
 function loadLanguageContent() {
   var browserLanguage = getBrowserLanguage().toLowerCase();
@@ -62,15 +67,9 @@ function loadLanguageContent() {
     : "/en/index.html";
 
   var currentUrl = window.location.href;
-
-  // Відображаємо прелоадер
-  var loader = document.getElementById("loader");
-  loader.style.display = "flex";
-
   // Використовуємо Ajax-запит для отримання вмісту
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
-    loader.style.display = "none";
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
         if (
@@ -121,6 +120,7 @@ function loadEnContent() {
 
 document.onreadystatechange = function () {
   var userLanguage = navigator.language || navigator.userLanguage;
+
   if (document.readyState === "complete") {
     loadLanguageContent();
   } else {
@@ -186,7 +186,7 @@ function loadDefaultContent() {
   xhrDefault.send();
 }
 // Викликати функцію для завантаження контенту відповідно до мови
-// loadContent(userLanguage);
+loadContent(userLanguage);
 // ====== #Loading 404 content depends on browser loale ====== //
 
 // Google map.
