@@ -1,4 +1,17 @@
 ---
-- title: "404"
-  info: "Reference page not found."
-  suggestion: "Try clicking on the navigation below to find another place."
+error404:
+  - title: "404"
+    info: "Reference page not found."
+    suggestion: "Try clicking on the navigation below to find another place."
+error403:
+  - title: "403"
+    info: "Fehler 403: Zugriff verweigert."
+    suggestion: "Sorry, you don't have permission to access this page."
+error500:
+  - title: "500"
+    info: "Internal Server Error."
+    suggestion: "Sorry, something went wrong."
+error503:
+  - title: "503"
+    info: "Service Unavailable."
+    suggestion: "The server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay."

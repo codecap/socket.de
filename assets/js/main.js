@@ -11,6 +11,7 @@ jQuery(document).ready(function ($) {
 var browserLanguage = navigator.language || navigator.userLanguage;
 
 // Визначаємо базовий URL для перенаправлення
+// var baseUrl = "http://127.0.0.1:4000";
 var baseUrl = "https://socket.de";
 
 // Отримуємо поточний шлях
@@ -46,7 +47,7 @@ function getConfigPageData(path) {
   });
 }
 
-// ====== Loading data depends on browser loale ====== //
+// ====== Loading data depends on browser loсale ====== //
 function getBrowserLanguage() {
   return navigator.language || navigator.userLanguage;
 }
@@ -150,44 +151,6 @@ function tabsOnMain() {
   }
 }
 // ======  tabs on the main page ====//
-// ====== Loading 404 content depends on browser loale ====== //
-var userLanguage = navigator.language || navigator.userLanguage;
-
-// Функція для завантаження контенту з файлу
-function loadContent(language) {
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-        // Вставити контент на сторінку
-        document.getElementById("content-404").innerHTML = xhr.responseText;
-      } else {
-        // Завантажити стандартний контент 404 (en/404.html), якщо файл для визначеної мови не знайдено
-        loadDefaultContent();
-      }
-    }
-  };
-  // Спробувати завантажити контент для визначеної мови
-  xhr.open("GET", language + "/404.html", true);
-  xhr.send();
-}
-// Функція для завантаження контенту 404 (en/404.html) у випадку не підтримуваної мови браузером
-function loadDefaultContent() {
-  var xhrDefault = new XMLHttpRequest();
-  xhrDefault.onreadystatechange = function () {
-    if (xhrDefault.readyState === 4 && xhrDefault.status === 200) {
-      // Вставити стандартний контент 404 на сторінку
-      document.getElementById("content-404").innerHTML =
-        xhrDefault.responseText;
-    }
-  };
-  // Завантажити стандартний контент 404 (en/404.html)
-  xhrDefault.open("GET", "en/404.html", true);
-  xhrDefault.send();
-}
-// Викликати функцію для завантаження контенту відповідно до мови
-loadContent(userLanguage);
-// ====== #Loading 404 content depends on browser loale ====== //
 
 // Google map.
 function initMap() {
