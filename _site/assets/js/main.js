@@ -86,7 +86,10 @@ function loadLanguageContent() {
           initMap();
           // ====== #GoogleMaps ====//
           // Замінюємо вміст на сторінці отриманим від сервера
-          document.getElementById("content").innerHTML = xhr.responseText;
+          document.addEventListener("DOMContentLoaded", function () {
+            // ваш код, що встановлює innerHTML
+            document.getElementById("content").innerHTML = xhr.responseText;
+          });
         } else {
           // Замінюємо вміст на сторінці отриманим від сервера
           document.getElementById("content").innerHTML = xhr.responseText;
