@@ -1,6 +1,9 @@
 // ====== Loading 404 content depends on browser loale ====== //
 var userLanguage = navigator.language || navigator.userLanguage;
-
+let content404 = document.getElementById("content-404");
+let content403 = document.getElementById("content-403");
+let content500 = document.getElementById("content-500");
+let content503 = document.getElementById("content-503");
 // Функція для завантаження контенту з файлу
 function loadContent(language) {
   var xhr = new XMLHttpRequest();
@@ -8,10 +11,9 @@ function loadContent(language) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         // Вставити контент на сторінку
-        document.addEventListener("DOMContentLoaded", function () {
-          // ваш код, що встановлює innerHTML
-          document.getElementById("content-404").innerHTML = xhr.responseText;
-        });
+        if (content404 != null) {
+          content404.innerHTML = xhr.responseText;
+        }
       } else {
         // Завантажити стандартний контент 404 (en/404.html), якщо файл для визначеної мови не знайдено
         loadDefaultContent();
@@ -28,11 +30,9 @@ function loadDefaultContent() {
   xhrDefault.onreadystatechange = function () {
     if (xhrDefault.readyState === 4 && xhrDefault.status === 200) {
       // Вставити стандартний контент 404 на сторінку
-      document.addEventListener("DOMContentLoaded", function () {
-        // ваш код, що встановлює innerHTML
-        document.getElementById("content-404").innerHTML =
-          xhrDefault.responseText;
-      });
+      if (content404 != null) {
+        content404.innerHTML = xhr.responseText;
+      }
     }
   };
   // Завантажити стандартний контент 404 (en/404.html)
@@ -51,13 +51,12 @@ function load403Content(language) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         // Вставити контент на сторінку
-        document.addEventListener("DOMContentLoaded", function () {
-          // ваш код, що встановлює innerHTML
-          document.getElementById("content-403").innerHTML = xhr.responseText;
-        });
+        if (content403 != null) {
+          content403.innerHTML = xhr.responseText;
+        }
       } else {
         // Завантажити стандартний контент 404 (en/404.html), якщо файл для визначеної мови не знайдено
-        loadDefaultContent();
+        loadDefault403Content();
       }
     }
   };
@@ -66,16 +65,14 @@ function load403Content(language) {
   xhr.send();
 }
 // Функція для завантаження контенту 403 (en/403.html) у випадку не підтримуваної мови браузером
-function loadDefaultContent() {
+function loadDefault403Content() {
   var xhrDefault = new XMLHttpRequest();
   xhrDefault.onreadystatechange = function () {
     if (xhrDefault.readyState === 4 && xhrDefault.status === 200) {
       // Вставити стандартний контент 403 на сторінку
-      document.addEventListener("DOMContentLoaded", function () {
-        // ваш код, що встановлює innerHTML
-        document.getElementById("content-403").innerHTML =
-          xhrDefault.responseText;
-      });
+      if (content403 != null) {
+        content403.innerHTML = xhr.responseText;
+      }
     }
   };
   // Завантажити стандартний контент 404 (en/404.html)
@@ -93,13 +90,12 @@ function load500Content(language) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         // Вставити контент на сторінку
-        document.addEventListener("DOMContentLoaded", function () {
-          // ваш код, що встановлює innerHTML
-          document.getElementById("content-500").innerHTML = xhr.responseText;
-        });
+        if (content500 != null) {
+          content500.innerHTML = xhr.responseText;
+        }
       } else {
         // Завантажити стандартний контент 500 (en/500.html), якщо файл для визначеної мови не знайдено
-        loadDefaultContent();
+        loadDefault500Content();
       }
     }
   };
@@ -108,16 +104,14 @@ function load500Content(language) {
   xhr.send();
 }
 // Функція для завантаження контенту 403 (en/403.html) у випадку не підтримуваної мови браузером
-function loadDefaultContent() {
+function loadDefault500Content() {
   var xhrDefault = new XMLHttpRequest();
   xhrDefault.onreadystatechange = function () {
     if (xhrDefault.readyState === 4 && xhrDefault.status === 200) {
       // Вставити стандартний контент 500 на сторінку
-      document.addEventListener("DOMContentLoaded", function () {
-        // ваш код, що встановлює innerHTML
-        document.getElementById("content-500").innerHTML =
-          xhrDefault.responseText;
-      });
+      if (content500 != null) {
+        content500.innerHTML = xhr.responseText;
+      }
     }
   };
   // Завантажити стандартний контент 404 (en/404.html)
@@ -134,13 +128,12 @@ function load503Content(language) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         // Вставити контент на сторінку
-        document.addEventListener("DOMContentLoaded", function () {
-          // ваш код, що встановлює innerHTML
-          document.getElementById("content-503").innerHTML = xhr.responseText;
-        });
+        if (content503 != null) {
+          content503.innerHTML = xhr.responseText;
+        }
       } else {
         // Завантажити стандартний контент 503 (en/503.html), якщо файл для визначеної мови не знайдено
-        loadDefaultContent();
+        loadDefault503Content();
       }
     }
   };
@@ -149,16 +142,14 @@ function load503Content(language) {
   xhr.send();
 }
 // Функція для завантаження контенту 503 (en/503.html) у випадку не підтримуваної мови браузером
-function loadDefaultContent() {
+function loadDefault503Content() {
   var xhrDefault = new XMLHttpRequest();
   xhrDefault.onreadystatechange = function () {
     if (xhrDefault.readyState === 4 && xhrDefault.status === 200) {
       // Вставити стандартний контент 503 на сторінку
-      document.addEventListener("DOMContentLoaded", function () {
-        // ваш код, що встановлює innerHTML
-        document.getElementById("content-503").innerHTML =
-          xhrDefault.responseText;
-      });
+      if (content503 != null) {
+        content503.innerHTML = xhr.responseText;
+      }
     }
   };
   // Завантажити стандартний контент 503 (en/503.html)
