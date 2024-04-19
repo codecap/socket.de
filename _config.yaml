@@ -27,9 +27,10 @@ default_language: "en"
 url: https://socket.de
 twitter_username:
 github_username: codecap
-permalink:
 #theme: socket
-
+permalink: /:code.html
+permalink: /de/:code.html
+permalink: /en/:code.html
 # Value to use in menu per language
 menu:
   services:
