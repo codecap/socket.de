@@ -76,5 +76,5 @@ lastlist:
         image: "itil-Certifications.png"
       - title: Red Hat Certified System Administrator
         image: "rhcsa.png"
-      - title: MySQL Certified Professional Database Administrator
-        image: "mysql_oracle_certification.png"
+#       - title: MySQL Certified Professional Database Administrator
+#         image: "mysql_oracle_certification.png"
