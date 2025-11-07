@@ -1,41 +1,41 @@
 ---
-- section_title: 'Unsere Kunden'
+- section_title: 'Our Clients'
 - title: 'Clearblue'
   image: 'clearblue.png'
-  content: 'Вместе с нашим партнёром Clearblue разрабатываем новейшие технологии хранения данных и вносим вклад в их широкое применение во всех областях'
+  content: 'Together with our partner Clearblue, we are developing the latest data storage technologies and contributing to their wide application in all areas.'
 
 - title: 'Belor design'
   image: 'beldesign.png'
-  content: 'Прочное партнёрство с Belor design обеспечивает наилучшее качество обслуживания клиентов и производительность'
+  content: 'A strong partnership with Belor design ensures the best customer service and performance.'
 
 - title: 'Swiss'
   image: 'swisimg.png'
-  content: 'Мы поддерживаем Swiss image в предоставлении гипер конвергентных инфраструктур, особенно с Ceph Storage'
+  content: 'We support Swiss image in providing hyper-converged infrastructures, especially with Ceph Storage.'
 
 - title: 'Garnier'
   image: 'garn.png'
-  content: 'Мы помогли Garnier протестировать наилучшие возможные комбинации оборудования на производительность их установок.'
+  content: 'We helped Garnier test the best possible hardware combinations for the performance of their installations.'
 
 - title: 'Reebok'
   image: 'reebok.png'
-  content: 'Работа с Reebok позволяет нам создавать лаборатории тестирования оборудования и защищенные инфраструктуры вместе с нашими партнерами.'
+  content: 'Working with Reebok allows us to create hardware testing labs and secure infrastructures together with our partners.'
 
 - title: 'Polaroid'
   image: 'polaroid.png'
-  content: 'Благодаря Polaroid у нас есть доступ к новейшему профессиональному оборудованию, а также к важным разработчикам'
+  content: 'Thanks to Polaroid, we have access to the latest professional equipment as well as important developers.'
 
 - title: 'Yellow Price'
   image: 'yellowprice.png'
-  content: 'Наш партнёр Yellow Price предлагает серверные решения с открытым исходным кодом с функциями корпоративного класса'
+  content: 'Our partner Yellow Price offers open source server solutions with enterprise-class features.'
 
 - title: 'Machaon'
   image: 'machaon.png'
-  content: 'Для Machaon тестировали всех возможные комбинаций оборудования и предоставили им наилучшую производительность для их установок.'
+  content: 'For Machaon, we tested all possible hardware combinations and provided them with the best performance for their installations.'
 
 - title: 'lego'
   image: 'lego.png'
-  content: 'Мы помогли Lego протестировать наилучшие возможные комбинации оборудования на производительность их установок.'
+  content: 'We helped Lego test the best possible hardware combinations for the performance of their installations.'
 
 - title: 'Hyundai'
   image: 'hunday.png'
-  content: 'Вместе с Hyundai мы регулярно тестируем совместимость и производительность новейших жестких дисков и USB-накопителей'
+  content: 'Together with Hyundai, we regularly test the compatibility and performance of the latest hard drives and USB drives.'

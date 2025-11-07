@@ -5,7 +5,7 @@ error404:
     suggestion: "Try clicking on the navigation below to find another place."
 error403:
   - title: "403"
-    info: "Fehler 403: Zugriff verweigert."
+    info: "Error 403: Access denied."
     suggestion: "Sorry, you don't have permission to access this page."
 error500:
   - title: "500"

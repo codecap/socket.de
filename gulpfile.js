@@ -1,111 +1,138 @@
 "use strict";
 
 const { src, dest, watch, series, parallel } = require('gulp');
-
+// Gulp Plugins
 var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
-const rename = require('gulp-rename');
+var concat = require('gulp-concat'); 
+const rename = require('gulp-rename'); 
 
 const sourcemaps = require('gulp-sourcemaps');
-var sass = require('gulp-sass')(require('sass'));
+
+// --- 🛠 FIX: LEGACY JS API ---
+// Встановлюємо новий компілятор Dart Sass
+const dartSass = require('sass');
+// І передаємо його в gulp-sass, щоб використовувати сучасний API
+const sass = require('gulp-sass')(dartSass)
+// -----------------------------
+
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
-const imagemin = require('gulp-imagemin');
 const newer = require('gulp-newer');
 
 const cp = require("child_process");
+const browserSync = require('browser-sync').create(); 
 
-const browserSync = require('browser-sync').create();
+// --- 🛠 FIX: IMAGEMIN PLUGINS (Requires npm install imagemin-*) ---
+// Імпорт плагінів для gulp-imagemin. Вони мають бути встановлені окремо.
+const imageminGifsicle = async () => (await import('imagemin-gifsicle')).default;
+const imageminMozjpeg = async () => (await import('imagemin-mozjpeg')).default;
+const imageminOptipng = async () => (await import('imagemin-optipng')).default;
+const imageminSvgo = async () => (await import('imagemin-svgo')).default;
+// -----------------------------------------------------------------
+
 
 // File paths
-
 const files = {
     scssPath: '_sass/**/*.scss',
     cssPath: 'assets/',
     jsPath: 'assets/js/main.js',
     imgPath: 'assets/img/**/*',
-    fontPath: 'assets/fonts/**/*',
 }
 
 
-// Sass task: compiles the style.scss file into style.css
+// SCSS Task
 function scssTask(){
     return src(files.scssPath)
-        .pipe(sourcemaps.init()) // initialize sourcemaps first
+        .pipe(sourcemaps.init())
+        // Виклик sass() коректний, оскільки ми передали dartSass при require
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([ autoprefixer(),cssnano() ]))
-        .pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
-        .pipe(dest(files.cssPath)) // put final CSS in dist folder
-        .pipe(browserSync.reload({stream:true}))
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest(files.cssPath))
+        .pipe(browserSync.stream());
 }
 
-// JS task: concatenates and uglifies JS files to script.js
+// JS Task
 function jsTask(){
     return src([
         files.jsPath
-        //,'!' + 'includes/js/jquery.min.js', // to exclude any specific files
     ])
         .pipe(uglify())
         .pipe(dest('_site/assets/js/'))
-        .pipe(browserSync.reload({stream:true}))
+        .pipe(browserSync.stream());
 }
 
-//img task
-function imgTask() {
+// --- 🛠 FIX: IMAGETASK (Використовує новий синтаксис з плагінами) ---
+async function imgTask() {    
+    const imagemin = (await import('gulp-imagemin')).default;
+    
     return src(files.imgPath)
         .pipe(newer("_site/assets/img/"))
-        .pipe(imagemin())
+        // Новий синтаксис: imagemin викликається з масивом плагінів
+        .pipe(imagemin([
+            (await imageminGifsicle())({ interlaced: true }),
+            (await imageminMozjpeg())({ quality: 75 }),
+            (await imageminOptipng())({ optimizationLevel: 5 }),
+            (await imageminSvgo())({ 
+                plugins: [
+                    { name: 'removeViewBox', active: false }
+                ]
+            })
+        ]))
         .pipe(dest("_site/assets/img/"))
-        .pipe(browserSync.reload({stream:true}))
+        .pipe(browserSync.stream());
 }
-//img task
-function fontTask() {
-    return src(files.fontPath)
-        .pipe(newer("_site/assets/fonts/"))
-        .pipe(dest("_site/assets/img/"))
-        .pipe(browserSync.reload({stream:true}))
-}
+// -------------------------------------------------------------------
 
-// Jekyll
-function jekyll() {
-    return cp.spawn("bundle", ["exec", "jekyll", "build"], { stdio: "inherit" });
+
+// Jekyll (вимагає перезавантаження всієї сторінки)
+function jekyll(done) {
+    const jekyllProcess = cp.spawn("bundle", ["exec", "jekyll", "build"], { stdio: "inherit" });
+    jekyllProcess.on('close', done);
+    return jekyllProcess;
 }
 
-
-// Watch task: watch SCSS and JS files for changes
-// If any change, run scss and js tasks simultaneously
-function watchTask(){
-
-    watch([files.scssPath], parallel(scssTask, browserSyncReload));
-    watch([files.jsPath], parallel(jsTask, browserSyncReload));
-    watch(['_includes/**', '_layouts/**/*', 'pages/**'], series(jekyll, browserSyncReload));
-    watch(files.imgPath, imgTask);
-
-}
-
-//browsersynce function
+// BrowserSync: ініціалізація сервера
 function browserSyncServe(done) {
     browserSync.init({
         server: {
             baseDir: "_site"
-        }
+        },
+        port: 3000,
+        host: 'localhost',
+        browser: 'default',
+        index: 'index.html',
     });
     done();
 }
 
+// BrowserSync: перезавантаження сторінки (для Jekyll)
 function browserSyncReload(done) {
     browserSync.reload();
     done();
 }
 
-// exports.build = build;
-// exports.default = series(clean, build);
+// Watch Task: спостерігає за змінами
+function watchTask(){
+
+    watch(files.scssPath, series(scssTask)); 
+    watch(files.jsPath, series(jsTask)); 
+    watch(files.imgPath, series(imgTask)); 
+    
+    watch(['_includes/**', '_layouts/**/*', 'pages/**','*.html'], series(jekyll, browserSyncReload)); 
+}
+
+
+// --- Gulp Tasks Exports ---
 
 exports.default = series(
-    parallel(jekyll, scssTask, jsTask, imgTask, fontTask),
+    parallel(jekyll, scssTask, jsTask, imgTask), 
     browserSyncServe,
     watchTask
 );
 
-// exports.default = series(parallel(scssTask, jsTask, browserSyncServe), watchTask);
+// Додатковий таск для чистої збірки
+exports.build = series(
+    parallel(jekyll, scssTask, jsTask, imgTask)
+);

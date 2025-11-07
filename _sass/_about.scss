@@ -1,3 +1,5 @@
+@use 'mixins' as *;
+@use 'colors' as *;
 .page_section{
   h2{
     margin-bottom: 50px;

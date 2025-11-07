@@ -1,16 +1,16 @@
 ---
-- title: 'Experten am Werk'
+- title: 'Experts at Work'
   content: >-
-    Dass deine Cloud-Infrastruktur langfristig so flexibel funktioniert, wie sie soll, ist für unsere Experten eine echte Ehrensache.
-    Wir kümmern uns um die Technik – und du behältst jederzeit die Kontrolle.
+    Ensuring that your cloud infrastructure functions as flexibly as it should in the long term is a matter of honour for our experts.
+    We take care of the technology – and you retain control at all times.
   image: 'icon_check.svg'
 
-- title: '15+ Jahre Erfahrung'
+- title: '15+ Years of Experience'
   content: >-
-    Wer heute Teil des socket-Teams ist, denkt sich schon seit vielen Jahren regelmäßig und tiefgehend in Linux und Open Source hinein.
+    Anyone who is part of the socket team today has been regularly and deeply involved in Linux and Open Source for many years.
   image: 'icon_star.svg'
 
 - title: 'Modular'
   content: >-
-    Jede Infrastruktur wird von socket auf deine Anforderungen angepasst statt umgekehrt.
+    Every infrastructure is adapted by socket to your requirements, not vice versa.
   image: 'icon_server.svg'

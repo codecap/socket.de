@@ -1,199 +1,239 @@
+// --- Глобальні константи ---
+const DEFAULT_LANGUAGE = 'en';
+const GERMAN_PREFIX = 'de';
+const ROOT_PATHS = ['', '/'];
+const LANG_PAGES_CONFIG = [
+  { url: "", de: "/de/", en: "/en/" },
+  { url: "/", de: "/de/", en: "/en/" },
+  { url: "/services", de: "/de/services", en: "/en/services" },
+  { url: "/about", de: "/de/about", en: "/en/about" },
+  { url: "/vna", de: "/de/vna", en: "/en/vna" },
+  { url: "/imprint", de: "/de/imprint", en: "/en/imprint" },
+];
+
+/**
+ * Дані про сторінку з конфігураційного масиву.
+ */
+const getConfigPageData = (path) => {
+  const normalizedPath = (path.length > 1 && path.endsWith('/')) 
+    ? path.slice(0, -1) 
+    : path;
+
+  return LANG_PAGES_CONFIG.find((page) => {
+    if (ROOT_PATHS.includes(normalizedPath)) {
+      return ROOT_PATHS.includes(page.url);
+    }
+    return page.url === normalizedPath;
+  });
+};
+
+/**
+ * Автоматичне перенаправлення на мову браузера.
+ */
+const checkLanguageRedirect = () => {
+  const browserLang = (navigator.language || navigator.userLanguage).toLowerCase().startsWith(GERMAN_PREFIX)
+    ? GERMAN_PREFIX
+    : DEFAULT_LANGUAGE;
+
+  const baseUrl = window.location.origin;
+  const currentPath = window.location.pathname;
+  const pageData = getConfigPageData(currentPath);
+
+  if (pageData && !currentPath.startsWith(`/${DEFAULT_LANGUAGE}/`) && !currentPath.startsWith(`/${GERMAN_PREFIX}/`)) {
+    
+    const redirectPath = pageData[browserLang];
+    const redirectUrl = baseUrl + redirectPath;
+
+    if (window.location.href !== redirectUrl) {
+      handleAjaxLoad(redirectUrl); 
+    }
+    return true; 
+  }
+  return false; 
+};
+
+/**
+ * Обробка AJAX-завантаження вмісту.
+ */
+function handleAjaxLoad(targetUrl) {
+  document.body.classList.add('is-loading'); 
+
+  fetch(targetUrl)
+    .then(response => response.text())
+    .then(html => {
+        const parser = new DOMParser();
+        const newDocument = parser.parseFromString(html, 'text/html');
+        
+        const newContentContainer = newDocument.querySelector('#page-content');
+        const currentPageContainer = document.querySelector('#page-content');
+
+        if (newContentContainer && currentPageContainer) {
+            currentPageContainer.innerHTML = newContentContainer.innerHTML;
+
+            window.history.pushState({}, '', targetUrl);
+            document.title = newDocument.querySelector('title').textContent;
+            
+            initializeContentScripts();
+            
+            window.scrollTo(0, 0);
+        }
+        document.body.classList.remove('is-loading'); 
+    })
+    .catch(error => {
+        console.error('AJAX navigation failed, falling back to full load:', error);
+        window.location.href = targetUrl;
+    });
+}
+
+
+/**
+ * Обробник кліку, який використовує делегування подій для AJAX та Вкладок.
+ */
+function initializeAjaxNavigation() {
+  
+  document.body.addEventListener('click', (event) => {
+      const link = event.target.closest('a'); 
+      const targetUrl = link ? link.href : null;
+
+      // Делегування для вкладок.
+      if (link && link.closest('.tabs')) {
+          event.preventDefault();
+
+          const parentListItem = link.parentElement;
+          if (!parentListItem || parentListItem.tagName !== 'LI') return;
+
+          const tabsContainer = link.closest('.tabs');
+          
+          const tabsBlock = tabsContainer.closest('.tabs_block');
+          const panelsContainer = tabsBlock ? tabsBlock.querySelector('.tabs-content') : null;
+          
+          if (!panelsContainer) {
+              console.error("Tabs content container (.tabs-content) not found.");
+              return;
+          }
+
+          // Деактивація активних класів з контейнерів.
+          tabsContainer.querySelector("li.active")?.classList.remove("active");
+          panelsContainer.querySelector(".tabs-panel.active")?.classList.remove("active");
+          
+          parentListItem.classList.add("active");
+          
+          const index = Array.from(parentListItem.parentElement.children).indexOf(parentListItem);
+
+          const panel = panelsContainer.querySelectorAll('.tabs-panel')[index];
+          
+          if (panel) {
+              panel.classList.add("active");
+              
+              // Оновлення GOOGLE MAPS
+              const mapElement = panel.querySelector("#map");
+              if (mapElement && window.google && google.maps) {
+                   const mapInstance = Object.values(google.maps).find(obj => obj instanceof google.maps.Map);
+                   if (mapInstance) {
+                       google.maps.event.trigger(mapInstance, 'resize');
+                       mapInstance.setCenter(mapInstance.getCenter());
+                   }
+              }
+          }
+          return; 
+      }
+      
+      //  Делегування для AJAX-навігації
+      if (link && targetUrl && targetUrl.startsWith(window.location.origin) && !link.target && !link.dataset.noAjax) {
+          event.preventDefault();
+          handleAjaxLoad(targetUrl);
+      }
+  });
+}
+
+/**
+ * Функція для ініціалізації всіх скриптів, які залежать від наявності контенту.
+ */
+function initializeContentScripts() {
+  //Плавне перенаправлення мови
+  checkLanguageRedirect(); 
+  
+  // Ініціалізація контентних функцій
+  loadMoreClients(); 
+  
+  // Ініціалізація карти (якщо є елемент) = initMap тепер глобальна функція.
+  if (typeof initMap === 'function' && document.getElementById("map")) {
+      initMap();
+  }
+}
+
+/**
+ * Ініціалізує Google Map на сторінці.
+ * 
+ */
+function initMap() {
+  const sl = { lat: 50.13603820381762, lng: 8.57100497383925 };
+  const mapElement = document.getElementById("map");
+  
+  if (!window.google || !google.maps || !mapElement) return;
+
+  const map = new google.maps.Map(mapElement, {
+    zoom: 15,
+    center: sl,
+  });
+  
+  const iconFolder = `${window.location.origin}/assets/img/icons/`; 
+  
+  new google.maps.Marker({
+    position: sl,
+    map: map,
+    icon: `${iconFolder}location.svg`,
+  });
+}
+
+/**
+ * Обробляє "Завантажити більше".
+ */
+const loadMoreClients = () => {
+    const loadmore = document.querySelector("#loadmore");
+    if (!loadmore) return;
+
+    let currentItems = 2;
+    loadmore.addEventListener("click", (e) => {
+      e.preventDefault();
+      
+      const elementList = document.querySelectorAll(".clients_block .client_block");
+      const elementCount = elementList.length;
+
+      for (let i = currentItems; i < currentItems + 2 && i < elementCount; i++) {
+        elementList[i].style.display = "block";
+      }
+
+      currentItems += 2;
+      
+      if (currentItems >= elementCount) {
+        e.target.style.display = "none";
+      }
+    });
+};
+// Активація jQuery (для гамбургер-меню)
 jQuery(document).ready(function ($) {
-  // Responsive menu with hamburger.
   $("#hamburger").on("click", function () {
     $(this).toggleClass("hamburger__open");
     $(".nav-top").toggleClass("open");
     $("html").toggleClass("fixed");
   });
 });
-//==== #Responsive menu with hamburger.
-// Отримуємо мову браузера
-var browserLanguage = navigator.language || navigator.userLanguage;
 
-// Визначаємо базовий URL для перенаправлення
-//var baseUrl = "http://127.0.0.1:4000";
-var baseUrl = "https://socket.de";
+// Активація AJAX та Контентних скриптів після завантаження DOM
+document.addEventListener('DOMContentLoaded', () => {
+  // Ініціалізація AJAX (делегування)
+  initializeAjaxNavigation();
 
-// Отримуємо поточний шлях
-var currentPath = window.location.pathname;
+  // Ініціалізація контентних скриптів при першому завантаженні
+  initializeContentScripts();
 
-// Шукаємо сторінку в конфігураційному файлі
-var pageData = getConfigPageData(currentPath);
-
-if (pageData) {
-  // Формуємо URL відповідно до мови браузера
-  var redirectUrl =
-    baseUrl + pageData[browserLanguage.startsWith("de") ? "de" : "en"];
-
-  // Перенаправляємо користувача
-  window.location.href = redirectUrl;
-}
-
-// Функція для отримання даних про сторінку з конфігурації
-function getConfigPageData(path) {
-  var pages = [
-    { url: "/service", de: "/de/services", en: "/en/services" },
-    { url: "/service/", de: "/de/services", en: "/en/services" },
-    { url: "/about", de: "/de/about", en: "/en/about" },
-    { url: "/about/", de: "/de/about", en: "/en/about" },
-    { url: "/vna", de: "/de/vna", en: "/en/vna" },
-    { url: "/vna/", de: "/de/vna", en: "/en/vna" },
-    { url: "/imprint", de: "/de/imprint", en: "/en/imprint" },
-    { url: "/imprint/", de: "/de/imprint", en: "/en/imprint" },
-  ];
-
-  return pages.find(function (page) {
-    return page.url === path;
-  });
-}
-
-// ====== Loading data depends on browser loсale ====== //
-function getBrowserLanguage() {
-  return navigator.language || navigator.userLanguage;
-}
-// Показати прелоадер при завантаженні сторінки
-document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("loader").style.display = "flex";
-});
-
-// Приховати прелоадер після завершення завантаження сторінки
-window.addEventListener("load", function () {
-  document.getElementById("loader").style.display = "none";
-});
-
-function loadLanguageContent() {
-  var browserLanguage = getBrowserLanguage().toLowerCase();
-  var contentPath = browserLanguage.startsWith("de")
-    ? "/de/index.html"
-    : "/en/index.html";
-
-  var currentUrl = window.location.href;
-  // Використовуємо Ajax-запит для отримання вмісту
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-      if (xhr.status === 200) {
-        if (
-          currentUrl.endsWith("/de") ||
-          currentUrl.endsWith("/de/") ||
-          currentUrl.endsWith("/en/") ||
-          currentUrl.endsWith("/en")
-        ) {
-          // ======  tabs on the main page ====//
-          tabsOnMain();
-          // ======  #tabs on the main page ====//
-          // ====== GoogleMaps ====//
-          initMap();
-          // ====== #GoogleMaps ====//
-          // Замінюємо вміст на сторінці отриманим від сервера
-          document.addEventListener("DOMContentLoaded", function () {
-            // ваш код, що встановлює innerHTML
-            document.getElementById("content").innerHTML = xhr.responseText;
-          });
-        } else {
-          // Замінюємо вміст на сторінці отриманим від сервера
-          let content = document.getElementById("content");
-          if (content != null) {
-            content.innerHTML = xhr.responseText;
-          }
-          // ======  tabs on the main page ====//
-          tabsOnMain();
-          // ======  #tabs on the main page ====//
-          // ====== GoogleMaps ====//
-          initMap();
-          // ====== #GoogleMaps ====//
-        }
-      } else {
-        loadEnContent();
-      }
-    }
-  };
-  xhr.open("GET", contentPath, true);
-  xhr.send();
-}
-// Функція для завантаження контенту 404 (en/404.html) у випадку не підтримуваної мови браузером
-function loadEnContent() {
-  var xhrDefault = new XMLHttpRequest();
-  xhrDefault.onreadystatechange = function () {
-    if (xhrDefault.readyState === XMLHttpRequest.DONE) {
-      // Вставити стандартний контент 404 на сторінку
-      document.getElementById("content").innerHTML = xhrDefault.responseText;
-    }
-  };
-  // Завантажити стандартний контент 404 (en/404.html)
-  xhrDefault.open("GET", "en/index.html", true);
-  xhrDefault.send();
-}
-
-document.onreadystatechange = function () {
-  var userLanguage = navigator.language || navigator.userLanguage;
-
-  if (document.readyState === "complete") {
-    loadLanguageContent();
-  } else {
-    loadContent(userLanguage);
-  }
-};
-// ====== #Loading data depends on browser loale ====== //
-// ======  tabs on the main page ====//
-function tabsOnMain() {
-  const tabLinks = document.querySelectorAll(".tabs a");
-  const tabPanels = document.querySelectorAll(".tabs-panel");
-  for (let el of tabLinks) {
-    el.addEventListener("click", (e) => {
-      e.preventDefault();
-      document.querySelector(".tabs li.active").classList.remove("active");
-      document.querySelector(".tabs-panel.active").classList.remove("active");
-      const parentListItem = el.parentElement;
-      parentListItem.classList.add("active");
-      const index = [...parentListItem.parentElement.children].indexOf(
-        parentListItem
-      );
-      const panel = [...tabPanels].filter(
-        (el) => el.getAttribute("data-index") == index
-      );
-      panel[0].classList.add("active");
-    });
-  }
-}
-// ======  tabs on the main page ====//
-
-// Google map.
-function initMap() {
-  // The location of Uluru
-  const sl = { lat: 50.13603820381762, lng: 8.57100497383925 };
-  // The map, centered at Uluru
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 15,
-    center: sl,
-  });
-  let url = window.location.href;
-  // The marker, positioned at Uluru
-  const iconFolder = url + "assets/img/icons/";
-  const marker = new google.maps.Marker({
-    position: sl,
-    map: map,
-    icon: `${iconFolder}location.svg`,
-  });
-}
-// #Google map.
-
-// Load More
-const loadmore = document.querySelector("#loadmore");
-let currentItems = 2;
-loadmore.addEventListener("click", (e) => {
-  e.preventDefault();
-  const elementList = [
-    ...document.querySelectorAll(".clients_block .client_block"),
-  ];
-  const el = elementList.length - 2; // Take the penultimate item
-  for (let i = currentItems; i <= currentItems + 2; i++) {
-    if (elementList[i] && i != el) {
-      elementList[i].style.display = "block";
-    }
-  }
-  currentItems += 2;
-  if (currentItems >= elementList.length) {
-    event.target.style.display = "none";
+  // Preloader (якщо потрібен)
+  const loader = document.getElementById("loader");
+  if (loader) {
+    loader.style.display = "flex";
+    setTimeout(() => {
+        loader.style.display = "none";
+    }, 100);
   }
 });

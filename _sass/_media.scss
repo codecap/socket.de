@@ -1,3 +1,5 @@
+@use 'mixins' as *;
+@use 'colors' as *;
 @media screen and (min-width: 1920px) {
   .promo_block  {
     .promo_text {

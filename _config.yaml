@@ -18,13 +18,18 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: socket
+title: "socket.de | OpenStack & Private Cloud"
 email: ping📯ssocket.de
-description: >- # this means to ignore newlines until "baseurl:"
-  socket.de | Clouds | Systems | Networks
+seo_description:
+  en: "socket.de: Your expert for robust Private Cloud solutions, managed OpenStack, and secure hybrid IT infrastructure."
+  de: "socket.de: Ihr Experte für robuste Private Cloud-Lösungen, verwaltetes OpenStack und sichere hybride IT-Infrastruktur."
+seo_keywords:
+  en: "openstack, private cloud, cloud, managed services, linux, it infrastructure"
+  de: "openstack, private cloud, cloud, managed services, linux, it infrastruktur"
 baseurl: ""
+url: "http://localhost:3000"
 default_language: "en"
-url: https://socket.de
+#url: https://socket.de
 twitter_username:
 github_username: codecap
 #theme: socket

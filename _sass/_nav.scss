@@ -1,3 +1,5 @@
+@use 'mixins' as *;
+@use 'colors' as *;
 .nav-top {
   width: 441px;
   -webkit-transition: all .30s linear;

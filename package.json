@@ -7,7 +7,7 @@
 		"preinstall": "npx npm-force-resolutions"
 	},
 	"resolutions": {
-		"graceful-fs": "^4.2.4"
+		"graceful-fs": "4.2.4"
 	},
 	"repository": {
 		"type": "git",
@@ -26,19 +26,22 @@
 	"homepage": "https://github.com/codecap/socket.de#readme",
 	"devDependencies": {
 		"autoprefixer": "^10.3.3",
-		"browser-sync": "^2.27.5",
+		"browser-sync": "^3.0.4",
 		"cssnano": "^5.0.8",
-		"gulp": "^4.0.2",
+		"gulp": "^5.0.1",
 		"gulp-concat": "^2.6.1",
-		"gulp-imagemin": "^4.1.0",
+		"gulp-imagemin": "^9.1.0",
 		"gulp-newer": "^1.4.0",
-		"gulp-postcss": "^9.0.0",
+		"gulp-postcss": "^10.0.0",
 		"gulp-rename": "^2.0.0",
 		"gulp-sass": "^5.0.0",
 		"gulp-sourcemaps": "^3.0.0",
 		"gulp-uglify": "^3.0.2",
-		"node-sass": "^7.0.0",
-		"sass": "^1.38.1"
+		"imagemin-gifsicle": "^7.0.0",
+		"imagemin-mozjpeg": "^10.0.0",
+		"imagemin-optipng": "^8.0.0",
+		"imagemin-svgo": "^11.0.1",
+		"sass": "^1.93.3"
 	},
 	"dependencies": {
 		"child_process": "^1.0.2"

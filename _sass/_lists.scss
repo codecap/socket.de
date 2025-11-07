@@ -1,4 +1,5 @@
-@import '_mixins.scss';
+@use 'mixins' as *;
+@use 'colors' as *;
 .list_block {
   display: flex;
   justify-content: space-between;

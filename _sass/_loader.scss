@@ -1,3 +1,5 @@
+@use 'mixins' as *;
+@use 'colors' as *;
 #loader {
     position: fixed;
     top: 0;

@@ -1,24 +1,24 @@
 ---
-- main_title: Diese Fragen hören wir oft ...
-- title: 'Was macht socket?'
+- main_title: These are the questions we often hear...
+- title: 'What does socket do?'
   content: >-
-    socket bietet flexible Lösungen für deine eigene Cloud. Wie schließen die
-    Cloud-Infrastruktur an deine Netzwerk und Storage-Systeme oder bringen
-    eigene mit.
+    socket offers flexible solutions for your own cloud. We connect the
+    cloud infrastructure to your network and storage systems or provide
+    our own.
 
-- title: 'Welche Technologie nutzt socket?'
+- title: 'Which technology does socket use?'
   content: >-
-    Wir setzen grundsätzlich auf Open-Source-Optionen. Auf Anfrage arbeiten
-    wir aber auch mit proprietären Lösungen.
+    We fundamentally rely on open-source options. However, we also work
+    with proprietary solutions upon request.
 
-- title: 'Wo befinden sich die Cloud-Lösungen von socket?'
+- title: "Where are socket's cloud solutions located?"
   content: >-
-    Die Serverinfrastruktur kann in unseren Räumlichkeiten oder in deinem
-    eigenen Rechenzentrum aufgebaut werden.
+    The server infrastructure can be set up on our premises or in your
+    own data center.
 
-- title: 'Was passiert nach dem Aufbau der Serverarchitektur?'
+- title: 'What happens after the server architecture is set up?'
   content: >-
-    Nach dem Abschluss jedes Auftrages überreichen wir dir eine gut
-    strukturierte Dokumentation. Diese geht detailliert auf sämtliche
-    Voraussetzungen für einen erfolgreichen Betrieb ein. Und Lock-ins?
-    Die gibt’s bei uns garantiert nicht!
+    After the completion of every assignment, we hand over a well-
+    structured documentation to you. This details all the prerequisites
+    for successful operation. And lock-ins?
+    They are guaranteed not to happen with us!

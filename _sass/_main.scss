@@ -1,3 +1,5 @@
+@use 'mixins' as *;
+@use 'colors' as *;
 *{
   margin: 0;
   padding: 0;
@@ -35,9 +37,20 @@ header,
 footer{
   flex: 0 0 auto;
 }
+/* --- ЗМІНА 1: #page-content стає Flex-контейнером --- */
+#page-content {
+  flex-grow: 1;
+  display: -webkit-flex; 
+  display: -ms-flex; 
+  display: flex; 
+  flex-direction: column; /* Складає його вміст (контент і футер) вертикально */
+}
 .wrapper{
+  /* Це правило тепер гарантує, що .wrapper займе ВЕСЬ вільний простір у #page-content,
+     притискаючи <footer> до низу контейнера. */
   flex: 1 0 auto;
   position: relative;
+  
 }
 h2,
 h3,h4{
@@ -58,10 +71,8 @@ p{
   font-weight: 400;
   line-height: 31px;
 }
-#content {
-	display: flex;
-	flex-direction: column;
-}
+/* #content - видалено, оскільки цього класу немає у структурі */
+
 .container{
   max-width: 1214px;
   width: 100%;
