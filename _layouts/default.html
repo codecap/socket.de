@@ -3,19 +3,13 @@
 
 	<head>
 		<!-- cookiebot -->
-		{% comment %} 
-			Завантажуємо Cookiebot лише на реальному сайті (коли середовище не localhost).
-	 	{% endcomment %}
-	 
-		{% if site.url contains 'socket.de' %}
 		<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="dc073334-319c-40eb-a84d-acb5d4a5ff92" data-blockingmode="auto" type="text/javascript"></script>
-		{% endif %}
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		{% assign current_lang = page.lang | default: site.default_language | default: 'en' %}
 		<meta name="description" content="{{ site.seo_description[current_lang] | escape }}">
-		<meta name="keywords" content="!!!{% if page.keywords %} {{ page.keywords | escape }} {% else %} {{ site.seo_keywords[current_lang] | escape }} {% endif %}">
+		<meta name="keywords" content="{% if page.keywords %} {{ page.keywords | escape }} {% else %} {{ site.seo_keywords[current_lang] | escape }} {% endif %}">
 		<meta name="lang" content="{{ page.lang }}">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
