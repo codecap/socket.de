@@ -28,8 +28,7 @@ seo_keywords:
   de: "openstack, private cloud, cloud, managed services, linux, it infrastruktur"
 baseurl: ""
 default_language: "en"
-url: http://localhost:3000
-# url: https://socket.de
+url: https://socket.de
 twitter_username:
 github_username: codecap
 #theme: socket
