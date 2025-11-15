@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /_site/
+Disallow: /_build/
+Disallow: /.jekyll-cache/
+
+Sitemap: {{ site.url | append: site.baseurl }}/en/sitemap.xml
+Sitemap: {{ site.url | append: site.baseurl }}/de/sitemap.xml

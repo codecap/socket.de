@@ -1,38 +1,36 @@
 "use strict";
-
 const { src, dest, watch, series, parallel } = require('gulp');
 // Gulp Plugins
 var uglify = require('gulp-uglify');
-var concat = require('gulp-concat'); 
 const rename = require('gulp-rename'); 
+const replace = require('gulp-replace'); 
 
 const sourcemaps = require('gulp-sourcemaps');
 
-// --- 🛠 FIX: LEGACY JS API ---
-// Встановлюємо новий компілятор Dart Sass
 const dartSass = require('sass');
-// І передаємо його в gulp-sass, щоб використовувати сучасний API
 const sass = require('gulp-sass')(dartSass)
-// -----------------------------
 
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const newer = require('gulp-newer');
 
-const cp = require("child_process");
+const cp = require("child_process"); 
 const browserSync = require('browser-sync').create(); 
 
-// --- 🛠 FIX: IMAGEMIN PLUGINS (Requires npm install imagemin-*) ---
-// Імпорт плагінів для gulp-imagemin. Вони мають бути встановлені окремо.
+// --- IMAGEMIN PLUGINS ---
 const imageminGifsicle = async () => (await import('imagemin-gifsicle')).default;
 const imageminMozjpeg = async () => (await import('imagemin-mozjpeg')).default;
 const imageminOptipng = async () => (await import('imagemin-optipng')).default;
 const imageminSvgo = async () => (await import('imagemin-svgo')).default;
-// -----------------------------------------------------------------
 
 
-// File paths
+// --- Шляхи ---
+const PATHS = {
+    jekyllDest: './_site',
+    sitemapSource: './_site/sitemap.xml',
+    sitemapRelPath: '/sitemap.xml'
+};
 const files = {
     scssPath: '_sass/**/*.scss',
     cssPath: 'assets/',
@@ -41,11 +39,10 @@ const files = {
 }
 
 
-// SCSS Task
+// --- SASS ---
 function scssTask(){
     return src(files.scssPath)
         .pipe(sourcemaps.init())
-        // Виклик sass() коректний, оскільки ми передали dartSass при require
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([ autoprefixer(),cssnano() ]))
         .pipe(sourcemaps.write('.'))
@@ -53,23 +50,20 @@ function scssTask(){
         .pipe(browserSync.stream());
 }
 
-// JS Task
+// --- JS ---
 function jsTask(){
-    return src([
-        files.jsPath
-    ])
+    return src([files.jsPath])
         .pipe(uglify())
         .pipe(dest('_site/assets/js/'))
         .pipe(browserSync.stream());
 }
 
-// --- 🛠 FIX: IMAGETASK (Використовує новий синтаксис з плагінами) ---
+// --- IMAGES ---
 async function imgTask() {    
     const imagemin = (await import('gulp-imagemin')).default;
     
     return src(files.imgPath)
         .pipe(newer("_site/assets/img/"))
-        // Новий синтаксис: imagemin викликається з масивом плагінів
         .pipe(imagemin([
             (await imageminGifsicle())({ interlaced: true }),
             (await imageminMozjpeg())({ quality: 75 }),
@@ -83,56 +77,85 @@ async function imgTask() {
         .pipe(dest("_site/assets/img/"))
         .pipe(browserSync.stream());
 }
-// -------------------------------------------------------------------
 
-
-// Jekyll (вимагає перезавантаження всієї сторінки)
-function jekyll(done) {
-    const jekyllProcess = cp.spawn("bundle", ["exec", "jekyll", "build"], { stdio: "inherit" });
+function jekyllBuild(done) {
+    const jekyllArgs = [
+        "exec", 
+        "jekyll", 
+        "build", 
+        "--config", 
+        "_config.yaml" 
+    ];
+    
+    const jekyllProcess = cp.spawn("bundle", jekyllArgs, { stdio: "inherit" });
     jekyllProcess.on('close', done);
-    return jekyllProcess;
 }
 
-// BrowserSync: ініціалізація сервера
+// --- SEO: КОПІЮВАННЯ ТА ПЕРЕЙМЕНУВАННЯ SITEMAP ---
+function sitemapCopy() {
+    console.log('Створення окремих sitemaps для EN та DE...');
+
+    // 1. Копіюємо оригінальний sitemap.xml у /en/
+    src(PATHS.sitemapSource)
+        .pipe(replace(PATHS.sitemapRelPath, '/en' + PATHS.sitemapRelPath)) 
+        .pipe(dest(PATHS.jekyllDest + '/en'));
+
+    // 2. Копіюємо оригінальний sitemap.xml у /de/
+    return src(PATHS.sitemapSource)
+        .pipe(replace(PATHS.sitemapRelPath, '/de' + PATHS.sitemapRelPath))
+        .pipe(dest(PATHS.jekyllDest + '/de'));
+}
+
+
+// --- BrowserSync ---
 function browserSyncServe(done) {
     browserSync.init({
         server: {
-            baseDir: "_site"
+            baseDir: PATHS.jekyllDest,
+            // index: 'index.html',
         },
         port: 3000,
         host: 'localhost',
         browser: 'default',
-        index: 'index.html',
     });
     done();
 }
 
-// BrowserSync: перезавантаження сторінки (для Jekyll)
 function browserSyncReload(done) {
     browserSync.reload();
     done();
 }
 
-// Watch Task: спостерігає за змінами
+// --- WATCH TASK ---
 function watchTask(){
 
+    // 1. SCSS, JS, IMAGES: Ці завдання залишаються без змін
     watch(files.scssPath, series(scssTask)); 
     watch(files.jsPath, series(jsTask)); 
     watch(files.imgPath, series(imgTask)); 
     
-    watch(['_includes/**', '_layouts/**/*', 'pages/**','*.html'], series(jekyll, browserSyncReload)); 
+    // 2. ВИПРАВЛЕННЯ ЦИКЛУ: Додаємо { ignored: ... }
+    watch(
+        [
+            '**/*.html', 
+            '**/*.md', 
+            '_data/**/*.yml', 
+            '_layouts/**/*', 
+            '_includes/**/*'
+        ], 
+        // 🚨 КЛЮЧОВЕ ВИПРАВЛЕННЯ: Явно ігноруємо вихідну папку (_site)
+        { ignored: PATHS.jekyllDest + '/**' }, 
+        series(jekyllBuild, sitemapCopy, browserSyncReload)
+    ); 
 }
 
-
-// --- Gulp Tasks Exports ---
-
 exports.default = series(
-    parallel(jekyll, scssTask, jsTask, imgTask), 
-    browserSyncServe,
-    watchTask
+    parallel(jekyllBuild, scssTask, jsTask, imgTask), 
+    sitemapCopy, 
+    parallel(browserSyncServe, watchTask)
 );
 
-// Додатковий таск для чистої збірки
 exports.build = series(
-    parallel(jekyll, scssTask, jsTask, imgTask)
+    parallel(jekyllBuild, scssTask, jsTask, imgTask),
+    sitemapCopy
 );

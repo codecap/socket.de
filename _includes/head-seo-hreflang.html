@@ -1,0 +1,27 @@
+{%- assign current_key = page.key -%}
+{%- assign current_lang = page.lang -%}
+
+{% comment %} Шукаємо альтернативні мови, якщо визначено ключ сторінки {% endcomment %}
+{% if current_key and site.t[current_key] %}
+  {%- assign translations = site.t[current_key] -%}
+
+  {% for lang_pair in translations %}
+    {%- assign alt_lang_code = lang_pair.first -%}
+    {%- assign alt_path = lang_pair.last -%}
+
+    {%- comment %} Перевіряємо, чи існує шлях і чи це не поточна мова {%- endcomment -%}
+    {%- if alt_path and alt_lang_code != current_lang -%}
+      <link rel="alternate" 
+            hreflang="{{ alt_lang_code }}" 
+            href="{{ site.url | append: site.baseurl | append: alt_path }}">
+    {%- endif -%}
+
+    {%- comment %} Встановлюємо hreflang="x-default" для англійської версії як основної {%- endcomment -%}
+    {%- if alt_lang_code == site.default_language -%}
+      <link rel="alternate" 
+            hreflang="x-default" 
+            href="{{ site.url | append: site.baseurl | append: alt_path }}">
+    {%- endif -%}
+
+  {% endfor %}
+{% endif %}

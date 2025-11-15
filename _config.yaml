@@ -27,9 +27,9 @@ seo_keywords:
   en: "openstack, private cloud, cloud, managed services, linux, it infrastructure"
   de: "openstack, private cloud, cloud, managed services, linux, it infrastruktur"
 baseurl: ""
-url: "http://localhost:3000"
 default_language: "en"
-#url: https://socket.de
+url: http://localhost:3000
+# url: https://socket.de
 twitter_username:
 github_username: codecap
 #theme: socket
@@ -50,6 +50,9 @@ menu:
     de: "Profile"
 # Path to the translated page
 t:
+  index:
+    en: "/en/index"
+    de: "/de/index"
   services:
     en: "/en/services"
     de: "/de/services"
@@ -62,6 +65,10 @@ t:
   vna:
     en: "/en/vna"
     de: "/de/vna"
+
+plugins:
+  - jekyll-seo-tag
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -80,3 +87,4 @@ exclude:
   - socket.gemspec
   - README.md
   - LICENSE.txt
+  - sitemap.xml

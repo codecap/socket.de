@@ -1,53 +1,44 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 
-	<head>
-		<!-- cookiebot -->
-		<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="dc073334-319c-40eb-a84d-acb5d4a5ff92" data-blockingmode="auto" type="text/javascript"></script>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		{% assign current_lang = page.lang | default: site.default_language | default: 'en' %}
-		<meta name="description" content="{{ site.seo_description[current_lang] | escape }}">
-		<meta name="keywords" content="{% if page.keywords %} {{ page.keywords | escape }} {% else %} {{ site.seo_keywords[current_lang] | escape }} {% endif %}">
-		<meta name="lang" content="{{ page.lang }}">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/favicon.ico">
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="/assets/style.css">
-		<title>
-            {% if page.title %}{{ page.title | escape }} | {% endif %}
-            {{ site.title | escape }}
-        </title>
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1029212389"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="lang" content="{{ page.lang }}">
 
-			gtag('config', 'AW-1029212389');
-		</script>
-	</head>
+        {% seo %} 
 
-	<body>
-		<!-- adaptive menu -->
-		{% include menu_hamb.html %}
-		<!-- #adaptive menu -->
-		<!-- Прелоадер -->
-		<!-- <div id="loader">
-		</div> -->
-		<main id="page-content">
+        {% include head-seo-hreflang.html %}
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/favicon.ico">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/style.css">
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1029212389"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'AW-1029212389');
+        </script>
+    </head>
+
+    <body>
+        {% include menu_hamb.html %}
+        <main id="page-content">
             {{ content}}
         </main>
 
-		<script async defer
-			src="https://maps.googleapis.com/maps/api/js?key={{ site.data.settings.google_maps_conf.key }}&callback=initMap&libraries=&v=weekly">
-			</script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-		<script src="{{ site.baseurl }}/assets/js/main.js"></script>
-		<script src="{{ site.baseurl }}/assets/js/errors/errors.js"></script>
-	</body>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key={{ site.data.settings.google_maps_conf.key }}&callback=initMap&libraries=&v=weekly">
+            </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="{{ site.baseurl }}/assets/js/main.js"></script>
+        <script src="{{ site.baseurl }}/assets/js/errors/errors.js"></script>
+    </body>
 
 </html>
