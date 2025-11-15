@@ -129,12 +129,10 @@ function browserSyncReload(done) {
 // --- WATCH TASK ---
 function watchTask(){
 
-    // 1. SCSS, JS, IMAGES: Ці завдання залишаються без змін
     watch(files.scssPath, series(scssTask)); 
     watch(files.jsPath, series(jsTask)); 
     watch(files.imgPath, series(imgTask)); 
     
-    // 2. ВИПРАВЛЕННЯ ЦИКЛУ: Додаємо { ignored: ... }
     watch(
         [
             '**/*.html', 
@@ -143,7 +141,6 @@ function watchTask(){
             '_layouts/**/*', 
             '_includes/**/*'
         ], 
-        // 🚨 КЛЮЧОВЕ ВИПРАВЛЕННЯ: Явно ігноруємо вихідну папку (_site)
         { ignored: PATHS.jekyllDest + '/**' }, 
         series(jekyllBuild, sitemapCopy, browserSyncReload)
     ); 
