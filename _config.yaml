@@ -67,6 +67,7 @@ t:
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 
 # Exclude from processing.

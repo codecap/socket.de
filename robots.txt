@@ -4,6 +4,9 @@ Allow: /
 Disallow: /_site/
 Disallow: /_build/
 Disallow: /.jekyll-cache/
+Disallow: /Gemfile
+Disallow: /Gemfile.lock
+Disallow: /vendor/
 
 Sitemap: {{ site.url | append: site.baseurl }}/en/sitemap.xml
 Sitemap: {{ site.url | append: site.baseurl }}/de/sitemap.xml
