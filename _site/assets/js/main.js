@@ -54,7 +54,10 @@ const checkLanguageRedirect = () => {
     if (window.location.href !== redirectUrl) {
         
         if (normalizedPath === '/vna') {
+            // FIX: If it is the placeholder page, use a hard redirect with a delay
+            // to allow the preloader to be seen and prevent the 404 console error.
             
+            // The preloader is already shown via DOMContentLoaded.
             
             // Execute hard redirect after a minimal delay (200ms)
             setTimeout(() => {
