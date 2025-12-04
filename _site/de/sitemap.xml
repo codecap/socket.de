@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"><url>
-    <loc>https://socket.de/en/about/</loc><lastmod>2025-12-04T19:50:05+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>https://socket.de/en/about/</loc><lastmod>2025-12-04T20:30:51+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
             href="https://socket.de/en/about/">
@@ -14,7 +14,7 @@
             hreflang="de" 
             href="https://socket.de/de/about/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/de/about/</loc><lastmod>2025-12-04T19:50:05+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>https://socket.de/de/about/</loc><lastmod>2025-12-04T20:30:51+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
             href="https://socket.de/en/about/">
@@ -27,7 +27,7 @@
             hreflang="de" 
             href="https://socket.de/de/about/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/en/clients/</loc><lastmod>2025-12-04T19:50:05+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>https://socket.de/en/clients/</loc><lastmod>2025-12-04T20:30:51+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
             href="https://socket.de/en/clients/">
@@ -40,7 +40,7 @@
             hreflang="de" 
             href="https://socket.de/de/clients/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/de/clients/</loc><lastmod>2025-12-04T19:50:05+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>https://socket.de/de/clients/</loc><lastmod>2025-12-04T20:30:51+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
             href="https://socket.de/en/clients/">
@@ -53,7 +53,7 @@
             hreflang="de" 
             href="https://socket.de/de/clients/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/en/imprint/</loc><lastmod>2025-12-04T19:50:05+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>https://socket.de/de/imprint/</loc><lastmod>2025-12-04T20:30:51+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
             href="https://socket.de/en/imprint/">
@@ -66,7 +66,7 @@
             hreflang="de" 
             href="https://socket.de/de/imprint/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/de/imprint/</loc><lastmod>2025-12-04T19:50:05+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>https://socket.de/en/imprint/</loc><lastmod>2025-12-04T20:30:51+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
             href="https://socket.de/en/imprint/">
@@ -79,7 +79,7 @@
             hreflang="de" 
             href="https://socket.de/de/imprint/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/en/</loc><lastmod>2025-12-04T19:50:05+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>https://socket.de/de/</loc><lastmod>2025-12-04T20:30:51+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
             href="https://socket.de/en/">
@@ -92,7 +92,7 @@
             hreflang="de" 
             href="https://socket.de/de/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/de/</loc><lastmod>2025-12-04T19:50:05+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>https://socket.de/en/</loc><lastmod>2025-12-04T20:30:51+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
             href="https://socket.de/en/">
@@ -105,7 +105,9 @@
             hreflang="de" 
             href="https://socket.de/de/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/de/services/</loc><lastmod>2025-12-04T19:50:05+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>https://socket.de/de/offer/</loc><lastmod>2025-12-04T20:30:51+02:00</lastmod><changefreq>monthly</changefreq></url><url>
+    <loc>https://socket.de/en/offer/</loc><lastmod>2025-12-04T20:30:51+02:00</lastmod><changefreq>monthly</changefreq></url><url>
+    <loc>https://socket.de/en/services/</loc><lastmod>2025-12-04T20:30:51+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
             href="https://socket.de/en/services/">
@@ -118,7 +120,7 @@
             hreflang="de" 
             href="https://socket.de/de/services/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/en/services/</loc><lastmod>2025-12-04T19:50:05+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>https://socket.de/de/services/</loc><lastmod>2025-12-04T20:30:51+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
             href="https://socket.de/en/services/">
@@ -131,29 +133,29 @@
             hreflang="de" 
             href="https://socket.de/de/services/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/de/vna/</loc><lastmod>2025-12-04T19:50:05+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>https://socket.de/en/vna/</loc><lastmod>2025-12-04T20:30:51+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
-            href="https://socket.de/en/vna/">
+            href="https://socket.de/en/offer/">
         </xhtml:link><xhtml:link 
               rel="alternate" 
               hreflang="x-default" 
-              href="https://socket.de/en/vna/">
+              href="https://socket.de/en/offer/">
           </xhtml:link><xhtml:link 
             rel="alternate" 
             hreflang="de" 
-            href="https://socket.de/de/vna/">
+            href="https://socket.de/de/offer/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/en/vna/</loc><lastmod>2025-12-04T19:50:05+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>https://socket.de/de/vna/</loc><lastmod>2025-12-04T20:30:51+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
-            href="https://socket.de/en/vna/">
+            href="https://socket.de/en/offer/">
         </xhtml:link><xhtml:link 
               rel="alternate" 
               hreflang="x-default" 
-              href="https://socket.de/en/vna/">
+              href="https://socket.de/en/offer/">
           </xhtml:link><xhtml:link 
             rel="alternate" 
             hreflang="de" 
-            href="https://socket.de/de/vna/">
+            href="https://socket.de/de/offer/">
         </xhtml:link></url></urlset>

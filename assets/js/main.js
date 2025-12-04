@@ -55,10 +55,11 @@ const checkLanguageRedirect = () => {
         
         if (normalizedPath === '/vna') {
             
-            window.location.href = redirectUrl;
-            // setTimeout(() => {
-                
-            // }, 200); 
+            
+            // Execute hard redirect after a minimal delay (200ms)
+            setTimeout(() => {
+                window.location.href = redirectUrl;
+            }, 200); 
             
         } else {
             // Standard AJAX navigation for other non-language-specific root paths
@@ -87,6 +88,7 @@ function handleAjaxLoad(targetUrl) {
       setTimeout(resolve, MINIMUM_PRELOADER_TIME);
   });
   
+  // Wait for both content fetch and minimum delay
   Promise.all([fetchPromise, delayPromise])
     .then(([html]) => {
         const parser = new DOMParser();
@@ -119,10 +121,13 @@ function handleAjaxLoad(targetUrl) {
         if (loader) {
             loader.style.display = 'none'; 
         }
+
         document.body.classList.remove('is-loading'); 
         window.location.href = targetUrl;
     });
 }
+
+
 /**
  * Sets up a click event handler using event delegation for AJAX links and tab components.
  */
@@ -131,6 +136,7 @@ function initializeAjaxNavigation() {
   document.body.addEventListener('click', (event) => {
       const link = event.target.closest('a'); 
       const targetUrl = link ? link.href : null;
+
       // Delegation for tabs.
       if (link && link.closest('.tabs')) {
           event.preventDefault();
@@ -147,6 +153,7 @@ function initializeAjaxNavigation() {
               console.error("Tabs content container (.tabs-content) not found.");
               return;
           }
+
           // Deactivating active classes from containers.
           tabsContainer.querySelector("li.active")?.classList.remove("active");
           panelsContainer.querySelector(".tabs-panel.active")?.classList.remove("active");
