@@ -1,4 +1,4 @@
-// --- Глобальні константи ---
+// --- Global constants ---
 const DEFAULT_LANGUAGE = 'en';
 const GERMAN_PREFIX = 'de';
 const ROOT_PATHS = ['', '/'];
@@ -12,7 +12,9 @@ const LANG_PAGES_CONFIG = [
 ];
 
 /**
- * Дані про сторінку з конфігураційного масиву.
+ * Retrieves page configuration data from the global array based on the current path.
+ * @param {string} path - The current URL pathname.
+ * @returns {object|undefined} The configuration object for the page.
  */
 const getConfigPageData = (path) => {
   const normalizedPath = (path.length > 1 && path.endsWith('/')) 
@@ -28,7 +30,10 @@ const getConfigPageData = (path) => {
 };
 
 /**
- * Автоматичне перенаправлення на мову браузера.
+ * Handles automatic language redirection for placeholder pages (like root or /vna) 
+ * based on the browser’s language.
+ * Uses a hard redirect for the '/vna' placeholder to avoid 404 errors in the console.
+ * @returns {boolean} True if a redirect was initiated, false otherwise.
  */
 const checkLanguageRedirect = () => {
   const browserLang = (navigator.language || navigator.userLanguage).toLowerCase().startsWith(GERMAN_PREFIX)
@@ -43,9 +48,22 @@ const checkLanguageRedirect = () => {
     
     const redirectPath = pageData[browserLang];
     const redirectUrl = baseUrl + redirectPath;
-
+    
+    const normalizedPath = currentPath.replace(/\/$/, '');
+    
     if (window.location.href !== redirectUrl) {
-      handleAjaxLoad(redirectUrl); 
+        
+        if (normalizedPath === '/vna') {
+            
+            window.location.href = redirectUrl;
+            // setTimeout(() => {
+                
+            // }, 200); 
+            
+        } else {
+            // Standard AJAX navigation for other non-language-specific root paths
+            handleAjaxLoad(redirectUrl); 
+        }
     }
     return true; 
   }
@@ -53,14 +71,24 @@ const checkLanguageRedirect = () => {
 };
 
 /**
- * Обробка AJAX-завантаження вмісту.
+ * Handles fetching and replacing page content via AJAX for smooth navigation.
+ * Includes a minimum display time for the preloader.
+ * @param {string} targetUrl - The URL to fetch content from.
  */
 function handleAjaxLoad(targetUrl) {
-  document.body.classList.add('is-loading'); 
+  const loader = document.getElementById('loader');
+  const MINIMUM_PRELOADER_TIME = 200; // Minimum display time for the preloader
 
-  fetch(targetUrl)
-    .then(response => response.text())
-    .then(html => {
+  document.body.classList.add('is-loading'); 
+  
+  const fetchPromise = fetch(targetUrl).then(response => response.text());
+  
+  const delayPromise = new Promise(resolve => {
+      setTimeout(resolve, MINIMUM_PRELOADER_TIME);
+  });
+  
+  Promise.all([fetchPromise, delayPromise])
+    .then(([html]) => {
         const parser = new DOMParser();
         const newDocument = parser.parseFromString(html, 'text/html');
         
@@ -77,25 +105,33 @@ function handleAjaxLoad(targetUrl) {
             
             window.scrollTo(0, 0);
         }
+        
+        // Explicitly hide the loader (overrides inline style set in DOMContentLoaded for /vna)
+        if (loader) {
+            loader.style.display = 'none'; 
+        }
+
         document.body.classList.remove('is-loading'); 
     })
     .catch(error => {
         console.error('AJAX navigation failed, falling back to full load:', error);
+        
+        if (loader) {
+            loader.style.display = 'none'; 
+        }
+        document.body.classList.remove('is-loading'); 
         window.location.href = targetUrl;
     });
 }
-
-
 /**
- * Обробник кліку, який використовує делегування подій для AJAX та Вкладок.
+ * Sets up a click event handler using event delegation for AJAX links and tab components.
  */
 function initializeAjaxNavigation() {
   
   document.body.addEventListener('click', (event) => {
       const link = event.target.closest('a'); 
       const targetUrl = link ? link.href : null;
-
-      // Делегування для вкладок.
+      // Delegation for tabs.
       if (link && link.closest('.tabs')) {
           event.preventDefault();
 
@@ -111,8 +147,7 @@ function initializeAjaxNavigation() {
               console.error("Tabs content container (.tabs-content) not found.");
               return;
           }
-
-          // Деактивація активних класів з контейнерів.
+          // Deactivating active classes from containers.
           tabsContainer.querySelector("li.active")?.classList.remove("active");
           panelsContainer.querySelector(".tabs-panel.active")?.classList.remove("active");
           
@@ -125,7 +160,7 @@ function initializeAjaxNavigation() {
           if (panel) {
               panel.classList.add("active");
               
-              // Оновлення GOOGLE MAPS
+              // Updating Google Maps
               const mapElement = panel.querySelector("#map");
               if (mapElement && window.google && google.maps) {
                    const mapInstance = Object.values(google.maps).find(obj => obj instanceof google.maps.Map);
@@ -138,7 +173,7 @@ function initializeAjaxNavigation() {
           return; 
       }
       
-      //  Делегування для AJAX-навігації
+      // Delegation for AJAX navigation
       if (link && targetUrl && targetUrl.startsWith(window.location.origin) && !link.target && !link.dataset.noAjax) {
           event.preventDefault();
           handleAjaxLoad(targetUrl);
@@ -147,24 +182,25 @@ function initializeAjaxNavigation() {
 }
 
 /**
- * Функція для ініціалізації всіх скриптів, які залежать від наявності контенту.
+ * A function for initializing all scripts that depend on the presence of content, 
+ * called on initial load and after successful AJAX navigation.
  */
 function initializeContentScripts() {
-  //Плавне перенаправлення мови
+  // Smooth language redirection
   checkLanguageRedirect(); 
   
-  // Ініціалізація контентних функцій
+  // Initialization of content functions
   loadMoreClients(); 
   
-  // Ініціалізація карти (якщо є елемент) = initMap тепер глобальна функція.
+  // Map initialization (if element exists)
   if (typeof initMap === 'function' && document.getElementById("map")) {
       initMap();
   }
 }
 
 /**
- * Ініціалізує Google Map на сторінці.
- * 
+ * Initializes Google Map on the page using hardcoded coordinates.
+ * Requires the Google Maps API script to be loaded globally.
  */
 function initMap() {
   const sl = { lat: 50.13603820381762, lng: 8.57100497383925 };
@@ -187,7 +223,7 @@ function initMap() {
 }
 
 /**
- * Обробляє "Завантажити більше".
+ * Implements "Load More" functionality for client blocks.
  */
 const loadMoreClients = () => {
     const loadmore = document.querySelector("#loadmore");
@@ -211,7 +247,8 @@ const loadMoreClients = () => {
       }
     });
 };
-// Активація jQuery (для гамбургер-меню)
+
+// Activates jQuery (for hamburger menu)
 jQuery(document).ready(function ($) {
   $("#hamburger").on("click", function () {
     $(this).toggleClass("hamburger__open");
@@ -220,20 +257,28 @@ jQuery(document).ready(function ($) {
   });
 });
 
-// Активація AJAX та Контентних скриптів після завантаження DOM
+// Activates AJAX and content scripts after DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  // Ініціалізація AJAX (делегування)
+  // AJAX initialization (delegation).
   initializeAjaxNavigation();
 
-  // Ініціалізація контентних скриптів при першому завантаженні
+  // Initialization of content scripts on first load.
   initializeContentScripts();
 
-  // Preloader (якщо потрібен)
+  // Preloader Logic for Placeholder Pages (/vna)
   const loader = document.getElementById("loader");
-  if (loader) {
-    loader.style.display = "flex";
-    setTimeout(() => {
-        loader.style.display = "none";
-    }, 100);
+  const currentPath = window.location.pathname.replace(/\/$/, ''); 
+  
+  if (loader && currentPath === '/vna') { 
+    // On /vna, we add the class and force display.
+    document.body.classList.add('is-loading');
+    loader.style.display = 'flex'; 
+    
+  } else {
+    // On all other pages, remove the class and explicitly hide the preloader.
+    document.body.classList.remove('is-loading');
+    if (loader) {
+        loader.style.display = 'none';
+    }
   }
 });

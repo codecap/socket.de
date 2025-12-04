@@ -25,7 +25,7 @@ const imageminOptipng = async () => (await import('imagemin-optipng')).default;
 const imageminSvgo = async () => (await import('imagemin-svgo')).default;
 
 
-// --- Шляхи ---
+// --- Paths ---
 const PATHS = {
     jekyllDest: './_site',
     sitemapSource: './_site/sitemap.xml',
@@ -91,28 +91,24 @@ function jekyllBuild(done) {
     jekyllProcess.on('close', done);
 }
 
-// --- SEO: КОПІЮВАННЯ ТА ПЕРЕЙМЕНУВАННЯ SITEMAP ---
+// --- SEO: COPY SITEMAP ---
 function sitemapCopy() {
-    console.log('Створення окремих sitemaps для EN та DE...');
-
-    // 1. Копіюємо оригінальний sitemap.xml у /en/
+    
+    // 1. sitemap.xml in /en/
     src(PATHS.sitemapSource)
         .pipe(replace(PATHS.sitemapRelPath, '/en' + PATHS.sitemapRelPath)) 
         .pipe(dest(PATHS.jekyllDest + '/en'));
 
-    // 2. Копіюємо оригінальний sitemap.xml у /de/
+    // 2. sitemap.xml in /de/
     return src(PATHS.sitemapSource)
         .pipe(replace(PATHS.sitemapRelPath, '/de' + PATHS.sitemapRelPath))
         .pipe(dest(PATHS.jekyllDest + '/de'));
 }
-
-
 // --- BrowserSync ---
 function browserSyncServe(done) {
     browserSync.init({
         server: {
             baseDir: PATHS.jekyllDest,
-            // index: 'index.html',
         },
         port: 3000,
         host: 'localhost',

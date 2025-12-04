@@ -7,6 +7,7 @@ Disallow: /.jekyll-cache/
 Disallow: /Gemfile
 Disallow: /Gemfile.lock
 Disallow: /vendor/
+Disallow: /node_modules/
+Disallow: /gulpfile.js
 
-Sitemap: {{ site.url | append: site.baseurl }}/en/sitemap.xml
-Sitemap: {{ site.url | append: site.baseurl }}/de/sitemap.xml
+Sitemap: https://socket.de/sitemap.xml

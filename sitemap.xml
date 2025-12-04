@@ -1,0 +1,89 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- assign pages = site.pages | where_exp:"page", "page.sitemap != false" -%}
+{%- assign posts = site.posts | where_exp:"post", "post.sitemap != false" -%}
+{%- assign collections = site.collections -%}
+
+{%- for page in pages -%}
+  {%- assign url = page.url | absolute_url -%}
+  {%- assign current_key = page.key -%}
+
+  {%- if page.path contains '_site' or page.path contains '_includes' or page.path contains 'robots.txt' or page.path contains 'sitemap.xml' or page.path contains 'redirects.json' -%}
+    {%- continue -%}
+  {%- endif -%}
+
+  <url>
+    <loc>{{ url | replace: ".html", "" }}</loc>
+    
+    {%- if page.last_modified_at -%}
+      <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
+    {%- else -%}
+      <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    {%- endif -%}
+    
+    <changefreq>monthly</changefreq>
+
+    {%- if current_key and site.t[current_key] -%}
+      {%- assign translations = site.t[current_key] -%}
+
+      {%- for lang_pair in translations -%}
+        {%- assign alt_lang_code = lang_pair.first -%}
+        {%- assign alt_path = lang_pair.last -%}
+        
+        {%- assign last_char = alt_path | slice: -1 -%}
+        {%- assign final_path_with_slash = alt_path -%}
+        
+        {%- unless last_char == '/' -%}
+           {%- assign final_path_with_slash = alt_path | append: '/' -%}
+        {%- endunless -%}
+        
+        <xhtml:link 
+            rel="alternate" 
+            hreflang="{{ alt_lang_code }}" 
+            href="{{ site.url | append: final_path_with_slash }}">
+        </xhtml:link>
+        {%- if alt_lang_code == site.default_language -%}
+          <xhtml:link 
+              rel="alternate" 
+              hreflang="x-default" 
+              href="{{ site.url | append: final_path_with_slash }}">
+          </xhtml:link>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+
+  </url>
+{%- endfor -%}
+
+{%- for post in posts -%}
+  <url>
+    <loc>{{ post.url | absolute_url | replace: ".html", "" }}</loc>
+    {%- if post.last_modified_at -%}
+        <lastmod>{{ post.last_modified_at | date_to_xmlschema }}</lastmod>
+    {%- else -%}
+        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+    {%- endif -%}
+    <changefreq>weekly</changefreq>
+  </url>
+{%- endfor -%}
+
+{%- for collection in collections -%}
+  {%- for item in collection.docs -%}
+    <url>
+      <loc>{{ item.url | absolute_url | replace: ".html", "" }}</loc>
+      {%- if item.last_modified_at -%}
+        <lastmod>{{ item.last_modified_at | date_to_xmlschema }}</lastmod>
+      {%- else -%}
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+      {%- endif -%}
+      <changefreq>weekly</changefreq>
+    </url>
+  {%- endfor -%}
+{%- endfor -%}
+
+</urlset>

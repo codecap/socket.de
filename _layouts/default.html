@@ -7,17 +7,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="lang" content="{{ page.lang }}">
-
+        <link rel="stylesheet" href="/assets/style.css">
         {% seo %} 
 
-        {% include head-seo-hreflang.html %}
+        {%- include head-seo-hreflang.html %}
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/favicon.ico">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/style.css">
-        
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">      
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1029212389"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -30,10 +28,10 @@
 
     <body>
         {% include menu_hamb.html %}
+        <div id="loader" class="preloader"></div>
         <main id="page-content">
             {{ content}}
         </main>
-
         <script async defer
             src="https://maps.googleapis.com/maps/api/js?key={{ site.data.settings.google_maps_conf.key }}&callback=initMap&libraries=&v=weekly">
             </script>

@@ -1,3 +1,5 @@
+---
+---
 User-agent: *
 Allow: /
 
@@ -7,5 +9,7 @@ Disallow: /.jekyll-cache/
 Disallow: /Gemfile
 Disallow: /Gemfile.lock
 Disallow: /vendor/
+Disallow: /node_modules/
+Disallow: /gulpfile.js
 
 Sitemap: {{ site.url | append: site.baseurl }}/sitemap.xml

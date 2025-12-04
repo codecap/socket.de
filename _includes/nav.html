@@ -1,8 +1,4 @@
-{% comment %} 
-   Визначаємо поточну мову (current_lang). 
-{% endcomment %}
 {% assign current_lang = page.lang | default: site.default_language | default: 'en' %}
-
 <nav class="{{ include.navclass }}">
     <ul class="menu mainNavList">
         <li><a href="{{ site.baseurl }}{{ site.t['services'][current_lang] }}"
@@ -18,12 +14,3 @@
         {%- endif -%}
     </ul>
 </nav>
-<!-- <div class="lang">
-	<ul>
-		{% assign postsTrans=site.pages | where:"i18n-link", page.i18n-link | sort: 'lang' %}
-		{% for postTrans in postsTrans %}
-		<li><a class="{% if postTrans.lang==page.lang %}current {%endif %}{{ postTrans.lang }}"
-				href="{{ postTrans.url }}">{{ postTrans.lang }}</a></li>
-		{% endfor %}
-	</ul>
-</div> -->

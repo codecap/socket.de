@@ -50,8 +50,8 @@ menu:
 # Path to the translated page
 t:
   index:
-    en: "/en/index"
-    de: "/de/index"
+    en: "/en/"
+    de: "/de/"
   services:
     en: "/en/services"
     de: "/de/services"
@@ -64,12 +64,32 @@ t:
   vna:
     en: "/en/vna"
     de: "/de/vna"
+  clients:
+    en: "/en/clients"
+    de: "/de/clients"
 
 plugins:
   - jekyll-seo-tag
-  - jekyll-sitemap
+  - jekyll-redirect-from
 
+include:
+  - "en"
+  - "de"
 
+sitemap:
+  exclude:
+    - "/403.html"
+    - "/404.html"
+    - "/500.html"
+    - "/503.html"
+    - "/de/403.html"
+    - "/de/404.html"
+    - "/de/500.html"
+    - "/de/503.html"
+    - "/en/403.html"
+    - "/en/404.html"
+    - "/en/500.html"
+    - "/en/503.html"
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
@@ -79,6 +99,7 @@ plugins:
 # their entries' file path in the `include:` list.
 #
 exclude:
+  - Gemfile
   - node_modules
   - package.json
   - package-lock.json
@@ -87,4 +108,3 @@ exclude:
   - socket.gemspec
   - README.md
   - LICENSE.txt
-  - sitemap.xml
