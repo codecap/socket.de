@@ -47,6 +47,9 @@ menu:
   vna:
     en: "Profile"
     de: "Profile"
+  offer:
+    en: "Own Private Cloud"
+    de: "Eigene Cloud"
 # Path to the translated page
 t:
   index:
@@ -67,6 +70,9 @@ t:
   clients:
     en: "/en/clients"
     de: "/de/clients"
+  vna:
+    en: "/en/offer"
+    de: "/de/offer"
 
 plugins:
   - jekyll-seo-tag
