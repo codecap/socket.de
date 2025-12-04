@@ -1,294 +1,268 @@
-// --- Global constants ---
+// === Cached DOM references ===
+let DOM = {
+  body: document.body,
+  loader: null,
+  pageContent: null,
+};
+
+const pageCache = {};
+
+// === Constants ===
 const DEFAULT_LANGUAGE = 'en';
 const GERMAN_PREFIX = 'de';
 const ROOT_PATHS = ['', '/'];
+
 const LANG_PAGES_CONFIG = [
-  { url: "", de: "/de/", en: "/en/" },
   { url: "/", de: "/de/", en: "/en/" },
-  { url: "/services", de: "/de/services", en: "/en/services" },
-  { url: "/about", de: "/de/about", en: "/en/about" },
-  { url: "/vna", de: "/de/vna", en: "/en/vna" },
-  { url: "/imprint", de: "/de/imprint", en: "/en/imprint" },
+  { url: "/services", de: "/de/services/", en: "/en/services/" },
+  { url: "/about", de: "/de/about/", en: "/en/about/" },
+  { url: "/vna", de: "/de/vna/", en: "/en/vna/" },
+  { url: "/imprint", de: "/de/imprint/", en: "/en/imprint/" },
 ];
 
-/**
- * Retrieves page configuration data from the global array based on the current path.
- * @param {string} path - The current URL pathname.
- * @returns {object|undefined} The configuration object for the page.
- */
-const getConfigPageData = (path) => {
-  const normalizedPath = (path.length > 1 && path.endsWith('/')) 
-    ? path.slice(0, -1) 
-    : path;
+// === DOMContentLoaded ===
+document.addEventListener("DOMContentLoaded", () => {
+  DOM.loader = document.getElementById("loader");
+  DOM.pageContent = document.querySelector("#page-content");
 
-  return LANG_PAGES_CONFIG.find((page) => {
-    if (ROOT_PATHS.includes(normalizedPath)) {
-      return ROOT_PATHS.includes(page.url);
-    }
-    return page.url === normalizedPath;
-  });
+  // Обробка /vna без фізичного файлу
+  handleVnaPlaceholder();
+
+  initializeAjaxNavigation();
+  initializePreloadOnHover();
+  initializeContentScripts();
+});
+
+// === Handle /vna without physical file ===
+function handleVnaPlaceholder() {
+  const path = window.location.pathname;
+  if (path === '/vna' || path === '/vna/') {
+    const lang = navigator.language?.startsWith(GERMAN_PREFIX) ? 'de' : 'en';
+    const targetUrl = `/${lang}/vna/`;
+    handleAjaxLoad(targetUrl);
+  }
+}
+
+// === Utility Functions ===
+const normalizePath = (path) => (path.length > 1 && path.endsWith('/')) ? path.slice(0, -1) : path;
+
+const getConfigPageData = (path) => {
+  const normalized = normalizePath(path);
+  return LANG_PAGES_CONFIG.find((p) =>
+    ROOT_PATHS.includes(normalized) ? ROOT_PATHS.includes(p.url) : p.url === normalized
+  );
 };
 
-/**
- * Handles automatic language redirection for placeholder pages (like root or /vna) 
- * based on the browser’s language.
- * Uses a hard redirect for the '/vna' placeholder to avoid 404 errors in the console.
- * @returns {boolean} True if a redirect was initiated, false otherwise.
- */
+// === Language Redirect ===
 const checkLanguageRedirect = () => {
-  const browserLang = (navigator.language || navigator.userLanguage).toLowerCase().startsWith(GERMAN_PREFIX)
+  const browserLang = navigator.language?.startsWith(GERMAN_PREFIX)
     ? GERMAN_PREFIX
     : DEFAULT_LANGUAGE;
 
-  const baseUrl = window.location.origin;
   const currentPath = window.location.pathname;
   const pageData = getConfigPageData(currentPath);
+  if (!pageData) return false;
 
-  if (pageData && !currentPath.startsWith(`/${DEFAULT_LANGUAGE}/`) && !currentPath.startsWith(`/${GERMAN_PREFIX}/`)) {
-    
-    const redirectPath = pageData[browserLang];
-    const redirectUrl = baseUrl + redirectPath;
-    
-    const normalizedPath = currentPath.replace(/\/$/, '');
-    
-    if (window.location.href !== redirectUrl) {
-        
-        if (normalizedPath === '/vna') {
-            // FIX: If it is the placeholder page, use a hard redirect with a delay
-            // to allow the preloader to be seen and prevent the 404 console error.
-            
-            // The preloader is already shown via DOMContentLoaded.
-            
-            // Execute hard redirect after a minimal delay (200ms)
-            setTimeout(() => {
-                window.location.href = redirectUrl;
-            }, 200); 
-            
-        } else {
-            // Standard AJAX navigation for other non-language-specific root paths
-            handleAjaxLoad(redirectUrl); 
-        }
-    }
-    return true; 
-  }
-  return false; 
+  const isLocalized = currentPath.startsWith('/en/') || currentPath.startsWith('/de/');
+  if (isLocalized) return false;
+
+  const redirectPath = pageData[browserLang].endsWith('/') ? pageData[browserLang] : pageData[browserLang] + '/';
+  if (redirectPath === window.location.pathname) return false;
+
+  handleAjaxLoad(redirectPath);
+  return true;
 };
 
-/**
- * Handles fetching and replacing page content via AJAX for smooth navigation.
- * Includes a minimum display time for the preloader.
- * @param {string} targetUrl - The URL to fetch content from.
- */
+// === Loader ===
+function showLoader() {
+  if (!DOM.loader) return;
+  DOM.body.classList.add('is-loading');
+  DOM.loader.style.display = 'flex';
+}
+
+function hideLoader() {
+  if (!DOM.loader) return;
+  DOM.body.classList.remove('is-loading');
+  DOM.loader.style.display = 'none';
+}
+
+// === AJAX Navigation with Fade ===
 function handleAjaxLoad(targetUrl) {
-  const loader = document.getElementById('loader');
-  const MINIMUM_PRELOADER_TIME = 200; // Minimum display time for the preloader
+  if (targetUrl !== '/' && !targetUrl.endsWith('/')) targetUrl += '/';
+  const content = DOM.pageContent;
 
-  document.body.classList.add('is-loading'); 
-  
-  const fetchPromise = fetch(targetUrl).then(response => response.text());
-  
-  const delayPromise = new Promise(resolve => {
-      setTimeout(resolve, MINIMUM_PRELOADER_TIME);
-  });
-  
-  // Wait for both content fetch and minimum delay
-  Promise.all([fetchPromise, delayPromise])
-    .then(([html]) => {
-        const parser = new DOMParser();
-        const newDocument = parser.parseFromString(html, 'text/html');
-        
-        const newContentContainer = newDocument.querySelector('#page-content');
-        const currentPageContainer = document.querySelector('#page-content');
+  showLoader();
+  content.classList.add('fade-out');
 
-        if (newContentContainer && currentPageContainer) {
-            currentPageContainer.innerHTML = newContentContainer.innerHTML;
+  setTimeout(() => {
+    const fetchPage = pageCache[targetUrl]
+      ? Promise.resolve(pageCache[targetUrl])
+      : fetch(targetUrl, { redirect: 'follow' }).then(res => res.text()).then(html => {
+          pageCache[targetUrl] = html;
+          return html;
+        });
 
-            window.history.pushState({}, '', targetUrl);
-            document.title = newDocument.querySelector('title').textContent;
-            
-            initializeContentScripts();
-            
-            window.scrollTo(0, 0);
-        }
-        
-        // Explicitly hide the loader (overrides inline style set in DOMContentLoaded for /vna)
-        if (loader) {
-            loader.style.display = 'none'; 
-        }
+    fetchPage.then(html => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const newContent = doc.querySelector('#page-content');
 
-        document.body.classList.remove('is-loading'); 
-    })
-    .catch(error => {
-        console.error('AJAX navigation failed, falling back to full load:', error);
-        
-        if (loader) {
-            loader.style.display = 'none'; 
-        }
+      if (newContent) {
+        content.innerHTML = newContent.innerHTML;
+        runScripts(newContent);
+      }
 
-        document.body.classList.remove('is-loading'); 
-        window.location.href = targetUrl;
+      document.title = doc.querySelector('title')?.textContent || document.title;
+      window.history.pushState({}, '', targetUrl);
+
+      initializeContentScripts();
+      content.classList.remove('fade-out');
+      content.classList.add('fade-in');
+
+      setTimeout(() => content.classList.remove('fade-in'), 300);
+      hideLoader();
+      window.scrollTo(0, 0);
+    }).catch(() => {
+      hideLoader();
+      window.location.href = targetUrl;
     });
+  }, 300); // fade-out duration
 }
 
-
-/**
- * Sets up a click event handler using event delegation for AJAX links and tab components.
- */
-function initializeAjaxNavigation() {
-  
-  document.body.addEventListener('click', (event) => {
-      const link = event.target.closest('a'); 
-      const targetUrl = link ? link.href : null;
-
-      // Delegation for tabs.
-      if (link && link.closest('.tabs')) {
-          event.preventDefault();
-
-          const parentListItem = link.parentElement;
-          if (!parentListItem || parentListItem.tagName !== 'LI') return;
-
-          const tabsContainer = link.closest('.tabs');
-          
-          const tabsBlock = tabsContainer.closest('.tabs_block');
-          const panelsContainer = tabsBlock ? tabsBlock.querySelector('.tabs-content') : null;
-          
-          if (!panelsContainer) {
-              console.error("Tabs content container (.tabs-content) not found.");
-              return;
-          }
-
-          // Deactivating active classes from containers.
-          tabsContainer.querySelector("li.active")?.classList.remove("active");
-          panelsContainer.querySelector(".tabs-panel.active")?.classList.remove("active");
-          
-          parentListItem.classList.add("active");
-          
-          const index = Array.from(parentListItem.parentElement.children).indexOf(parentListItem);
-
-          const panel = panelsContainer.querySelectorAll('.tabs-panel')[index];
-          
-          if (panel) {
-              panel.classList.add("active");
-              
-              // Updating Google Maps
-              const mapElement = panel.querySelector("#map");
-              if (mapElement && window.google && google.maps) {
-                   const mapInstance = Object.values(google.maps).find(obj => obj instanceof google.maps.Map);
-                   if (mapInstance) {
-                       google.maps.event.trigger(mapInstance, 'resize');
-                       mapInstance.setCenter(mapInstance.getCenter());
-                   }
-              }
-          }
-          return; 
-      }
-      
-      // Delegation for AJAX navigation
-      if (link && targetUrl && targetUrl.startsWith(window.location.origin) && !link.target && !link.dataset.noAjax) {
-          event.preventDefault();
-          handleAjaxLoad(targetUrl);
-      }
+// === Execute scripts from loaded content ===
+function runScripts(container) {
+  const scripts = container.querySelectorAll('script');
+  scripts.forEach((script) => {
+    const newScript = document.createElement('script');
+    if (script.src) {
+      newScript.src = script.src;
+    } else {
+      newScript.textContent = script.textContent;
+    }
+    document.body.appendChild(newScript);
+    document.body.removeChild(newScript);
   });
 }
 
-/**
- * A function for initializing all scripts that depend on the presence of content, 
- * called on initial load and after successful AJAX navigation.
- */
-function initializeContentScripts() {
-  // Smooth language redirection
-  checkLanguageRedirect(); 
-  
-  // Initialization of content functions
-  loadMoreClients(); 
-  
-  // Map initialization (if element exists)
-  if (typeof initMap === 'function' && document.getElementById("map")) {
-      initMap();
+// === AJAX Navigation ===
+function initializeAjaxNavigation() {
+  document.body.addEventListener('click', (event) => {
+    const link = event.target.closest('a');
+    if (!link) return;
+
+    let href = link.getAttribute('href');
+    if (!href) return;
+
+    // Handle root/home (логотип)
+    if (href === '/' || href === '/index.html') {
+      event.preventDefault();
+      handleAjaxLoad('/');
+      return;
+    }
+
+    // Convert relative href to absolute URL for internal links
+    if (!href.startsWith('http')) href = new URL(href, window.location.origin).pathname;
+    if (!href.startsWith('/')) href = '/' + href;
+
+    if (link.target || link.dataset.noAjax) return;
+
+    // Tabs
+    if (link.closest('.tabs')) {
+      event.preventDefault();
+      handleTabs(link);
+      return;
+    }
+
+    event.preventDefault();
+    handleAjaxLoad(href);
+  });
+}
+
+// === Preload pages on hover ===
+function initializePreloadOnHover() {
+  document.body.addEventListener('mouseover', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+    let href = link.getAttribute('href');
+    if (!href.startsWith('/')) return;
+    if (!pageCache[href]) fetch(href).then(r => r.text()).then(html => pageCache[href] = html);
+  });
+}
+
+// === Tabs ===
+function handleTabs(link) {
+  const li = link.parentElement;
+  const tabs = link.closest('.tabs');
+  const block = tabs.closest('.tabs_block');
+  const panels = block?.querySelector('.tabs-content');
+  if (!li || !panels) return;
+
+  const activeTab = tabs.querySelector('li.active');
+  const activePanel = panels.querySelector('.tabs-panel.active');
+  if (activeTab) activeTab.classList.remove('active');
+  if (activePanel) activePanel.classList.remove('active');
+
+  li.classList.add('active');
+  const index = [...li.parentElement.children].indexOf(li);
+  const panel = panels.children[index];
+  if (panel) panel.classList.add('active');
+
+  const mapEl = panel.querySelector("#map");
+  if (mapEl && window.google?.maps) {
+    const mapInstance = Object.values(google.maps).find(obj => obj instanceof google.maps.Map);
+    if (mapInstance) {
+      google.maps.event.trigger(mapInstance, 'resize');
+      mapInstance.setCenter(mapInstance.getCenter());
+    }
   }
 }
 
-/**
- * Initializes Google Map on the page using hardcoded coordinates.
- * Requires the Google Maps API script to be loaded globally.
- */
-function initMap() {
-  const sl = { lat: 50.13603820381762, lng: 8.57100497383925 };
-  const mapElement = document.getElementById("map");
-  
-  if (!window.google || !google.maps || !mapElement) return;
+// === Initialize content after AJAX ===
+function initializeContentScripts() {
+  checkLanguageRedirect();
+  loadMoreClients();
+  if (document.getElementById("map") && typeof initMap === "function") initMap();
+}
 
-  const map = new google.maps.Map(mapElement, {
+// === Google Maps ===
+function initMap() {
+  const coords = { lat: 50.13603820381762, lng: 8.57100497383925 };
+  const el = document.getElementById("map");
+  if (!window.google?.maps || !el) return;
+
+  const map = new google.maps.Map(el, {
     zoom: 15,
-    center: sl,
+    center: coords,
   });
-  
-  const iconFolder = `${window.location.origin}/assets/img/icons/`; 
-  
+
   new google.maps.Marker({
-    position: sl,
-    map: map,
-    icon: `${iconFolder}location.svg`,
+    position: coords,
+    map,
+    icon: `${window.location.origin}/assets/img/icons/location.svg`,
   });
 }
 
-/**
- * Implements "Load More" functionality for client blocks.
- */
-const loadMoreClients = () => {
-    const loadmore = document.querySelector("#loadmore");
-    if (!loadmore) return;
+// === Load more clients ===
+function loadMoreClients() {
+  const btn = document.querySelector("#loadmore");
+  if (!btn) return;
 
-    let currentItems = 2;
-    loadmore.addEventListener("click", (e) => {
-      e.preventDefault();
-      
-      const elementList = document.querySelectorAll(".clients_block .client_block");
-      const elementCount = elementList.length;
+  const items = document.querySelectorAll(".clients_block .client_block");
+  let current = 2;
 
-      for (let i = currentItems; i < currentItems + 2 && i < elementCount; i++) {
-        elementList[i].style.display = "block";
-      }
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    for (let i = current; i < current + 2 && i < items.length; i++) items[i].style.display = 'block';
+    current += 2;
+    if (current >= items.length) btn.style.display = 'none';
+  });
+}
 
-      currentItems += 2;
-      
-      if (currentItems >= elementCount) {
-        e.target.style.display = "none";
-      }
-    });
-};
-
-// Activates jQuery (for hamburger menu)
-jQuery(document).ready(function ($) {
+// === jQuery Hamburger Menu ===
+jQuery(document).ready(($) => {
   $("#hamburger").on("click", function () {
     $(this).toggleClass("hamburger__open");
     $(".nav-top").toggleClass("open");
     $("html").toggleClass("fixed");
   });
-});
-
-// Activates AJAX and content scripts after DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  // AJAX initialization (delegation).
-  initializeAjaxNavigation();
-
-  // Initialization of content scripts on first load.
-  initializeContentScripts();
-
-  // Preloader Logic for Placeholder Pages (/vna)
-  const loader = document.getElementById("loader");
-  const currentPath = window.location.pathname.replace(/\/$/, ''); 
-  
-  if (loader && currentPath === '/vna') { 
-    // On /vna, we add the class and force display.
-    document.body.classList.add('is-loading');
-    loader.style.display = 'flex'; 
-    
-  } else {
-    // On all other pages, remove the class and explicitly hide the preloader.
-    document.body.classList.remove('is-loading');
-    if (loader) {
-        loader.style.display = 'none';
-    }
-  }
 });

@@ -1,161 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"><url>
-    <loc>https://socket.de/en/about/</loc><lastmod>2025-12-04T22:12:37+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>http://localhost:4000/en/about/</loc><lastmod>2025-12-05T00:26:14+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
-            href="https://socket.de/en/about/">
+            href="http://localhost:4000/en/about/">
         </xhtml:link><xhtml:link 
               rel="alternate" 
               hreflang="x-default" 
-              href="https://socket.de/en/about/">
+              href="http://localhost:4000/en/about/">
           </xhtml:link><xhtml:link 
             rel="alternate" 
             hreflang="de" 
-            href="https://socket.de/de/about/">
+            href="http://localhost:4000/de/about/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/de/about/</loc><lastmod>2025-12-04T22:12:37+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>http://localhost:4000/de/about/</loc><lastmod>2025-12-05T00:26:14+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
-            href="https://socket.de/en/about/">
+            href="http://localhost:4000/en/about/">
         </xhtml:link><xhtml:link 
               rel="alternate" 
               hreflang="x-default" 
-              href="https://socket.de/en/about/">
+              href="http://localhost:4000/en/about/">
           </xhtml:link><xhtml:link 
             rel="alternate" 
             hreflang="de" 
-            href="https://socket.de/de/about/">
+            href="http://localhost:4000/de/about/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/en/clients/</loc><lastmod>2025-12-04T22:12:37+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>http://localhost:4000/en/clients/</loc><lastmod>2025-12-05T00:26:14+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
-            href="https://socket.de/en/clients/">
+            href="http://localhost:4000/en/clients/">
         </xhtml:link><xhtml:link 
               rel="alternate" 
               hreflang="x-default" 
-              href="https://socket.de/en/clients/">
+              href="http://localhost:4000/en/clients/">
           </xhtml:link><xhtml:link 
             rel="alternate" 
             hreflang="de" 
-            href="https://socket.de/de/clients/">
+            href="http://localhost:4000/de/clients/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/de/clients/</loc><lastmod>2025-12-04T22:12:37+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>http://localhost:4000/de/clients/</loc><lastmod>2025-12-05T00:26:14+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
-            href="https://socket.de/en/clients/">
+            href="http://localhost:4000/en/clients/">
         </xhtml:link><xhtml:link 
               rel="alternate" 
               hreflang="x-default" 
-              href="https://socket.de/en/clients/">
+              href="http://localhost:4000/en/clients/">
           </xhtml:link><xhtml:link 
             rel="alternate" 
             hreflang="de" 
-            href="https://socket.de/de/clients/">
+            href="http://localhost:4000/de/clients/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/de/imprint/</loc><lastmod>2025-12-04T22:12:37+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>http://localhost:4000/de/imprint/</loc><lastmod>2025-12-05T00:26:14+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
-            href="https://socket.de/en/imprint/">
+            href="http://localhost:4000/en/imprint/">
         </xhtml:link><xhtml:link 
               rel="alternate" 
               hreflang="x-default" 
-              href="https://socket.de/en/imprint/">
+              href="http://localhost:4000/en/imprint/">
           </xhtml:link><xhtml:link 
             rel="alternate" 
             hreflang="de" 
-            href="https://socket.de/de/imprint/">
+            href="http://localhost:4000/de/imprint/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/en/imprint/</loc><lastmod>2025-12-04T22:12:37+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>http://localhost:4000/en/imprint/</loc><lastmod>2025-12-05T00:26:14+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
-            href="https://socket.de/en/imprint/">
+            href="http://localhost:4000/en/imprint/">
         </xhtml:link><xhtml:link 
               rel="alternate" 
               hreflang="x-default" 
-              href="https://socket.de/en/imprint/">
+              href="http://localhost:4000/en/imprint/">
           </xhtml:link><xhtml:link 
             rel="alternate" 
             hreflang="de" 
-            href="https://socket.de/de/imprint/">
+            href="http://localhost:4000/de/imprint/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/de/</loc><lastmod>2025-12-04T22:12:37+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>http://localhost:4000/de/</loc><lastmod>2025-12-05T00:26:14+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
-            href="https://socket.de/en/">
+            href="http://localhost:4000/en/">
         </xhtml:link><xhtml:link 
               rel="alternate" 
               hreflang="x-default" 
-              href="https://socket.de/en/">
+              href="http://localhost:4000/en/">
           </xhtml:link><xhtml:link 
             rel="alternate" 
             hreflang="de" 
-            href="https://socket.de/de/">
+            href="http://localhost:4000/de/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/en/</loc><lastmod>2025-12-04T22:12:37+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>http://localhost:4000/en/</loc><lastmod>2025-12-05T00:26:14+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
-            href="https://socket.de/en/">
+            href="http://localhost:4000/en/">
         </xhtml:link><xhtml:link 
               rel="alternate" 
               hreflang="x-default" 
-              href="https://socket.de/en/">
+              href="http://localhost:4000/en/">
           </xhtml:link><xhtml:link 
             rel="alternate" 
             hreflang="de" 
-            href="https://socket.de/de/">
+            href="http://localhost:4000/de/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/de/offer/</loc><lastmod>2025-12-04T22:12:37+02:00</lastmod><changefreq>monthly</changefreq></url><url>
-    <loc>https://socket.de/en/offer/</loc><lastmod>2025-12-04T22:12:37+02:00</lastmod><changefreq>monthly</changefreq></url><url>
-    <loc>https://socket.de/en/services/</loc><lastmod>2025-12-04T22:12:37+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>http://localhost:4000/de/offer/</loc><lastmod>2025-12-05T00:26:14+02:00</lastmod><changefreq>monthly</changefreq></url><url>
+    <loc>http://localhost:4000/en/offer/</loc><lastmod>2025-12-05T00:26:14+02:00</lastmod><changefreq>monthly</changefreq></url><url>
+    <loc>http://localhost:4000/en/services/</loc><lastmod>2025-12-05T00:26:14+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
-            href="https://socket.de/en/services/">
+            href="http://localhost:4000/en/services/">
         </xhtml:link><xhtml:link 
               rel="alternate" 
               hreflang="x-default" 
-              href="https://socket.de/en/services/">
+              href="http://localhost:4000/en/services/">
           </xhtml:link><xhtml:link 
             rel="alternate" 
             hreflang="de" 
-            href="https://socket.de/de/services/">
+            href="http://localhost:4000/de/services/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/de/services/</loc><lastmod>2025-12-04T22:12:37+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>http://localhost:4000/de/services/</loc><lastmod>2025-12-05T00:26:14+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
-            href="https://socket.de/en/services/">
+            href="http://localhost:4000/en/services/">
         </xhtml:link><xhtml:link 
               rel="alternate" 
               hreflang="x-default" 
-              href="https://socket.de/en/services/">
+              href="http://localhost:4000/en/services/">
           </xhtml:link><xhtml:link 
             rel="alternate" 
             hreflang="de" 
-            href="https://socket.de/de/services/">
+            href="http://localhost:4000/de/services/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/en/vna/</loc><lastmod>2025-12-04T22:12:37+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>http://localhost:4000/en/vna/</loc><lastmod>2025-12-05T00:26:14+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
-            href="https://socket.de/en/offer/">
+            href="http://localhost:4000/en/offer/">
         </xhtml:link><xhtml:link 
               rel="alternate" 
               hreflang="x-default" 
-              href="https://socket.de/en/offer/">
+              href="http://localhost:4000/en/offer/">
           </xhtml:link><xhtml:link 
             rel="alternate" 
             hreflang="de" 
-            href="https://socket.de/de/offer/">
+            href="http://localhost:4000/de/offer/">
         </xhtml:link></url><url>
-    <loc>https://socket.de/de/vna/</loc><lastmod>2025-12-04T22:12:37+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
+    <loc>http://localhost:4000/de/vna/</loc><lastmod>2025-12-05T00:26:14+02:00</lastmod><changefreq>monthly</changefreq><xhtml:link 
             rel="alternate" 
             hreflang="en" 
-            href="https://socket.de/en/offer/">
+            href="http://localhost:4000/en/offer/">
         </xhtml:link><xhtml:link 
               rel="alternate" 
               hreflang="x-default" 
-              href="https://socket.de/en/offer/">
+              href="http://localhost:4000/en/offer/">
           </xhtml:link><xhtml:link 
             rel="alternate" 
             hreflang="de" 
-            href="https://socket.de/de/offer/">
+            href="http://localhost:4000/de/offer/">
         </xhtml:link></url></urlset>
