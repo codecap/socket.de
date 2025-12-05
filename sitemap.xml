@@ -10,15 +10,16 @@ permalink: /sitemap.xml
 {%- assign collections = site.collections -%}
 
 {%- for page in pages -%}
-  {%- assign url = page.url | absolute_url -%}
   {%- assign current_key = page.key -%}
 
-  {%- if page.path contains '_site' or page.path contains '_includes' or page.path contains 'robots.txt' or page.path contains 'sitemap.xml' or page.path contains 'redirects.json' -%}
+  {%- if page.path contains '_site' or page.path contains '_includes' or page.path contains 'robots.txt' or page.path contains 'sitemap.xml' or page.path contains 'redirects.json' or page.path contains '404.html' -%}
     {%- continue -%}
   {%- endif -%}
 
   <url>
-    <loc>{{ url | replace: ".html", "" }}</loc>
+    {%- comment %} LOC: Виправлення протоколу, видалення .html, нормалізація слешів. {% endcomment -%}
+    {%- assign final_url_loc = page.url | absolute_url | replace_first: "https:/", "https://" | replace: ".html", "/" | replace: "//", "/" -%}
+    <loc>{{ final_url_loc }}</loc>
     
     {%- if page.last_modified_at -%}
       <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
@@ -30,31 +31,42 @@ permalink: /sitemap.xml
 
     {%- if current_key and site.t[current_key] -%}
       {%- assign translations = site.t[current_key] -%}
+      {%- assign default_path = "" -%}
 
       {%- for lang_pair in translations -%}
         {%- assign alt_lang_code = lang_pair.first -%}
         {%- assign alt_path = lang_pair.last -%}
         
-        {%- assign last_char = alt_path | slice: -1 -%}
-        {%- assign final_path_with_slash = alt_path -%}
+        {%- comment %} HREFLANG: Виправлення протоколу, видалення .html, нормалізація слешів. {% endcomment -%}
+        {%- assign base_href = alt_path | absolute_url | replace_first: "https:/", "https://" | replace: ".html", "/" | replace: "//", "/" -%}
         
-        {%- unless last_char == '/' -%}
-           {%- assign final_path_with_slash = alt_path | append: '/' -%}
-        {%- endunless -%}
+        {%- comment %} *** ФІНАЛЬНЕ ВИПРАВЛЕННЯ СИНТАКСИСУ *** {% endcomment -%}
+        {%- assign last_char = base_href | slice: -1 -%}
+        {%- assign final_path_href = base_href -%}
         
+        {%- comment %} Примусове додавання кінцевого слеша, якщо його немає, і це не головна сторінка. {% endcomment -%}
+        {%- if last_char != "/" and base_href != site.url -%}
+            {%- assign final_path_href = base_href | append: "/" -%}
+        {%- endif -%}
+
         <xhtml:link 
             rel="alternate" 
             hreflang="{{ alt_lang_code }}" 
-            href="{{ site.url | append: final_path_with_slash }}">
+            href="{{ final_path_href }}">
         </xhtml:link>
+
         {%- if alt_lang_code == site.default_language -%}
-          <xhtml:link 
-              rel="alternate" 
-              hreflang="x-default" 
-              href="{{ site.url | append: final_path_with_slash }}">
-          </xhtml:link>
+          {%- assign default_path = final_path_href -%}
         {%- endif -%}
       {%- endfor -%}
+      
+      {%- if default_path != "" -%}
+        <xhtml:link 
+            rel="alternate" 
+            hreflang="x-default" 
+            href="{{ default_path }}">
+        </xhtml:link>
+      {%- endif -%}
     {%- endif -%}
 
   </url>
@@ -62,7 +74,8 @@ permalink: /sitemap.xml
 
 {%- for post in posts -%}
   <url>
-    <loc>{{ post.url | absolute_url | replace: ".html", "" }}</loc>
+    {%- assign final_post_url = post.url | absolute_url | replace_first: "https:/", "https://" | replace: ".html", "/" | replace: "//", "/" -%}
+    <loc>{{ final_post_url }}</loc>
     {%- if post.last_modified_at -%}
         <lastmod>{{ post.last_modified_at | date_to_xmlschema }}</lastmod>
     {%- else -%}
@@ -75,7 +88,8 @@ permalink: /sitemap.xml
 {%- for collection in collections -%}
   {%- for item in collection.docs -%}
     <url>
-      <loc>{{ item.url | absolute_url | replace: ".html", "" }}</loc>
+      {%- assign final_item_url = item.url | absolute_url | replace_first: "https:/", "https://" | replace: ".html", "/" | replace: "//", "/" -%}
+      <loc>{{ final_item_url }}</loc>
       {%- if item.last_modified_at -%}
         <lastmod>{{ item.last_modified_at | date_to_xmlschema }}</lastmod>
       {%- else -%}
