@@ -2,6 +2,9 @@
 @use 'colors' as *;
 footer{
   background-color: $footer_color__background;
+  position: absolute;
+  left: 0;
+  right: 0;
 
   .footer{
     display: -webkit-flex;
@@ -37,6 +40,7 @@ footer{
   .copyright{
     width: 300px;
     margin: 30px auto;
+    position: relative;
 
     span {
       @include rem(17);

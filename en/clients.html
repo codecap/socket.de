@@ -6,15 +6,16 @@ i18n-link: clients
 lang: en
 lmore: Mehr anzeigen
 key: clients
+description: Learn about socket.de's history...
+keywords: about us, history, team, company, cloud solutions
 ---
-{% include header.html %}
+
 <section class="page_section">
 	<div class="container">
 		{% assign heading = site.data.en.promoservices.stitle.section_title %}
 		<h2>{{ heading }}</h2>
 		<div class="clients_block">
 			{% comment %}
-			<!-- Liquid: https://shopify.github.io/liquid/tags/template/ -->
 			{% assign blocks = site.data.en.promoclients.sdata %}
 			{% for client in blocks %}
 			<div class="client_block">

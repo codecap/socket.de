@@ -6,7 +6,6 @@ lang: en
 permalink: /en/
 key: index
 ---
-{% include header.html %}
 <section class="top_section">
 	<div class="container">
 		<div class="promo_block">
@@ -29,7 +28,7 @@ key: index
 			{% assign iblock = site.data.en.introblock %}
 			{% for item in iblock %}
 			<h3>{{ item.title }}</h3>
-			<p>{{ item.content | markdownify }}</p>
+			{{ item.content | markdownify }}
 			{% endfor %}
 		</div>
 	</div>
@@ -150,4 +149,3 @@ key: index
 		</div>
 	</div>
 </section>
-{% include footer.html %}

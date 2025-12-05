@@ -5,99 +5,174 @@ permalink: /sitemap.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
 {%- assign pages = site.pages | where_exp:"page", "page.sitemap != false" -%}
 {%- assign posts = site.posts | where_exp:"post", "post.sitemap != false" -%}
 {%- assign collections = site.collections -%}
 
 {%- for page in pages -%}
-  {%- assign current_key = page.key -%}
+  {%- if page.path contains '_site'
+        or page.path contains '_includes'
+        or page.path contains 'robots.txt'
+        or page.path contains 'sitemap.xml'
+        or page.path contains 'redirects.json'
+        or page.path contains '404.html'
+        or page.path contains '403.html'
+        or page.path contains '500.html'
+        or page.path contains '503.html' -%}
+      {%- continue -%}
+  {%- endif -%}
 
-  {%- if page.path contains '_site' or page.path contains '_includes' or page.path contains 'robots.txt' or page.path contains 'sitemap.xml' or page.path contains 'redirects.json' or page.path contains '404.html' -%}
-    {%- continue -%}
+  {%- capture loc_raw -%}{{ page.url | absolute_url }}{%- endcapture -%}
+  {%- assign loc = loc_raw
+      | replace_first: "https:/", "https://"
+      | replace: ".html", ""
+      | replace: "//", "/" -%}
+  {%- assign last = loc | slice: -1 -%}
+  {%- if last != "/" and loc != site.url -%}
+    {%- assign loc = loc | append: "/" -%}
   {%- endif -%}
 
   <url>
-    {%- comment %} LOC: Виправлення протоколу, видалення .html, нормалізація слешів. {% endcomment -%}
-    {%- assign final_url_loc = page.url | absolute_url | replace_first: "https:/", "https://" | replace: ".html", "/" | replace: "//", "/" -%}
-    <loc>{{ final_url_loc }}</loc>
-    
+    <loc>{{ loc }}</loc>
     {%- if page.last_modified_at -%}
       <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
     {%- else -%}
       <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
     {%- endif -%}
-    
     <changefreq>monthly</changefreq>
 
-    {%- if current_key and site.t[current_key] -%}
-      {%- assign translations = site.t[current_key] -%}
-      {%- assign default_path = "" -%}
+    {%- if page.key and site.t[page.key] -%}
+      {%- assign translations = site.t[page.key] -%}
+      {%- assign default_href = "" -%}
 
-      {%- for lang_pair in translations -%}
-        {%- assign alt_lang_code = lang_pair.first -%}
-        {%- assign alt_path = lang_pair.last -%}
-        
-        {%- comment %} HREFLANG: Виправлення протоколу, видалення .html, нормалізація слешів. {% endcomment -%}
-        {%- assign base_href = alt_path | absolute_url | replace_first: "https:/", "https://" | replace: ".html", "/" | replace: "//", "/" -%}
-        
-        {%- comment %} *** ФІНАЛЬНЕ ВИПРАВЛЕННЯ СИНТАКСИСУ *** {% endcomment -%}
-        {%- assign last_char = base_href | slice: -1 -%}
-        {%- assign final_path_href = base_href -%}
-        
-        {%- comment %} Примусове додавання кінцевого слеша, якщо його немає, і це не головна сторінка. {% endcomment -%}
-        {%- if last_char != "/" and base_href != site.url -%}
-            {%- assign final_path_href = base_href | append: "/" -%}
+      {%- for t in translations -%}
+        {%- assign lang = t.first -%}
+        {%- assign tr_path = t.last -%}
+
+        {%- capture href_raw -%}{{ tr_path | absolute_url }}{%- endcapture -%}
+        {%- assign href = href_raw
+            | replace_first: "https:/", "https://"
+            | replace: ".html", ""
+            | replace: "//", "/" -%}
+        {%- assign last = href | slice: -1 -%}
+        {%- if last != "/" and href != site.url -%}
+          {%- assign href = href | append: "/" -%}
         {%- endif -%}
 
-        <xhtml:link 
-            rel="alternate" 
-            hreflang="{{ alt_lang_code }}" 
-            href="{{ final_path_href }}">
-        </xhtml:link>
+        <xhtml:link rel="alternate" hreflang="{{ lang }}" href="{{ href }}" />
 
-        {%- if alt_lang_code == site.default_language -%}
-          {%- assign default_path = final_path_href -%}
+        {%- if lang == site.default_language -%}
+          {%- assign default_href = href -%}
         {%- endif -%}
       {%- endfor -%}
-      
-      {%- if default_path != "" -%}
-        <xhtml:link 
-            rel="alternate" 
-            hreflang="x-default" 
-            href="{{ default_path }}">
-        </xhtml:link>
-      {%- endif -%}
-    {%- endif -%}
 
+      {%- if default_href != "" -%}
+        <xhtml:link rel="alternate" hreflang="x-default" href="{{ default_href }}" />
+      {%- endif -%}
+    {%- else -%}
+      <xhtml:link rel="alternate" hreflang="x-default" href="{{ loc }}" />
+    {%- endif -%}
   </url>
 {%- endfor -%}
 
 {%- for post in posts -%}
+  {%- capture loc_raw -%}{{ post.url | absolute_url }}{%- endcapture -%}
+  {%- assign loc = loc_raw
+      | replace_first: "https:/", "https://"
+      | replace: ".html", ""
+      | replace: "//", "/" -%}
+  {%- assign last = loc | slice: -1 -%}
+  {%- if last != "/" and loc != site.url -%}
+    {%- assign loc = loc | append: "/" -%}
+  {%- endif -%}
+
   <url>
-    {%- assign final_post_url = post.url | absolute_url | replace_first: "https:/", "https://" | replace: ".html", "/" | replace: "//", "/" -%}
-    <loc>{{ final_post_url }}</loc>
+    <loc>{{ loc }}</loc>
     {%- if post.last_modified_at -%}
         <lastmod>{{ post.last_modified_at | date_to_xmlschema }}</lastmod>
     {%- else -%}
         <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
     {%- endif -%}
     <changefreq>weekly</changefreq>
+
+    {%- if post.key and site.t[post.key] -%}
+      {%- assign translations = site.t[post.key] -%}
+      {%- assign default_href = "" -%}
+      {%- for t in translations -%}
+        {%- assign lang = t.first -%}
+        {%- assign tr_path = t.last -%}
+        {%- capture href_raw -%}{{ tr_path | absolute_url }}{%- endcapture -%}
+        {%- assign href = href_raw
+            | replace_first: "https:/", "https://"
+            | replace: ".html", ""
+            | replace: "//", "/" -%}
+        {%- assign last = href | slice: -1 -%}
+        {%- if last != "/" and href != site.url -%}
+          {%- assign href = href | append: "/" -%}
+        {%- endif -%}
+        <xhtml:link rel="alternate" hreflang="{{ lang }}" href="{{ href }}" />
+        {%- if lang == site.default_language -%}
+          {%- assign default_href = href -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if default_href != "" -%}
+        <xhtml:link rel="alternate" hreflang="x-default" href="{{ default_href }}" />
+      {%- endif -%}
+    {%- else -%}
+      <xhtml:link rel="alternate" hreflang="x-default" href="{{ loc }}" />
+    {%- endif -%}
   </url>
 {%- endfor -%}
 
 {%- for collection in collections -%}
   {%- for item in collection.docs -%}
+    {%- capture loc_raw -%}{{ item.url | absolute_url }}{%- endcapture -%}
+    {%- assign loc = loc_raw
+        | replace_first: "https:/", "https://"
+        | replace: ".html", ""
+        | replace: "//", "/" -%}
+    {%- assign last = loc | slice: -1 -%}
+    {%- if last != "/" and loc != site.url -%}
+      {%- assign loc = loc | append: "/" -%}
+    {%- endif -%}
+
     <url>
-      {%- assign final_item_url = item.url | absolute_url | replace_first: "https:/", "https://" | replace: ".html", "/" | replace: "//", "/" -%}
-      <loc>{{ final_item_url }}</loc>
+      <loc>{{ loc }}</loc>
       {%- if item.last_modified_at -%}
         <lastmod>{{ item.last_modified_at | date_to_xmlschema }}</lastmod>
       {%- else -%}
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
       {%- endif -%}
       <changefreq>weekly</changefreq>
+
+      {%- if item.key and site.t[item.key] -%}
+        {%- assign translations = site.t[item.key] -%}
+        {%- assign default_href = "" -%}
+        {%- for t in translations -%}
+          {%- assign lang = t.first -%}
+          {%- assign tr_path = t.last -%}
+          {%- capture href_raw -%}{{ tr_path | absolute_url }}{%- endcapture -%}
+          {%- assign href = href_raw
+              | replace_first: "https:/", "https://"
+              | replace: ".html", ""
+              | replace: "//", "/" -%}
+          {%- assign last = href | slice: -1 -%}
+          {%- if last != "/" and href != site.url -%}
+            {%- assign href = href | append: "/" -%}
+          {%- endif -%}
+          <xhtml:link rel="alternate" hreflang="{{ lang }}" href="{{ href }}" />
+          {%- if lang == site.default_language -%}
+            {%- assign default_href = href -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if default_href != "" -%}
+          <xhtml:link rel="alternate" hreflang="x-default" href="{{ default_href }}" />
+        {%- endif -%}
+      {%- else -%}
+        <xhtml:link rel="alternate" hreflang="x-default" href="{{ loc }}" />
+      {%- endif -%}
     </url>
   {%- endfor -%}
 {%- endfor -%}
-
 </urlset>
