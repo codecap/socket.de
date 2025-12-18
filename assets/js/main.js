@@ -1,4 +1,9 @@
 /**
+ * Створюємо копію оригінального fetch до того, як його перехопить Cookiebot
+ */
+const _nativeFetch = window.fetch.bind(window);
+
+/**
  * Cached DOM elements for utility access.
  */
 const DOM = {
@@ -7,19 +12,11 @@ const DOM = {
   navTop: () => document.querySelector(".nav-top"),
 };
 
-/**
- * Cache storage for fetched pages.
- */
 const pageCache = {};
-
-/** Available languages */
 const LANGUAGES = ['en', 'de'];
 const DEFAULT_LANGUAGE = 'en';
 const GERMAN_PREFIX = 'de';
 
-/**
- * Configuration for page localization.
- */
 const LANG_PAGES_CONFIG = [
   { url: "/", de: "/de/", en: "/en/" },
   { url: "/services", de: "/de/services/", en: "/en/services/" },
@@ -28,19 +25,9 @@ const LANG_PAGES_CONFIG = [
   { url: "/imprint", de: "/de/imprint/", en: "/en/imprint/" }
 ];
 
-/**
- * Normalize a path by removing trailing slash unless it's root.
- * @param {string} path
- * @returns {string}
- */
 const normalizePath = path =>
   path.endsWith('/') && path.length > 1 ? path.slice(0, -1) : path;
 
-/**
- * Get page configuration for a given path.
- * @param {string} path
- * @returns {object|undefined}
- */
 const getConfigPageData = path => {
   const normalized = normalizePath(path);
   return LANG_PAGES_CONFIG.find(p =>
@@ -67,7 +54,6 @@ function handleAjaxLoad(targetUrl) {
   const container = DOM.pageContent();
   if (!container) return;
 
-  // Fix for GitHub Pages/Jekyll
   let fetchUrl = finalUrl;
   if (finalUrl.endsWith('/vna/')) {
     fetchUrl = `/${finalUrl.split('/')[1] || DEFAULT_LANGUAGE}/vna.html`;
@@ -77,24 +63,25 @@ function handleAjaxLoad(targetUrl) {
     fetchUrl = finalUrl + '/index.html';
   }
 
-  // Use absolute path to avoid issues on GitHub Pages
-  const absoluteFetchUrl = window.location.origin + fetchUrl;
-
-  const fetchPage = pageCache[absoluteFetchUrl]
-    ? Promise.resolve(pageCache[absoluteFetchUrl])
-    : fetch(absoluteFetchUrl)
+  // Використовуємо збережений _nativeFetch, щоб Cookiebot не міг його заблокувати
+  const fetchPage = pageCache[fetchUrl]
+    ? Promise.resolve(pageCache[fetchUrl])
+    : _nativeFetch(fetchUrl)
         .then(res => {
           if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
           return res.text();
         })
-        .then(html => { pageCache[absoluteFetchUrl] = html; return html; });
+        .then(html => { 
+          pageCache[fetchUrl] = html; 
+          return html; 
+        });
 
   fetchPage.then(html => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
     const newContent = doc.querySelector('#page-content');
 
-    if (newContent) {
+    if (newContent && container) {
       container.innerHTML = newContent.innerHTML;
       document.title = doc.querySelector('title')?.textContent || document.title;
       
@@ -105,6 +92,8 @@ function handleAjaxLoad(targetUrl) {
       initializeContentScripts();
       closeHamburgerMenu();
       window.scrollTo(0, 0);
+    } else {
+      window.location.href = finalUrl;
     }
   }).catch(err => {
     console.error("AJAX load failed:", err);
@@ -120,15 +109,12 @@ function initializeAjaxNavigation() {
     const link = e.target.closest('a');
     if (!link || link.target || link.dataset.noAjax) return;
     let href = link.getAttribute('href');
-    if (!href || href === '#' || href.startsWith('javascript:') || href.startsWith('http')) return;
+    if (!href || href === '#' || href.startsWith('javascript:')) return;
 
-    try {
-      const url = new URL(href, window.location.origin);
-      if (url.origin === window.location.origin) {
-        e.preventDefault();
-        handleAjaxLoad(url.pathname);
-      }
-    } catch (e) {}
+    if (link.origin === window.location.origin) {
+      e.preventDefault();
+      handleAjaxLoad(link.pathname);
+    }
   });
 }
 
@@ -138,20 +124,12 @@ function initializeAjaxNavigation() {
 function initializePreloadOnHover() {
   document.body.addEventListener('mouseover', e => {
     const link = e.target.closest('a');
-    if (!link) return;
-    let href = link.getAttribute('href');
-    if (!href || href.startsWith('http') || href.startsWith('#')) return;
+    if (!link || link.origin !== window.location.origin) return;
+    let pUrl = link.pathname;
+    if (pUrl.endsWith('/')) pUrl += 'index.html';
 
-    let pUrl = new URL(href, window.location.origin).pathname;
-    if (pUrl.endsWith('/vna/')) {
-        pUrl = `/${pUrl.split('/')[1] || DEFAULT_LANGUAGE}/vna.html`;
-    } else if (pUrl.endsWith('/')) {
-        pUrl += 'index.html';
-    }
-
-    const absolutePUrl = window.location.origin + pUrl;
-    if (!pageCache[absolutePUrl]) {
-      fetch(absolutePUrl).then(r => r.ok ? r.text() : null).then(h => { if (h) pageCache[absolutePUrl] = h; });
+    if (!pageCache[pUrl]) {
+      _nativeFetch(pUrl).then(r => r.ok ? r.text() : null).then(h => { if (h) pageCache[pUrl] = h; });
     }
   });
 }
@@ -171,9 +149,6 @@ function initHamburger() {
   });
 }
 
-/**
- * Close mobile menu.
- */
 function closeHamburgerMenu() {
   DOM.hamburger()?.classList.remove('hamburger__open');
   DOM.navTop()?.classList.remove('open');
@@ -203,7 +178,6 @@ function initTabs() {
  */
 window.initMap = function() {
   const el = document.getElementById("map");
-  // Check if Cookiebot allowed Google Maps (statistics/marketing cookies)
   if (typeof Cookiebot !== "undefined" && !Cookiebot.consent.statistics) {
     if (el) el.innerHTML = "<p style='padding:20px; text-align:center;'>Please accept cookies to view the map.</p>";
     return;
@@ -211,23 +185,16 @@ window.initMap = function() {
   if (!window.google?.maps || !el) return;
   const coords = { lat: 50.13603820381762, lng: 8.57100497383925 };
   const map = new google.maps.Map(el, { zoom: 15, center: coords });
-  new google.maps.Marker({ position: coords, map, icon: `${window.location.origin}/assets/img/icons/location.svg` });
+  new google.maps.Marker({ position: coords, map, icon: '/assets/img/icons/location.svg' });
 };
 
-/**
- * Highlight active menu link.
- */
 function highlightActiveMenuItem() {
   const path = normalizePath(window.location.pathname);
   document.querySelectorAll('.nav-top a').forEach(a => {
-    const href = normalizePath(a.getAttribute('href') || "");
-    a.classList.toggle('current', path === href);
+    a.classList.toggle('current', normalizePath(a.getAttribute('href') || "") === path);
   });
 }
 
-/**
- * Run content scripts after AJAX load.
- */
 function initializeContentScripts() {
   initHamburger();
   initTabs();
@@ -237,29 +204,19 @@ function initializeContentScripts() {
 
 window.addEventListener("popstate", () => handleAjaxLoad(window.location.pathname));
 
-/** Listen for Cookiebot consent to reload the map if it was blocked */
 window.addEventListener('CookiebotOnAccept', function (e) {
     if (Cookiebot.consent.statistics && document.getElementById("map")) window.initMap();
 });
 
-/**
- * Main initialization.
- */
-const init = () => {
+// Запускаємо відразу, щоб не чекати подій, які бот може заблокувати
+(function() {
   initializeAjaxNavigation();
   initializePreloadOnHover();
   
   const currentPath = window.location.pathname;
-  // If we are at root or unlocalized, run handleAjaxLoad immediately with a small delay to beat Cookiebot auto-blocking
   if (currentPath === '/' || (!currentPath.startsWith('/en/') && !currentPath.startsWith('/de/'))) {
-    setTimeout(() => handleAjaxLoad(currentPath), 50);
+    handleAjaxLoad(currentPath);
   } else {
     initializeContentScripts();
   }
-};
-
-if (document.readyState === 'loading') {
-  document.addEventListener("DOMContentLoaded", init);
-} else {
-  init();
-}
+})();
