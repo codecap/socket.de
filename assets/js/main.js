@@ -49,45 +49,36 @@ const getConfigPageData = path => {
 };
 
 /**
- * Redirects to localized path if necessary based on browser language.
- * Strictly falls back to 'en' if browser language is not 'de'.
- * @returns {boolean} True if redirected.
- */
-function checkLanguageRedirect() {
-  const currentPath = window.location.pathname;
-  
-  // If the URL already contains /en/ or /de/, do nothing
-  if (currentPath.startsWith('/en/') || currentPath.startsWith('/de/')) return false;
-
-  // STRICT FALLBACK: If not German, then English only.
-  const browserLang = navigator.language?.startsWith(GERMAN_PREFIX) ? 'de' : 'en';
-  const pageData = getConfigPageData(currentPath);
-  
-  if (!pageData) return false;
-
-  const redirectPath = pageData[browserLang];
-  if (redirectPath === currentPath) return false;
-
-  handleAjaxLoad(redirectPath);
-  return true;
-}
-
-/**
  * Load content via AJAX and update DOM/history.
  * @param {string} targetUrl
  */
 function handleAjaxLoad(targetUrl) {
-  let fetchUrl = targetUrl;
+  let finalUrl = targetUrl;
+  const currentPath = normalizePath(targetUrl);
   
-  // Logic to prevent double language prefixing (e.g., /en/en/)
-  if (targetUrl.endsWith('/vna/')) {
-    const parts = targetUrl.split('/').filter(Boolean);
-    const lang = LANGUAGES.includes(parts[0]) ? parts[0] : DEFAULT_LANGUAGE;
-    fetchUrl = `/${lang}/vna.html`;
+  // Logic to determine localized path if none is present
+  if (!currentPath.startsWith('/en/') && !currentPath.startsWith('/de/')) {
+    const pageData = getConfigPageData(currentPath);
+    if (pageData) {
+      const browserLang = navigator.language?.startsWith(GERMAN_PREFIX) ? 'de' : 'en';
+      finalUrl = pageData[browserLang];
+    }
   }
 
-  const content = DOM.pageContent();
-  if (!content) return;
+  const container = DOM.pageContent();
+  if (!container) return;
+
+  // GitHub Pages / Jekyll static path fix
+  let fetchUrl = finalUrl;
+  if (finalUrl.endsWith('/vna/')) {
+    const parts = finalUrl.split('/').filter(Boolean);
+    const lang = LANGUAGES.includes(parts[0]) ? parts[0] : DEFAULT_LANGUAGE;
+    fetchUrl = `/${lang}/vna.html`;
+  } else if (finalUrl.endsWith('/')) {
+    fetchUrl = finalUrl + 'index.html';
+  } else if (!finalUrl.includes('.')) {
+    fetchUrl = finalUrl + '/index.html';
+  }
 
   const fetchPage = pageCache[fetchUrl]
     ? Promise.resolve(pageCache[fetchUrl])
@@ -104,9 +95,12 @@ function handleAjaxLoad(targetUrl) {
     const newContent = doc.querySelector('#page-content');
 
     if (newContent) {
-      content.innerHTML = newContent.innerHTML;
+      container.innerHTML = newContent.innerHTML;
       document.title = doc.querySelector('title')?.textContent || document.title;
-      window.history.pushState({}, '', targetUrl);
+      
+      if (window.location.pathname !== finalUrl) {
+        window.history.pushState({}, '', finalUrl);
+      }
       
       initializeContentScripts();
       closeHamburgerMenu();
@@ -114,8 +108,8 @@ function handleAjaxLoad(targetUrl) {
     }
   }).catch(err => {
     console.error("AJAX load failed:", err);
-    // Hard redirect on failure to ensure user sees content
-    if (window.location.pathname !== targetUrl) window.location.href = targetUrl;
+    // Fallback redirect if fetch fails
+    if (window.location.pathname !== finalUrl) window.location.href = finalUrl;
   });
 }
 
@@ -125,18 +119,18 @@ function handleAjaxLoad(targetUrl) {
 function initializeAjaxNavigation() {
   document.body.addEventListener('click', e => {
     const link = e.target.closest('a');
-    if (!link) return;
+    if (!link || link.target || link.dataset.noAjax) return;
 
     let href = link.getAttribute('href');
     if (!href || href === '#' || href.startsWith('javascript:')) return;
-    if (link.target || link.dataset.noAjax) return;
 
-    const url = new URL(href, window.location.origin);
-    // Ensure we only handle internal links
-    if (url.origin !== window.location.origin) return;
-
-    e.preventDefault();
-    handleAjaxLoad(url.pathname);
+    try {
+      const url = new URL(href, window.location.origin);
+      if (url.origin === window.location.origin) {
+        e.preventDefault();
+        handleAjaxLoad(url.pathname);
+      }
+    } catch (e) {}
   });
 }
 
@@ -147,23 +141,19 @@ function initializePreloadOnHover() {
   document.body.addEventListener('mouseover', e => {
     const link = e.target.closest('a');
     if (!link) return;
-
     let href = link.getAttribute('href');
-    if (!href || href.startsWith('http') || href.startsWith('javascript:')) return;
+    if (!href || href.startsWith('http') || href.startsWith('#')) return;
 
-    const url = new URL(href, window.location.origin);
-    let preloadUrl = url.pathname;
-    
-    if (preloadUrl.endsWith('/vna/')) {
-        const parts = preloadUrl.split('/').filter(Boolean);
-        const lang = LANGUAGES.includes(parts[0]) ? parts[0] : DEFAULT_LANGUAGE;
-        preloadUrl = `/${lang}/vna.html`;
+    let pUrl = new URL(href, window.location.origin).pathname;
+    if (pUrl.endsWith('/vna/')) {
+        const parts = pUrl.split('/').filter(Boolean);
+        pUrl = `/${parts[0] || DEFAULT_LANGUAGE}/vna.html`;
+    } else if (pUrl.endsWith('/')) {
+        pUrl += 'index.html';
     }
 
-    if (!pageCache[preloadUrl]) {
-      fetch(preloadUrl).then(r => r.ok ? r.text() : null).then(html => {
-          if (html) pageCache[preloadUrl] = html;
-      });
+    if (!pageCache[pUrl]) {
+      fetch(pUrl).then(r => r.ok ? r.text() : null).then(h => { if (h) pageCache[pUrl] = h; });
     }
   });
 }
@@ -189,12 +179,8 @@ function initHamburger() {
  * Close mobile menu.
  */
 function closeHamburgerMenu() {
-  const hamburger = DOM.hamburger();
-  const navTop = DOM.navTop();
-  if (hamburger && navTop) {
-    hamburger.classList.remove('hamburger__open');
-    navTop.classList.remove('open');
-  }
+  DOM.hamburger()?.classList.remove('hamburger__open');
+  DOM.navTop()?.classList.remove('open');
 }
 
 /**
@@ -218,30 +204,19 @@ function initTabs() {
 }
 
 /**
- * Handle initial redirection for root paths.
- */
-function handleVnaPlaceholder() {
-  const path = window.location.pathname;
-  if (path === '/vna' || path === '/vna/') {
-    const lang = navigator.language?.startsWith(GERMAN_PREFIX) ? 'de' : 'en';
-    handleAjaxLoad(`/${lang}/vna/`);
-  }
-}
-
-/**
  * Initialize Google Maps.
  */
 function initMap() {
-  const coords = { lat: 50.13603820381762, lng: 8.57100497383925 };
   const el = document.getElementById("map");
+  // Check if Cookiebot allowed Google Maps (statistics/marketing cookies)
+  if (typeof Cookiebot !== "undefined" && !Cookiebot.consent.statistics) {
+    if (el) el.innerHTML = "<p style='padding:20px; text-align:center;'>Please accept cookies to view the map.</p>";
+    return;
+  }
   if (!window.google?.maps || !el) return;
-
+  const coords = { lat: 50.13603820381762, lng: 8.57100497383925 };
   const map = new google.maps.Map(el, { zoom: 15, center: coords });
-  new google.maps.Marker({
-    position: coords,
-    map,
-    icon: `${window.location.origin}/assets/img/icons/location.svg`
-  });
+  new google.maps.Marker({ position: coords, map, icon: `${window.location.origin}/assets/img/icons/location.svg` });
 }
 
 /**
@@ -259,20 +234,37 @@ function highlightActiveMenuItem() {
  * Run content scripts after AJAX load.
  */
 function initializeContentScripts() {
-  checkLanguageRedirect();
   initHamburger();
   initTabs();
   highlightActiveMenuItem();
   if (document.getElementById("map")) initMap();
 }
 
-window.addEventListener("popstate", () => {
-  handleAjaxLoad(window.location.pathname);
+window.addEventListener("popstate", () => handleAjaxLoad(window.location.pathname));
+
+/**
+ * Listen for Cookiebot consent to reload the map if it was blocked.
+ */
+window.addEventListener('CookiebotOnAccept', function (e) {
+    if (Cookiebot.consent.statistics) initMap();
 });
 
+/**
+ * Main initialization.
+ */
 document.addEventListener("DOMContentLoaded", () => {
   initializeAjaxNavigation();
   initializePreloadOnHover();
-  initializeContentScripts();
-  handleVnaPlaceholder();
+  
+  const currentPath = window.location.pathname;
+  
+  // If not localized, we must load localized content. 
+  // setTimeout(0-50) is used to jump ahead of Cookiebot's 'auto' blocking mode.
+  if (currentPath === '/' || (!currentPath.startsWith('/en/') && !currentPath.startsWith('/de/'))) {
+    setTimeout(() => {
+      handleAjaxLoad(currentPath);
+    }, 50);
+  } else {
+    initializeContentScripts();
+  }
 });
