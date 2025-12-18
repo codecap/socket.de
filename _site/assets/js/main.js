@@ -9,13 +9,12 @@ const DOM = {
 
 /**
  * Cache storage for fetched pages.
- * Keys: URL paths, Values: HTML strings.
  */
 const pageCache = {};
 
-/** Default language */
+/** Available languages */
+const LANGUAGES = ['en', 'de'];
 const DEFAULT_LANGUAGE = 'en';
-/** Prefix to detect German language */
 const GERMAN_PREFIX = 'de';
 
 /**
@@ -51,19 +50,23 @@ const getConfigPageData = path => {
 
 /**
  * Redirects to localized path if necessary based on browser language.
+ * Strictly falls back to 'en' if browser language is not 'de'.
  * @returns {boolean} True if redirected.
  */
 function checkLanguageRedirect() {
-  const browserLang = navigator.language?.startsWith(GERMAN_PREFIX) ? 'de' : DEFAULT_LANGUAGE;
   const currentPath = window.location.pathname;
+  
+  // If the URL already contains /en/ or /de/, do nothing
+  if (currentPath.startsWith('/en/') || currentPath.startsWith('/de/')) return false;
+
+  // STRICT FALLBACK: If not German, then English only.
+  const browserLang = navigator.language?.startsWith(GERMAN_PREFIX) ? 'de' : 'en';
   const pageData = getConfigPageData(currentPath);
+  
   if (!pageData) return false;
 
-  const isLocalized = currentPath.startsWith('/en/') || currentPath.startsWith('/de/');
-  if (isLocalized) return false;
-
-  const redirectPath = pageData[browserLang].endsWith('/') ? pageData[browserLang] : pageData[browserLang] + '/';
-  if (redirectPath === window.location.pathname) return false;
+  const redirectPath = pageData[browserLang];
+  if (redirectPath === currentPath) return false;
 
   handleAjaxLoad(redirectPath);
   return true;
@@ -75,13 +78,24 @@ function checkLanguageRedirect() {
  */
 function handleAjaxLoad(targetUrl) {
   let fetchUrl = targetUrl;
-  if (targetUrl.endsWith('/vna/')) fetchUrl = `/${targetUrl.split('/')[1]}/vna.html`;
+  
+  // Logic to prevent double language prefixing (e.g., /en/en/)
+  if (targetUrl.endsWith('/vna/')) {
+    const parts = targetUrl.split('/').filter(Boolean);
+    const lang = LANGUAGES.includes(parts[0]) ? parts[0] : DEFAULT_LANGUAGE;
+    fetchUrl = `/${lang}/vna.html`;
+  }
 
   const content = DOM.pageContent();
+  if (!content) return;
+
   const fetchPage = pageCache[fetchUrl]
     ? Promise.resolve(pageCache[fetchUrl])
     : fetch(fetchUrl)
-        .then(res => res.text())
+        .then(res => {
+          if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+          return res.text();
+        })
         .then(html => { pageCache[fetchUrl] = html; return html; });
 
   fetchPage.then(html => {
@@ -89,15 +103,19 @@ function handleAjaxLoad(targetUrl) {
     const doc = parser.parseFromString(html, 'text/html');
     const newContent = doc.querySelector('#page-content');
 
-    if (newContent) content.innerHTML = newContent.innerHTML;
-    document.title = doc.querySelector('title')?.textContent || document.title;
-    window.history.pushState({}, '', targetUrl);
-
-    initializeContentScripts();
-    closeHamburgerMenu();
-    window.scrollTo(0, 0);
-  }).catch(() => {
-    window.location.href = targetUrl;
+    if (newContent) {
+      content.innerHTML = newContent.innerHTML;
+      document.title = doc.querySelector('title')?.textContent || document.title;
+      window.history.pushState({}, '', targetUrl);
+      
+      initializeContentScripts();
+      closeHamburgerMenu();
+      window.scrollTo(0, 0);
+    }
+  }).catch(err => {
+    console.error("AJAX load failed:", err);
+    // Hard redirect on failure to ensure user sees content
+    if (window.location.pathname !== targetUrl) window.location.href = targetUrl;
   });
 }
 
@@ -113,16 +131,17 @@ function initializeAjaxNavigation() {
     if (!href || href === '#' || href.startsWith('javascript:')) return;
     if (link.target || link.dataset.noAjax) return;
 
-    if (!href.startsWith('http')) href = new URL(href, window.location.origin).pathname;
-    if (!href.startsWith('/')) href = '/' + href;
+    const url = new URL(href, window.location.origin);
+    // Ensure we only handle internal links
+    if (url.origin !== window.location.origin) return;
 
     e.preventDefault();
-    handleAjaxLoad(href);
+    handleAjaxLoad(url.pathname);
   });
 }
 
 /**
- * Preload page content on hover for perceived speed.
+ * Preload page content on hover.
  */
 function initializePreloadOnHover() {
   document.body.addEventListener('mouseover', e => {
@@ -130,13 +149,22 @@ function initializePreloadOnHover() {
     if (!link) return;
 
     let href = link.getAttribute('href');
-    if (!href.startsWith('/')) return;
+    if (!href || href.startsWith('http') || href.startsWith('javascript:')) return;
 
-    let preloadUrl = href;
-    if (href.endsWith('/vna/')) preloadUrl = `/${href.split('/')[1]}/vna.html`;
+    const url = new URL(href, window.location.origin);
+    let preloadUrl = url.pathname;
+    
+    if (preloadUrl.endsWith('/vna/')) {
+        const parts = preloadUrl.split('/').filter(Boolean);
+        const lang = LANGUAGES.includes(parts[0]) ? parts[0] : DEFAULT_LANGUAGE;
+        preloadUrl = `/${lang}/vna.html`;
+    }
 
-    if (!pageCache[preloadUrl])
-      fetch(preloadUrl).then(r => r.text()).then(html => pageCache[preloadUrl] = html);
+    if (!pageCache[preloadUrl]) {
+      fetch(preloadUrl).then(r => r.ok ? r.text() : null).then(html => {
+          if (html) pageCache[preloadUrl] = html;
+      });
+    }
   });
 }
 
@@ -170,7 +198,7 @@ function closeHamburgerMenu() {
 }
 
 /**
- * Initialize tabs for elements with '.tabs_block'.
+ * Initialize tabs.
  */
 function initTabs() {
   document.querySelectorAll(".tabs_block").forEach(block => {
@@ -190,7 +218,7 @@ function initTabs() {
 }
 
 /**
- * Handle /vna initial load.
+ * Handle initial redirection for root paths.
  */
 function handleVnaPlaceholder() {
   const path = window.location.pathname;
@@ -201,7 +229,7 @@ function handleVnaPlaceholder() {
 }
 
 /**
- * Initialize Google Maps for #map element.
+ * Initialize Google Maps.
  */
 function initMap() {
   const coords = { lat: 50.13603820381762, lng: 8.57100497383925 };
@@ -217,43 +245,34 @@ function initMap() {
 }
 
 /**
- * Highlight active menu link based on URL.
+ * Highlight active menu link.
  */
 function highlightActiveMenuItem() {
-  const path = window.location.pathname.replace(/\/$/, "");
+  const path = normalizePath(window.location.pathname);
   document.querySelectorAll('.nav-top a').forEach(a => {
-    const href = a.getAttribute('href')?.replace(/\/$/, "");
-    if (!href) return;
-
+    const href = normalizePath(a.getAttribute('href') || "");
     a.classList.toggle('current', path === href);
   });
 }
 
 /**
- * Initialize all content scripts.
+ * Run content scripts after AJAX load.
  */
 function initializeContentScripts() {
   checkLanguageRedirect();
   initHamburger();
   initTabs();
   highlightActiveMenuItem();
-  if (document.getElementById("map") && typeof initMap === "function") initMap();
+  if (document.getElementById("map")) initMap();
 }
 
-/**
- * Handle browser back/forward navigation.
- */
 window.addEventListener("popstate", () => {
   handleAjaxLoad(window.location.pathname);
 });
 
-/**
- * Initialize scripts on DOMContentLoaded.
- */
 document.addEventListener("DOMContentLoaded", () => {
   initializeAjaxNavigation();
   initializePreloadOnHover();
   initializeContentScripts();
   handleVnaPlaceholder();
-  highlightActiveMenuItem();
 });

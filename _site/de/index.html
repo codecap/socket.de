@@ -42,7 +42,6 @@
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'AW-1029212389');
         </script>
         
@@ -56,7 +55,9 @@
 		<em class="line"></em>
 	</div>
 </a>
-        <div class="wrapper">
+        <div id="loader" class="preloader"></div>
+        <main id="page-content">
+            <div class="wrapper">
 	<header>
 		<div class="container">
 			<div class="header">
@@ -75,10 +76,7 @@
 			</div>
 		</div>
 	</header>
-        
-        <div id="loader" class="preloader"></div>
-        <main id="page-content">
-            <section class="top_section">
+<section class="top_section">
 	<div class="container">
 		<div class="promo_block">
 			
@@ -342,8 +340,7 @@
 		</div>
 	</div>
 </section>
-        </main>
-        <footer>
+<footer>
 	<div class="container">
 		<div class="footer">
 			<div class="logo">
@@ -380,6 +377,7 @@
 	</div>
 </footer>
  
+        </main>
         <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWHf5VsbGwqAxguGzDCE-G_VoWxhpyB6M&callback=initMap&libraries=&v=weekly">
             </script>

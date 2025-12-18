@@ -3,7 +3,7 @@ layout: default
 lang: en
 sitemap: false
 ---
-
+{% include header.html %}
 {% assign data = site.data[page.lang].errors.error500 %}
 <section class='page_section'>
 	<div class="container">
@@ -22,3 +22,4 @@ sitemap: false
 		</div>
 	</div>
 </section>
+{% include footer.html %}

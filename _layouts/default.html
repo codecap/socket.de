@@ -37,7 +37,6 @@
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'AW-1029212389');
         </script>
         
@@ -45,13 +44,10 @@
 
     <body>
         {% include menu_hamb.html %}
-        {% include header.html %}
-        
         <div id="loader" class="preloader"></div>
         <main id="page-content">
             {{ content}}
         </main>
-        {% include footer.html %} 
         <script async defer
             src="https://maps.googleapis.com/maps/api/js?key={{ site.data.settings.google_maps_conf.key }}&callback=initMap&libraries=&v=weekly">
             </script>
