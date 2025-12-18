@@ -1,5 +1,6 @@
 /**
- * Створюємо копію оригінального fetch до того, як його перехопить Cookiebot
+ * Create a native fetch reference to bypass Cookiebot interceptors
+ * during AJAX page transitions.
  */
 const _nativeFetch = window.fetch.bind(window);
 
@@ -36,8 +37,54 @@ const getConfigPageData = path => {
 };
 
 /**
- * Load content via AJAX and update DOM/history.
- * @param {string} targetUrl
+ * Google Maps initialization with Placeholder toggle logic.
+ */
+window.initMap = function() {
+  const mapEl = document.getElementById("map");
+  const placeholderEl = document.getElementById("map-placeholder");
+  
+  if (!mapEl || !placeholderEl) return;
+
+  // Check Cookiebot consent for statistics
+  const hasConsent = typeof Cookiebot !== "undefined" && 
+                     Cookiebot.consent && 
+                     Cookiebot.consent.statistics;
+
+  if (!hasConsent) {
+    // Show placeholder, hide map container
+    mapEl.style.display = 'none';
+    placeholderEl.style.display = 'block';
+    return;
+  }
+
+  // Consent given: Show map, hide placeholder
+  placeholderEl.style.display = 'none';
+  mapEl.style.display = 'block';
+
+  if (!window.google?.maps) return;
+
+  const coords = { lat: 50.13603820381762, lng: 8.57100497383925 };
+  const map = new google.maps.Map(mapEl, { zoom: 15, center: coords });
+  new google.maps.Marker({ 
+    position: coords, 
+    map, 
+    icon: '/assets/img/icons/location.svg' 
+  });
+};
+
+/**
+ * Cookiebot API trigger - Fixed spelling from previous error.
+ */
+window.triggerCookieBanner = function() {
+  if (typeof Cookiebot !== "undefined") {
+    Cookiebot.renew();
+  } else {
+    console.warn("Cookiebot is not loaded.");
+  }
+};
+
+/**
+ * Handle AJAX loading and history management.
  */
 function handleAjaxLoad(targetUrl) {
   let finalUrl = targetUrl;
@@ -63,7 +110,8 @@ function handleAjaxLoad(targetUrl) {
     fetchUrl = finalUrl + '/index.html';
   }
 
-  // Використовуємо збережений _nativeFetch, щоб Cookiebot не міг його заблокувати
+  fetchUrl = fetchUrl.replace(/\/+/g, '/');
+
   const fetchPage = pageCache[fetchUrl]
     ? Promise.resolve(pageCache[fetchUrl])
     : _nativeFetch(fetchUrl)
@@ -102,7 +150,7 @@ function handleAjaxLoad(targetUrl) {
 }
 
 /**
- * Initialize AJAX navigation for internal links.
+ * Event listeners and UI Initializers.
  */
 function initializeAjaxNavigation() {
   document.body.addEventListener('click', e => {
@@ -110,7 +158,6 @@ function initializeAjaxNavigation() {
     if (!link || link.target || link.dataset.noAjax) return;
     let href = link.getAttribute('href');
     if (!href || href === '#' || href.startsWith('javascript:')) return;
-
     if (link.origin === window.location.origin) {
       e.preventDefault();
       handleAjaxLoad(link.pathname);
@@ -118,25 +165,6 @@ function initializeAjaxNavigation() {
   });
 }
 
-/**
- * Preload page content on hover.
- */
-function initializePreloadOnHover() {
-  document.body.addEventListener('mouseover', e => {
-    const link = e.target.closest('a');
-    if (!link || link.origin !== window.location.origin) return;
-    let pUrl = link.pathname;
-    if (pUrl.endsWith('/')) pUrl += 'index.html';
-
-    if (!pageCache[pUrl]) {
-      _nativeFetch(pUrl).then(r => r.ok ? r.text() : null).then(h => { if (h) pageCache[pUrl] = h; });
-    }
-  });
-}
-
-/**
- * Initialize hamburger toggle.
- */
 function initHamburger() {
   const hamburger = DOM.hamburger();
   const navTop = DOM.navTop();
@@ -154,9 +182,6 @@ function closeHamburgerMenu() {
   DOM.navTop()?.classList.remove('open');
 }
 
-/**
- * Initialize tabs.
- */
 function initTabs() {
   document.querySelectorAll(".tabs_block").forEach(block => {
     const tabs = block.querySelectorAll(".tabs li");
@@ -173,25 +198,11 @@ function initTabs() {
   });
 }
 
-/**
- * Initialize Google Maps.
- */
-window.initMap = function() {
-  const el = document.getElementById("map");
-  if (typeof Cookiebot !== "undefined" && !Cookiebot.consent.statistics) {
-    if (el) el.innerHTML = "<p style='padding:20px; text-align:center;'>Please accept cookies to view the map.</p>";
-    return;
-  }
-  if (!window.google?.maps || !el) return;
-  const coords = { lat: 50.13603820381762, lng: 8.57100497383925 };
-  const map = new google.maps.Map(el, { zoom: 15, center: coords });
-  new google.maps.Marker({ position: coords, map, icon: '/assets/img/icons/location.svg' });
-};
-
 function highlightActiveMenuItem() {
   const path = normalizePath(window.location.pathname);
   document.querySelectorAll('.nav-top a').forEach(a => {
-    a.classList.toggle('current', normalizePath(a.getAttribute('href') || "") === path);
+    const href = normalizePath(a.getAttribute('href') || "");
+    a.classList.toggle('current', path === href);
   });
 }
 
@@ -199,21 +210,32 @@ function initializeContentScripts() {
   initHamburger();
   initTabs();
   highlightActiveMenuItem();
+  // Map init is called whenever content is swapped
   if (document.getElementById("map")) window.initMap();
 }
 
+/**
+ * Global Listeners.
+ */
 window.addEventListener("popstate", () => handleAjaxLoad(window.location.pathname));
 
-window.addEventListener('CookiebotOnAccept', function (e) {
-    if (Cookiebot.consent.statistics && document.getElementById("map")) window.initMap();
+/**
+ * Listener for Cookiebot event - redraw map when user clicks "Accept"
+ */
+window.addEventListener('CookiebotOnAccept', function () {
+  if (document.getElementById("map")) {
+    window.initMap();
+  }
 });
 
-// Запускаємо відразу, щоб не чекати подій, які бот може заблокувати
-(function() {
+/**
+ * Global Initialization
+ */
+(function init() {
   initializeAjaxNavigation();
-  initializePreloadOnHover();
   
   const currentPath = window.location.pathname;
+  // If landing on root or a path without lang prefix, trigger localization load
   if (currentPath === '/' || (!currentPath.startsWith('/en/') && !currentPath.startsWith('/de/'))) {
     handleAjaxLoad(currentPath);
   } else {
