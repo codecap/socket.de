@@ -56,7 +56,6 @@ function handleAjaxLoad(targetUrl) {
   let finalUrl = targetUrl;
   const currentPath = normalizePath(targetUrl);
   
-  // Logic to determine localized path if none is present
   if (!currentPath.startsWith('/en/') && !currentPath.startsWith('/de/')) {
     const pageData = getConfigPageData(currentPath);
     if (pageData) {
@@ -68,26 +67,27 @@ function handleAjaxLoad(targetUrl) {
   const container = DOM.pageContent();
   if (!container) return;
 
-  // GitHub Pages / Jekyll static path fix
+  // Fix for GitHub Pages/Jekyll
   let fetchUrl = finalUrl;
   if (finalUrl.endsWith('/vna/')) {
-    const parts = finalUrl.split('/').filter(Boolean);
-    const lang = LANGUAGES.includes(parts[0]) ? parts[0] : DEFAULT_LANGUAGE;
-    fetchUrl = `/${lang}/vna.html`;
+    fetchUrl = `/${finalUrl.split('/')[1] || DEFAULT_LANGUAGE}/vna.html`;
   } else if (finalUrl.endsWith('/')) {
     fetchUrl = finalUrl + 'index.html';
   } else if (!finalUrl.includes('.')) {
     fetchUrl = finalUrl + '/index.html';
   }
 
-  const fetchPage = pageCache[fetchUrl]
-    ? Promise.resolve(pageCache[fetchUrl])
-    : fetch(fetchUrl)
+  // Use absolute path to avoid issues on GitHub Pages
+  const absoluteFetchUrl = window.location.origin + fetchUrl;
+
+  const fetchPage = pageCache[absoluteFetchUrl]
+    ? Promise.resolve(pageCache[absoluteFetchUrl])
+    : fetch(absoluteFetchUrl)
         .then(res => {
           if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
           return res.text();
         })
-        .then(html => { pageCache[fetchUrl] = html; return html; });
+        .then(html => { pageCache[absoluteFetchUrl] = html; return html; });
 
   fetchPage.then(html => {
     const parser = new DOMParser();
@@ -108,7 +108,6 @@ function handleAjaxLoad(targetUrl) {
     }
   }).catch(err => {
     console.error("AJAX load failed:", err);
-    // Fallback redirect if fetch fails
     if (window.location.pathname !== finalUrl) window.location.href = finalUrl;
   });
 }
@@ -120,9 +119,8 @@ function initializeAjaxNavigation() {
   document.body.addEventListener('click', e => {
     const link = e.target.closest('a');
     if (!link || link.target || link.dataset.noAjax) return;
-
     let href = link.getAttribute('href');
-    if (!href || href === '#' || href.startsWith('javascript:')) return;
+    if (!href || href === '#' || href.startsWith('javascript:') || href.startsWith('http')) return;
 
     try {
       const url = new URL(href, window.location.origin);
@@ -146,14 +144,14 @@ function initializePreloadOnHover() {
 
     let pUrl = new URL(href, window.location.origin).pathname;
     if (pUrl.endsWith('/vna/')) {
-        const parts = pUrl.split('/').filter(Boolean);
-        pUrl = `/${parts[0] || DEFAULT_LANGUAGE}/vna.html`;
+        pUrl = `/${pUrl.split('/')[1] || DEFAULT_LANGUAGE}/vna.html`;
     } else if (pUrl.endsWith('/')) {
         pUrl += 'index.html';
     }
 
-    if (!pageCache[pUrl]) {
-      fetch(pUrl).then(r => r.ok ? r.text() : null).then(h => { if (h) pageCache[pUrl] = h; });
+    const absolutePUrl = window.location.origin + pUrl;
+    if (!pageCache[absolutePUrl]) {
+      fetch(absolutePUrl).then(r => r.ok ? r.text() : null).then(h => { if (h) pageCache[absolutePUrl] = h; });
     }
   });
 }
@@ -165,10 +163,8 @@ function initHamburger() {
   const hamburger = DOM.hamburger();
   const navTop = DOM.navTop();
   if (!hamburger || !navTop) return;
-
   const newHamburger = hamburger.cloneNode(true);
   hamburger.parentNode.replaceChild(newHamburger, hamburger);
-
   newHamburger.addEventListener('click', () => {
     newHamburger.classList.toggle('hamburger__open');
     navTop.classList.toggle('open');
@@ -190,7 +186,6 @@ function initTabs() {
   document.querySelectorAll(".tabs_block").forEach(block => {
     const tabs = block.querySelectorAll(".tabs li");
     const panels = block.querySelectorAll(".tabs-panel");
-
     tabs.forEach((tab, i) => {
       tab.addEventListener('click', e => {
         e.preventDefault();
@@ -206,7 +201,7 @@ function initTabs() {
 /**
  * Initialize Google Maps.
  */
-function initMap() {
+window.initMap = function() {
   const el = document.getElementById("map");
   // Check if Cookiebot allowed Google Maps (statistics/marketing cookies)
   if (typeof Cookiebot !== "undefined" && !Cookiebot.consent.statistics) {
@@ -217,7 +212,7 @@ function initMap() {
   const coords = { lat: 50.13603820381762, lng: 8.57100497383925 };
   const map = new google.maps.Map(el, { zoom: 15, center: coords });
   new google.maps.Marker({ position: coords, map, icon: `${window.location.origin}/assets/img/icons/location.svg` });
-}
+};
 
 /**
  * Highlight active menu link.
@@ -237,34 +232,34 @@ function initializeContentScripts() {
   initHamburger();
   initTabs();
   highlightActiveMenuItem();
-  if (document.getElementById("map")) initMap();
+  if (document.getElementById("map")) window.initMap();
 }
 
 window.addEventListener("popstate", () => handleAjaxLoad(window.location.pathname));
 
-/**
- * Listen for Cookiebot consent to reload the map if it was blocked.
- */
+/** Listen for Cookiebot consent to reload the map if it was blocked */
 window.addEventListener('CookiebotOnAccept', function (e) {
-    if (Cookiebot.consent.statistics) initMap();
+    if (Cookiebot.consent.statistics && document.getElementById("map")) window.initMap();
 });
 
 /**
  * Main initialization.
  */
-document.addEventListener("DOMContentLoaded", () => {
+const init = () => {
   initializeAjaxNavigation();
   initializePreloadOnHover();
   
   const currentPath = window.location.pathname;
-  
-  // If not localized, we must load localized content. 
-  // setTimeout(0-50) is used to jump ahead of Cookiebot's 'auto' blocking mode.
+  // If we are at root or unlocalized, run handleAjaxLoad immediately with a small delay to beat Cookiebot auto-blocking
   if (currentPath === '/' || (!currentPath.startsWith('/en/') && !currentPath.startsWith('/de/'))) {
-    setTimeout(() => {
-      handleAjaxLoad(currentPath);
-    }, 50);
+    setTimeout(() => handleAjaxLoad(currentPath), 50);
   } else {
     initializeContentScripts();
   }
-});
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener("DOMContentLoaded", init);
+} else {
+  init();
+}
