@@ -43,37 +43,54 @@ window.initMap = function() {
   const mapEl = document.getElementById("map");
   const placeholderEl = document.getElementById("map-placeholder");
   
-  if (!mapEl || !placeholderEl) return;
+  if (!mapEl) return;
 
-  // Check Cookiebot consent for statistics
+  /**
+   * Evaluate Cookiebot consent status specifically for statistics category.
+   */
   const hasConsent = typeof Cookiebot !== "undefined" && 
                      Cookiebot.consent && 
                      Cookiebot.consent.statistics;
 
   if (!hasConsent) {
-    // Show placeholder, hide map container
+    /**
+     * If consent is not granted: 
+     * Hide map container and show the silent placeholder.
+     */
     mapEl.style.display = 'none';
-    placeholderEl.style.display = 'block';
+    if (placeholderEl) placeholderEl.style.display = 'block';
     return;
   }
 
-  // Consent given: Show map, hide placeholder
-  placeholderEl.style.display = 'none';
+  /**
+   * If consent is granted:
+   * Hide placeholder and prepare map container.
+   */
+  if (placeholderEl) placeholderEl.style.display = 'none';
   mapEl.style.display = 'block';
 
+  /**
+   * Initialize Google Maps instance if API is available.
+   */
   if (!window.google?.maps) return;
 
   const coords = { lat: 50.13603820381762, lng: 8.57100497383925 };
-  const map = new google.maps.Map(mapEl, { zoom: 15, center: coords });
+  const map = new google.maps.Map(mapEl, { 
+    zoom: 15, 
+    center: coords,
+    mapTypeControl: false,
+    streetViewControl: false
+  });
+
   new google.maps.Marker({ 
     position: coords, 
-    map, 
+    map: map, 
     icon: '/assets/img/icons/location.svg' 
   });
 };
 
 /**
- * Cookiebot API trigger - Fixed spelling from previous error.
+ * Cookiebot API trigger.
  */
 window.triggerCookieBanner = function() {
   if (typeof Cookiebot !== "undefined") {
@@ -150,7 +167,7 @@ function handleAjaxLoad(targetUrl) {
 }
 
 /**
- * Event listeners and UI Initializers.
+ * UI Initializers.
  */
 function initializeAjaxNavigation() {
   document.body.addEventListener('click', e => {
@@ -210,7 +227,6 @@ function initializeContentScripts() {
   initHamburger();
   initTabs();
   highlightActiveMenuItem();
-  // Map init is called whenever content is swapped
   if (document.getElementById("map")) window.initMap();
 }
 
@@ -220,12 +236,14 @@ function initializeContentScripts() {
 window.addEventListener("popstate", () => handleAjaxLoad(window.location.pathname));
 
 /**
- * Listener for Cookiebot event - redraw map when user clicks "Accept"
+ * Handle automatic map toggling based on Cookiebot consent actions.
  */
-window.addEventListener('CookiebotOnAccept', function () {
-  if (document.getElementById("map")) {
-    window.initMap();
-  }
+window.addEventListener('CookiebotOnAccept', () => {
+  if (document.getElementById("map")) window.initMap();
+});
+
+window.addEventListener('CookiebotOnDecline', () => {
+  if (document.getElementById("map")) window.initMap();
 });
 
 /**
@@ -235,7 +253,6 @@ window.addEventListener('CookiebotOnAccept', function () {
   initializeAjaxNavigation();
   
   const currentPath = window.location.pathname;
-  // If landing on root or a path without lang prefix, trigger localization load
   if (currentPath === '/' || (!currentPath.startsWith('/en/') && !currentPath.startsWith('/de/'))) {
     handleAjaxLoad(currentPath);
   } else {
