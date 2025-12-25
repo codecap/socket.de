@@ -72,7 +72,10 @@ window.initMap = function() {
   /**
    * Initialize Google Maps instance if API is available.
    */
-  if (!window.google?.maps) return;
+  if (!window.google?.maps) {
+    console.warn("Google Maps API not available yet.");
+    return;
+  }
 
   const coords = { lat: 50.13603820381762, lng: 8.57100497383925 };
   const map = new google.maps.Map(mapEl, { 
@@ -236,10 +239,22 @@ function initializeContentScripts() {
 window.addEventListener("popstate", () => handleAjaxLoad(window.location.pathname));
 
 /**
- * Handle automatic map toggling based on Cookiebot consent actions.
+ * Handle automatic map toggling with polling to wait for Google Maps API.
  */
 window.addEventListener('CookiebotOnAccept', () => {
-  if (document.getElementById("map")) window.initMap();
+  let attempts = 0;
+  const maxAttempts = 20;
+
+  const tryInitMap = () => {
+    if (window.google && window.google.maps) {
+      window.initMap();
+    } else if (attempts < maxAttempts) {
+      attempts++;
+      setTimeout(tryInitMap, 500);
+    }
+  };
+
+  tryInitMap();
 });
 
 window.addEventListener('CookiebotOnDecline', () => {
