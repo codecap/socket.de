@@ -1,16 +1,3 @@
-# # NOTE: images are svg encoded text. You can edit them by decodng base64
-# #       changing, end encoding aaing
-#- title: "§1 Warning Notice Regarding Content"
-#  content: >-
-#    <p>
-#   Information according to Section 5 TMG <br>
-#    Operator of the Page <br>
-#    <br>
-#    <br>
-#    <img width="200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgaWQ9InN2Zzk3MyIKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIwIDAgMTAwIDQwIgogICBoZWlnaHQ9IjQwbW0iCiAgIHdpZHRoPSIxMDBtbSI+CiAgPGRlZnMKICAgICBpZD0iZGVmczk2NyIgLz4KICA8bWV0YWRhdGEKICAgICBpZD0ibWV0YWRhdGE5NzAiPgogICAgPHJkZjpSREY+CiAgICAgIDxjYzpXb3JrCiAgICAgICAgIHJkZjphYm91dD0iIj4KICAgICAgICA8ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD4KICAgICAgICA8ZGM6dHlwZQogICAgICAgICAgIHJkZjpyZXNvdXJjZT0iaHR0cDovL3B1cmwub3JnL2RjL2RjbWl0eXBlL1N0aWxsSW1hZ2UiIC8+CiAgICAgICAgPGRjOnRpdGxlPjwvZGM6dGl0bGU+CiAgICAgIDwvY2M6V29yaz4KICAgIDwvcmRmOlJERj4KICA8L21ldGFkYXRhPgogIDxnCiAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwtMjU3KSIKICAgICBpZD0ibGF5ZXIxIj4KICAgIDx0ZXh0CiAgICAgICBpZD0idGV4dDE1MjAiCiAgICAgICB5PSIyNjYuNTMxMjgiCiAgICAgICB4PSIwLjI2NzI2OTQ2IgogICAgICAgc3R5bGU9ImZvbnQtc3R5bGU6bm9ybWFsO2ZvbnQtd2VpZ2h0Om5vcm1hbDtmb250LXNpemU6OS44Nzc3NzgwNXB4O2xpbmUtaGVpZ2h0OjEuMjU7Zm9udC1mYW1pbHk6c2Fucy1zZXJpZjtsZXR0ZXItc3BhY2luZzowcHg7d29yZC1zcGFjaW5nOjBweDtmaWxsOiMwMDAwMDA7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuMjY0NTgzMzIiCiAgICAgICB4bWw6c3BhY2U9InByZXNlcnZlIj48dHNwYW4KICAgICAgICAgc3R5bGU9ImZvbnQtc3R5bGU6bm9ybWFsO2ZvbnQtdmFyaWFudDpub3JtYWw7Zm9udC13ZWlnaHQ6bm9ybWFsO2ZvbnQtc3RyZXRjaDpub3JtYWw7Zm9udC1zaXplOjkuODc3Nzc4MDVweDtmb250LWZhbWlseTpzYW5zLXNlcmlmOy1pbmtzY2FwZS1mb250LXNwZWNpZmljYXRpb246c2Fucy1zZXJpZjtzdHJva2Utd2lkdGg6MC4yNjQ1ODMzMiIKICAgICAgICAgeT0iMjY2LjUzMTI4IgogICAgICAgICB4PSIwLjI2NzI2OTQ2IgogICAgICAgICBpZD0idHNwYW4xNTE4Ij5WbGFkaXNsYXYgTmF6YXJlbmtvPC90c3Bhbj48dHNwYW4KICAgICAgICAgaWQ9InRzcGFuMTUyMiIKICAgICAgICAgc3R5bGU9ImZvbnQtc3R5bGU6bm9ybWFsO2ZvbnQtdmFyaWFudDpub3JtYWw7Zm9udC13ZWlnaHQ6bm9ybWFsO2ZvbnQtc3RyZXRjaDpub3JtYWw7Zm9udC1zaXplOjkuODc3Nzc4MDVweDtmb250LWZhbWlseTpzYW5zLXNlcmlmOy1pbmtzY2FwZS1mb250LXNwZWNpZmljYXRpb246c2Fucy1zZXJpZjtzdHJva2Utd2lkdGg6MC4yNjQ1ODMzMiIKICAgICAgICAgeT0iMjc4Ljg3ODUxIgogICAgICAgICB4PSIwLjI2NzI2OTQ2Ij5FZ2Vsc2JhY2hlciBTdHIuIDY1PC90c3Bhbj48dHNwYW4KICAgICAgICAgaWQ9InRzcGFuMTUyNCIKICAgICAgICAgc3R5bGU9ImZvbnQtc3R5bGU6bm9ybWFsO2ZvbnQtdmFyaWFudDpub3JtYWw7Zm9udC13ZWlnaHQ6bm9ybWFsO2ZvbnQtc3RyZXRjaDpub3JtYWw7Zm9udC1zaXplOjkuODc3Nzc4MDVweDtmb250LWZhbWlseTpzYW5zLXNlcmlmOy1pbmtzY2FwZS1mb250LXNwZWNpZmljYXRpb246c2Fucy1zZXJpZjtzdHJva2Utd2lkdGg6MC4yNjQ1ODMzMiIKICAgICAgICAgeT0iMjkxLjIyNTc0IgogICAgICAgICB4PSIwLjI2NzI2OTQ2Ij42MzIyNSBMYW5nZW48L3RzcGFuPjwvdGV4dD4KICA8L2c+Cjwvc3ZnPg==">
-#    <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgaWQ9InN2Zzk3MyIKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIwIDAgMTUwIDE1IgogICBoZWlnaHQ9IjE1bW0iCiAgIHdpZHRoPSIxNTBtbSI+CiAgPGRlZnMKICAgICBpZD0iZGVmczk2NyIgLz4KICA8bWV0YWRhdGEKICAgICBpZD0ibWV0YWRhdGE5NzAiPgogICAgPHJkZjpSREY+CiAgICAgIDxjYzpXb3JrCiAgICAgICAgIHJkZjphYm91dD0iIj4KICAgICAgICA8ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD4KICAgICAgICA8ZGM6dHlwZQogICAgICAgICAgIHJkZjpyZXNvdXJjZT0iaHR0cDovL3B1cmwub3JnL2RjL2RjbWl0eXBlL1N0aWxsSW1hZ2UiIC8+CiAgICAgICAgPGRjOnRpdGxlPjwvZGM6dGl0bGU+CiAgICAgIDwvY2M6V29yaz4KICAgIDwvcmRmOlJERj4KICA8L21ldGFkYXRhPgogIDxnCiAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwtMjgyKSIKICAgICBpZD0ibGF5ZXIxIj4KICAgIDx0ZXh0CiAgICAgICBpZD0idGV4dDE1MjAiCiAgICAgICB5PSIyOTIuOTkwOTciCiAgICAgICB4PSItMC4yNjcyNjk1OCIKICAgICAgIHN0eWxlPSJmb250LXN0eWxlOm5vcm1hbDtmb250LXdlaWdodDpub3JtYWw7Zm9udC1zaXplOjkuODc3Nzc4MDVweDtsaW5lLWhlaWdodDoxLjI1O2ZvbnQtZmFtaWx5OnNhbnMtc2VyaWY7bGV0dGVyLXNwYWNpbmc6MHB4O3dvcmQtc3BhY2luZzowcHg7ZmlsbDojMDAwMDAwO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjI2NDU4MzMyIgogICAgICAgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHRzcGFuCiAgICAgICAgIGlkPSJ0c3BhbjE1MjQiCiAgICAgICAgIHN0eWxlPSJmb250LXN0eWxlOm5vcm1hbDtmb250LXZhcmlhbnQ6bm9ybWFsO2ZvbnQtd2VpZ2h0Om5vcm1hbDtmb250LXN0cmV0Y2g6bm9ybWFsO2ZvbnQtc2l6ZTo5Ljg3Nzc3ODA1cHg7Zm9udC1mYW1pbHk6c2Fucy1zZXJpZjstaW5rc2NhcGUtZm9udC1zcGVjaWZpY2F0aW9uOnNhbnMtc2VyaWY7c3Ryb2tlLXdpZHRoOjAuMjY0NTgzMzIiCiAgICAgICAgIHk9IjI5Mi45OTA5NyIKICAgICAgICAgeD0iLTAuMjY3MjY5NTgiPk1haWw6IGFkbWluQGJ1ZXJnZXJ3aWVzZS5kZTwvdHNwYW4+PC90ZXh0PgogIDwvZz4KPC9zdmc+">
-#    <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgaWQ9InN2Zzk3MyIKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIwIDAgMTUwIDE1IgogICBoZWlnaHQ9IjE1bW0iCiAgIHdpZHRoPSIxNTBtbSI+CiAgPGRlZnMKICAgICBpZD0iZGVmczk2NyIgLz4KICA8bWV0YWRhdGEKICAgICBpZD0ibWV0YWRhdGE5NzAiPgogICAgPHJkZjpSREY+CiAgICAgIDxjYzpXb3JrCiAgICAgICAgIHJkZjphYm91dD0iIj4KICAgICAgICA8ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD4KICAgICAgICA8ZGM6dHlwZQogICAgICAgICAgIHJkZjpyZXNvdXJjZT0iaHR0cDovL3B1cmwub3JnL2RjL2RjbWl0eXBlL1N0aWxsSW1hZ2UiIC8+CiAgICAgICAgPGRjOnRpdGxlPjwvZGM6dGl0bGU+CiAgICAgIDwvY2M6V29yaz4KICAgIDwvcmRmOlJERj4KICA8L21ldGFkYXRhPgogIDxnCiAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwtMjgyKSIKICAgICBpZD0ibGF5ZXIxIj4KICAgIDx0ZXh0CiAgICAgICBpZD0idGV4dDE1MjAiCiAgICAgICB5PSIyOTIuOTkwOTciCiAgICAgICB4PSItMC4yNjcyNjk1OCIKICAgICAgIHN0eWxlPSJmb250LXN0eWxlOm5vcm1hbDtmb250LXdlaWdodDpub3JtYWw7Zm9udC1zaXplOjkuODc3Nzc4MDVweDtsaW5lLWhlaWdodDoxLjI1O2ZvbnQtZmFtaWx5OnNhbnMtc2VyaWY7bGV0dGVyLXNwYWNpbmc6MHB4O3dvcmQtc3BhY2luZzowcHg7ZmlsbDojMDAwMDAwO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjI2NDU4MzMyIgogICAgICAgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHRzcGFuCiAgICAgICAgIGlkPSJ0c3BhbjE1MjQiCiAgICAgICAgIHN0eWxlPSJmb250LXN0eWxlOm5vcm1hbDtmb250LXZhcmlhbnQ6bm9ybWFsO2ZvbnQtd2VpZ2h0Om5vcm1hbDtmb250LXN0cmV0Y2g6bm9ybWFsO2ZvbnQtc2l6ZTo5Ljg3Nzc3ODA1cHg7Zm9udC1mYW1pbHk6c2Fucy1zZXJpZjstaW5rc2NhcGUtZm9udC1zcGVjaWZpY2F0aW9uOnNhbnMtc2VyaWY7c3Ryb2tlLXdpZHRoOjAuMjY0NTgzMzIiCiAgICAgICAgIHk9IjI5Mi45OTA5NyIKICAgICAgICAgeD0iLTAuMjY3MjY5NTgiPlRlbC46IDAxNTc1IDkgNjAwIDE5MDwvdHNwYW4+PC90ZXh0PgogIDwvZz4KPC9zdmc+">
-#
 # Created with: https://www.impressum-generator.de/
 - title: "Imprint"
   content: ""
@@ -40,67 +27,102 @@
   content: |
     <h4>Liability for Content</h4>
 
-    The content of our pages was created with the utmost care. However, we cannot assume any liability for the correctness, completeness, and timeliness of the content. As a service provider, we are responsible for our own content on these pages under general laws, pursuant to Section 7 (1) TMG. According to Sections 8 to 10 TMG, however, we, as a service provider, are not obliged to monitor transmitted or stored external information or to investigate circumstances that indicate illegal activity. Obligations to remove or block the use of information under general laws remain unaffected. However, liability in this regard is only possible from the time of knowledge of a specific legal violation. If we become aware of any such legal violations, we will remove this content immediately.
+    The content of our pages was created with the utmost care. However, we
+    cannot assume any liability for the correctness, completeness, and
+    timeliness of the content. As a service provider, we are responsible for
+    our own content on these pages under general laws, pursuant to Section 7
+    (1) TMG. According to Sections 8 to 10 TMG, however, we, as a service
+    provider, are not obliged to monitor transmitted or stored external
+    information or to investigate circumstances that indicate illegal
+    activity. Obligations to remove or block the use of information under
+    general laws remain unaffected. However, liability in this regard is only
+    possible from the time of knowledge of a specific legal violation. If we
+    become aware of any such legal violations, we will remove this content
+    immediately.
 
     <h4>Liability for Links</h4>
 
-    Our offer contains links to external third-party websites, the content of which we have no influence over. Therefore, we cannot assume any liability for this external content. The respective provider or operator of the pages is always responsible for the content of the linked pages. The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognizable at the time of linking. However, permanent monitoring of the content of the linked pages is not reasonable without concrete evidence of a legal violation. If we become aware of legal violations, we will remove such links immediately.
+    Our offer contains links to external third-party websites, the content of
+    which we have no influence over. Therefore, we cannot assume any
+    liability for this external content. The respective provider or operator
+    of the pages is always responsible for the content of the linked pages.
+    The linked pages were checked for possible legal violations at the time
+    of linking. Illegal content was not recognizable at the time of linking.
+    However, permanent monitoring of the content of the linked pages is not
+    reasonable without concrete evidence of a legal violation. If we become
+    aware of legal violations, we will remove such links immediately.
+
 - title: "Copyright"
   content: |
-    The content and works created by the site operators on these pages are subject to German copyright law. Duplication, processing, distribution, and any kind of exploitation outside the limits of copyright require the written consent of the respective author or creator. Downloads and copies of this page are only permitted for private, non-commercial use. Insofar as the content on this page was not created by the operator, the copyrights of third parties are observed. In particular, third-party content is marked as such. Should you nevertheless become aware of a copyright infringement, please inform us accordingly. If we become aware of legal violations, we will remove such content immediately.
+    The content and works created by the site operators on these pages are
+    subject to German copyright law. Duplication, processing, distribution,
+    and any kind of exploitation outside the limits of copyright require the
+    written consent of the respective author or creator. Downloads and copies
+    of this page are only permitted for private, non-commercial use. Insofar
+    as the content on this page was not created by the operator, the
+    copyrights of third parties are observed. In particular, third-party
+    content is marked as such. Should you nevertheless become aware of a
+    copyright infringement, please inform us accordingly. If we become aware
+    of legal violations, we will remove such content immediately.
 
-- title: "Data Protection"
+- title: "Private Policy"
   content: |
-    The use of our website is generally possible without providing personal data. Insofar as personal data (e.g., name, address, or email addresses) are collected on our pages, this is always done on a voluntary basis, if possible. These data will not be passed on to third parties without your express consent. We point out that data transmission over the Internet (e.g., when communicating by email) can have security gaps. Complete protection of data against access by third parties is not possible. The use of contact data published within the scope of the imprint obligation by third parties for the purpose of sending unsolicited advertising and information materials is hereby expressly prohibited. The operators of the pages expressly reserve the right to take legal action in the event of unsolicited sending of advertising information, such as spam emails, before.
-# - title: "Google Analytics"
-#   content: |
-#     This website uses Google Analytics, a web analysis service provided by Google
-#     Inc. ('Google'). Google Analytics uses so-called 'cookies',
-#     text files that are stored on your computer and allow an
-#     analysis of your use of the website. The information generated by the
-#     cookie about your use of this website
-#     (including your IP address) is transmitted to a Google server in the
-#     USA and stored there. Google will use this information to
-#     evaluate your use of the website, to compile reports on website
-#     activity for the website operators, and to provide other services
-#     associated with website use and internet use. Google may also
-#     transfer this information to third parties if required by law or
-#     if third parties process this data on behalf of Google.
-#     Google will under no circumstances link your IP address with other data
-#     held by Google. You can prevent the installation of cookies
-#     by selecting the appropriate settings in your browser software;
-#     however, we point out that in this case you may not be able to
-#     fully use all functions of this website.
-#     By using this website, you consent to the processing
-#     of the data collected about you by Google in the manner
-#     described above and for the purpose stated above.
-# - title: "Google AdSense"
-#   content: |
-#     This website uses Google AdSense, a web advertising service provided by Google
-#     Inc., USA ('Google'). Google AdSense uses so-called 'cookies'
-#     (text files) that are stored on your computer and allow an
-#     analysis of your use of the website. Google AdSense
-#     also uses so-called 'Web Beacons' (small invisible graphics) to
-#     collect information. Through the use of the Web Beacon,
-#     simple actions such as visitor traffic on the website can be recorded
-#     and collected. The information generated by the cookie and/or Web Beacon
-#     about your use of this website (including your IP address)
-#     and the delivery of advertising formats are transmitted to a Google
-#     server in the USA and stored there. Google will use this information
-#     to evaluate your use of the website with respect to the advertisements,
-#     to compile reports on website activity and advertisements for the website operators,
-#     and to provide other services associated with website use and
-#     internet use. Google may also transfer
-#     this information to third parties if required by law or
-#     if third parties process this data on behalf of Google.
-#     Google will under no circumstances link your IP address with
-#     other data held by Google. You can prevent the storage of cookies
-#     on your hard drive and the display of Web Beacons by
-#     selecting 'do not accept cookies' in your browser settings
-#     (In MS Internet Explorer under 'Tools > Internet Options > Privacy > Settings';
-#     in Firefox under 'Tools > Settings > Privacy > Cookies'); however,
-#     we point out that in this case you may not be able to fully use all
-#     functions of this website. By using this website, the
-#     user declares their agreement to the processing of the data collected
-#     about them by Google in the manner described above and for the
-#     purpose previously stated.
+    <h4>GitHub Pages</h4>
+
+    The websites are hosted via <a href="https://pages.github.com">GitHub Pages</a>
+    (GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA).
+    When accessing the pages, GitHub processes technically required data,
+    such as your IP address, date/time, requested URL, referrer, user agent,
+    and HTTP status, to ensure content delivery and secure operation. We have
+    no influence over this processing. For more information, please refer to
+    the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">GitHub Privacy Policy</a>.
+
+    <h4>Google Analytics</h4>
+
+    This website uses Google Analytics, a web analytics service by Google LLC,
+    to analyze and improve the usage of the website. Google Analytics
+    processes personal data such as:
+    <ul>
+      <li>IP address (anonymized, e.g., through IP masking)</li>
+      <li>Device and browser information (operating system, browser, device type)</li>
+      <li>Usage data (visited pages, duration of visit, clicks)</li>
+      <li>Location data (only rough, e.g., city or region)</li>
+    </ul>
+
+    The data is used to evaluate user behavior on the website, create
+    statistics, and optimize the website. For more information on the data
+    processed by Google Analytics and how users can disable data collection,
+    please refer to the official documentation: <a href="https://support.google.com/analytics/answer/6004245?hl=en">
+    Google Analytics – Data and Security Information</a>.
+
+    <h4>Google Ads</h4>
+
+    This website uses Google Ads, an online advertising service by Google LLC.
+    Google Ads uses cookies to measure ad performance, improve the
+    effectiveness of advertising campaigns, and display interest-based ads.
+    The following personal data may be processed:
+    <ul>
+        <li>IP address and location data</li>
+        <li>Device data such as operating system, browser, and device type</li>
+        <li>Click and interaction data, e.g., which ads were clicked</li>
+        <li>Demographic data and interests, provided the user is logged into Google</li>
+        <li>Cookies and remarketing IDs to create target audiences for personalized ads</li>
+    </ul>
+
+    For more information on the cookies set by Google Ads and how to disable
+    them, please refer to the official documentation: <a href="https://business.safety.google/adscookies">
+    Google Ads – Advertising and Measurement Cookies</a>.
+
+#     The use of our website is generally possible without providing personal
+#     data. Insofar as personal data (e.g., name, address, or email addresses)
+#     are collected on our pages, this is always done on a voluntary basis, if
+#     possible. These data will not be passed on to third parties without your
+#     express consent. We point out that data transmission over the Internet
+#     (e.g., when communicating by email) can have security gaps. Complete
+#     protection of data against access by third parties is not possible. The
+#     use of contact data published within the scope of the imprint obligation
+#     by third parties for the purpose of sending unsolicited advertising and
+#     information materials is hereby expressly prohibited. The operators of
+#     the pages expressly reserve the right to take legal action in the event
+#     of unsolicited sending of advertising information, such as spam emails,
+#     before.
