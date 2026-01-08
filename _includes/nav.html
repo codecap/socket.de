@@ -12,5 +12,9 @@
         <li><a href="{{ site.baseurl }}{{ site.t['imprint'][current_lang] }}"
                 class="{% if page.url contains '/imprint' %}current {%endif %}">{{ site.menu['imprint'][current_lang] }}</a></li>
         {%- endif -%}
+        {% if include.navclass == "nav-footer" -%}
+        <li><a href="{{ site.baseurl }}{{ site.t['privatepolicy'][current_lang] }}"
+                class="{% if page.url contains '/privatepolicy' %}current {%endif %}">{{ site.menu['privatepolicy'][current_lang] }}</a></li>
+        {%- endif -%}
     </ul>
 </nav>

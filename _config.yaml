@@ -50,6 +50,10 @@ menu:
   offer:
     en: "Own Private Cloud"
     de: "Eigene Cloud"
+  privatepolicy:
+    en: "Private Policy"
+    de: "Datenschutzerklärung"
+
 # Path to the translated page
 t:
   index:
@@ -73,6 +77,9 @@ t:
   offer:
     en: "/en/offer"
     de: "/de/offer"
+  privatepolicy:
+    en: "/en/privatepolicy"
+    de: "/de/privatepolicy"
 
 plugins:
   - jekyll-seo-tag

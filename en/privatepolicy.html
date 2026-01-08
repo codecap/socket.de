@@ -1,0 +1,30 @@
+---
+layout: default
+title: Private Policy
+permalink: /en/privatepolicy/
+i18n-link: privatepolicy
+lang: en
+key: private policy
+description: Provate Policy
+keywords: private polcy
+---
+{% include header.html %}
+<section class='page_section'>
+	<div class="container">
+		{% assign iblock = site.data.en.privatepolicy.first %}
+		{% assign isize = site.data.en.privatepolicy.size %}
+		{% assign iitems = site.data.en.privatepolicy | slice: 1, 10 %}
+		<h2 class="title_privateplicy">{{ iblock.title }}</h2>
+		<div class="privateplicy_block">
+			<aside class="privateplicy_blocks">
+				{% for block in iitems %}
+				<br />
+				<h3 class="title_privateplicy">{{ block.title }}</h3>
+				<br />
+				<div class="block">{{ block.content | newline_to_br | markdownify }}</div>
+				{% endfor %}
+			</aside>
+		</div>
+	</div>
+</section>
+{% include footer.html %}

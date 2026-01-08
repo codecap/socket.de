@@ -1,0 +1,66 @@
+- title: "Datenschutzerklärung"
+  content: ""
+  tags:
+    - page_title
+
+- title: "GitHub Pages"
+  content: |
+    Die Bereitstellung der Websites erfolgt über <a href="https://pages.github.com)">GitHub Pages</a>
+    (GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA). Beim
+    Aufruf der Seiten verarbeitet GitHub technisch erforderliche Daten wie
+    insbesondere Ihre IP-Adresse, , Datum/Uhrzeit, aufgerufene URL, Referrer,
+    User-Agent, HTTP-Status, um die Auslieferung der Inhalte und den sicheren
+    Betrieb zu gewährleisten. Auf diese Verarbeitung haben wir keinen
+    Einfluss. Weitere Informationen finden Sie in der <a
+    href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">
+    Datenschutzerklärung von GitHub</a>.
+
+- title: "Google Analytics"
+  content: |
+    Diese Website nutzt Google Analytics, einen Webanalysedienst der
+    Google LLC, um die Nutzung der Website zu analysieren und zu verbessern.
+    Google Analytics verarbeitet dabei personenbezogene Daten wie:
+    <ul>
+      <li>IP-Adresse (anonymisiert, z.B. über IP-Masking)</li>
+      <li>Geräte- und Browserinformationen (Betriebssystem, Browser, Gerätetyp)</li>
+      <li>Nutzungsdaten (besuchte Seiten, Verweildauer, Klicks)</li>
+      <li>Standortinformationen (nur grob, z.B. Stadt oder Region)</li>
+    </ul>
+    Die Daten werden verwendet, um das Nutzerverhalten auf der Website
+    auszuwerten, Statistiken zu erstellen und die Website zu optimieren.
+    Weitere Informationen darüber, welche Daten Google Analytics verarbeitet
+    und wie Nutzer die Erfassung deaktivieren können, finden Sie in der
+    offiziellen Dokumentation: <a href="https://support.google.com/analytics/answer/6004245?hl=de">Google Analytics – Daten- und Sicherheitshinweise</a>.
+
+- title: "Google Ads"
+  content: |
+    Diese Website verwendet Google Ads, einen Online-Werbedienst der Google
+    LLC. Google Ads setzt Cookies, um die Leistung von Anzeigen zu messen,
+    die Wirksamkeit von Werbekampagnen zu verbessern und interessenbasierte
+    Werbung anzuzeigen. Dabei können folgende personenbezogene Daten verarbeitet werden:
+    <ul>
+        <li>IP-Adresse und Standortinformationen</li>
+        <li>Gerätedaten wie Betriebssystem, Browser und Geräte-Typ</li>
+        <li>Klick- und Interaktionsdaten, z.B. welche Anzeigen angeklickt wurden</li>
+        <li>Demografische Daten und Interessen, soweit Nutzer bei Google angemeldet sind</li>
+        <li>Cookies und Remarketing-IDs, um Zielgruppen für personalisierte Werbung zu erstellen</li>
+    </ul>
+    Weitere Informationen dazu, welche Cookies Google Ads
+    setzt und wie Sie diese deaktivieren können, finden Sie in der offiziellen
+    Dokumentation: <a href="https://business.safety.google/adscookies">Google Ads – Werbe- und Mess-Cookies</a>.
+
+#     Die Nutzung unserer Webseite ist in der Regel ohne Angabe
+#     personenbezogener Daten möglich. Soweit auf unseren Seiten
+#     personenbezogene Daten (beispielsweise Name, Anschrift oder
+#     eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf
+#     freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung
+#     nicht an Dritte weitergegeben. Wir weisen darauf hin, dass die
+#     Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail)
+#     Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor
+#     dem Zugriff durch Dritte ist nicht möglich. Der Nutzung von im Rahmen der
+#     Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur
+#     Übersendung von nicht ausdrücklich angeforderter Werbung und
+#     Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die
+#     Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im
+#     Falle der unverlangten Zusendung von Werbeinformationen, etwa durch
+#     Spam-Mails, vor.
