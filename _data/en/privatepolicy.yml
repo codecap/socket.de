@@ -11,10 +11,18 @@
     The websites are hosted via <a href="https://pages.github.com">GitHub Pages</a>
     (GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA).
     When accessing the pages, GitHub processes technically required data,
-    such as your IP address, date/time, requested URL, referrer, user agent,
-    and HTTP status, to ensure content delivery and secure operation. We have
-    no influence over this processing. For more information, please refer to
-    the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">GitHub Privacy Policy</a>.
+    such as
+    <ul>
+      <li>IP address</li>
+      <li>date/time</li>
+      <li>requested URL</li>
+      <li>referrer</li>
+      <li>user agent</li>
+      <li>HTTP status</li>
+    </ul>
+    to ensure content delivery and secure operation. We have no influence
+    over this processing. For more information, please refer to the
+    <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">GitHub Privacy Policy</a>.
 
 - title: "Google Analytics"
   content: |

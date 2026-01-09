@@ -8,12 +8,19 @@
     Die Bereitstellung der Websites erfolgt über <a href="https://pages.github.com)">GitHub Pages</a>
     (GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA). Beim
     Aufruf der Seiten verarbeitet GitHub technisch erforderliche Daten wie
-    insbesondere Ihre IP-Adresse, , Datum/Uhrzeit, aufgerufene URL, Referrer,
-    User-Agent, HTTP-Status, um die Auslieferung der Inhalte und den sicheren
+    insbesondere
+    <ul>
+      <li>IP-Adresse</li>
+      <li>Datum/Uhrzeit</li>
+      <li>aufgerufene URL</li>
+      <li>Referrer,</li>
+      <li>User-Agent</li>
+      <li>HTTP-Status</li>
+    </ul>
+    , um die Auslieferung der Inhalte und den sicheren
     Betrieb zu gewährleisten. Auf diese Verarbeitung haben wir keinen
-    Einfluss. Weitere Informationen finden Sie in der <a
-    href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">
-    Datenschutzerklärung von GitHub</a>.
+    Einfluss. Weitere Informationen finden Sie in der
+    <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">Datenschutzerklärung von GitHub</a>.
 
 - title: "Google Analytics"
   content: |
