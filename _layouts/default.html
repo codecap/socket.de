@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
-
     <head>
         {% if jekyll.environment == "production" %}
         <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" 
@@ -11,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="lang" content="{{ page.lang }}">
-        <link rel="stylesheet" href="/assets/style.css">
+        <link rel="stylesheet" href="/assets/styles/style.css">
         {%- assign current_lang = page.lang | default: site.lang | default: 'en' -%}
         {%- assign final_description = page.description -%}     
         {%- if final_description == nil -%}

@@ -27,7 +27,7 @@ const PATHS = {
 
 const files = {
     scssPath: '_sass/**/*.scss',
-    cssPath: 'assets/',
+    cssPath: 'assets/styles/',
     jsPath: 'assets/js/main.js',
     imgPath: 'assets/img/**/*'
 };

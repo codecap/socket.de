@@ -1,9 +1,16 @@
-.sass-cache
-.jekyll-cache
+# Jekyll & Build files
+_site/
+.sass-cache/
+.jekyll-cache/
 .jekyll-metadata
-vendor
-node_modules
-Gemifile.lock
-npm-shrinkwrap.json
+
+# Dependencies
+vendor/
+node_modules/
+Gemfile.lock
 package-lock.json
-test
+npm-shrinkwrap.json
+
+# OS files & Testing
+.DS_Store
+test/
