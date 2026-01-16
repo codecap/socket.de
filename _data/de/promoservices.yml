@@ -10,7 +10,7 @@ sdata:
       auf Basis von OpenStack und Ceph__ aufzubauen.
       Damit kannst du in deinem Heimnetzwerk die modernen DevOps Techniken und
       Tools für deine Software anwenden:
-        * Infrastructre as Code and GitOps
+        * Infrastructre as Code und GitOps
         * Kubernetes / Openshift / OKD
         * Ansible / Terraform / Chef
         * Rancher

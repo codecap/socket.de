@@ -5,9 +5,15 @@ sdata:
   - title: 'Conception and Implementation of Individual Cloud Architecture'
     image: 'service1.svg'
     content: >-
-      What socket offers? A stable, scalable cloud architecture for
-      individual requirements. Cloud architecture, setup, consulting
-      and workshops. Inquire without obligation!
+      We help you build a **flexible and scalable cloud based on OpenStack and Ceph** for your projects.
+      This enables you to use modern DevOps techniques and tools in your home network to develop and operate your software, including:
+      * Infrastructure as Code and GitOps
+      * Kubernetes / OpenShift / OKD
+      * Ansible / Terraform / Chef
+      * Rancher
+      * Database as a Service
+
+      Your cloud is delivered **end-to-end from a single source**. As a reliable point of contact, we of course remain available to support you even after completion.
   - title: 'Design and Architecture'
     image: 'service2.svg'
     content: >-
