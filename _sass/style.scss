@@ -3,6 +3,7 @@
 @use 'mixins';
 @use 'main';
 @use 'header';
+@use 'sticky_contact';
 @use 'nav';
 @use 'index';
 @use 'services';
@@ -14,3 +15,4 @@
 @use 'errors';
 @use 'loader';
 @use 'media';
+@use 'policy';

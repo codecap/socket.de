@@ -1,7 +1,6 @@
 @use 'mixins' as *;
 @use 'colors' as *;
 .nav-top {
-  width: 441px;
   -webkit-transition: all .30s linear;
   -moz-transition: all .30s linear;
   -o-transition: all .30s linear;
@@ -16,14 +15,30 @@
       }
       a {
         text-transform: uppercase;
+		transition: font-size 0.4s ease, color 0.2s ease;
       }
     }
   }
 }
+
 .nav-footer {
 	width: 60%;
 	ul.menu {
 		justify-content: center;
+		flex-wrap: wrap;
+		gap: 15px 0;
+		width: 100%;
+
+		@include breakpoint(992px) {
+			
+			a {
+				white-space: nowrap; 
+				font-size: 0.95rem;
+			}
+		}
+		@include breakpoint(680px){
+			margin-top: 30px;
+		}
 	}
 }
 .nav-404 {

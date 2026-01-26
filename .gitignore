@@ -14,3 +14,5 @@ npm-shrinkwrap.json
 # OS files & Testing
 .DS_Store
 test/
+_data/en/privatepolicy_origin.yml
+_data/de/privatepolicy_origin.yml

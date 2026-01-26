@@ -23,7 +23,8 @@ const LANG_PAGES_CONFIG = [
   { url: "/services", de: "/de/services/", en: "/en/services/" },
   { url: "/about", de: "/de/about/", en: "/en/about/" },
   { url: "/vna", de: "/de/vna/", en: "/en/vna/" },
-  { url: "/imprint", de: "/de/imprint/", en: "/en/imprint/" }
+  { url: "/imprint", de: "/de/imprint/", en: "/en/imprint/" },
+  { url: "/privatepolicy", de: "/de/privatepolicy/", en: "/en/privatepolicy/" }
 ];
 
 const normalizePath = path =>
@@ -37,6 +38,39 @@ const getConfigPageData = path => {
 };
 
 /**
+ * Vertical Accordion Toggle Logic
+ * Synchronized with SCSS transitions
+ */
+function initPrivacyAccordion() {
+  const accordion = document.querySelector('#privacyAccordion');
+  if (!accordion) return;
+
+  accordion.addEventListener('click', (e) => {
+    const header = e.target.closest('.accordion_header');
+    if (!header) return;
+
+    const item = header.parentElement;
+    const isActive = item.classList.contains('active');
+    
+    // Close other items
+    const allItems = accordion.querySelectorAll('.accordion_item');
+    allItems.forEach(i => {
+      if (i !== item) i.classList.remove('active');
+    });
+
+    // Toggle current item
+    item.classList.toggle('active');
+
+    // Smooth scroll if opening
+    if (!isActive) {
+      setTimeout(() => {
+        item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 250);
+    }
+  });
+}
+
+/**
  * Google Maps initialization with Placeholder toggle logic.
  */
 window.initMap = function() {
@@ -45,33 +79,19 @@ window.initMap = function() {
   
   if (!mapEl) return;
 
-  /**
-   * Evaluate Cookiebot consent status specifically for statistics category.
-   */
   const hasConsent = typeof Cookiebot !== "undefined" && 
                      Cookiebot.consent && 
                      Cookiebot.consent.statistics;
 
   if (!hasConsent) {
-    /**
-     * If consent is not granted: 
-     * Hide map container and show the silent placeholder.
-     */
     mapEl.style.display = 'none';
     if (placeholderEl) placeholderEl.style.display = 'block';
     return;
   }
 
-  /**
-   * If consent is granted:
-   * Hide placeholder and prepare map container.
-   */
   if (placeholderEl) placeholderEl.style.display = 'none';
   mapEl.style.display = 'block';
 
-  /**
-   * Initialize Google Maps instance if API is available.
-   */
   if (!window.google?.maps) {
     console.warn("Google Maps API not available yet.");
     return;
@@ -124,6 +144,8 @@ function handleAjaxLoad(targetUrl) {
   let fetchUrl = finalUrl;
   if (finalUrl.endsWith('/vna/')) {
     fetchUrl = `/${finalUrl.split('/')[1] || DEFAULT_LANGUAGE}/vna.html`;
+  } else if (finalUrl.endsWith('/privatepolicy/')) {
+    fetchUrl = `/${finalUrl.split('/')[1] || DEFAULT_LANGUAGE}/privatepolicy/index.html`;
   } else if (finalUrl.endsWith('/')) {
     fetchUrl = finalUrl + 'index.html';
   } else if (!finalUrl.includes('.')) {
@@ -226,10 +248,78 @@ function highlightActiveMenuItem() {
   });
 }
 
+/**
+ * Sticky Contact Panel Toggle and Scroll Behavior Logic.
+ * Hides the button on scroll down, shows on scroll up.
+ */
+function initStickyContacts() {
+  const trigger = document.getElementById('contactTrigger');
+  const panel = document.getElementById('contactPanel');
+  const container = document.querySelector('.sticky-contacts-container');
+
+  if (!trigger || !panel || !container) return;
+
+  let lastScrollTop = 0;
+  const scrollThreshold = 10; // Minimum scroll amount to trigger visibility change
+
+  // Handle scroll behavior to hide/show the button
+  window.addEventListener('scroll', () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (Math.abs(lastScrollTop - scrollTop) <= scrollThreshold) return;
+
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+      // Scrolling down - hide the button and close panel
+      container.style.transform = 'translateY(100px)';
+      container.style.transition = 'transform 0.3s ease';
+      panel.classList.remove('active');
+    } else {
+      // Scrolling up - show the button
+      container.style.transform = 'translateY(0)';
+    }
+    lastScrollTop = scrollTop;
+  });
+
+  // Toggle active class on trigger click
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    panel.classList.toggle('active');
+  });
+
+  // Close panel when clicking anywhere else on the document
+  document.addEventListener('click', (e) => {
+    if (!panel.contains(e.target) && e.target !== trigger) {
+      panel.classList.remove('active');
+    }
+  });
+}
+/**
+ * Fixed header shadow on scroll.
+ */
+function initHeaderScroll() {
+  const header = document.querySelector('header');
+  if (!header) return;
+
+  const handleScroll = () => {
+    if (window.scrollY > 10) {
+      header.classList.add('header-scrolled');
+    } else {
+      header.classList.remove('header-scrolled');
+    }
+  };
+
+  handleScroll();
+  
+  window.addEventListener('scroll', handleScroll);
+}
+
 function initializeContentScripts() {
+  initHeaderScroll();
   initHamburger();
   initTabs();
+  initPrivacyAccordion(); 
   highlightActiveMenuItem();
+  initStickyContacts();
   if (document.getElementById("map")) window.initMap();
 }
 

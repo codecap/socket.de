@@ -1,75 +1,256 @@
-# Created with: https://www.impressum-generator.de/
-- title: "Private Policy"
+- title: "Privacy Policy"
   content: ""
   tags:
     - page_title
 
-- title: "GitHub Pages"
+- title: "Preamble"
   content: |
-    GitHub Pages
+    With the following privacy policy, we would like to inform you about the types of your personal data (hereinafter also referred to simply as "data") that we process, for what purposes, and to what extent. The privacy policy applies to all processing of personal data carried out by us, both in the context of providing our services and, in particular, on our websites, in mobile applications, as well as within external online presences, such as, for example, our social media profiles (hereinafter collectively referred to as the "online offering").
 
-    The websites are hosted via <a href="https://pages.github.com">GitHub Pages</a>
-    (GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA).
-    When accessing the pages, GitHub processes technically required data,
-    such as
-    <ul>
-      <li>IP address</li>
-      <li>date/time</li>
-      <li>requested URL</li>
-      <li>referrer</li>
-      <li>user agent</li>
-      <li>HTTP status</li>
-    </ul>
-    to ensure content delivery and secure operation. We have no influence
-    over this processing. For more information, please refer to the
-    <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">GitHub Privacy Policy</a>.
+    The terms used are not gender-specific.
 
-- title: "Google Analytics"
+    Status: 16 January 2026
+
+    #### Controller
+    Vladislav, Nazarenko / socket GmbH  
+    Mergenthalerallee 73-75  
+    65760 Eschborn
+
+    Email address: [datenschutz@socket.de](mailto:datenschutz@socket.de)  
+    Imprint: [https://socket.de/en/imprint](https://socket.de/en/imprint)
+
+- title: "Overview of Processing Activities"
+  content: |  
+    The following overview summarizes the types of data processed and the purposes of their processing and refers to the affected persons.
+
+    #### Types of data processed
+    * Location data.
+    * Contact data.
+    * Content data.
+    * Usage data.
+    * Meta, communication, and procedural data.
+    * Log data.
+
+    #### Categories of affected persons
+    * Communication partners.
+    * Users.
+
+    #### Purposes of processing
+    * Communication.
+    * Security measures.
+    * Reach measurement.
+    * Tracking.
+    * Conversion measurement.
+    * Target group formation.
+    * Organizational and administrative procedures.
+    * Feedback.
+    * Marketing.
+    * Profiles with user-related information.
+    * Provision of our online offering and user-friendliness.
+    * Information technology infrastructure.
+
+    #### Relevant legal bases
+    **Relevant legal bases under the GDPR:** Below you will find an overview of the legal bases of the GDPR on which we process personal data. Please note that, in addition to the provisions of the GDPR, national data protection regulations may apply in your or our country of residence or establishment. If, in individual cases, more specific legal bases are applicable, we will inform you of these in the privacy policy.
+
+    * **Consent (Art. 6 para. 1 sentence 1 lit. a GDPR):** The data subject has given consent to the processing of personal data concerning them for one or more specific purposes.
+    * **Performance of a contract and pre-contractual inquiries (Art. 6 para. 1 sentence 1 lit. b GDPR):** The processing is necessary for the performance of a contract to which the data subject is a party or in order to take steps at the request of the data subject prior to entering into a contract.
+    * **Legitimate interests (Art. 6 para. 1 sentence 1 lit. f GDPR):** The processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, provided that the interests, fundamental rights, and freedoms of the data subject requiring the protection of personal data do not override those interests.
+
+    **National data protection regulations in Germany:** In addition to the data protection regulations of the GDPR, national data protection regulations apply in Germany. This includes, in particular, the Act on Protection against Misuse of Personal Data in Data Processing (Federal Data Protection Act – BDSG).
+
+- title: "Security Measures"
   content: |
-    This website uses Google Analytics, a web analytics service by Google LLC,
-    to analyze and improve the usage of the website. Google Analytics
-    processes personal data such as:
-    <ul>
-      <li>IP address (anonymized, e.g., through IP masking)</li>
-      <li>Device and browser information (operating system, browser, device type)</li>
-      <li>Usage data (visited pages, duration of visit, clicks)</li>
-      <li>Location data (only rough, e.g., city or region)</li>
-    </ul>
+    In accordance with the statutory requirements, taking into account the state of the art, we implement suitable technical and organizational measures to ensure a level of protection appropriate to the risk.
 
-    The data is used to evaluate user behavior on the website, create
-    statistics, and optimize the website. For more information on the data
-    processed by Google Analytics and how users can disable data collection,
-    please refer to the official documentation: <a href="https://support.google.com/analytics/answer/6004245?hl=en">
-    Google Analytics – Data and Security Information</a>.
+    The measures include, in particular, safeguarding the confidentiality, integrity, and availability of data by controlling physical and electronic access to the data as well as access relating to the data.
 
-- title: "Google Ads"
+    **Securing online connections through TLS/SSL encryption technology (HTTPS):** In order to protect users’ data transmitted via our online services from unauthorized access, we rely on TLS/SSL encryption technology.
+
+- title: "Provision of the Online Offering and Web Hosting"
   content: |
-    This website uses Google Ads, an online advertising service by Google LLC.
-    Google Ads uses cookies to measure ad performance, improve the
-    effectiveness of advertising campaigns, and display interest-based ads.
-    The following personal data may be processed:
-    <ul>
-        <li>IP address and location data</li>
-        <li>Device data such as operating system, browser, and device type</li>
-        <li>Click and interaction data, e.g., which ads were clicked</li>
-        <li>Demographic data and interests, provided the user is logged into Google</li>
-        <li>Cookies and remarketing IDs to create target audiences for personalized ads</li>
-    </ul>
+    We process users’ data in order to be able to provide them with our online services.
 
-    For more information on the cookies set by Google Ads and how to disable
-    them, please refer to the official documentation: <a href="https://business.safety.google/adscookies">
-    Google Ads – Advertising and Measurement Cookies</a>.
+    * **Types of data processed:** Usage data (e.g., page views); meta, communication, and procedural data (e.g., IP addresses); log data.
+    * **Affected persons:** Users (e.g., website visitors).
+    * **Purposes of processing:** Provision of our online offering; information technology infrastructure.
+    * **Legal bases:** Legitimate interests (Art. 6 para. 1 sentence 1 lit. f GDPR).
 
-#     The use of our website is generally possible without providing personal
-#     data. Insofar as personal data (e.g., name, address, or email addresses)
-#     are collected on our pages, this is always done on a voluntary basis, if
-#     possible. These data will not be passed on to third parties without your
-#     express consent. We point out that data transmission over the Internet
-#     (e.g., when communicating by email) can have security gaps. Complete
-#     protection of data against access by third parties is not possible. The
-#     use of contact data published within the scope of the imprint obligation
-#     by third parties for the purpose of sending unsolicited advertising and
-#     information materials is hereby expressly prohibited. The operators of
-#     the pages expressly reserve the right to take legal action in the event
-#     of unsolicited sending of advertising information, such as spam emails,
-#     before.
+    **Further information on processing operations, procedures, and services:**
+
+    * **Provision of the online offering on rented storage space:** To provide our online offering, we use rented disk space. **Legal bases:** Legitimate interests (Art. 6 para. 1 sentence 1 lit. f GDPR).
+    * **Collection of access data and log files:** Access to our online offering is logged in the form of "server log files". **Deletion of data:** Log file information is stored for a maximum of 30 days.
+    * **GitHub Pages:** The provision is carried out via [GitHub Pages](https://pages.github.com). Further information: [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement).
+
+- title: "Use of Cookies"
+  content: |
+    The term “cookies” refers to functions that store information on users’ end devices and read it.
+
+    **Storage duration:**
+    * **Temporary cookies:** Are deleted after leaving.
+    * **Permanent cookies:** Remain stored, storage duration **up to two years**.
+    * **Types of data processed:** Meta, communication, and procedural data.
+    * **Legal bases:** Legitimate interests (Art. 6 para. 1 sentence 1 lit. f GDPR); consent (Art. 6 para. 1 sentence 1 lit. a GDPR).
+
+    **Further information:**
+    * **Processing based on consent:** We use a consent management solution.
+
+- title: "Contact and Inquiry Management"
+  content: |
+    When contacting us, the information provided by the inquiring persons is processed.
+
+    * **Types of data processed:** Contact data; content data; meta and communication data.
+    * **Affected persons:** Communication partners.
+    * **Purposes of processing:** Communication; organizational and administrative procedures.
+    * **Legal bases:** Legitimate interests (Art. 6 para. 1 sentence 1 lit. f GDPR); performance of a contract (Art. 6 para. 1 sentence 1 lit. b GDPR).
+
+    **Further information:**
+    * **Contact form:** We use this data exclusively for communication.
+    * **Legal bases:** Performance of a contract (Art. 6 para. 1 sentence 1 lit. b GDPR).
+
+- title: "Web Analysis, Monitoring, and Optimization"
+  content: |
+    Web analysis (also referred to as “reach measurement”) serves to evaluate visitor flows to our online offering and may include behavior, interests, or demographic information about visitors, such as age or gender, as pseudonymous values. With the help of reach analysis, we can, for example, identify at what time our online offering or its functions or content are used most frequently, or invite reuse.
+
+    In addition to web analysis, we may also use testing procedures to test and optimize, for example, different versions of our online offering or its components.
+
+    Furthermore, users’ IP addresses are stored. However, we use an IP masking procedure (i.e., pseudonymization by truncating the IP address) to protect users.
+
+    **Notes on legal bases:** If we ask users for their consent to the use of third-party providers, the legal basis for data processing is consent. Otherwise, user data is processed on the basis of our legitimate interests.
+
+    * **Types of data processed:** Usage data (e.g., page views and duration of stay, click paths, usage intensity and frequency, device types and operating systems used, interactions with content and functions); meta, communication, and procedural data (e.g., IP addresses, timestamps, identification numbers, involved persons).
+    * **Affected persons:** Users (e.g., website visitors, users of online services).
+    * **Purposes of processing:** Reach measurement (e.g., access statistics, recognition of returning visitors); profiles with user-related information (creation of user profiles); provision of our online offering and user-friendliness.
+    * **Retention and deletion:** Deletion in accordance with the information in the section "General Information on Data Storage and Deletion". Storage of cookies for up to 2 years.
+    * **Security measures:** IP masking (pseudonymization of the IP address).
+    * **Legal bases:** Consent (Art. 6 para. 1 sentence 1 lit. a GDPR); legitimate interests (Art. 6 para. 1 sentence 1 lit. f GDPR).
+
+    **Further information on processing operations, procedures, and services:**
+
+    **Google Analytics:** We use Google Analytics to measure and analyze the use of our online offering based on a pseudonymous user identification number.  
+    * **Service provider:** Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland;  
+    * **Legal bases:** Consent (Art. 6 para. 1 sentence 1 lit. a GDPR);  
+    * **Website:** [https://marketingplatform.google.com/intl/de/about/analytics/](https://marketingplatform.google.com/intl/de/about/analytics/);  
+    * **Security measures:** IP masking (pseudonymization of the IP address);  
+    * **Privacy policy:** [https://policies.google.com/privacy](https://policies.google.com/privacy);  
+    * **Data processing agreement:** [https://business.safety.google/adsprocessorterms/](https://business.safety.google/adsprocessorterms/);  
+    * **Basis for third-country transfers:** Data Privacy Framework (DPF), standard contractual clauses;  
+    * **Opt-out option:** [https://tools.google.com/dlpage/gaoptout?hl=de](https://tools.google.com/dlpage/gaoptout?hl=de)
+    * **Google Tag Manager:** Enables us to manage website tags centrally via a user interface.  
+    * **Service provider:** Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland;  
+    * **Legal bases:** Consent (Art. 6 para. 1 sentence 1 lit. a GDPR);  
+    * **Website:** [https://marketingplatform.google.com](https://marketingplatform.google.com);  
+    * **Privacy policy:** [https://policies.google.com/privacy](https://policies.google.com/privacy).
+
+- title: "Online Marketing"
+  content: |
+    We process personal data for the purpose of online marketing, which includes, in particular, the marketing of advertising space or the display of promotional content.
+
+    For these purposes, so-called user profiles are created and stored in cookies. In general, no clear data of users (such as email addresses or names) is stored as part of online marketing procedures, but rather pseudonyms.
+
+    **Notes on legal bases:** If we ask users for their consent, the legal basis is consent. Otherwise, processing is carried out on the basis of our legitimate interests.
+
+    **Notes on withdrawal and objection (opt-out):**
+    Users can disable cookies in their browser settings. We additionally recommend the following opt-out options:
+    * **Europe:** [https://www.youronlinechoices.eu](https://www.youronlinechoices.eu)
+    * **USA:** [https://optout.aboutads.info/](https://optout.aboutads.info/)
+    * **Types of data processed:** Usage data (e.g., page views); meta, communication, and procedural data (e.g., IP addresses).
+    * **Purposes of processing:** Reach measurement; tracking; target group formation; marketing; conversion measurement.
+    * **Legal bases:** Consent (Art. 6 para. 1 sentence 1 lit. a GDPR); legitimate interests (Art. 6 para. 1 sentence 1 lit. f GDPR).
+
+    **Further information on processing operations, procedures, and services:**
+
+    * **Google Ads and conversion measurement:** Online marketing procedure for placing ads in Google’s advertising network.  
+      **Service provider:** Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland; **Legal bases:** Consent (Art. 6 para. 1 sentence 1 lit. a GDPR); legitimate interests (Art. 6 para. 1 sentence 1 lit. f GDPR);  **Website:** [https://marketingplatform.google.com](https://marketingplatform.google.com); **Privacy policy:** [https://policies.google.com/privacy](https://policies.google.com/privacy);  **Basis for third-country transfers:** Data Privacy Framework (DPF). **Further information:** Types of processing and processed data: [https://business.safety.google/adsservices/](https://business.safety.google/adsservices/). Data processing conditions between controllers and standard contractual clauses for third-country data transfers: [https://business.safety.google/adscontrollerterms](https://business.safety.google/adscontrollerterms).
+
+- title: "Plug-ins and Embedded Functions and Content"
+  content: |
+    We integrate functional and content elements into our online offering that are obtained from the servers of their respective providers (hereinafter referred to as “third-party providers”). These may include, for example, graphics, videos, or city maps.
+
+    Integration always requires that the third-party providers of this content process users’ IP addresses, as they could not otherwise send the content to users’ browsers.
+
+    **Notes on legal bases:** If we ask users for their consent to the use of third-party providers, the legal basis is consent. Otherwise, user data is processed on the basis of our legitimate interests.
+
+    * **Types of data processed:** Usage data (e.g., page views, duration of stay); meta, communication, and procedural data (e.g., IP addresses); location data.
+    * **Affected persons:** Users (e.g., website visitors, users of online services).
+    * **Purposes of processing:** Provision of our online offering and user-friendliness.
+    * **Retention and deletion:** Deletion in accordance with the information in the section "General Information on Data Storage and Deletion".
+    * **Legal bases:** Consent (Art. 6 para. 1 sentence 1 lit. a GDPR); legitimate interests (Art. 6 para. 1 sentence 1 lit. f GDPR).
+
+    **Further information on processing operations, procedures, and services:**
+
+    * **Google Maps:** We integrate maps from the service "Google Maps" provided by Google. The processed data may include, in particular, users’ IP addresses and location data.
+    * **Service provider:** Google Cloud EMEA Limited, 70 Sir John Rogerson’s Quay, Dublin 2, Ireland;
+    * **Legal bases:** Consent (Art. 6 para. 1 sentence 1 lit. a GDPR);
+    * **Website:** [https://mapsplatform.google.com/](https://mapsplatform.google.com/)
+    * **Privacy policy:** [https://policies.google.com/privacy](https://policies.google.com/privacy)
+    * **Basis for third-country transfers:** Data Privacy Framework (DPF).
+
+- title: "Amendment and Update"
+  content: |
+    We ask you to regularly inform yourself about the content of our privacy policy. We adapt the privacy policy as soon as changes to the data processing carried out by us make this necessary.
+
+    We will inform you as soon as the changes require an act of cooperation on your part (e.g., consent) or any other individual notification.
+
+    If we provide addresses and contact information of companies and organizations in this privacy policy, please note that the addresses may change over time.
+
+# - title: "GitHub Pages"
+#   content: |
+#     The provision of the websites is carried out via [GitHub Pages](https://pages.github.com)
+#     (GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA). When
+#     accessing the pages, GitHub processes technically required data such as, in particular:
+#     * IP address
+#     * date/time
+#     * accessed URL
+#     * referrer
+#     * user agent
+#     * HTTP status
+#
+#     in order to ensure the delivery of the content and secure operation.
+#     We have no influence on this processing. Further information can be found in the
+#     [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement).
+
+# - title: "Google Analytics"
+#   content: |
+#     This website uses Google Analytics, a web analytics service provided by
+#     Google LLC, to analyze and improve the use of the website.
+#     Google Analytics processes personal data such as:
+#     * IP address (anonymized, e.g., via IP masking)
+#     * device and browser information (operating system, browser, device type)
+#     * usage data (visited pages, duration of stay, clicks)
+#     * location information (approximate only, e.g., city or region)
+#
+#     The data is used to evaluate user behavior on the website,
+#     create statistics, and optimize the website.
+#     Further information about which data Google Analytics processes
+#     and how users can disable data collection can be found in the official documentation:
+#     [Google Analytics – Data and Privacy](https://support.google.com/analytics/answer/6004245?hl=de).
+
+# - title: "Google Ads"
+#   content: |
+#     This website uses Google Ads, an online advertising service provided by Google
+#     LLC. Google Ads uses cookies to measure ad performance,
+#     improve the effectiveness of advertising campaigns, and display interest-based
+#     advertising. The following personal data may be processed:
+#     * IP address and location information
+#     * device data such as operating system, browser, and device type
+#     * click and interaction data, e.g., which ads were clicked
+#     * demographic data and interests, insofar as users are logged in to Google
+#     * cookies and remarketing IDs to create target audiences for personalized advertising
+#
+#     Further information about which cookies Google Ads
+#     uses and how you can disable them can be found in the official
+#     documentation: [Google Ads – Advertising and Measurement Cookies](https://business.safety.google/adscookies).
+#
+#     Use of our website is generally possible without providing
+#     personal data. Insofar as personal data (for example name, address, or
+#     email addresses) is collected on our pages, this is always done
+#     on a voluntary basis wherever possible. This data will not be passed on
+#     to third parties without your express consent. We point out that data
+#     transmission over the Internet (e.g., communication by email)
+#     may have security vulnerabilities. Complete protection of data against
+#     access by third parties is not possible. The use of contact data
+#     published as part of the legal notice obligation by third parties for the
+#     transmission of advertising and informational materials not expressly requested
+#     is hereby expressly prohibited. The operators of the pages expressly reserve
+#     the right to take legal action in the event of unsolicited sending of advertising
+#     information, such as spam emails.

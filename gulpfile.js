@@ -42,7 +42,8 @@ function scssTask(){
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([ autoprefixer(), cssnano() ]))
         .pipe(sourcemaps.write('.'))
-        .pipe(dest(files.cssPath))
+        .pipe(dest(files.cssPath)) 
+        .pipe(dest(PATHS.jekyllDest + '/assets/styles/')) 
         .pipe(browserSync.stream());
 }
 

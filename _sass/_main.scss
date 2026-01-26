@@ -43,11 +43,10 @@ footer{
   display: -webkit-flex; 
   display: -ms-flex; 
   display: flex; 
-  flex-direction: column; /* Складає його вміст (контент і футер) вертикально */
+  flex-direction: column; 
+
 }
 .wrapper{
-  /* Це правило тепер гарантує, що .wrapper займе ВЕСЬ вільний простір у #page-content,
-     притискаючи <footer> до низу контейнера. */
   flex: 1 0 auto;
   position: relative;
   

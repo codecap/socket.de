@@ -1,17 +1,86 @@
-header{
-  padding-top: 40px;
-  margin-bottom: 30px;
+@use 'colors' as *;
+@use 'mixins' as *;
+header {
+  background-color: #ffffff;
+  width: 100%;
+  padding: 20px 0; 
+  
+  
+  .logo {
+    img {
+      height: 80px; 
+      width: auto;
+      display: block;
+      transition: height 0.4s ease; 
+    }
+  }
 
   .header {
-    display: -webkit-flex;
-    display: -ms-flex;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .logo {
-    img {
-      height: 80px;
+
+  .header-right-side {
+    display: flex;
+    align-items: center;
+    gap: 50px; 
+    
+    @media (max-width: 991px) {
+      .header-contacts-desktop {
+          display: none;
+      }
+    }
+  }
+  
+  .header-contacts-desktop {
+    display: flex;
+    align-items: center;
+    gap: 30px; 
+  
+    .header-divider {
+      width: 1px;
+      height: 30px; 
+      background-color: #e2e8f0;
+      margin-right: 10px; 
+    }
+  
+    .header-phone {
+      font-size: 1.1rem; 
+      font-weight: 500;
+      color: #011e32;
+      transition: color 0.2s ease, font-size 0.4s ease;
+  
+      svg {
+        margin-right: 5px; 
+        vertical-align: middle;
+      }
+  
+      &:hover {
+        color: #2b6cb0;
+      }
+    }
+  
+    .btn-inquire-desktop {
+      background-color: #fff;
+      color: #2b6cb0;
+      padding: 12px 28px;
+      border-radius: 6px;
+      border: 1px solid $main_color__blue;
+      font-weight: 700;
+      font-size: 1rem;
+      
+      // Достатньо написати transition один раз тут
+      transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                  color 0.4s ease,
+                  transform 0.2s ease,
+                  font-size 0.4s ease;
+      
+      &:hover {
+        color: #ffffff !important; 
+        background-color: $main_color__blue;
+        transform: translateY(-1px);
+      }
     }
   }
 }

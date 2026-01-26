@@ -1,30 +1,38 @@
 ---
 layout: default
-title: Private Policy
+title: Privacy Policy | 
 permalink: /en/privatepolicy/
 i18n-link: privatepolicy
 lang: en
 key: private policy
-description: Provate Policy
-keywords: private polcy
+description: Read the Privacy Policy of SOCKET. Learn how we collect, use, and protect your personal data in compliance with GDPR and data protection standards.
+keywords: privacy policy, data protection, GDPR compliance, personal data, SOCKET privacy, cloud infrastructure security
 ---
 {% include header.html %}
-<section class='page_section'>
-	<div class="container">
-		{% assign iblock = site.data.en.privatepolicy.first %}
-		{% assign isize = site.data.en.privatepolicy.size %}
-		{% assign iitems = site.data.en.privatepolicy | slice: 1, 10 %}
-		<h2 class="title_privateplicy">{{ iblock.title }}</h2>
-		<div class="privateplicy_block">
-			<aside class="privateplicy_blocks">
-				{% for block in iitems %}
-				<br />
-				<h3 class="title_privateplicy">{{ block.title }}</h3>
-				<br />
-				<div class="block">{{ block.content | newline_to_br | markdownify }}</div>
-				{% endfor %}
-			</aside>
-		</div>
-	</div>
+<section class='privacy_section'>
+    <div class="container">
+        {% assign header_block = site.data.en.privatepolicy | first %}
+        
+        <header class="privacy_intro">
+            <h1 class="privacy_main_title">{{ header_block.title }}</h1>
+            <div class="privacy_description">{{ header_block.content | markdownify }}</div>
+        </header>
+
+        <div class="accordion_vertical" id="privacyAccordion">
+            {% for item in site.data.en.privatepolicy offset: 1 %}
+            <div class="accordion_item {% if forloop.first %}active{% endif %}">
+                <div class="accordion_header">
+                    <h3 class="item_title">{{ item.title }}</h3>
+                    <div class="icon_toggle"></div>
+                </div>
+                <div class="accordion_content">
+                    <div class="content_inner">
+                        {{ item.content | markdownify }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </section>
 {% include footer.html %}

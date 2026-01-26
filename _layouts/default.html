@@ -50,6 +50,7 @@
         <div id="loader" class="preloader"></div>
         <main id="page-content">
             {{ content}}
+            {% include sticky-contacts.html %}
         </main>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ site.data.settings.google_maps_conf.key }}&callback=initMap&libraries=&v=weekly" type="text/plain" data-cookieconsent="statistics"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
