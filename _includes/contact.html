@@ -2,8 +2,8 @@
   {% for item in site.data.de.contact.cdata %}
       <div class="block">
           <p>{{ item.title }}</p>
-          <a href="tel:{{ item.phone }}" class="contact_phone">{{ (item.phone | replace: " ", "&nbsp;") }}</a>
-          <a href="mailto:{{ item.email }}" class="contact_email">📯: {{ item.email }}</a>
+          <a href="tel:{{ item.phone }}" class="contact_phone">☎️ {{ (item.phone | replace: " ", "&nbsp;") }}</a>
+          <a href="mailto:{{ item.email }}" class="contact_email">📯 {{ item.email }}</a>
       </div>
   {% endfor %}
 
@@ -19,8 +19,8 @@
   {% for item in site.data.en.contact.cdata %}
     <div class="block">
         <p>{{ item.title }}</p>
-        <a href="tel:{{ item.phone }}" class="contact_phone">{{ (item.phone | replace: " ", "&nbsp;") }}</a>
-        <a href="mailto:{{ item.email }}" class="contact_email">📯: {{ item.email }}</a>
+        <a href="tel:{{ item.phone }}" class="contact_phone">☎️ {{ (item.phone | replace: " ", "&nbsp;") }}</a>
+        <a href="mailto:{{ item.email }}" class="contact_email">📯 {{ item.email }}</a>
     </div>
   {% endfor %}
 
