@@ -3,7 +3,7 @@
       <div class="block">
           <p>{{ item.title }}</p>
           <a href="tel:{{ item.phone }}" class="contact_phone">{{ (item.phone | replace: " ", "&nbsp;") }}</a>
-          <a href="mailto:{{ item.email }}" class="contact_email">{{ item.email }}</a>
+          <a href="mailto:{{ item.email }}" class="contact_email">📯: {{ item.email }}</a>
       </div>
   {% endfor %}
 
@@ -20,7 +20,7 @@
     <div class="block">
         <p>{{ item.title }}</p>
         <a href="tel:{{ item.phone }}" class="contact_phone">{{ (item.phone | replace: " ", "&nbsp;") }}</a>
-        <a href="mailto:{{ item.email }}" class="contact_email">{{ item.email }}</a>
+        <a href="mailto:{{ item.email }}" class="contact_email">📯: {{ item.email }}</a>
     </div>
   {% endfor %}
 

@@ -19,7 +19,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: "socket.de | OpenStack & Private Cloud"
-email: ping📯socket.de
+email: ping@socket.de
 seo_description:
   en: "socket.de: Your expert for robust Private Cloud solutions, managed OpenStack, and secure hybrid IT infrastructure."
   de: "socket.de: Ihr Experte für robuste Private Cloud-Lösungen, managed OpenStack und sichere hybride IT-Infrastruktur."
