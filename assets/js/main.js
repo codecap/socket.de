@@ -317,7 +317,7 @@ function initializeContentScripts() {
   initHeaderScroll();
   initHamburger();
   initTabs();
-  initPrivacyAccordion(); 
+  //initPrivacyAccordion(); 
   highlightActiveMenuItem();
   initStickyContacts();
   if (document.getElementById("map")) window.initMap();

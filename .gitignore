@@ -16,3 +16,4 @@ npm-shrinkwrap.json
 test/
 _data/en/privatepolicy_origin.yml
 _data/de/privatepolicy_origin.yml
+_sass/_policys.scss
