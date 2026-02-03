@@ -13,15 +13,15 @@
     Stand: 16. Januar 2026
 
     #### Verantwortlicher
-    Vladislav, Nazarenko / socket GmbH  
-    Mergenthalerallee 73-75  
+    Vladislav, Nazarenko / socket GmbH
+    Mergenthalerallee 73-75
     65760 Eschborn
 
-    E-Mail-Adresse: [datenschutz@socket.de](mailto:datenschutz@socket.de)  
+    E-Mail-Adresse: [datenschutz@socket.de](mailto:datenschutz@socket.de)
     Impressum: [https://socket.de/de/imprint](https://socket.de/de/imprint)
 
 - title:  "Übersicht der Verarbeitungen"
-  content: |  
+  content: |
     Die nachfolgende Übersicht fasst die Arten der verarbeiteten Daten und die Zwecke ihrer Verarbeitung zusammen und verweist auf die betroffenen Personen.
 
     #### Arten der verarbeiteten Daten
@@ -50,7 +50,7 @@
     * Bereitstellung unseres Onlineangebotes und Nutzerfreundlichkeit.
     * Informationstechnische Infrastruktur.
 
-- title: "Maßgebliche Rechtsgrundlagen"   
+- title: "Maßgebliche Rechtsgrundlagen"
   content: |
     **Maßgebliche Rechtsgrundlagen nach der DSGVO:** Im Folgenden erhalten Sie eine Übersicht der Rechtsgrundlagen der DSGVO, auf deren Basis wir personenbezogene Daten verarbeiten. Bitte nehmen Sie zur Kenntnis, dass neben den Regelungen der DSGVO nationale Datenschutzvorgaben in Ihrem bzw. unserem Wohn- oder Sitzland gelten können. Sollten ferner im Einzelfall speziellere Rechtsgrundlagen maßgeblich sein, teilen wir Ihnen diese in der Datenschutzerklärung mit.
 
@@ -78,9 +78,8 @@
     * **Rechtsgrundlagen:** Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO).
 
     **Weitere Hinweise zu Verarbeitungsprozessen, Verfahren und Diensten:**
-
-    * **Bereitstellung Onlineangebot auf gemietetem Speicherplatz:** Для надання нашої онлайн-пропозиції ми використовуємо орендований дисковий простір. **Rechtsgrundlagen:** Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO).
-    * **Erhebung von Zugriffsdaten und Logfiles:** Der Zugriff auf unser Onlineangebot wird in Form von "Server-Logfiles" protokolliert. **Löschung von Daten:** Logfile-Informationen werden maximal 30 Tage gespeichert.
+    * **Bereitstellung Onlineangebot auf gemietetem Speicherplatz:** Für die Bereitstellung unseres Onlineangebotes nutzen wir Speicherplatz, Rechenkapazität und Software, die wir von einem entsprechenden Serveranbieter (auch "Webhoster" genannt) mieten oder anderweitig beziehen. **Rechtsgrundlagen:** Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO).
+    * **Erhebung von Zugriffsdaten und Logfiles:** Der Zugriff auf unser Onlineangebot wird in Form von "Server-Logfiles" protokolliert.
     * **GitHub Pages:** Die Bereitstellung erfolgt über [GitHub Pages](https://pages.github.com). Weitere Informationen: [Datenschutzerklärung von GitHub](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement).
 
 - title: "Einsatz von Cookies"
@@ -106,7 +105,7 @@
     * **Rechtsgrundlagen:** Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO); Vertragserfüllung (Art. 6 Abs. 1 S. 1 lit. b) DSGVO).
 
     **Weitere Hinweise:**
-    * **Kontaktformular:** Wir nutzen diese Daten ausschließlich für die Kommunikation. 
+    * **Kontaktformular:** Wir nutzen diese Daten ausschließlich für die Kommunikation.
     * **Rechtsgrundlagen:** Vertragserfüllung (Art. 6 Abs. 1 S. 1 lit. b) DSGVO).
 
 - title: "Webanalyse, Monitoring und Optimierung"
@@ -186,7 +185,7 @@
 
     Wir informieren Sie, sobald durch die Änderungen eine Mitwirkungshandlung Ihrerseits (z. B. Einwilligung) oder eine sonstige individuelle Benachrichtigung erforderlich wird.
 
-    Sofern wir in dieser Datenschutzerklärung Adressen und Kontaktinformationen von Unternehmen und Organisationen angeben, bitten wir zu beachten, dass die Adressen sich über die Zeit ändern können.  
+    Sofern wir in dieser Datenschutzerklärung Adressen und Kontaktinformationen von Unternehmen und Organisationen angeben, bitten wir zu beachten, dass die Adressen sich über die Zeit ändern können.
 # - title: "GitHub Pages"
 #   content: |
 #     Die Bereitstellung der Websites erfolgt über [GitHub Pages](https://pages.github.com)
