@@ -1,11 +1,13 @@
-- title: 'facebook'
-  link: ''
-  image: 'facebook.svg'
-
-- title: 'twitter'
-  link: ''
-  image: 'twitter-x.svg'
-
-- title: instagram
-  link: ''
-  image: 'instagram.svg'
+---
+- title: 'LinkedIn'
+  link: 'https://www.linkedin.com/in/vladislav-nazarenko/'
+  image: 'linkedin.svg'
+# - title: 'facebook'
+#   link: ''
+#   image: 'facebook.svg'
+# - title: 'twitter'
+#   link: ''
+#   image: 'twitter-x.svg'
+# - title: instagram
+#   link: ''
+#   image: 'instagram.svg'
