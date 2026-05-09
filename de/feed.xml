@@ -1,0 +1,37 @@
+---
+layout: null
+permalink: /de/feed.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Socket.de - Cloud-Lösungen (DE)</title>
+    <description>Aktuelle Updates und Infrastruktur-Einblicke</description>
+    <link>{{ site.url }}/de/</link>
+    <atom:link href="{{ site.url }}/de/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    {%- for file in site.data.de -%}
+      {%- assign file_data = file[1] -%}
+      {%- assign check_feed = false -%}
+      {%- if file_data.show_in_feed or file_data[0].show_in_feed or file_data.stitle.show_in_feed -%}
+        {%- assign check_feed = true -%}
+      {%- endif -%}
+      {%- if check_feed -%}
+        {%- assign feed_link = file[0] | prepend: '/#' -%}
+        {%- if file_data.link -%}{% assign feed_link = file_data.link %}{%- elsif file_data.stitle.link -%}{% assign feed_link = file_data.stitle.link %}{%- endif -%}
+        {%- assign items = file_data.sdata | default: file_data -%}
+        {%- for item in items -%}
+          {%- if item.title and item.content %}
+    <item>
+      <title>{{ item.title | xml_escape }}</title>
+      <description>{{ item.content | markdownify | strip_html | xml_escape | strip_newlines }}</description>
+      <link>{{ site.url }}/de{{ feed_link | replace: '//', '/' }}#{{ item.title | slugify: 'latin' }}</link>
+      <guid isPermaLink="false">de-{{ file[0] }}-{{ item.title | slugify: 'latin' }}</guid>
+      <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    </item>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    {%- endfor %}
+  </channel>
+</rss>

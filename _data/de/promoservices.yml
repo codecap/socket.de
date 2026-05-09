@@ -1,6 +1,8 @@
 ---
 stitle:
   section_title: 'Services'
+  show_in_feed: true
+  link: '/services/'
 sdata:
   #- title: 'Konzeption und Umsetzung von individueller Cloud-Architektur'
   - title: 'Individuelle Cloudlösung'

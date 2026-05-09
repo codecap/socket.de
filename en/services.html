@@ -16,7 +16,7 @@ keywords: "IT services, cloud migration, network security, managed services, inf
 		<div class="services_blocks">
 			{% assign blocks = site.data.en.promoservices.sdata %}
 			{% for service in blocks %}
-			<div class="service_block">
+			<div class="service_block" id="{{ service.title | slugify }}">
 				<div class="service_img">
 					<img src="{{ site.baseurl }}/assets/img/services/{{ service.image }}" alt="{{ service.title }}">
 				</div>

@@ -21,7 +21,7 @@ keywords: "IT-Dienstleistungen, Cloud-Migration, Netzwerksicherheit, Managed Ser
 					<img src="{{ site.baseurl }}/assets/img/services/{{ service.image }}" alt="{{ service.title }}">
 				</div>
 				<div class="service_text">
-					<h3>{{ service.title }}</h3>
+					<h3 id="{{ service.title | slugify: 'latin' }}">{{ service.title }}</h3>
 					{{ service.content | markdownify }}
 				</div>
 			</div>

@@ -1,6 +1,7 @@
----
 stitle:
   section_title: 'Services'
+  show_in_feed: true
+  link: '/services/' 
 sdata:
   - title: 'Conception and Implementation of Individual Cloud Architecture'
     image: 'service1.svg'
