@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: "socket.de | OpenStack & Private Cloud"
+title: "Socket.de | OpenStack & Private Cloud"
 email: ping@socket.de
 seo_description:
   en: "socket.de: Your expert for robust Private Cloud solutions, managed OpenStack, and secure hybrid IT infrastructure."
@@ -85,11 +85,27 @@ t:
     de: "/de/privatepolicy"
   blog:
     en: "/en/blog"
-    de: "/en/blog"
+    de: "/de/blog"
 
 plugins:
   - jekyll-seo-tag
   - jekyll-redirect-from
+  
+
+plugins:
+  - jekyll-paginate-v2
+
+pagination:
+  enabled: true
+  collection: 'blog_en'
+  per_page: 2
+  permalink: '/page/:num/'
+  indexpage: 'index'
+
+collections:
+  blog_en:
+    output: true
+    permalink: /en/blog/:title/
 
 include:
   - "en"

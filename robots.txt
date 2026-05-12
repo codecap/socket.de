@@ -1,9 +1,12 @@
 ---
+layout: null
+permalink: /robots.txt
 ---
 User-agent: *
 Disallow: /_site/
 Disallow: /_build/
 Disallow: /.jekyll-cache/
+Disallow: /_blog_en/
 Disallow: /vendor/
 Disallow: /node_modules/
 Disallow: /Gemfile
@@ -27,11 +30,13 @@ Crawl-delay: 1
 
 {% assign languages = site.t | map: 'first' %}
 {% for lang in languages %}
-Sitemap: {{ site.url | append: site.baseurl }}{{ site.t.index[lang] }}/sitemap.xml
+Sitemap: {{ site.url | append: site.baseurl }}/{{ lang }}/sitemap.xml
 {% endfor %}
 
 User-agent: Googlebot
 Disallow: /_site/
 Disallow: /_build/
+Disallow: /.jekyll-cache/
+Disallow: /_blog_en/
 Allow: /
 Crawl-delay: 0.5
