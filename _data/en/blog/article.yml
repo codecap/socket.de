@@ -1,0 +1,17 @@
+---
+stitle:
+  section_title: 'Blog'
+  show_in_feed: true
+  title: Article Title
+  description: My Description
+  link: '/blog/not-exsitent'
+sdata:
+  - title: 'Title 01'
+    content: >-
+      Put content here
+  - title: 'Title 02'
+    content: >-
+      Put content here
+  - title: 'Title 03'
+    content: >-
+      Put content here

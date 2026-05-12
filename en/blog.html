@@ -1,0 +1,31 @@
+---
+layout: default
+title: blog
+permalink: /en/blog/
+i18n-link: blog
+lang: en
+page_section_title: "Blog"
+key: blog
+description: "Blog. Experience from Building Clouds"
+keywords: "blog, private cloud, migration, network security, managed services, infrastructure optimization, tech consulting."
+---
+{% include header.html %}
+<section class='page_section'>
+    <div class="container">
+    	<!-- TODO: we need a loop here -->
+        <h2>{{ site.data.en.blog.article.stitle.section_title }}</h2>
+        <h3>{{ site.data.en.blog.article.stitle.description }}</h3>
+        <h2>{{ site.data.en.blog.article001.stitle.section_title }}</h2>
+        <h3>{{ site.data.en.blog.article001.stitle.description }}</h3>
+        <h2>{{ site.data.en.blog.article002.stitle.section_title }}</h2>
+        <h3>{{ site.data.en.blog.article002.stitle.description }}</h3>
+        <h2>{{ site.data.en.blog.article003.stitle.section_title }}</h2>
+        <h3>{{ site.data.en.blog.article004.stitle.description }}</h3>
+    </div>
+</section>
+<section>
+    <div class="container">
+        {% include technology.html %}
+    </div>
+</section>
+{% include footer.html %}

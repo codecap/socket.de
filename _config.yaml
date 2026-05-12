@@ -53,6 +53,9 @@ menu:
   privatepolicy:
     en: "Private Policy"
     de: "Datenschutzerklärung"
+  blog:
+    en: "Blog"
+    de: "Blog"
 
 # Path to the translated page
 t:
@@ -80,6 +83,9 @@ t:
   privatepolicy:
     en: "/en/privatepolicy"
     de: "/de/privatepolicy"
+  blog:
+    en: "/en/blog"
+    de: "/en/blog"
 
 plugins:
   - jekyll-seo-tag
