@@ -25,8 +25,8 @@ pagination:
                     <img src="{{ post.image }}" alt="{{ post.title }}">
                 </div>
                 <div class="blog-item__content">
-                    <span class="blog-item__date">{{ post.date | date: "%B %d, %Y" }}</span>
                     <h2 class="blog-item__title">{{ post.title }}</h2>
+                    <span class="blog-item__date">{{ post.date | date: "%B %d, %Y" }}</span>
                     <p class="blog-item__description">{{ post.description }}</p>
                     <span class="blog-item__link">Read more</span>
                 </div>
