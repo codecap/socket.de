@@ -1,102 +1,78 @@
----
-layout: null
-permalink: /sitemap.xml
----
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-{%- assign pages = site.pages | where_exp:"page", "page.sitemap != false" -%}
-
-{%- for page in pages -%}
-  {%- if page.path contains '_site'
-        or page.path contains '_includes'
-        or page.path contains 'robots.txt'
-        or page.path contains 'sitemap.xml'
-        or page.path contains 'feed.xml'
-        or page.path contains 'redirects.json'
-        or page.path contains '404.html'
-        or page.path contains '403.html'
-        or page.path contains '500.html'
-        or page.path contains '503.html' -%}
-      {%- continue -%}
-  {%- endif -%}
-
-  {%- capture loc_raw -%}{{ page.url | absolute_url }}{%- endcapture -%}
-  {%- assign loc = loc_raw | replace_first: "https:/", "https://" | replace: ".html", "" | replace: "//", "/" -%}
-  {%- assign last_char = loc | slice: -1 -%}
-  {%- if last_char != "/" and loc != site.url -%}{%- assign loc = loc | append: "/" -%}{%- endif -%}
-
-  <url>
-    <loc>{{ loc }}</loc>
-    <lastmod>{{ page.last_modified_at | default: site.time | date_to_xmlschema }}</lastmod>
-    <changefreq>monthly</changefreq>
-
-    {%- if page.key and site.t[page.key] -%}
-      {%- assign translations = site.t[page.key] -%}
-      {%- assign default_href = "" -%}
-      {%- for t in translations -%}
-        {%- assign lang = t.first -%}
-        {%- capture href_raw -%}{{ t.last | absolute_url }}{%- endcapture -%}
-        {%- assign href = href_raw | replace_first: "https:/", "https://" | replace: ".html", "" | replace: "//", "/" -%}
-        {%- assign h_last = href | slice: -1 -%}
-        {%- if h_last != "/" and href != site.url -%}{%- assign href = href | append: "/" -%}{%- endif -%}
-        <xhtml:link rel="alternate" hreflang="{{ lang }}" href="{{ href }}" />
-        {%- if lang == site.default_language -%}{%- assign default_href = href -%}{%- endif -%}
-      {%- endfor -%}
-      <xhtml:link rel="alternate" hreflang="x-default" href="{{ default_href | default: loc }}" />
-    {%- else -%}
-      <xhtml:link rel="alternate" hreflang="x-default" href="{{ loc }}" />
-    {%- endif -%}
-  </url>
-{%- endfor -%}
-
-{%- for post in site.blog_en -%}
-  {%- if post.sitemap == false -%}{%- continue -%}{%- endif -%}
-
-  {%- capture loc_raw -%}{{ post.url | absolute_url }}{%- endcapture -%}
-  {%- assign loc = loc_raw | replace_first: "https:/", "https://" | replace: ".html", "" | replace: "//", "/" -%}
-  {%- assign last_char = loc | slice: -1 -%}
-  {%- if last_char != "/" and loc != site.url -%}{%- assign loc = loc | append: "/" -%}{%- endif -%}
-
-  <url>
-    <loc>{{ loc }}</loc>
-    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
-    <changefreq>weekly</changefreq>
-
-    {%- if post.key and site.t[post.key] -%}
-      {%- assign translations = site.t[post.key] -%}
-      {%- assign default_href = "" -%}
-      {%- for t in translations -%}
-        {%- assign lang = t.first -%}
-        {%- capture href_raw -%}{{ t.last | absolute_url }}{%- endcapture -%}
-        {%- assign href = href_raw | replace_first: "https:/", "https://" | replace: ".html", "" | replace: "//", "/" -%}
-        {%- assign h_last = href | slice: -1 -%}
-        {%- if h_last != "/" and href != site.url -%}{%- assign href = href | append: "/" -%}{%- endif -%}
-        <xhtml:link rel="alternate" hreflang="{{ lang }}" href="{{ href }}" />
-        {%- if lang == site.default_language -%}{%- assign default_href = href -%}{%- endif -%}
-      {%- endfor -%}
-      <xhtml:link rel="alternate" hreflang="x-default" href="{{ default_href | default: loc }}" />
-    {%- else -%}
-      <xhtml:link rel="alternate" hreflang="x-default" href="{{ loc }}" />
-    {%- endif -%}
-  </url>
-{%- endfor -%}
-
-{%- for collection in site.collections -%}
-  {%- if collection.label == 'blog_en' or collection.label == 'posts' -%}{%- continue -%}{%- endif -%}
-  {%- for item in collection.docs -%}
-    {%- capture loc_raw -%}{{ item.url | absolute_url }}{%- endcapture -%}
-    {%- assign loc = loc_raw | replace_first: "https:/", "https://" | replace: ".html", "" | replace: "//", "/" -%}
-    {%- assign last_char = loc | slice: -1 -%}
-    {%- if last_char != "/" and loc != site.url -%}{%- assign loc = loc | append: "/" -%}{%- endif -%}
-
-    <url>
-      <loc>{{ loc }}</loc>
-      <lastmod>{{ item.last_modified_at | default: site.time | date_to_xmlschema }}</lastmod>
-      <changefreq>weekly</changefreq>
-      <xhtml:link rel="alternate" hreflang="x-default" href="{{ loc }}" />
-    </url>
-  {%- endfor -%}
-{%- endfor -%}
-</urlset>
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"><url>
+    <loc>https://socket.de/en/about/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="en" href="https://socket.de/en/about/" /><xhtml:link rel="alternate" hreflang="de" href="https://socket.de/de/about/" /><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/about/" /></url><url>
+    <loc>https://socket.de/de/about/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="en" href="https://socket.de/en/about/" /><xhtml:link rel="alternate" hreflang="de" href="https://socket.de/de/about/" /><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/about/" /></url><url>
+    <loc>https://socket.de/en/blog/article001/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="en" href="https://socket.de/en/services/" /><xhtml:link rel="alternate" hreflang="de" href="https://socket.de/de/services/" /><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/services/" /></url><url>
+    <loc>https://socket.de/en/clients/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="en" href="https://socket.de/en/clients/" /><xhtml:link rel="alternate" hreflang="de" href="https://socket.de/de/clients/" /><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/clients/" /></url><url>
+    <loc>https://socket.de/de/clients/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="en" href="https://socket.de/en/clients/" /><xhtml:link rel="alternate" hreflang="de" href="https://socket.de/de/clients/" /><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/clients/" /></url><url>
+    <loc>https://socket.de/en/imprint/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="en" href="https://socket.de/en/imprint/" /><xhtml:link rel="alternate" hreflang="de" href="https://socket.de/de/imprint/" /><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/imprint/" /></url><url>
+    <loc>https://socket.de/de/imprint/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="en" href="https://socket.de/en/imprint/" /><xhtml:link rel="alternate" hreflang="de" href="https://socket.de/de/imprint/" /><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/imprint/" /></url><url>
+    <loc>https://socket.de/en/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="en" href="https://socket.de/en/" /><xhtml:link rel="alternate" hreflang="de" href="https://socket.de/de/" /><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/" /></url><url>
+    <loc>https://socket.de/offer/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/offer/" /></url><url>
+    <loc>https://socket.de/clients/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/clients/" /></url><url>
+    <loc>https://socket.de/de/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="en" href="https://socket.de/en/" /><xhtml:link rel="alternate" hreflang="de" href="https://socket.de/de/" /><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/" /></url><url>
+    <loc>https://socket.de/vna/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/vna/" /></url><url>
+    <loc>https://socket.de/en/offer/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/offer/" /></url><url>
+    <loc>https://socket.de/de/offer/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/de/offer/" /></url><url>
+    <loc>https://socket.de/en/privatepolicy/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/privatepolicy/" /></url><url>
+    <loc>https://socket.de/de/privatepolicy/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/de/privatepolicy/" /></url><url>
+    <loc>https://socket.de/en/services/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="en" href="https://socket.de/en/services/" /><xhtml:link rel="alternate" hreflang="de" href="https://socket.de/de/services/" /><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/services/" /></url><url>
+    <loc>https://socket.de/de/services/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="en" href="https://socket.de/en/services/" /><xhtml:link rel="alternate" hreflang="de" href="https://socket.de/de/services/" /><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/services/" /></url><url>
+    <loc>https://socket.de/en/vna/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="en" href="https://socket.de/en/vna/" /><xhtml:link rel="alternate" hreflang="de" href="https://socket.de/de/vna/" /><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/vna/" /></url><url>
+    <loc>https://socket.de/de/vna/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="en" href="https://socket.de/en/vna/" /><xhtml:link rel="alternate" hreflang="de" href="https://socket.de/de/vna/" /><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/vna/" /></url><url>
+    <loc>https://socket.de/en/blog/index/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="en" href="https://socket.de/en/blog/" /><xhtml:link rel="alternate" hreflang="de" href="https://socket.de/de/blog/" /><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/blog/" /></url><url>
+    <loc>https://socket.de/en/blog/page/2/index/</loc>
+    <lastmod>2026-05-13T11:19:55+00:00</lastmod>
+    <changefreq>monthly</changefreq><xhtml:link rel="alternate" hreflang="en" href="https://socket.de/en/blog/" /><xhtml:link rel="alternate" hreflang="de" href="https://socket.de/de/blog/" /><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/blog/" /></url><url>
+    <loc>https://socket.de/en/blog/article/</loc>
+    <lastmod>2026-05-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/blog/article/" /></url><url>
+    <loc>https://socket.de/en/blog/article001/</loc>
+    <lastmod>2026-05-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/blog/article001/" /></url><url>
+    <loc>https://socket.de/en/blog/article002/</loc>
+    <lastmod>2026-05-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq><xhtml:link rel="alternate" hreflang="x-default" href="https://socket.de/en/blog/article002/" /></url></urlset>

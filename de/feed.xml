@@ -1,37 +1,45 @@
----
-layout: null
-permalink: /de/feed.xml
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Socket.de - Cloud-Lösungen (DE)</title>
     <description>Aktuelle Updates und Infrastruktur-Einblicke</description>
-    <link>{{ site.url }}/de/</link>
-    <atom:link href="{{ site.url }}/de/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    {%- for file in site.data.de -%}
-      {%- assign file_data = file[1] -%}
-      {%- assign check_feed = false -%}
-      {%- if file_data.show_in_feed or file_data[0].show_in_feed or file_data.stitle.show_in_feed -%}
-        {%- assign check_feed = true -%}
-      {%- endif -%}
-      {%- if check_feed -%}
-        {%- assign feed_link = file[0] | prepend: '/#' -%}
-        {%- if file_data.link -%}{% assign feed_link = file_data.link %}{%- elsif file_data.stitle.link -%}{% assign feed_link = file_data.stitle.link %}{%- endif -%}
-        {%- assign items = file_data.sdata | default: file_data -%}
-        {%- for item in items -%}
-          {%- if item.title and item.content %}
+    <link>https://socket.de/de/</link>
+    <atom:link href="https://socket.de/de/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 May 2026 11:19:55 +0000</lastBuildDate>
     <item>
-      <title>{{ item.title | xml_escape }}</title>
-      <description>{{ item.content | markdownify | strip_html | xml_escape | strip_newlines }}</description>
-      <link>{{ site.url }}/de{{ feed_link | replace: '//', '/' }}#{{ item.title | slugify: 'latin' }}</link>
-      <guid isPermaLink="false">de-{{ file[0] }}-{{ item.title | slugify: 'latin' }}</guid>
-      <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+      <title>Individuelle Cloudlösung</title>
+      <description>Wir helfen dir, für deine Projekte eine flexible und skalierbare Cloud auf Basis von OpenStack und Ceph aufzubauen. Damit kannst du in deinem Heimnetzwerk die modernen DevOps Techniken und Tools für deine Software anwenden:  Infrastructre as Code und GitOps  Kubernetes / Openshift / OKD  Ansible / Terraform / Chef  Rancher  Database as a ServiceDeine Cloud wird aus einer Hand fertiggestellt. Als zuverlässige Ansprächpartner bleiben wir natürlich weiterhin für dich da.</description>
+      <link>https://socket.de/de/services/#individuelle-cloudlosung</link>
+      <guid isPermaLink="false">de-promoservices-individuelle-cloudlosung</guid>
+      <pubDate>Wed, 13 May 2026 11:19:55 +0000</pubDate>
     </item>
-          {%- endif -%}
-        {%- endfor -%}
-      {%- endif -%}
-    {%- endfor %}
+    <item>
+      <title>Design und Architektur</title>
+      <description>Deine Cloud muss von der ersten Minute an stabil funktionieren. Sie soll langfristig mit deinem Unternehmen wachsen und sich auch mühelos auf neue Anforderungen anpassen. socket legt das Fundament für eine sichere, skalierbare Cloudarchitektur. Diese läuft natürlich auf dem neusten Stand der Technik.</description>
+      <link>https://socket.de/de/services/#design-und-architektur</link>
+      <guid isPermaLink="false">de-promoservices-design-und-architektur</guid>
+      <pubDate>Wed, 13 May 2026 11:19:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>Aufbau und Betrieb</title>
+      <description>Open Source, spezielle Software und verschiedenste Anbieter: Hast du bei der Suche nach der passenden Soft- und Hardware eher die Qual als die Wahl? Wir arbeiten schon seit vielen Jahren mit sämtlichen gängigen Systemen. Darum können wir dir ganz ehrlich sagen, welche Lösung optimal zu deinen Anforderungen passt – und welche nicht. Bei „das habe ich noch vergessen“-Fragen sind wir jederzeit nur einen Telefonanruf entfernt.</description>
+      <link>https://socket.de/de/services/#aufbau-und-betrieb</link>
+      <guid isPermaLink="false">de-promoservices-aufbau-und-betrieb</guid>
+      <pubDate>Wed, 13 May 2026 11:19:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>Consulting</title>
+      <description>Du hast einfach keine Zeit, um dich mit „OpenStack“ und „Ceph“ zu beschäftigen? Das verstehen wir – du möchtest dich schließlich voll und ganz auf dein Unternehmen konzentrieren können. Währenddessen halten wir dir in Sachen Cloud-Architektur den Rücken frei. Unser Team berät dich zu passenden Lösungen. Wir besprechen genau die Dinge, auf die es ankommt. Nicht mehr und nicht weniger. So erarbeiten wir gemeinsam hochwertige und flüssige Konzepte, die das können, was sie sollen.</description>
+      <link>https://socket.de/de/services/#consulting</link>
+      <guid isPermaLink="false">de-promoservices-consulting</guid>
+      <pubDate>Wed, 13 May 2026 11:19:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>Workshops</title>
+      <description>Du möchtest selbst hinter die Kulissen deiner Cloud-Lösung blicken? Das hören wir gerne! Unsere qualifizierten Mitarbeiter stellen auf Anfrage individuelle Workshops zusammen, in denen wir sämtliche Themen besprechen, zu denen du dich weiterbilden möchtest. Auf theoretische Konzepte und Erklärungen folgt ein Praxispart, in dem du direkt mit dem Gelernten experimentieren kannst.</description>
+      <link>https://socket.de/de/services/#workshops</link>
+      <guid isPermaLink="false">de-promoservices-workshops</guid>
+      <pubDate>Wed, 13 May 2026 11:19:55 +0000</pubDate>
+    </item>
   </channel>
 </rss>

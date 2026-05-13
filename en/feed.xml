@@ -1,35 +1,57 @@
----
-layout: null
-permalink: /en/feed.xml
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    {%- assign lang = "en" -%}
-    {%- assign t = site.t[lang] -%}
+  <channel><title>Socket.de | OpenStack &amp; Private Cloud - Cloud Solutions</title>
+    <description>Latest updates and infrastructure insights from our blog</description>
+    <link>https://socket.de/en/blog/</link>
+    <atom:link href="https://socket.de/en/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 May 2026 11:19:55 +0000</lastBuildDate>
     
-    <title>{{ site.title | xml_escape }} - {{ t.blog_title | default: "Cloud Solutions" | xml_escape }}</title>
-    <description>{{ t.blog_description | default: "Latest updates and infrastructure insights from our blog" | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/en/blog/</link>
-    <atom:link href="{{ site.url }}{{ site.baseurl }}/en/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     
-    {% assign posts = site.blog_en | sort: 'date' | reverse %}
-    {% for post in posts %}
+    
     <item>
-      <title>{{ post.title | xml_escape }}</title>
+      <title>Individual Solutions</title>
       <description>
         <![CDATA[
-          {% if post.image %}
-            <img src="{{ site.url }}{{ site.baseurl }}{{ post.image }}" alt="{{ post.title | xml_escape }}" style="margin-bottom: 15px;" />
-          {% endif %}
-          {{ post.description | default: post.content | strip_html | truncatewords: 50 }}
+          
+            <img src="https://socket.de/assets/blog/2026/05/individual-cloud-solutions.jpg" alt="Individual Solutions" style="margin-bottom: 15px;" />
+          
+          Brief summary of the article for the list and RSS feed For Individual Solutions
         ]]>
       </description>
-      <link>{{ site.url }}{{ site.baseurl }}{{ post.url }}</link>
-      <guid isPermaLink="true">{{ site.url }}{{ site.baseurl }}{{ post.url }}</guid>
-      <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+      <link>https://socket.de/en/blog/article002/</link>
+      <guid isPermaLink="true">https://socket.de/en/blog/article002/</guid>
+      <pubDate>Tue, 12 May 2026 00:00:00 +0000</pubDate>
     </item>
-    {% endfor %}
+    
+    <item>
+      <title>Individual Cloud Solutions -number1</title>
+      <description>
+        <![CDATA[
+          
+            <img src="https://socket.de/assets/blog/2026/05/individual-cloud-solutions.jpg" alt="Individual Cloud Solutions -number1" style="margin-bottom: 15px;" />
+          
+          Brief summary of the article for the list and RSS feed.
+        ]]>
+      </description>
+      <link>https://socket.de/en/blog/article001/</link>
+      <guid isPermaLink="true">https://socket.de/en/blog/article001/</guid>
+      <pubDate>Tue, 12 May 2026 00:00:00 +0000</pubDate>
+    </item>
+    
+    <item>
+      <title>New interesting Post</title>
+      <description>
+        <![CDATA[
+          
+            <img src="https://socket.de/assets/blog/2026/05/individual-cloud-solutions.jpg" alt="New interesting Post" style="margin-bottom: 15px;" />
+          
+          Brief summary of the new interesting post.
+        ]]>
+      </description>
+      <link>https://socket.de/en/blog/article/</link>
+      <guid isPermaLink="true">https://socket.de/en/blog/article/</guid>
+      <pubDate>Tue, 12 May 2026 00:00:00 +0000</pubDate>
+    </item>
+    
   </channel>
 </rss>
