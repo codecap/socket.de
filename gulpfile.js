@@ -1,95 +1,91 @@
 "use strict";
 
 const { src, dest, watch, series, parallel } = require('gulp');
-
-var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
-const rename = require('gulp-rename');
-
+const uglify = require('gulp-uglify');
+const replace = require('gulp-replace'); 
 const sourcemaps = require('gulp-sourcemaps');
-var sass = require('gulp-sass')(require('sass'));
+const dartSass = require('sass');
+const sass = require('gulp-sass')(dartSass)
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
-const imagemin = require('gulp-imagemin');
 const newer = require('gulp-newer');
+const cp = require("child_process"); 
+const browserSync = require('browser-sync').create(); 
 
-const cp = require("child_process");
+const imageminGifsicle = async () => (await import('imagemin-gifsicle')).default;
+const imageminMozjpeg = async () => (await import('imagemin-mozjpeg')).default;
+const imageminOptipng = async () => (await import('imagemin-optipng')).default;
+const imageminSvgo = async () => (await import('imagemin-svgo')).default;
 
-const browserSync = require('browser-sync').create();
-
-// File paths
+const PATHS = {
+    jekyllDest: './_site',
+    sitemapSource: './_site/sitemap.xml',
+    sitemapRelPath: '/sitemap.xml',
+    feedSource: './_site/feed.xml'
+};
 
 const files = {
     scssPath: '_sass/**/*.scss',
-    cssPath: 'assets/css/**/*.scss',
+    cssPath: 'assets/styles/',
     jsPath: 'assets/js/main.js',
-    imgPath: 'assets/img/**/*',
-    fontPath: 'assets/fonts/**/*',
-}
+    imgPath: 'assets/img/**/*'
+};
 
-
-// Sass task: compiles the style.scss file into style.css
 function scssTask(){
     return src(files.scssPath)
-        .pipe(sourcemaps.init()) // initialize sourcemaps first
+        .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
-        .pipe(postcss([ autoprefixer(),cssnano() ]))
-        .pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
-        .pipe(dest('_site/assets/css/')) // put final CSS in dist folder
-        .pipe(browserSync.reload({stream:true}))
+        .pipe(postcss([ autoprefixer(), cssnano() ]))
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest(files.cssPath)) 
+        .pipe(dest(PATHS.jekyllDest + '/assets/styles/')) 
+        .pipe(browserSync.stream());
 }
 
-// JS task: concatenates and uglifies JS files to script.js
 function jsTask(){
-    return src([
-        files.jsPath
-        //,'!' + 'includes/js/jquery.min.js', // to exclude any specific files
-    ])
+    return src([files.jsPath])
         .pipe(uglify())
         .pipe(dest('_site/assets/js/'))
-        .pipe(browserSync.reload({stream:true}))
+        .pipe(browserSync.stream());
 }
 
-//img task
-function imgTask() {
+async function imgTask() {    
+    const imagemin = (await import('gulp-imagemin')).default;
     return src(files.imgPath)
         .pipe(newer("_site/assets/img/"))
-        .pipe(imagemin())
+        .pipe(imagemin([
+            (await imageminGifsicle())({ interlaced: true }),
+            (await imageminMozjpeg())({ quality: 75 }),
+            (await imageminOptipng())({ optimizationLevel: 5 }),
+            (await imageminSvgo())({ plugins: [{ name: 'removeViewBox', active: false }] })
+        ]))
         .pipe(dest("_site/assets/img/"))
-        .pipe(browserSync.reload({stream:true}))
-}
-//img task
-function fontTask() {
-    return src(files.fontPath)
-        .pipe(newer("_site/assets/fonts/"))
-        .pipe(dest("_site/assets/img/"))
-        .pipe(browserSync.reload({stream:true}))
+        .pipe(browserSync.stream());
 }
 
-// Jekyll
-function jekyll() {
-    return cp.spawn("bundle", ["exec", "jekyll", "build"], { stdio: "inherit" });
+function jekyllBuild(done) {
+    const jekyllArgs = ["exec", "jekyll", "build", "--config", "_config.yaml"];
+    const jekyllProcess = cp.spawn("bundle", jekyllArgs, { stdio: "inherit" });
+    jekyllProcess.on('close', done);
 }
 
+function sitemapCopy() {
+    src(PATHS.sitemapSource)
+        .pipe(replace(PATHS.sitemapRelPath, '/en' + PATHS.sitemapRelPath)) 
+        .pipe(dest(PATHS.jekyllDest + '/en'));
 
-// Watch task: watch SCSS and JS files for changes
-// If any change, run scss and js tasks simultaneously
-function watchTask(){
-
-    watch([files.scssPath], parallel(scssTask, browserSyncReload));
-    watch([files.jsPath], parallel(jsTask, browserSyncReload));
-    watch(['_includes/**', '_layouts/**/*', 'pages/**'], series(jekyll, browserSyncReload));
-    watch(files.imgPath, imgTask);
-
+    return src(PATHS.sitemapSource)
+        .pipe(replace(PATHS.sitemapRelPath, '/de' + PATHS.sitemapRelPath))
+        .pipe(dest(PATHS.jekyllDest + '/de'));
 }
 
-//browsersynce function
 function browserSyncServe(done) {
     browserSync.init({
-        server: {
-            baseDir: "_site"
-        }
+        server: { baseDir: PATHS.jekyllDest },
+        port: 3000,
+        host: 'localhost',
+        browser: 'default',
     });
     done();
 }
@@ -99,13 +95,24 @@ function browserSyncReload(done) {
     done();
 }
 
-// exports.build = build;
-// exports.default = series(clean, build);
+function watchTask(){
+    watch(files.scssPath, series(scssTask)); 
+    watch(files.jsPath, series(jsTask)); 
+    watch(files.imgPath, series(imgTask)); 
+    watch(
+        ['**/*.html', '**/*.md', '_data/**/*.yml', '_layouts/**/*', '_includes/**/*'],
+        { ignored: PATHS.jekyllDest + '/**' },
+        series(jekyllBuild, parallel(sitemapCopy), browserSyncReload)
+    ); 
+}
 
 exports.default = series(
-    parallel(jekyll, scssTask, jsTask, imgTask, fontTask),
-    browserSyncServe,
-    watchTask
+    jekyllBuild,
+    parallel(scssTask, jsTask, imgTask, sitemapCopy), 
+    parallel(browserSyncServe, watchTask)
 );
 
-// exports.default = series(parallel(scssTask, jsTask, browserSyncServe), watchTask);
+exports.build = series(
+    jekyllBuild,
+    parallel(scssTask, jsTask, imgTask, sitemapCopy)
+);

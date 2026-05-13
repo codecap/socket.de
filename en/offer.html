@@ -1,0 +1,34 @@
+---
+layout: default
+title: Offer
+permalink: /en/offer/
+i18n-link: offer
+lang: de
+page_section_title: "Own Private Cloud"
+key: private cloud
+description: "Build your own secure Private Cloud with socket.de. Get dedicated infrastructure, maximum data privacy, and full control over your enterprise cloud environment."
+keywords: "Private Cloud, dedicated infrastructure, cloud hosting, enterprise cloud, data security, private cloud solutions, cloud migration."
+---
+{% include header.html %}
+<section class='page_section'>
+	<div class="container">
+		<h2 class="title_about">{{ page.page_section_title }}</h2>
+		<div class="questions_block">
+			<div class="question">
+				<div class="list_block">
+					{% for i in site.data.en.offer.content %}
+					<div>
+						<p>{{i.title}}</p>
+						<ul>
+							{% for e in i.items %}
+							<li>{{ e }}</li>
+							{% endfor %}
+						</ul>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% include footer.html %}

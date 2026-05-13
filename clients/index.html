@@ -1,0 +1,16 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function() {
+      const lang = navigator.language?.startsWith('de') ? 'de' : 'en';
+      window.location.replace('/' + lang + '/clients/');
+    })();
+  </script>
+  <noscript><meta http-equiv="refresh" content="0; url=/en/clients/"></noscript>
+</head>
+</html>

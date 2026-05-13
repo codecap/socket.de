@@ -1,52 +1,69 @@
-# socket
+# Socket
 
-Welcome to your new Jekyll theme! In this directory, you'll find the files you need to be able to package up your theme into a gem. Put your layouts in `_layouts`, your includes in `_includes`, your sass files in `_sass` and any other assets in `assets`.
+Welcome to Socket theme! In this directory, you'll find the files you need to be able to use your theme. All layouts in `_layouts`, includes in `_includes`, sass files in `_sass` and any other assets in `assets`.
 
-To experiment with this code, add some sample content and run `bundle exec jekyll serve` – this directory is setup just like a Jekyll site!
+## Configuration
 
-TODO: Delete this and the text above, and describe your gem
-
-
-## Installation
-
-Add this line to your Jekyll site's `Gemfile`:
-
-```ruby
-gem "socket"
-```
-
-And add this line to your Jekyll site's `_config.yml`:
+Fill all meta configuration in  `_config.yml`:
 
 ```yaml
-theme: socket
+title: The title of the website
+email: Your email here
+description: meta description for SEO
 ```
 
-And then execute:
+Use gulp if you need in  `gulpfile.js`: `In this file there are gulp tasks`
 
-    $ bundle
+All packages are in  `package.json`:
 
-Or install it yourself as:
+## Structure
 
-    $ gem install socket
+### Data (_data_)
+  All content stored in this folder and is divided into separate yml files.
 
-## Usage
+### Includes (_includes_)
+  Each duplicate block of the website is placed into special files and stored in this folder:
 
-TODO: Write usage instructions here. Describe your available layouts, includes, sass and/or assets.
+      header.html
+      nav.html
+      nav-footer.html
+      contact.html
+      footer.html
 
+### Layouts (_layouts_)
+  The main basic file stored here.
+
+    default.html
+
+### Sass (_sass_)
+  In this folder scss files for all parts of the website. The main file is:
+
+    style.scss
+
+### Assets
+  in this folder are:
+
+    js/
+    images/
+### Languages (_lang_)
+  Languages are located in separated folders:
+  >
+  >  - English - en
+  >  - Deutsch - de
+
+  Language's settings in  `_config.yml`:
+```yaml
+  menu: Value to use in menu per language
+  t: Path to the translated page (_name of page_)
+```
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hello. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Pull requests are welcome on GitHub at https://github.com/codecap/order.
 
-## Development
+## Liquid template engine
+[Link](https://shopify.github.io/liquid/)
 
-To set up your environment to develop this theme, run `bundle install`.
-
-Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
-
-When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
-To add a custom directory to your theme-gem, please edit the regexp in `socket.gemspec` accordingly.
 
 ## License
 
 The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-

@@ -2,9 +2,18 @@
 /**
  * Rem-converter mixin to convert px to rem
  */
-@mixin rem($pxValue, $property: "font-size", $standard-size: 16) {
-  #{$property}: $pxValue + px;
+@mixin rem($pxValue, $property: "font-size", $standard-size: 16, $important: "") {
+  #{$property}: $pxValue + px ;
   #{$property}: math.div($pxValue, $standard-size) + rem;
+}
+
+/**
+ * breakpoint
+ */
+@mixin breakpoint($brp) {
+    @media(max-width: $brp) {
+        @content;
+    }
 }
 
 @mixin button($color: $red, $text_color: $white) {
@@ -13,7 +22,6 @@
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  //font: 14px/100% Arial, Helvetica, sans-serif;
   padding: .5em 2em .55em;
   text-shadow: 0 1px 1px rgba(0,0,0,.3);
   @include rounded();

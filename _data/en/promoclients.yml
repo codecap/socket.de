@@ -1,0 +1,41 @@
+---
+- section_title: 'Our Clients'
+- title: 'Clearblue'
+  image: 'clearblue.png'
+  content: 'Together with our partner Clearblue, we are developing the latest data storage technologies and contributing to their wide application in all areas.'
+
+- title: 'Belor design'
+  image: 'beldesign.png'
+  content: 'A strong partnership with Belor design ensures the best customer service and performance.'
+
+- title: 'Swiss'
+  image: 'swisimg.png'
+  content: 'We support Swiss image in providing hyper-converged infrastructures, especially with Ceph Storage.'
+
+- title: 'Garnier'
+  image: 'garn.png'
+  content: 'We helped Garnier test the best possible hardware combinations for the performance of their installations.'
+
+- title: 'Reebok'
+  image: 'reebok.png'
+  content: 'Working with Reebok allows us to create hardware testing labs and secure infrastructures together with our partners.'
+
+- title: 'Polaroid'
+  image: 'polaroid.png'
+  content: 'Thanks to Polaroid, we have access to the latest professional equipment as well as important developers.'
+
+- title: 'Yellow Price'
+  image: 'yellowprice.png'
+  content: 'Our partner Yellow Price offers open source server solutions with enterprise-class features.'
+
+- title: 'Machaon'
+  image: 'machaon.png'
+  content: 'For Machaon, we tested all possible hardware combinations and provided them with the best performance for their installations.'
+
+- title: 'lego'
+  image: 'lego.png'
+  content: 'We helped Lego test the best possible hardware combinations for the performance of their installations.'
+
+- title: 'Hyundai'
+  image: 'hunday.png'
+  content: 'Together with Hyundai, we regularly test the compatibility and performance of the latest hard drives and USB drives.'

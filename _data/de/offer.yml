@@ -1,0 +1,32 @@
+---
+main_title: 'Eigene Cloud'
+content:
+  - title: 'Überblick'
+    items:
+      - Wir helfen Ihnen Ihre eigene moderne modulare erweiterbare Private Cloud aufzuabuen, in Ihren Rechenzentrum oder da wo sie gebraucht wird.
+      - Modernste Technologien
+      - Ensprich dem Standard
+  - title: 'Eigenschaften'
+    items:
+      - Infrastructure as Code (IaC)
+      - Load Balancing as a Service (LBaaS)
+      - Firewall
+      - Kubernetes (KaaS)
+      - Block / Object Storage
+      - Monitoring / Alerting
+      - Logging
+  - title: 'Ihre Vorteile'
+    items:
+      - Open Source - keine Lizenzkosten
+      - Self-Service - Dashobard oder  API
+      - Hoheit über Ihre Daten
+      - Sicherheit
+      - Souverinität
+  - title: 'Use-Cases'
+    items:
+      - Private Cloud ohne Vendor Lock-In
+      - Kubernetes
+      - Air-Gapped Environment
+  - title: 'Timeline'
+    items:
+      - Nachdem die Hardware eingebaut und verkabelt ist dauert die Installation der Private Cloud in der Regel 2 Wochen.

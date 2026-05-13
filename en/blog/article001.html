@@ -1,0 +1,34 @@
+---
+layout: default
+title: Private Cloud on a Budget. Why we Chose Hetzner
+permalink: /en/blog/article001
+i18n-link: Aticle001
+lang: enls
+page_section_title: "Blog"
+key: services
+description: "Private Cloud on a Budget. Why we Chose Hetzner"
+keywords: "Cloud, Neworking, On Budget, Incus, VyOS"
+---
+{% include header.html %}
+<section class='page_section'>
+	<div class="container">
+		<h2>{{ site.data.en.blog.article001.stitle.section_title }}</h2>
+		<div class="article_blocks">
+			{% assign blocks = site.data.en.blog.article001.sdata %}
+			{% for item in blocks %}
+			<div class="item_block" id="{{ item.title | slugify }}">
+				<div class="item_text">
+					<h3>{{ item.title }}</h3>
+					{{ item.content | markdownify }}
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+<section>
+	<div class="container">
+		{% include technology.html %}
+	</div>
+</section>
+{% include footer.html %}

@@ -1,46 +1,53 @@
 {
-  "name": "socket",
-  "version": "1.0.0",
-  "description": "web site for data storage.",
-  "main": "index.js",
-  "scripts": {
-    "preinstall": "npx npm-force-resolutions"
-  },
-  "resolutions": {
-    "graceful-fs": "^4.2.4"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/makecodework/order.git"
-  },
-  "keywords": [
-    "Socket",
-    "Data",
-    "Storage"
-  ],
-  "author": "O.Poruchenko",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/makecodework/order/issues"
-  },
-  "homepage": "https://github.com/makecodework/order#readme",
-  "devDependencies": {
-    "autoprefixer": "^10.3.3",
-    "browser-sync": "^2.27.5",
-    "cssnano": "^5.0.8",
-    "gulp": "^4.0.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-imagemin": "^4.1.0",
-    "gulp-newer": "^1.4.0",
-    "gulp-postcss": "^9.0.0",
-    "gulp-rename": "^2.0.0",
-    "gulp-sass": "^5.0.0",
-    "gulp-sourcemaps": "^3.0.0",
-    "gulp-uglify": "^3.0.2",
-    "node-sass": "^6.0.1",
-    "sass": "^1.38.1"
-  },
-  "dependencies": {
-    "child_process": "^1.0.2"
-  }
+	"name": "socket",
+	"version": "1.0.1",
+	"description": "web site for data storage.",
+	"main": "index.js",
+	"scripts": {
+		"preinstall": "npx npm-force-resolutions"
+	},
+	"resolutions": {
+		"graceful-fs": "4.2.4"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/codecap/socket.de.git"
+	},
+	"keywords": [
+		"Socket",
+		"Data",
+		"Storage"
+	],
+	"author": "O.Poruchenko",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/codecap/socket.de/issues"
+	},
+	"homepage": "https://github.com/codecap/socket.de#readme",
+	"devDependencies": {
+		"autoprefixer": "^10.3.3",
+		"browser-sync": "^3.0.4",
+		"cssnano": "^5.0.8",
+		"gulp": "^5.0.1",
+		"gulp-concat": "^2.6.1",
+		"gulp-imagemin": "^4.1.0",
+		"gulp-newer": "^1.4.0",
+		"gulp-postcss": "^10.0.0",
+		"gulp-rename": "^2.0.0",
+		"gulp-replace": "^1.1.4",
+		"gulp-sass": "^6.0.1",
+		"gulp-shell": "^0.6.3",
+		"gulp-sitemap": "^8.0.0",
+		"gulp-sourcemaps": "^2.6.5",
+		"gulp-uglify": "^3.0.2",
+		"imagemin-gifsicle": "^5.2.0",
+		"imagemin-mozjpeg": "^7.0.0",
+		"imagemin-optipng": "^5.2.1",
+		"imagemin-svgo": "^11.0.1",
+		"js-yaml": "^4.1.1",
+		"sass": "^1.97.2"
+	},
+	"dependencies": {
+		"child_process": "^1.0.2"
+	}
 }

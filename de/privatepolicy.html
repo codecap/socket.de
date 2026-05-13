@@ -1,0 +1,38 @@
+---
+layout: default
+title: Datenschutzerklärung | 
+permalink: /de/privatepolicy/
+i18n-link: privatepolicy
+lang: de
+key: private policy
+description: Datenschutzerklärung von SOCKET. Erfahren Sie, wie wir Ihre personenbezogenen Daten gemäß DSGVO und Datenschutzstandards erheben, nutzen und schützen.
+keywords: Datenschutzerklärung, Datenschutz, DSGVO, personenbezogene Daten, SOCKET Datenschutz, Sicherheit der Cloud-Infrastruktur
+---
+{% include header.html %}
+<section class='privacy_section'>
+    <div class="container">
+        {% assign header_block = site.data.de.privatepolicy | first %}
+        
+        <header class="privacy_intro">
+            <h1 class="privacy_main_title">{{ header_block.title }}</h1>
+            <div class="privacy_description">{{ header_block.content | markdownify }}</div>
+        </header>
+
+        <div class="accordion_vertical" id="privacyAccordion">
+            {% for item in site.data.de.privatepolicy offset: 1 %}
+            <div class="accordion_item {% if forloop.first %}active{% endif %}">
+                <div class="accordion_header">
+                    <h2 class="item_title">{{ item.title }}</h2>
+                    <div class="icon_toggle"></div>
+                </div>
+                <div class="accordion_content">
+                    <div class="content_inner">
+                        {{ item.content | markdownify }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% include footer.html %}

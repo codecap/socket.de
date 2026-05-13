@@ -1,0 +1,252 @@
+# https://datenschutz-generator.de/?dsgo=free
+- title: "Datenschutzerklärung"
+  content: ""
+  tags:
+    - page_title
+
+- title: "Präambel"
+  content: |
+    Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären, welche Arten Ihrer personenbezogenen Daten (nachfolgend auch kurz als "Daten" bezeichnet) wir zu welchen Zwecken und in welchem Umfang verarbeiten. Die Datenschutzerklärung gilt für alle von uns durchgeführten Verarbeitungen personenbezogener Daten, sowohl im Rahmen der Erbringung unserer Leistungen als auch insbesondere auf unseren Webseiten, in mobilen Applikationen sowie innerhalb externer Onlinepräsenzen, wie z. B. unserer Social-Media-Profile (nachfolgend zusammenfassend bezeichnet als "Onlineangebot").
+
+    Die verwendeten Begriffe sind nicht geschlechtsspezifisch.
+
+    Stand: 16. Januar 2026
+
+    #### Verantwortlicher
+    Vladislav, Nazarenko / socket GmbH
+    Mergenthalerallee 73-75
+    65760 Eschborn
+
+    E-Mail-Adresse: [datenschutz@socket.de](mailto:datenschutz@socket.de)
+    Impressum: [https://socket.de/de/imprint](https://socket.de/de/imprint)
+
+- title:  "Übersicht der Verarbeitungen"
+  content: |
+    Die nachfolgende Übersicht fasst die Arten der verarbeiteten Daten und die Zwecke ihrer Verarbeitung zusammen und verweist auf die betroffenen Personen.
+
+    #### Arten der verarbeiteten Daten
+    * Standortdaten.
+    * Kontaktdaten.
+    * Inhaltsdaten.
+    * Nutzungsdaten.
+    * Meta-, Kommunikations- und Verfahrensdaten.
+    * Protokolldaten.
+
+    #### Kategorien betroffener Personen
+    * Kommunikationspartner.
+    * Nutzer.
+
+    #### Zwecke der Verarbeitung
+    * Kommunikation.
+    * Sicherheitsmaßnahmen.
+    * Reichweitenmessung.
+    * Tracking.
+    * Konversionsmessung.
+    * Zielgruppenbildung.
+    * Organisations- und Verwaltungsverfahren.
+    * Feedback.
+    * Marketing.
+    * Profile mit nutzerbezogenen Informationen.
+    * Bereitstellung unseres Onlineangebotes und Nutzerfreundlichkeit.
+    * Informationstechnische Infrastruktur.
+
+- title: "Maßgebliche Rechtsgrundlagen"
+  content: |
+    **Maßgebliche Rechtsgrundlagen nach der DSGVO:** Im Folgenden erhalten Sie eine Übersicht der Rechtsgrundlagen der DSGVO, auf deren Basis wir personenbezogene Daten verarbeiten. Bitte nehmen Sie zur Kenntnis, dass neben den Regelungen der DSGVO nationale Datenschutzvorgaben in Ihrem bzw. unserem Wohn- oder Sitzland gelten können. Sollten ferner im Einzelfall speziellere Rechtsgrundlagen maßgeblich sein, teilen wir Ihnen diese in der Datenschutzerklärung mit.
+
+    * **Einwilligung (Art. 6 Abs. 1 S. 1 lit. a) DSGVO):** Die betroffene Person hat ihre Einwilligung in die Verarbeitung der sie betreffenden personenbezogenen Daten für einen spezifischen Zweck oder mehrere bestimmte Zwecke gegeben.
+    * **Vertragserfüllung und vorvertragliche Anfragen (Art. 6 Abs. 1 S. 1 lit. b) DSGVO):** Die Verarbeitung ist für die Erfüllung eines Vertrags, dessen Vertragspartei die betroffene Person ist, oder zur Durchführung vorvertraglicher Maßnahmen erforderlich, die auf Anfrage der betroffenen Person erfolgen.
+    * **Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO):** Die Verarbeitung ist zur Wahrung der berechtigten Interessen des Verantwortlichen oder eines Dritten notwendig, vorausgesetzt, dass die Interessen, Grundrechte und Grundfreiheiten der betroffenen Person, die den Schutz personenbezogener Daten verlangen, nicht überwiegen.
+
+    **Nationale Datenschutzregelungen in Deutschland:** Zusätzlich zu den Datenschutzregelungen der DSGVO gelten nationale Regelungen zum Datenschutz in Deutschland. Hierzu gehört insbesondere das Gesetz zum Schutz vor Missbrauch personenbezogener Daten bei der Datenverarbeitung (Bundesdatenschutzgesetz – BDSG).
+
+- title: "Sicherheitsmaßnahmen"
+  content: |
+    Wir treffen nach Maßgabe der gesetzlichen Vorgaben unter Berücksichtigung des Stands der Technik suitable technical and organizational measures to ensure a level of protection appropriate to the risk.
+
+    Zu den Maßnahmen gehören insbesondere die Sicherung der Vertraulichkeit, Integrität und Verfügbarkeit von Daten durch Kontrolle des physischen und elektronischen Zugangs zu den Daten als auch des sie betreffenden Zugriffs.
+
+    **Sicherung von Online-Verbindungen durch TLS-/SSL-Verschlüsselungstechnologie (HTTPS):** Um die Daten der Nutzer, die über unsere Online-Dienste übertragen werden, vor unerlaubten Zugriffen zu schützen, setzen wir auf die TLS-/SSL-Verschlüsselungstechnologie.
+
+- title: "Bereitstellung des Onlineangebots und Webhosting"
+  content: |
+    Wir verarbeiten die Daten der Nutzer, um ihnen unsere Online-Dienste zur Verfügung stellen zu können.
+
+    * **Verarbeitete Datenarten:** Nutzungsdaten (z. B. Seitenaufrufe); Meta-, Kommunikations- und Verfahrensdaten (z. B. IP-Adressen); Protokolldaten.
+    * **Betroffene Personen:** Nutzer (z. B. Webseitenbesucher).
+    * **Zwecke der Verarbeitung:** Bereitstellung unseres Onlineangebotes; Informationstechnische Infrastruktur.
+    * **Rechtsgrundlagen:** Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO).
+
+    **Weitere Hinweise zu Verarbeitungsprozessen, Verfahren und Diensten:**
+    * **Bereitstellung Onlineangebot auf gemietetem Speicherplatz:** Für die Bereitstellung unseres Onlineangebotes nutzen wir Speicherplatz, Rechenkapazität und Software, die wir von einem entsprechenden Serveranbieter (auch "Webhoster" genannt) mieten oder anderweitig beziehen. **Rechtsgrundlagen:** Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO).
+    * **Erhebung von Zugriffsdaten und Logfiles:** Der Zugriff auf unser Onlineangebot wird in Form von "Server-Logfiles" protokolliert.
+    * **GitHub Pages:** Die Bereitstellung erfolgt über [GitHub Pages](https://pages.github.com). Weitere Informationen: [Datenschutzerklärung von GitHub](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement).
+
+- title: "Einsatz von Cookies"
+  content: |
+    Unter dem Begriff „Cookies" werden Funktionen, die Informationen auf Endgeräten der Nutzer speichern і зчитують їх.
+
+    **Speicherdauer:**
+    * **Temporäre Cookies:** Werden nach dem Verlassen gelöscht.
+    * **Permanente Cookies:** Bleiben gespeichert, Speicherdauer **bis zu zwei Jahren**.
+    * **Verarbeitete Datenarten:** Meta-, Kommunikations- und Verfahrensdaten.
+    * **Rechtsgrundlagen:** Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO); Einwilligung (Art. 6 Abs. 1 S. 1 lit. a) DSGVO).
+
+    **Weitere Hinweise:**
+    * **Verarbeitung auf Grundlage einer Einwilligung:** Wir setzen eine Einwilligungs-Management-Lösung ein.
+
+- title: "Kontakt- und Anfrageverwaltung"
+  content: |
+    Bei der Kontaktaufnahme mit uns werden die Angaben der anfragenden Personen verarbeitet.
+
+    * **Verarbeitete Datenarten:** Kontaktdaten; Inhaltsdaten; Meta- und Kommunikationsdaten.
+    * **Betroffene Personen:** Kommunikationspartner.
+    * **Zwecke der Verarbeitung:** Kommunikation; Organisations- und Verwaltungsverfahren.
+    * **Rechtsgrundlagen:** Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO); Vertragserfüllung (Art. 6 Abs. 1 S. 1 lit. b) DSGVO).
+
+    **Weitere Hinweise:**
+    * **Kontaktformular:** Wir nutzen diese Daten ausschließlich für die Kommunikation.
+    * **Rechtsgrundlagen:** Vertragserfüllung (Art. 6 Abs. 1 S. 1 lit. b) DSGVO).
+
+- title: "Webanalyse, Monitoring und Optimierung"
+  content: |
+    Die Webanalyse (auch als „Reichweitenmessung" bezeichnet) dient der Auswertung der Besucherströme unseres Onlineangebots und kann Verhalten, Interessen oder demografische Informationen zu den Besuchern, wie beispielsweise Alter oder Geschlecht, als pseudonyme Werte umfassen. Mithilfe der Reichweitenanalyse können wir zum Beispiel erkennen, zu welcher Zeit unser Onlineangebot oder dessen Funktionen beziehungsweise Inhalte am häufigsten genutzt werden, oder zur Wiederverwendung einladen.
+
+    Neben der Webanalyse können wir auch Testverfahren einsetzen, um etwa unterschiedliche Versionen unseres Onlineangebots oder seiner Bestandteile zu testen und zu optimieren.
+
+    Darüber hinaus werden die IP-Adressen der Nutzer gespeichert. Jedoch nutzen wir ein IP-Masking-Verfahren (d. h. Pseudonymisierung durch Kürzung der IP-Adresse) zum Schutz der Nutzer.
+
+    **Hinweise zu Rechtsgrundlagen:** Sofern wir die Nutzer um deren Einwilligung in den Einsatz der Drittanbieter bitten, stellt die Rechtsgrundlage der Datenverarbeitung die Einwilligung dar. Ansonsten werden die Nutzerdaten auf Grundlage unserer berechtigten Interessen verarbeitet.
+
+    * **Verarbeitete Datenarten:** Nutzungsdaten (z. B. Seitenaufrufe und Verweildauer, Klickpfade, Nutzungsintensität und -frequenz, verwendete Gerätetypen und Betriebssysteme, Interaktionen mit Inhalten und Funktionen). Meta-, Kommunikations- und Verfahrensdaten (z. B. IP-Adressen, Zeitangaben, Identifikationsnummern, beteiligte Personen).
+    * **Betroffene Personen:** Nutzer (z. B. Webseitenbesucher, Nutzer von Onlinediensten).
+    * **Zwecke der Verarbeitung:** Reichweitenmessung (z. B. Zugriffsstatistiken, Erkennung wiederkehrender Besucher); Profile mit nutzerbezogenen Informationen (Erstellen von Nutzerprofilen). Bereitstellung unseres Onlineangebotes und Nutzerfreundlichkeit.
+    * **Aufbewahrung und Löschung:** Löschung entsprechend Angaben im Abschnitt "Allgemeine Informationen zur Datenspeicherung und Löschung". Speicherung von Cookies von bis zu 2 Jahren.
+    * **Sicherheitsmaßnahmen:** IP-Masking (Pseudonymisierung der IP-Adresse).
+    * **Rechtsgrundlagen:** Einwilligung (Art. 6 Abs. 1 S. 1 lit. a) DSGVO). Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO).
+
+    **Weitere Hinweise zu Verarbeitungsprozessen, Verfahren und Diensten:**
+
+    * **Google Analytics:** Wir verwenden Google Analytics zur Messung und Analyse der Nutzung unseres Onlineangebotes auf der Grundlage einer pseudonymen Nutzeridentifikationsnummer. **Dienstanbieter:** Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland; **Rechtsgrundlagen:** Einwilligung (Art. 6 Abs. 1 S. 1 lit. a) DSGVO); **Website:** [https://marketingplatform.google.com/intl/de/about/analytics/](https://marketingplatform.google.com/intl/de/about/analytics/); **Sicherheitsmaßnahmen:** IP-Masking (Pseudonymisierung der IP-Adresse); **Datenschutzerklärung:** [https://policies.google.com/privacy](https://policies.google.com/privacy); **Auftragsverarbeitungsvertrag:** [https://business.safety.google/adsprocessorterms/](https://business.safety.google/adsprocessorterms/); **Grundlage Drittlandtransfers:** Data Privacy Framework (DPF), Standardvertragsklauseln; **Widerspruchsmöglichkeit (Opt-Out):** [https://tools.google.com/dlpage/gaoptout?hl=de](https://tools.google.com/dlpage/gaoptout?hl=de).
+    * **Google Tag Manager:** Ermöglicht es uns, Website-Tags zentral über eine Benutzeroberfläche zu verwalten. **Dienstanbieter:** Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland; **Rechtsgrundlagen:** Einwilligung (Art. 6 Abs. 1 S. 1 lit. a) DSGVO); **Website:** [https://marketingplatform.google.com](https://marketingplatform.google.com); **Datenschutzerklärung:** [https://policies.google.com/privacy](https://policies.google.com/privacy).
+
+- title: "Onlinemarketing"
+  content: |
+    Wir verarbeiten personenbezogene Daten zum Zweck des Onlinemarketings, worunter insbesondere die Vermarktung von Werbeflächen oder die Darstellung von werbenden Inhalten fallen.
+
+    Zu diesen Zwecken werden sogenannte Nutzerprofile angelegt und в Cookies gespeichert. Generell werden im Rahmen des Onlinemarketingverfahrens keine Klardaten der Nutzer (wie z. B. E-Mail-Adressen oder Namen) gespeichert, sondern Pseudonyme.
+
+    **Hinweise zu Rechtsgrundlagen:** Sofern wir die Nutzer um deren Einwilligung bitten, stellt die Rechtsgrundlage die Einwilligung dar. Ansonsten erfolgt die Verarbeitung auf Grundlage unserer berechtigten Interessen.
+
+    **Hinweise zum Widerruf und Widerspruch (Opt-Out):**
+    Nutzer können Cookies in den Einstellungen Ihres Browsers abschalten. Wir empfehlen zusätzlich die folgenden Opt-Out-Möglichkeiten:
+    * **Europa:** [https://www.youronlinechoices.eu](https://www.youronlinechoices.eu)
+    * **USA:** [https://optout.aboutads.info/](https://optout.aboutads.info/)
+    * **Verarbeitete Datenarten:** Nutzungsdaten (z. B. Seitenaufrufe); Meta-, Kommunikations- und Verfahrensdaten (z. B. IP-Adressen).
+    * **Zwecke der Verarbeitung:** Reichweitenmessung; Tracking; Zielgruppenbildung; Marketing; Konversionsmessung.
+    * **Rechtsgrundlagen:** Einwilligung (Art. 6 Abs. 1 S. 1 lit. a) DSGVO). Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO).
+
+    **Weitere Hinweise zu Verarbeitungsprozessen, Verfahren und Diensten:**
+
+    * **Google Ads und Konversionsmessung:** Online-Marketing-Verfahren zur Platzierung von Anzeigen im Werbenetzwerk von Google.
+      **Dienstanbieter:** Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland;
+      **Rechtsgrundlagen:** Einwilligung (Art. 6 Abs. 1 S. 1 lit. a) DSGVO), Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO);
+      **Website:** [https://marketingplatform.google.com](https://marketingplatform.google.com);
+      **Datenschutzerklärung:** [https://policies.google.com/privacy](https://policies.google.com/privacy);
+      **Grundlage Drittlandtransfers:** Data Privacy Framework (DPF).
+      **Weitere Informationen:** Arten der Verarbeitung sowie der verarbeiteten Daten: [https://business.safety.google/adsservices/](https://business.safety.google/adsservices/). Datenverarbeitungsbedingungen zwischen Verantwortlichen und Standardvertragsklauseln für Drittlandtransfers von Daten: [https://business.safety.google/adscontrollerterms](https://business.safety.google/adscontrollerterms).
+
+- title: "Plug-ins und eingebettete Funktionen sowie Inhalte"
+  content: |
+    Wir binden Funktions- und Inhaltselemente in unser Onlineangebot ein, die von den Servern ihrer jeweiligen Anbieter (nachfolgend als „Drittanbieter" bezeichnet) bezogen werden. Dabei kann es sich zum Beispiel um Grafiken, Videos oder Stadtpläne handeln.
+
+    Die Einbindung setzt immer voraus, dass die Drittanbieter dieser Inhalte die IP-Adresse der Nutzer verarbeiten, da sie ohne IP-Adresse die Inhalte nicht an deren Browser senden könnten.
+
+    **Hinweise zu Rechtsgrundlagen:** Sofern wir die Nutzer um ihre Einwilligung in den Einsatz der Drittanbieter bitten, stellt die Rechtsgrundlage die Einwilligung dar. Ansonsten werden die Nutzerdaten auf Grundlage unserer berechtigten Interessen verarbeitet.
+
+    * **Verarbeitete Datenarten:** Nutzungsdaten (z. B. Seitenaufrufe, Verweildauer); Meta-, Kommunikations- und Verfahrensdaten (z. B. IP-Adressen); Standortdaten.
+    * **Betroffene Personen:** Nutzer (z. B. Webseitenbesucher, Nutzer von Onlinediensten).
+    * **Zwecke der Verarbeitung:** Bereitstellung unseres Onlineangebotes und Nutzerfreundlichkeit.
+    * **Aufbewahrung und Löschung:** Löschung entsprechend Angaben im Abschnitt "Allgemeine Informationen zur Datenspeicherung und Löschung".
+    * **Rechtsgrundlagen:** Einwilligung (Art. 6 Abs. 1 S. 1 lit. a) DSGVO); Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO).
+
+    **Weitere Hinweise zu Verarbeitungsprozessen, Verfahren und Diensten:**
+
+    * **Google Maps:** Wir binden die Landkarten des Dienstes "Google Maps" des Anbieters Google ein. Zu den verarbeiteten Daten können insbesondere IP-Adressen und Standortdaten der Nutzer gehören.
+    * **Dienstanbieter:** Google Cloud EMEA Limited, 70 Sir John Rogerson’s Quay, Dublin 2, Irland;
+    * **Rechtsgrundlagen:** Einwilligung (Art. 6 Abs. 1 S. 1 lit. a) DSGVO);
+    * **Website:** [https://mapsplatform.google.com/](https://mapsplatform.google.com/)
+    * **Datenschutzerklärung:** [https://policies.google.com/privacy](https://policies.google.com/privacy)
+    * **Grundlage Drittlandtransfers:** Data Privacy Framework (DPF).
+
+- title: "Änderung und Aktualisierung"
+  content: |
+    Wir bitten Sie, sich regelmäßig über den Inhalt unserer Datenschutzerklärung zu informieren. Wir passen die Datenschutzerklärung an, sobald die Änderungen der von uns durchgeführten Datenverarbeitungen dies erforderlich machen.
+
+    Wir informieren Sie, sobald durch die Änderungen eine Mitwirkungshandlung Ihrerseits (z. B. Einwilligung) oder eine sonstige individuelle Benachrichtigung erforderlich wird.
+
+    Sofern wir in dieser Datenschutzerklärung Adressen und Kontaktinformationen von Unternehmen und Organisationen angeben, bitten wir zu beachten, dass die Adressen sich über die Zeit ändern können.
+# - title: "GitHub Pages"
+#   content: |
+#     Die Bereitstellung der Websites erfolgt über [GitHub Pages](https://pages.github.com)
+#     (GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA). Beim
+#     Aufruf der Seiten verarbeitet GitHub technisch erforderliche Daten wie
+#     insbesondere
+#     * IP-Adresse
+#     * Datum/Uhrzeit
+#     * aufgerufene URL
+#     * Referrer
+#     * User-Agent
+#     * HTTP-Status
+#
+#     , um die Auslieferung der Inhalte und den sicheren
+#     Betrieb zu gewährleisten. Auf diese Verarbeitung haben wir keinen
+#     Einfluss. Weitere Informationen finden Sie in der
+#     [Datenschutzerklärung von GitHub](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement).
+# - title: "Google Analytics"
+#   content: |
+#     Diese Website nutzt Google Analytics, einen Webanalysedienst der
+#     Google LLC, um die Nutzung der Website zu analysieren und zu verbessern.
+#     Google Analytics verarbeitet dabei personenbezogene Daten wie:
+#     * IP-Adresse (anonymisiert, z.B. über IP-Masking)
+#     * Geräte- und Browserinformationen (Betriebssystem, Browser, Gerätetyp)
+#     * Nutzungsdaten (besuchte Seiten, Verweildauer, Klicks)
+#     * Standortinformationen (nur grob, z.B. Stadt oder Region)
+#
+#     Die Daten werden verwendet, um das Nutzerverhalten auf der Website
+#     auszuwerten, Statistiken zu erstellen und die Website zu optimieren.
+#     Weitere Informationen darüber, welche Daten Google Analytics verarbeitet
+#     und wie Nutzer die Erfassung deaktivieren können, finden Sie in der
+#     offiziellen Dokumentation: [Google Analytics – Daten- und Sicherheitshinweise](https://support.google.com/analytics/answer/6004245?hl=de).
+
+# - title: "Google Ads"
+#   content: |
+#     Diese Website verwendet Google Ads, einen Online-Werbedienst der Google
+#     LLC. Google Ads setzt Cookies, um die Leistung von Anzeigen zu messen,
+#     die Wirksamkeit von Werbekampagnen zu verbessern und interessenbasierte
+#     Werbung anzuzeigen. Dabei können folgende personenbezogene Daten verarbeitet werden:
+#     * IP-Adresse und Standortinformationen
+#     * Gerätedaten wie Betriebssystem, Browser und Geräte-Typ
+#     * Klick- und Interaktionsdaten, z.B. welche Anzeigen angeklickt wurden
+#     * Demografische Daten und Interessen, soweit Nutzer bei Google angemeldet sind
+#     * Cookies und Remarketing-IDs, um Zielgruppen für personalisierte Werbung zu erstellen
+#
+#     Weitere Informationen dazu, welche Cookies Google Ads
+#     setzt und wie Sie diese deaktivieren können, finden Sie in der offiziellen
+#     Dokumentation: [Google Ads – Werbe- und Mess-Cookies](https://business.safety.google/adscookies).
+#
+#     Die Nutzung unserer Webseite ist in der Regel ohne Angabe
+#     personenbezogener Daten möglich. Soweit auf unseren Seiten
+#     personenbezogene Daten (beispielsweise Name, Anschrift oder
+#     eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf
+#     freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung
+#     nicht an Dritte weitergegeben. Wir weisen darauf hin, dass die
+#     Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail)
+#     Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor
+#     dem Zugriff durch Dritte ist nicht möglich. Der Nutzung von im Rahmen der
+#     Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur
+#     Übersendung von nicht ausdrücklich angeforderter Werbung und
+#     Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die
+#     Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im
+#     Falle der unverlangten Zusendung von Werbeinformationen, etwa durch
+#     Spam-Mails, vor.

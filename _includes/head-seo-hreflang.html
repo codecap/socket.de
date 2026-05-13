@@ -1,0 +1,29 @@
+{%- assign current_key = page.key -%}
+{%- assign current_lang = page.lang -%}
+
+{%- if current_key and site.t[current_key] -%}
+  {%- assign translations = site.t[current_key] -%}
+
+  {%- for lang_pair in translations -%}
+    {%- assign alt_lang_code = lang_pair.first -%}
+    {%- assign alt_path = lang_pair.last -%}
+
+    {%- assign last_char = alt_path | slice: -1 -%}
+    {%- assign final_path = alt_path -%}
+    {%- unless last_char == '/' -%}
+      {%- assign final_path = alt_path | append: '/' -%}
+    {%- endunless -%}
+    
+    {%- if alt_path and alt_lang_code != current_lang -%}
+      <link rel="alternate" 
+            hreflang="{{ alt_lang_code }}" 
+            href="{{ site.url | append: site.baseurl | append: final_path }}">
+    {%- endif -%}
+
+    {%- if alt_lang_code == site.default_language -%}
+      <link rel="alternate" 
+            hreflang="x-default" 
+            href="{{ site.url | append: site.baseurl | append: final_path }}">
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}

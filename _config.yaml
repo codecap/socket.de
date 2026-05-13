@@ -18,19 +18,113 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Socket
-email: makecodework@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: #/order # the subpath of your site, e.g. /blog
-url: https://makecodework.github.io # the base hostname & protocol for your site, e.g. http://example.com
+title: "Socket.de | OpenStack & Private Cloud"
+email: ping@socket.de
+seo_description:
+  en: "socket.de: Your expert for robust Private Cloud solutions, managed OpenStack, and secure hybrid IT infrastructure."
+  de: "socket.de: Ihr Experte für robuste Private Cloud-Lösungen, managed OpenStack und sichere hybride IT-Infrastruktur."
+seo_keywords:
+  en: "openstack, private cloud, cloud, managed services, linux, it infrastructure"
+  de: "openstack, private cloud, cloud, managed services, linux, it infrastruktur"
+baseurl: ""
+default_language: "en"
+url: https://socket.de
 twitter_username:
-github_username:  O.Poruchenko
+github_username: codecap
 #theme: socket
+permalink: /:code.html
+# Value to use in menu per language
+menu:
+  services:
+    en: "Services"
+    de: "Services"
+  about:
+    en: "About"
+    de: "Wir"
+  imprint:
+    en: "Imprint"
+    de: "Impressum"
+  vna:
+    en: "Profile"
+    de: "Profile"
+  offer:
+    en: "Own Private Cloud"
+    de: "Eigene Cloud"
+  privatepolicy:
+    en: "Private Policy"
+    de: "Datenschutzerklärung"
+  blog:
+    en: "Blog"
+    de: "Blog"
 
+# Path to the translated page
+t:
+  index:
+    en: "/en/"
+    de: "/de/"
+  services:
+    en: "/en/services"
+    de: "/de/services"
+  about:
+    en: "/en/about"
+    de: "/de/about"
+  imprint:
+    en: "/en/imprint"
+    de: "/de/imprint"
+  vna:
+    en: "/en/vna"
+    de: "/de/vna"
+  clients:
+    en: "/en/clients"
+    de: "/de/clients"
+  offer:
+    en: "/en/offer"
+    de: "/de/offer"
+  privatepolicy:
+    en: "/en/privatepolicy"
+    de: "/de/privatepolicy"
+  blog:
+    en: "/en/blog"
+    de: "/de/blog"
 
+plugins:
+  - jekyll-seo-tag
+  - jekyll-redirect-from
+  
+
+plugins:
+  - jekyll-paginate-v2
+
+pagination:
+  enabled: true
+  collection: 'blog_en'
+  per_page: 2
+  permalink: '/page/:num/'
+  indexpage: 'index'
+
+collections:
+  blog_en:
+    output: true
+    permalink: /en/blog/:title/
+
+include:
+  - "en"
+  - "de"
+
+sitemap:
+  exclude:
+    - "/403.html"
+    - "/404.html"
+    - "/500.html"
+    - "/503.html"
+    - "/de/403.html"
+    - "/de/404.html"
+    - "/de/500.html"
+    - "/de/503.html"
+    - "/en/403.html"
+    - "/en/404.html"
+    - "/en/500.html"
+    - "/en/503.html"
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
@@ -40,11 +134,12 @@ github_username:  O.Poruchenko
 # their entries' file path in the `include:` list.
 #
 exclude:
-   - node_modules
-   - package.json
-   - package-lock.json
-   - gulpfile.js
-   - npm-shrinkwrap.json
-   - socket.gemspec
-   - README.md
-   - LICENSE.txt
+  - Gemfile
+  - node_modules
+  - package.json
+  - package-lock.json
+  - gulpfile.js
+  - npm-shrinkwrap.json
+  - socket.gemspec
+  - README.md
+  - LICENSE.txt

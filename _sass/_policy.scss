@@ -1,0 +1,111 @@
+@use 'colors' as *;
+@use 'mixins' as *;
+
+.accordion_vertical {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px;
+    width: 100%;
+    margin: 40px 0;
+
+    .accordion_header {
+        // padding: 15px 20px; 
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        user-select: none;
+        transition: background 0.3s ease;
+        gap: 15px; 
+
+        .item_title {
+            margin-bottom: 20px;
+            @include rem(30);
+            font-weight: 700;
+            color: $main_color__blue;
+            
+            line-height: 1.3;
+            text-wrap: balance; 
+            hyphens: auto;      
+            word-break: break-word;
+    
+            @include breakpoint(768px) {
+                @include rem(24); 
+                text-align: left;
+            }
+        }
+        
+    }
+
+    .accordion_content {
+        .content_inner {
+            padding: 15px 0 30px 0;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #4a5568;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        
+            p { margin-bottom: 1rem; }
+
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 1.5rem 0 1.5rem 10px;
+            
+                li {
+                    position: relative;
+                    padding-left: 25px; 
+                    margin-bottom: 1.2rem;
+                    line-height: 1.6;
+                    display: block; 
+                    color: #4a5568;
+                    @include rem(18);
+            
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        top: 0.5rem;
+                        width: 7px;
+                        height: 7px;
+                        background-color: $main_color__blue;
+                        transform: rotate(45deg);
+                        border-radius: 1px;
+                    }
+            
+                    strong {
+                        display: inline; 
+                        color: #2d3748;
+                        margin-right: 5px;
+                    }
+            
+                    
+                    a {
+                        display: inline; 
+                        color: $main_color__blue;
+                        word-break: break-all; 
+                    }
+                }
+                @include breakpoint(768px){
+                
+                   li {
+                        @include rem(16);
+                    }
+                }
+            }
+            @include breakpoint(768px){
+                
+                p {
+                    @include rem(16);
+                }
+            }
+            @include breakpoint(768px){
+                h4 {
+                    @include rem(22);
+                    line-height: 30px;    
+                }
+            }  
+        }
+    }
+    
+}

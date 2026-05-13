@@ -1,16 +1,23 @@
+@use 'mixins' as *;
+@use 'colors' as *;
 footer{
   background-color: $footer_color__background;
+  position: absolute;
+  left: 0;
+  right: 0;
 
   .footer{
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
+    
     justify-content: space-between;
     align-items: center;
     padding: 60px 0 30px 0;
 
     .logo{
-      width: 72px;
+      // width: 72px;
+      width: auto;
       height: 60px;
     }
     .footer_icon {
@@ -33,12 +40,14 @@ footer{
     }
   }
   .copyright{
-    width: 270px;
+    width: 300px;
     margin: 30px auto;
+    position: relative;
+    text-align: center;
 
     span {
       @include rem(17);
-      font-weight: 500;
+      font-weight: 400;
       color: $span_color__text;
     }
   }

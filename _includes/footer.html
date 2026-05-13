@@ -1,21 +1,21 @@
 <footer>
-  <div class="container">
-    <section class="footer">
-      <div class="logo">
-        <img src="{{ site.baseurl }}/assets/img/logo_Socket.svg" alt="logo">
-      </div>
-      {% include nav-footer.html navclass='nav-footer' %}
-
-      <div class="footer_icon">
-        <ul>
-          <li><a href="#"><img src="{{site.baseurl}}/assets/img/facebook.svg" alt="facebook"></a></li>
-          <li><a href="#"><img src="{{site.baseurl}}/assets/img/twitter.svg" alt="twitter"></a></li>
-          <li><a href="#"><img src="{{site.baseurl}}/assets/img/instagram.svg" alt="instagram"></a></li>
-        </ul>
-      </div>
-    </section>
-    <div class="copyright">
-      <span>&copy; 2021 Все права защищены.</span>
-    </div>
-  </div>
+	<div class="container">
+		<div class="footer">
+			<div class="logo">
+				<a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/assets/img/icons/logo_Socket.svg" alt="logo"></a>
+			</div>
+			{% include nav.html navclass='nav-footer' %}
+			<div class="footer_icon">
+				<ul>
+					{% for link in site.data.social %}
+					<li><a href="{{ link.link }}" target="_blank"><img src="{{site.baseurl}}/assets/img/icons/{{ link.image }}"
+								alt="{{link.title}}"></a></li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<div class="copyright">
+            <span>&copy; {{ "now" | date: "%Y" }} {{ site.data[page.lang].footer.copyright }}</span>
+        </div>
+	</div>
 </footer>
