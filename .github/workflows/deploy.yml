@@ -16,29 +16,16 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    container:
+      image: jekyll/builder:latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.1.6'
-
-      - name: Install dependencies
+      - name: Build site
         run: |
-          gem install bundler
-          bundle config set --local deployment 'true'
-          bundle config set --local path 'vendor/bundle'
-          bundle install --jobs 4 --retry 3
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Build with Jekyll
-        run: bundle exec jekyll build
+          bundle install
+          bundle exec jekyll build
         env:
           JEKYLL_ENV: production
 
