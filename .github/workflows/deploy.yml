@@ -24,7 +24,14 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
-          bundler-cache: true
+          bundler-cache: false # КРИТИЧНО: вимикаємо автоматику
+
+      - name: Force Install Dependencies
+        run: |
+          gem install bundler -v 2.4.22
+          bundle config set --local deployment 'true'
+          bundle config set --local path 'vendor/bundle'
+          bundle install --jobs 4 --retry 3
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
