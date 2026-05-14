@@ -1,7 +1,7 @@
 ---
 layout: post-layout
 title: "Private Cloud on a Budget - Why We Chose Hetzner"
-date: 2026-05-12
+date: 2026-05-14
 lang: en
 image: "/assets/blog/2026/05/individual-cloud-solutions.jpg"
 description: >

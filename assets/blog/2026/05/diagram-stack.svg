@@ -1,0 +1,45 @@
+<svg width="680" height="390" viewBox="0 0 680 390" xmlns="http://www.w3.org/2000/svg" font-family="monospace">
+
+  <rect width="680" height="390" fill="#0f0f0f"/>
+
+  <!-- Incus -->
+  <rect x="60" y="30" width="560" height="52" rx="8" fill="#1e1430" stroke="#7f77dd" stroke-width="1"/>
+  <text x="340" y="52" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#a89fee">Incus</text>
+  <text x="340" y="70" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#6a6490">Virtualization layer</text>
+
+  <!-- OVN -->
+  <rect x="60" y="102" width="265" height="52" rx="8" fill="#0d1f35" stroke="#378add" stroke-width="1"/>
+  <text x="192" y="124" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#6aaaee">OVN</text>
+  <text x="192" y="142" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#3a6490">Software-defined networking</text>
+
+  <!-- Ceph -->
+  <rect x="355" y="102" width="265" height="52" rx="8" fill="#2b0d0d" stroke="#e24b4a" stroke-width="1"/>
+  <text x="487" y="124" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#ee6a6a">Ceph</text>
+  <text x="487" y="142" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#904040">Distributed storage</text>
+
+  <!-- vSwitch -->
+  <rect x="60" y="174" width="560" height="52" rx="8" fill="#1a1a1a" stroke="#555555" stroke-width="1"/>
+  <text x="340" y="196" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#aaaaaa">vSwitch</text>
+  <text x="340" y="214" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#606060">Private network layer</text>
+
+  <!-- node01 -->
+  <rect x="60" y="246" width="170" height="52" rx="8" fill="#1a1a1a" stroke="#555555" stroke-width="1"/>
+  <text x="145" y="268" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#aaaaaa">node01</text>
+  <text x="145" y="286" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#606060">Dedicated node</text>
+
+  <!-- node02 -->
+  <rect x="255" y="246" width="170" height="52" rx="8" fill="#1a1a1a" stroke="#555555" stroke-width="1"/>
+  <text x="340" y="268" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#aaaaaa">node02</text>
+  <text x="340" y="286" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#606060">Dedicated node</text>
+
+  <!-- node03 -->
+  <rect x="450" y="246" width="170" height="52" rx="8" fill="#1a1a1a" stroke="#555555" stroke-width="1"/>
+  <text x="535" y="268" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#aaaaaa">node03</text>
+  <text x="535" y="286" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#606060">Dedicated node</text>
+
+  <!-- Bare-metal -->
+  <rect x="60" y="318" width="560" height="52" rx="8" fill="#1a1a1a" stroke="#555555" stroke-width="1"/>
+  <text x="340" y="340" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#aaaaaa">Bare-metal infrastructure</text>
+  <text x="340" y="358" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#606060">(Hetzner)</text>
+
+</svg>
