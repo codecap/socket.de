@@ -101,6 +101,8 @@ pagination:
   per_page: 10
   permalink: '/page/:num/'
   indexpage: 'index'
+  sort_field: 'date'
+  sort_reverse: true
 
 collections:
   blog_en:
