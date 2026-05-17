@@ -2,7 +2,7 @@
 layout: post-layout
 title: "Private Cloud on a Budget - Why We Chose Hetzner"
 date: 2026-05-12
-lang: en
+lang: de
 image: "/assets/blog/2026/05/individual-cloud-solutions.jpg"
 description: >
   A private cloud built on dedicated Hetzner hardware - how we chose Incus
