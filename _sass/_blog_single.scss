@@ -3,29 +3,32 @@
 
 .blog-article-wrapper {
     padding: 120px 0 80px;
-    background: #fff;
+    background: $main_color__background;
 
     .blog-post {
         max-width: 850px; 
         margin: 0 auto;
+        padding: 0 20px;
     }
-
     .blog-breadcrumbs {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
 
         .breadcrumb {
-            display: flex;
+            display: block;
             flex-wrap: wrap;
             list-style: none;
             padding: 0;
             margin: 0;
-            gap: 8px;
-            @include rem(16);
-            
+            @include rem(15); 
+            line-height: 1.5;
+
             .breadcrumb-item {
                 display: flex;
                 align-items: center;
                 color: $span_color__text;
+                display: inline; 
+                white-space: normal;
+                word-wrap: break-word;
 
                 a {
                     color: $span_color__text;
@@ -35,17 +38,18 @@
                     &:hover {
                         color: $main_color__blue;
                     }
-                }
 
-                & + .breadcrumb-item::before {
-                    content: "/";
-                    margin-right: 8px;
-                    color: #dee2e6;
+                    &::after {
+                        content: "/";
+                        margin: 0 8px;
+                        color: $meta-data;
+                    }
                 }
-
                 &.active {
                     color: $active-breadcrumbs;
                     font-weight: 500;
+                    display: inline;
+                    
                 }
             }
         }
@@ -65,11 +69,15 @@
         }
 
         .post-title {
-            font-size: clamp(32px, 5vw, 48px);
+            font-size: clamp(28px, 5vw, 48px);
             line-height: 1.2;
             color: $main_color__blue;
             font-weight: 800;
             margin: 0;
+
+            @media (max-width: 480px) {
+                font-size: clamp(25px, 5vw, 45px);
+            }
         }
     }
 
@@ -79,17 +87,16 @@
         img {
             width: 100%;
             height: auto;
-            border-radius: 16px;
+            border-radius: 6px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
             display: block;
         }
     }
 
-    
     .post-main-content {
         font-size: 1.15rem;
         line-height: 1.8;
-        color: #333;
+        color: $main_color__text;
 
         p {
             margin-bottom: 24px;
