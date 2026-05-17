@@ -97,17 +97,17 @@ plugins:
 
 pagination:
   enabled: true
-  collection: 'blog_en'
   per_page: 10
   permalink: '/page/:num/'
-  indexpage: 'index'
-  sort_field: 'date'
-  sort_reverse: true
+  
 
 collections:
   blog_en:
     output: true
     permalink: /en/blog/:title/
+  blog_de:
+    output: true
+    permalink: /de/blog/:title/
 
 include:
   - "en"

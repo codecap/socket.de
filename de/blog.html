@@ -1,17 +1,16 @@
 ---
 layout: default
 title: Blog
-permalink: /en/blog/
+permalink: /de/blog/
 i18n-link: blog
-lang: en
+lang: de
 page_section_title: "Blog"
 key: blog
 description: "Blog. Experience from Building Clouds"
 keywords: "blog, private cloud, migration, network security, managed services, infrastructure optimization, tech consulting."
 pagination: 
   enabled: true
-  collection: blog_en
-  indexpage: 'index'
+  collection: blog_de
   sort_field: 'date'
   sort_reverse: true
 ---
@@ -36,7 +35,6 @@ pagination:
             </a>
             {% endfor %}
         </div>
-
         {% if paginator.total_pages > 1 %}
         <nav class="pagination-wrapper">
             <ul class="pagination">
@@ -57,11 +55,11 @@ pagination:
                     </li>
                     {% elsif page_num == 1 %}
                     <li class="page-item">
-                        <a class="page-link" href="{{ '/en/blog/' | relative_url }}">{{ page_num }}</a>
+                        <a class="page-link" href="{{ '/de/blog/' | relative_url }}">{{ page_num }}</a>
                     </li>
                     {% else %}
                     <li class="page-item">
-                        <a class="page-link" href="{{ '/en/blog/page/' | append: page_num | append: '/' | relative_url }}">{{ page_num }}</a>
+                        <a class="page-link" href="{{ '/de/blog/page/' | append: page_num | append: '/' | relative_url }}">{{ page_num }}</a>
                     </li>
                     {% endif %}
                 {% endfor %}
