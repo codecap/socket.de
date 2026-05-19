@@ -3,7 +3,7 @@ layout: post-layout
 title: "Private Cloud on a Budget - Why We Chose Hetzner"
 date: 2026-05-14
 lang: en
-image: "/assets/blog/2026/05/individual-cloud-solutions.jpg"
+image: "/assets/blog/2026/05/private-cloud-on-a-budget-why-we-chose-hetzner-001.png"
 description: >
   A private cloud built on dedicated Hetzner hardware - how we chose Incus
   over OpenStack and Proxmox, designed three security zones with VyOS,
@@ -33,6 +33,8 @@ That's a reasonable expectation. And a useful one to work with.
 I could have built a small OpenStack cluster on Hetzner. I've done it before. But OpenStack would have been the wrong tool here.
 
 The flexibility OpenStack offers has a price - complexity. For a team that wants to focus on their product, that complexity has no value. It would have cost them more time to understand and operate than they were willing to spend.
+
+I didn't come to this project because of Incus. I came because a former client trusted me enough to recommend me to a friend. That trust comes with a responsibility, to find what actually fits, not what I happen to know best.
 
 ## Why Incus
 
