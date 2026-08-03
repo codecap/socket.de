@@ -4,7 +4,7 @@
   content: >-
     Hands-on workshops. Real lab environment. No black box.
 - title: '🎯 Courses'
-  content:  |
+  content: |
     | Course | Duration | Status |
     |---|---|---|
     | OpenStack with Ceph | 5 days | Available |
@@ -37,8 +37,8 @@
     production.
     <br/>
     <br/>
-    I don't bring a reference manual — I bring the methodology that makes
-    complex environments manageable.
+    Not a reference manual, the methodology that makes complex environments
+    manageable.
     <br/>
     <br/>
     **Certifications:**<br/>
@@ -50,4 +50,4 @@
     - Red Hat Certified System Administrator<br/>
     <br/>
     Course content can be tailored to your team's background,
-    stack, and goals — just ask.
+    stack, and goals. Get in touch.
