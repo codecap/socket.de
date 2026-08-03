@@ -1,0 +1,157 @@
+@use 'mixins' as *;
+@use 'colors' as *;
+
+.page_section{
+  h2{
+    margin-bottom: 50px;
+  }
+}
+
+// Block 1: Bild links, Promo-Blöcke rechts
+.training_top_block {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+
+  .img_block {
+    justify-content: center;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex: 2 1 55%;
+    margin-right: 10px;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  aside {
+    flex: 2 0 27%;
+
+    .block {
+      background-color: $block_color__background;
+      @include rounded(10px);
+      display: grid;
+      align-items: center;
+      padding: 50px 34px;
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      p {
+        @include rem(20);
+        font-weight: 400;
+        line-height: 31px;
+
+        &:before {
+          content: '';
+          border: 2px solid;
+          position: relative;
+          left: -34px;
+          border-radius: 10px;
+          color: $main_color__blue;
+        }
+      }
+    }
+  }
+}
+
+// Block 2: Inhalt links, sticky Contact rechts
+.training_block {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  margin-top: 170px;
+
+  .training_def,
+  .contacts {
+    h3 {
+      @include rem(54);
+      font-weight: 500;
+      margin-bottom: 50px;
+    }
+  }
+
+  .training_def {
+    flex: 2 1 60%;
+    margin-right: 50px;
+
+    .training_def_content {
+      margin-bottom: 70px;
+
+      &:last-child {
+        margin-bottom: 100px;
+      }
+
+      max-width: 700px;
+      width: 100%;
+
+      h4 {
+        @include rem(32);
+        color: $main_color__text;
+        line-height: 50px;
+        font-weight: 500;
+        margin-bottom: 30px;
+      }
+
+      p {
+        @include rem(18);
+        line-height: 28px;
+      }
+
+      ul {
+        @include rem(18);
+        line-height: 28px;
+        padding-left: 20px;
+
+        li {
+          margin-bottom: 8px;
+        }
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+
+        th, td {
+          @include rem(16);
+          padding: 10px 14px;
+          border-bottom: 1px solid #e0e0e0;
+          text-align: left;
+        }
+
+        th {
+          font-weight: 500;
+          color: $main_color__text;
+        }
+      }
+    }
+  }
+
+  .contacts {
+    .contact_block {
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+    }
+  }
+}
+
+.vna_block {
+  margin-top: 0 !important;
+}
+
+.contact_block {
+  flex: 1 2 30%;
+
+  .block {
+    p {
+      @include rem(24);
+      line-height: 35px;
+    }
+  }
+}

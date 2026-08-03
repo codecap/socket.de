@@ -1,0 +1,53 @@
+---
+- main_title: OpenStack & Ceph Training
+- title: ''
+  content: >-
+    Hands-on workshops. Real lab environment. No black box.
+- title: '🎯 Courses'
+  content:  |
+    | Course | Duration | Status |
+    |---|---|---|
+    | OpenStack with Ceph | 5 days | Available |
+    | OpenStack | 5 days | Available |
+    | Ceph | 3 days | Available |
+    | OpenStack COA Exam Preparation | 5 days | Coming soon |
+    | Custom content | on request | On request |
+- title: "🛠️ How It Works"
+  content: |
+    Each workshop runs in a dedicated lab environment.<br/>
+    No setup required, the complete lab environment is provided.<br/>
+    Course materials are public at [infraguide.org](https://infraguide.org).<br/>
+- title: '👥 Who This Is For'
+  content: |
+    - Linux administrators moving into cloud infrastructure
+    - Experienced cloud users deepening their OpenStack or Ceph knowledge
+    - Cloud architects evaluating or designing private cloud environments
+    - Teams onboarding to a new platform
+- title: '📅 Format & Availability'
+  content: |
+    - Remote and on-site (DACH)<br/>
+    - 🇩🇪 German and 🇬🇧 English<br/>
+    - Up to 3 workshops per month<br/>
+    - 3-day and 5-day formats<br/>
+- title: '👨‍💻 About the Trainer'
+  content: |
+    Over 10 years of hands-on experience in private cloud and open source
+    infrastructure. OpenStack since 2019, Ceph since 2023. In 4 out of 5
+    projects, the deciding factor in getting an untested technology into
+    production.
+    <br/>
+    <br/>
+    I don't bring a reference manual — I bring the methodology that makes
+    complex environments manageable.
+    <br/>
+    <br/>
+    **Certifications:**<br/>
+    - Red Hat Certified Specialist in Ceph Cloud Storage<br/>
+    - Certified OpenStack Administrator<br/>
+    - Certified Kubernetes Administrator<br/>
+    - Red Hat Certified Specialist in Ansible Automation<br/>
+    - Prometheus Certified Associate<br/>
+    - Red Hat Certified System Administrator<br/>
+    <br/>
+    Course content can be tailored to your team's background,
+    stack, and goals — just ask.
