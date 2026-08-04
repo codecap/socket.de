@@ -1,32 +1,42 @@
 ---
-main_title: 'Own Private Cloud'
+main_title: 'What We Offer'
+main_content: |
+  Concrete engagements. Clear outcomes. Fixed price after the first call.
 content:
-  - title: 'Overview'
-    items:
-      - We help you build your own modern, modular, and expandable private cloud — in your data center or wherever it is needed.
-      - Cutting-edge technologies
-      - Meets the standard
-  - title: 'Eigenschaften'
-    items:
-      - Infrastructure as Code (IaC)
-      - Load Balancing as a Service (LBaaS)
-      - Firewall
-      - Kubernetes (KaaS)
-      - Block / Object Storage
-      - Monitoring / Alerting
-      - Logging
-  - title: 'Your benefits'
-    items:
-      - Open source – no licensing costs
-      - Self-service – dashboard or API
-      - Full control over your data
-      - Security
-      - Sovereignty
-  - title: 'Use-Cases'
-    items:
-      - Private Cloud without Vendor Lock-In
-      - Kubernetes
-      - Air-Gapped Environments
-  - title: 'Timeline'
-    items:
-      - After the hardware is installed  and wired, the installation of the private cloud usually takes about 2 weeks.
+  - title: 'Technology Assessment'
+    content: |
+      You have a problem. The right technology is unclear.
+
+      Private cloud, migration, architecture decision - you need a
+      recommendation you can act on, not a list of options. You get a written
+      assessment: what fits your context, why, and what the next step looks
+      like.
+
+      **First step:** a 60-minute call. No preparation needed.
+
+  - title: 'Consulting'
+    content: |
+      You know the direction. The technology is complex and the decisions
+      matter.
+
+      OpenStack, Ceph, private cloud infrastructure - we work alongside your
+      team, answer the hard questions, and keep the architecture honest. You
+      focus on your business.
+
+      **First step:** describe where you are and what's blocking you.
+  - title: 'Architecture & Implementation'
+    content: |
+      You know what you want. You need someone to build it right.
+
+      Architecture and implementation go together - we don't enter after
+      someone else's plan. You get a working environment, documented, handed
+      over so your team can run it. No black box, no dependency.
+
+      **First step:** describe your setup in a few sentences.
+  - title: 'Your team needs to run what was built.'
+    content: |
+      Your team needs to run what was built.
+
+      Hands-on training - built around real working environments
+
+      → [socket.de/training](https://socket.de/training)

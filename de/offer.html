@@ -4,26 +4,22 @@ title: Offer
 permalink: /de/offer/
 i18n-link: offer
 lang: de
-page_section_title: "Eigene Cloud"
 key: private cloud
-description: "Erstellen Sie Ihre eigene sichere Private Cloud mit socket.de. Profitieren Sie von dedizierter Infrastruktur, maximalem Datenschutz und voller Kontrolle über Ihre Cloud-Umgebung."
-keywords: "Private Cloud, dedizierte Infrastruktur, Cloud-Hosting, Enterprise Cloud, Datensicherheit, Private Cloud Lösungen, Cloud-Migration"
+description: "Private-Cloud-Consulting, Architektur und Umsetzung mit OpenStack und Ceph. Festpreis, klares Ergebnis. Für Teams die es richtig machen wollen."
+keywords: "OpenStack Consulting, OpenStack Architektur, Private Cloud consulting, OpenStack Umsetzung, Ceph Consulting, Private Cloud Architecture Germany, OpenStack Berater DACH."
 ---
 {% include header.html %}
 <section class='page_section'>
 	<div class="container">
-		<h2 class="title_about">{{ page.page_section_title }}</h2>
+		<h2 class="title_about">{{ site.data.de.offer.main_title }}</h2>
+		{{site.data.de.offer.main_content}}
 		<div class="questions_block">
 			<div class="question">
 				<div class="list_block">
 					{% for i in site.data.de.offer.content %}
 					<div>
 						<p>{{i.title}}</p>
-						<ul>
-							{% for e in i.items %}
-							<li>{{ e }}</li>
-							{% endfor %}
-						</ul>
+						{{i.content | markdownify}}
 					</div>
 					{% endfor %}
 				</div>

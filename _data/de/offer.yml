@@ -1,32 +1,34 @@
 ---
-main_title: 'Eigene Cloud'
+main_title: 'Was wir anbieten'
+main_content: |
+  Konkrete Leistungen. Klare Ergebnisse. Festpreis nach dem ersten Gespräch.
 content:
-  - title: 'Überblick'
-    items:
-      - Wir helfen Ihnen Ihre eigene moderne modulare erweiterbare Private Cloud aufzuabuen, in Ihren Rechenzentrum oder da wo sie gebraucht wird.
-      - Modernste Technologien
-      - Ensprich dem Standard
-  - title: 'Eigenschaften'
-    items:
-      - Infrastructure as Code (IaC)
-      - Load Balancing as a Service (LBaaS)
-      - Firewall
-      - Kubernetes (KaaS)
-      - Block / Object Storage
-      - Monitoring / Alerting
-      - Logging
-  - title: 'Ihre Vorteile'
-    items:
-      - Open Source - keine Lizenzkosten
-      - Self-Service - Dashobard oder  API
-      - Hoheit über Ihre Daten
-      - Sicherheit
-      - Souverinität
-  - title: 'Use-Cases'
-    items:
-      - Private Cloud ohne Vendor Lock-In
-      - Kubernetes
-      - Air-Gapped Environment
-  - title: 'Timeline'
-    items:
-      - Nachdem die Hardware eingebaut und verkabelt ist dauert die Installation der Private Cloud in der Regel 2 Wochen.
+  - title: 'Technologie-Evaluierung'
+    content: |
+      Sie haben ein Problem. Die richtige Technologie ist unklar.
+      Private Cloud, Migration, Architekturentscheidung - Sie brauchen eine
+      Empfehlung die Sie umsetzen können, keine Liste von Optionen. Sie
+      bekommen eine schriftliche Einschätzung: was zu Ihrem Kontext passt,
+      warum, und wie der nächste Schritt aussieht.
+      Erster Schritt: ein 60-minütiges Gespräch. Keine Vorbereitung nötig.
+  - title: 'Consulting'
+    content: |
+      Sie kennen die Richtung. Die Technologie ist komplex und die
+      Entscheidungen haben Gewicht.
+      OpenStack, Ceph, Private-Cloud-Infrastruktur - wir arbeiten neben Ihrem
+      Team, beantworten die schwierigen Fragen und halten die Architektur
+      ehrlich. Sie konzentrieren sich auf Ihr Geschäft.
+      Erster Schritt: beschreiben Sie wo Sie stehen und was Sie blockiert.
+  - title: 'Architektur & Umsetzung'
+    content: |
+      Sie wissen was Sie wollen. Sie brauchen jemanden der es richtig baut.
+      Architektur und Umsetzung gehören zusammen - wir steigen nicht nach
+      einem fremden Plan ein. Sie bekommen eine funktionierende Umgebung,
+      dokumentiert, übergeben so dass Ihr Team sie betreiben kann.
+      Keine Black Box, keine Abhängigkeit.
+      Erster Schritt: beschreiben Sie Ihr Setup in wenigen Sätzen.
+  - title: 'Training'
+    content: |
+      Ihr Team muss betreiben was gebaut wurde.
+      Praxisnahe Schulungen - aufgebaut auf echten Umgebungen.
+      → [socket.de/training](https://socket.de/training)

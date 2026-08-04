@@ -3,27 +3,23 @@ layout: default
 title: Offer
 permalink: /en/offer/
 i18n-link: offer
-lang: de
-page_section_title: "Own Private Cloud"
+lang: en
 key: private cloud
-description: "Build your own secure Private Cloud with socket.de. Get dedicated infrastructure, maximum data privacy, and full control over your enterprise cloud environment."
-keywords: "Private Cloud, dedicated infrastructure, cloud hosting, enterprise cloud, data security, private cloud solutions, cloud migration."
+description: "Private cloud consulting, architecture, and implementation. Fixed price, clear outcomes. OpenStack and Ceph expertise for teams that need it done right.OpenStack, Ceph, DACH"
+keywords: "OpenStack consulting, OpenStack architecture, private cloud consulting, OpenStack implementation, Ceph consulting, private cloud architecture Germany, OpenStack consultant DACH."
 ---
 {% include header.html %}
 <section class='page_section'>
 	<div class="container">
-		<h2 class="title_about">{{ page.page_section_title }}</h2>
+		<h2 class="title_about">{{ site.data.en.offer.main_title }}</h2>
+		{{site.data.en.offer.main_content}}
 		<div class="questions_block">
 			<div class="question">
 				<div class="list_block">
 					{% for i in site.data.en.offer.content %}
 					<div>
 						<p>{{i.title}}</p>
-						<ul>
-							{% for e in i.items %}
-							<li>{{ e }}</li>
-							{% endfor %}
-						</ul>
+						{{i.content | markdownify}}
 					</div>
 					{% endfor %}
 				</div>
