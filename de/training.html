@@ -6,7 +6,7 @@ i18n-link: training
 lang: de
 page_section_title: "Training"
 key: training
-description: "Praxisnahe OpenStack- und Ceph-Schulungen für Linux-Administratoren und Cloud-Architekten. Instructor-led, remote oder vor Ort (DACH). Echte Lab-Umgebung — keine geteilte Infrastruktur. Vendor-neutral, Community OpenStack."
+description: "Hands-on OpenStack and Ceph training for Linux administrators and cloud architects. Instructor-led, remote or on-site (DACH). Real lab environment — no shared infrastructure. Vendor-neutral, community OpenStack."
 keywords: "OpenStack training, Ceph training, OpenStack Ceph training, private cloud training, OpenStack hands-on training, Ceph storage training, OpenStack administrator training, COA exam preparation, Certified OpenStack Administrator training"
 ---
 
@@ -18,12 +18,12 @@ keywords: "OpenStack training, Ceph training, OpenStack Ceph training, private c
     <h2 class="title_training">{{ page.page_section_title }}</h2>
 
     <!-- Block 1: Bild links, Promo-Blöcke rechts -->
-    <div class="training_top_block">
+    <div class="about_block">
       <div class="img_block">
         <img src="{{ site.baseurl }}/assets/img/services/service5.svg" alt="training">
       </div>
-      <aside>
-        {% assign promo = site.data.de.trainingpromo %}
+      <aside class="about_blocks">
+        {% assign promo = site.data.en.trainingpromo %}
         {% for block in promo %}
           <div class="block">{{ block.content | markdownify }}</div>
         {% endfor %}
@@ -31,15 +31,15 @@ keywords: "OpenStack training, Ceph training, OpenStack Ceph training, private c
     </div>
 
     <!-- Block 2: Inhalt links, sticky Contact rechts -->
-    <div class="training_block">
+    <div class="questions_block">
 
-      <div class="training_def">
-        {% assign blocks = site.data.de.training %}
+      <div class="question">
+        {% assign blocks = site.data.en.training %}
         {% for item in blocks %}
           {% if forloop.first == true %}
             <h3>{{ item.main_title }}</h3>
           {% else %}
-            <div class="training_def_content">
+            <div class="question_contet">
               <h4>{{ item.title }}</h4>
               {{ item.content | markdownify }}
             </div>
@@ -49,7 +49,7 @@ keywords: "OpenStack training, Ceph training, OpenStack Ceph training, private c
 
       <div class="contacts">
         <div class="contact_block">
-          <h3>{{ site.data.de.contact.stitle.section_title }}</h3>
+          <h3>{{ site.data.en.contact.stitle.section_title }}</h3>
           <div class="blocks_with_contact">
             {% include contact.html %}
           </div>

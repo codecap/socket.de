@@ -18,11 +18,11 @@ keywords: "OpenStack training, Ceph training, OpenStack Ceph training, private c
     <h2 class="title_training">{{ page.page_section_title }}</h2>
 
     <!-- Block 1: Bild links, Promo-Blöcke rechts -->
-    <div class="training_top_block">
+    <div class="about_block">
       <div class="img_block">
         <img src="{{ site.baseurl }}/assets/img/services/service5.svg" alt="training">
       </div>
-      <aside>
+      <aside class="about_blocks">
         {% assign promo = site.data.en.trainingpromo %}
         {% for block in promo %}
           <div class="block">{{ block.content | markdownify }}</div>
@@ -31,15 +31,15 @@ keywords: "OpenStack training, Ceph training, OpenStack Ceph training, private c
     </div>
 
     <!-- Block 2: Inhalt links, sticky Contact rechts -->
-    <div class="training_block">
+    <div class="questions_block">
 
-      <div class="training_def">
+      <div class="question">
         {% assign blocks = site.data.en.training %}
         {% for item in blocks %}
           {% if forloop.first == true %}
             <h3>{{ item.main_title }}</h3>
           {% else %}
-            <div class="training_def_content">
+            <div class="question_contet">
               <h4>{{ item.title }}</h4>
               {{ item.content | markdownify }}
             </div>

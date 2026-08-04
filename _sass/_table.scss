@@ -1,20 +1,122 @@
 @use 'mixins' as *;
 @use 'colors' as *;
+
 table {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   border-collapse: collapse;
+  table-layout: fixed;
+
+  thead {
+    
+    font-weight: 700;
+    color: $main_color__blue;
+    @include rem(16);
+    text-align: left;
+	vertical-align: middle;
+	padding: 20px 0;
+  }
+
+  th, td {
+    padding: 10px 8px;
+    word-wrap: break-word;
+	@include rem(16);
+	&:first-child {
+      text-align: left;
+      padding-left: 0;
+      width: 50%;
+    }
+
+    &:nth-child(2) {
+      text-align: right;
+      width: 25%;
+    }
+
+    &:last-child {
+      text-align: right;
+      padding-right: 0;
+      width: 25%;
+    }
+  }
+
+  th {
+    font-weight: 700;
+    color: $main_color__blue;
+    padding-bottom: 12px;
+  }
+
+  td {
+    font-weight: 400;
+  }
+
   th, td {
     &.tab_img {
-			width: 25%;
+      width: 25%;
+    }
+    &.col1,
+    &.col2 {
+      padding: 0 0 0 25px;
+    }
+    &.col1 {
+      color: $main_color__blue;
+      font-weight: bold;
+    }
+  }
+  @media screen and (max-width: 1000px) {
+	
+	tr {
+			margin-bottom: 10px;
+			> td {width: 100%; }
 		}
-		&.col1,
-		&.col2 {
-			padding: 0 0 0 25px;
+		td.col1, td.col2{
+			width: auto;
+			padding: 0 0 0 15px;
 		}
-		&.col1 {
-			color: $main_color__blue;
-			font-weight: bold;
+	  
+	  .tabs_block {
+		grid-template-columns: 450px repeat(1, 1fr);
+		grid-column-gap: 35px;
+	
+		.tabs li a {
+		  @include rem(24);
+		  line-height: 35px;
+	
 		}
+		.tabs li.active a {
+		  &:before{
+			left: -34px;
+	
+		  }
+		}
+		.tabs-panel {
+		  &.active {
+			h3 {
+			  line-height: 58px;
+			}
+			p {
+			  margin-top: 20px;
+			  line-height: 28px;
+			}
+		  }
+		}
+	  }
+  }
+  @media screen and (max-width: 768px) {
+    th, td {
+      padding-top: 10px;
+      
+	  @include rem(16);
+      
+    }
+  }
+  @media screen and (max-width: 348px) {
+   display: block !important;
+	
+    th, td {
+      width: 100% !important;
+	  @include rem(13);
+	  text-align: center;      
+    }
+	
   }
 }

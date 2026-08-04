@@ -1,5 +1,13 @@
 @use 'mixins' as *;
 @use 'colors' as *;
+ul {
+	li {
+	  line-height: 31px;
+	  list-style-type: " - ";
+	  list-style-position: inside;
+	  @include rem(16);
+	}
+  }
 .list_block {
   display: flex;
   justify-content: space-between;
@@ -18,17 +26,10 @@
 			@include rem(20);
 		}
 
-    ul {
-      li {
-        line-height: 31px;
-        list-style-type: " - ";
-        list-style-position: inside;
-      }
-    }
-		.last_items {
+   	.last_items {
 			display: flex;
 			flex-wrap: wrap;
-  		gap: 30px;
+  			gap: 30px;
 			li {
 				flex: 1 0 15%;
 				display: block;

@@ -79,43 +79,7 @@
       grid-template-columns: repeat(3, 1fr);
     }
   }
-	table {
-    tr {
-			margin-bottom: 10px;
-			> td {padding: 0 0 12px; width: 100%; }
-		}
-		td.col1, td.col2, th {
-			width: auto;
-			padding: 0 0 0 15px;
-		}
-  }
-  .tabs_block {
-    grid-template-columns: 450px repeat(1, 1fr);
-    grid-column-gap: 35px;
-
-    .tabs li a {
-      @include rem(24);
-      line-height: 35px;
-
-    }
-    .tabs li.active a {
-      &:before{
-        left: -34px;
-
-      }
-    }
-    .tabs-panel {
-      &.active {
-        h3 {
-          line-height: 58px;
-        }
-        p {
-          margin-top: 20px;
-          line-height: 28px;
-        }
-      }
-    }
-  }
+	
   .clients_main_block {
     .clients {
       grid-template-columns: repeat(4,1fr);
