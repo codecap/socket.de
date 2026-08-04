@@ -7,23 +7,31 @@ sdata:
   #- title: 'Konzeption und Umsetzung von individueller Cloud-Architektur'
   - title: 'Individuelle Cloudlösung'
     image: 'service1.svg'
-    content: >-
-      Wir helfen dir, für deine Projekte eine __flexible und skalierbare Cloud
-      auf Basis von OpenStack und Ceph__ aufzubauen.
-      Damit kannst du in deinem Heimnetzwerk die modernen DevOps Techniken und
-      Tools für deine Software anwenden:
-        * Infrastructre as Code und GitOps
-        * Kubernetes / Openshift / OKD
-        * Ansible / Terraform / Chef
-        * Rancher
-        * Database as a Service
-
-      Deine Cloud wird aus einer Hand fertiggestellt. Als zuverlässige
-      Ansprächpartner bleiben wir natürlich weiterhin für dich da.
-    # 1. Version
-    #   Was socket bietet? Eine stabile, skalierbare Cloudarchitektur für
-    #   individuelle Anforderungen. Cloudarchitektur, Aufbau, Consulting
-    #   und Workshops. Unverbindlich anfragen!
+    content: |
+      OpenStack und Ceph als Fundament - eine Private Cloud die skaliert,
+      stabil läuft und zu deiner Infrastruktur passt.<br/>
+      <br/>
+      Darauf läuft was du brauchst:
+      * Kubernetes / OpenShift / OKD
+      * Infrastructure as Code und GitOps
+      * Ansible / Terraform
+      * VMs und bestehende Workloads
+      * Bare-Metal Workloads
+      * Block-, File- und Object-Storage
+      * Database as a Service
+    # 3. Version
+    # Wir helfen dir, für deine Projekte eine __flexible und skalierbare Cloud
+    # auf Basis von OpenStack und Ceph__ aufzubauen.
+    # Damit kannst du in deinem Heimnetzwerk die modernen DevOps Techniken und
+    # Tools für deine Software anwenden:
+    #   * Infrastructre as Code und GitOps
+    #   * Kubernetes / Openshift / OKD
+    #   * Ansible / Terraform / Chef
+    #   * Rancher
+    #   * Database as a Service
+    #
+    # Deine Cloud wird aus einer Hand fertiggestellt. Als zuverlässige
+    # Ansprächpartner bleiben wir natürlich weiterhin für dich da.
     # 2. Version
     #   Große Public Cloud-Anbieter passen nicht zu deinem Unternehmen. Du
     #   willst dich nicht mit Datenschutz-Themen beschäftigen. Oder du hast
@@ -45,41 +53,73 @@ sdata:
     #   Und weil wir auf Open Source setzen, gibt es für dich keine Vendor
     #   Lock-Ins – Workloads können bei Bedarf jederzeit in eine andere Cloud
     #   übertragen werden.<br/>
+    # 1. Version
+    #   Was socket bietet? Eine stabile, skalierbare Cloudarchitektur für
+    #   individuelle Anforderungen. Cloudarchitektur, Aufbau, Consulting
+    #   und Workshops. Unverbindlich anfragen!
   - title: 'Design und Architektur'
     image: 'service2.svg'
-    content: >-
-      Deine Cloud muss von der ersten Minute an stabil funktionieren.
-      Sie soll langfristig mit deinem Unternehmen wachsen und sich auch
-      mühelos auf neue Anforderungen anpassen. socket legt das Fundament
-      für eine sichere, skalierbare Cloudarchitektur. Diese läuft
-      natürlich auf dem neusten Stand der Technik.
+    content: |
+      Architektur die zu deiner Infrastruktur passt ... nicht andersherum.<br/>
+      <br/>
+      Skalierung, Hochverfügbarkeit, Netzwerk, Storage - ausgelegt auf deine
+      Anforderungen, nicht auf eine Vorlage. Die Cloud läuft stabil und lässt
+      sich weiterentwickeln wenn sich die Anforderungen ändern.
+    # Deine Cloud muss von der ersten Minute an stabil funktionieren.
+    # Sie soll langfristig mit deinem Unternehmen wachsen und sich auch
+    # mühelos auf neue Anforderungen anpassen. socket legt das Fundament
+    # für eine sichere, skalierbare Cloudarchitektur. Diese läuft
+    # natürlich auf dem neusten Stand der Technik.
   - title: 'Aufbau und Betrieb'
     image: 'service3.svg'
-    content: >-
-      Open Source, spezielle Software und verschiedenste Anbieter: Hast du
-      bei der Suche nach der passenden Soft- und Hardware eher die Qual
-      als die Wahl? Wir arbeiten schon seit vielen Jahren mit sämtlichen
-      gängigen Systemen. Darum können wir dir ganz ehrlich sagen, welche
-      Lösung optimal zu deinen Anforderungen passt – und welche nicht.
-      Bei „das habe ich noch vergessen“-Fragen sind wir jederzeit nur
-      einen Telefonanruf entfernt.
+    content: |
+      Die Architektur steht ... jetzt wird gebaut. Die Plattform wird
+      aufgesetzt, konfiguriert und in Betrieb genommen.<br/>
+      <br/>
+      Bevor die Übergabe stattfindet: testen bis es stabil läuft,
+      dokumentieren damit dein Team weiß was gebaut wurde und warum. Danach
+      bleibt die Plattform nicht allein - laufender Betrieb und Support sind
+      Teil des Angebots.
+    # Open Source, spezielle Software und verschiedenste Anbieter: Hast du
+    # bei der Suche nach der passenden Soft- und Hardware eher die Qual
+    # als die Wahl? Wir arbeiten schon seit vielen Jahren mit sämtlichen
+    # gängigen Systemen. Darum können wir dir ganz ehrlich sagen, welche
+    # Lösung optimal zu deinen Anforderungen passt – und welche nicht.
+    # Bei „das habe ich noch vergessen“-Fragen sind wir jederzeit nur
+    # einen Telefonanruf entfernt.
   - title: 'Consulting'
     image: 'service4.svg'
-    content: >-
-      Du hast einfach keine Zeit, um dich mit „OpenStack“ und „Ceph“ zu
-      beschäftigen? Das verstehen wir – du möchtest dich schließlich voll
-      und ganz auf dein Unternehmen konzentrieren können. Währenddessen
-      halten wir dir in Sachen Cloud-Architektur den Rücken frei. Unser
-      Team berät dich zu passenden Lösungen. Wir besprechen genau die
-      Dinge, auf die es ankommt. Nicht mehr und nicht weniger. So
-      erarbeiten wir gemeinsam hochwertige und flüssige Konzepte, die das
-      können, was sie sollen.
+    content: |
+      Nicht jeder kommt mit einer klaren Anforderung ... manchmal ist das
+      Problem da, aber der Weg noch nicht.<br/>
+      <br/>
+      Zuhören, verstehen, Klarheit schaffen. Wege aufzeigen die zum Kontext
+      passen - nicht zur nächstbesten Lösung. Und begleiten bis die Richtung
+      sitzt.
+    # Du hast einfach keine Zeit, um dich mit „OpenStack“ und „Ceph“ zu
+    # beschäftigen? Das verstehen wir – du möchtest dich schließlich voll
+    # und ganz auf dein Unternehmen konzentrieren können. Währenddessen
+    # halten wir dir in Sachen Cloud-Architektur den Rücken frei. Unser
+    # Team berät dich zu passenden Lösungen. Wir besprechen genau die
+    # Dinge, auf die es ankommt. Nicht mehr und nicht weniger. So
+    # erarbeiten wir gemeinsam hochwertige und flüssige Konzepte, die das
+    # können, was sie sollen.
   - title: 'Workshops'
     image: 'service5.svg'
-    content: >-
-      Du möchtest selbst hinter die Kulissen deiner Cloud-Lösung blicken?
-      Das hören wir gerne! Unsere qualifizierten Mitarbeiter stellen auf
-      Anfrage individuelle Workshops zusammen, in denen wir sämtliche
-      Themen besprechen, zu denen du dich weiterbilden möchtest. Auf
-      theoretische Konzepte und Erklärungen folgt ein Praxispart, in dem
-      du direkt mit dem Gelernten experimentieren kannst.
+    content: |
+      Klares Bild im Kopf durch echte Erfahrungen.<br/>
+      <br/>
+      Teilnehmer arbeiten direkt in der Umgebung, stoßen auf echte Probleme,
+      lösen sie selbst. Verständnis entsteht durch eigene Erfahrung - nicht
+      durch Erklärungen.<br/>
+      <br/>
+      Nach dem Workshop kannst du es in deinem eigenen Lab wiederholen.
+      Das ist der Anspruch.<br/>
+      <br/>
+      → [Alle Trainings und Kurse](https://socket.de/training)
+    # Du möchtest selbst hinter die Kulissen deiner Cloud-Lösung blicken?
+    # Das hören wir gerne! Unsere qualifizierten Mitarbeiter stellen auf
+    # Anfrage individuelle Workshops zusammen, in denen wir sämtliche
+    # Themen besprechen, zu denen du dich weiterbilden möchtest. Auf
+    # theoretische Konzepte und Erklärungen folgt ein Praxispart, in dem
+    # du direkt mit dem Gelernten experimentieren kannst.
