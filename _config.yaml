@@ -77,9 +77,6 @@ t:
   vna:
     en: "/en/vna"
     de: "/de/vna"
-  clients:
-    en: "/en/clients"
-    de: "/de/clients"
   offer:
     en: "/en/offer"
     de: "/de/offer"
