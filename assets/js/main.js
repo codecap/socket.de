@@ -23,6 +23,7 @@ const LANG_PAGES_CONFIG = [
   { url: "/services", de: "/de/services/", en: "/en/services/" },
   { url: "/about", de: "/de/about/", en: "/en/about/" },
   { url: "/vna", de: "/de/vna/", en: "/en/vna/" },
+  { url: "/training", de: "/de/training/", en: "/en/training/" },
   { url: "/imprint", de: "/de/imprint/", en: "/en/imprint/" },
   { url: "/privatepolicy", de: "/de/privatepolicy/", en: "/en/privatepolicy/" }
 ];
