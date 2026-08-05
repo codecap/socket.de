@@ -6,8 +6,8 @@ i18n-link: training
 lang: en
 page_section_title: "Training"
 key: training
-description: "Hands-on OpenStack and Ceph training for Linux administrators and cloud architects. Instructor-led, remote or on-site (DACH). Real lab environment — no shared infrastructure. Vendor-neutral, community OpenStack."
-keywords: "OpenStack training, Ceph training, OpenStack Ceph training, private cloud training, OpenStack hands-on training, Ceph storage training, OpenStack administrator training, COA exam preparation, Certified OpenStack Administrator training"
+description: "Hands-on OpenStack and Ceph training for Linux administrators and cloud architects. Instructor-led, remote or on-site (DACH). Real lab environment - no shared infrastructure. Vendor-neutral, community OpenStack."
+keywords: "OpenStack training, Ceph Training, OpenStack Ceph Training, Private Cloud Training, OpenStack Hands-On Training, Ceph Storage Training, OpenStack Administrator Training, COA Exam Preparation, Certified OpenStack Administrator Training"
 ---
 
 {% include header.html %}
@@ -17,7 +17,6 @@ keywords: "OpenStack training, Ceph training, OpenStack Ceph training, private c
 
     <h2 class="title_training">{{ page.page_section_title }}</h2>
 
-    <!-- Block 1: Bild links, Promo-Blöcke rechts -->
     <div class="about_block">
       <div class="img_block">
         <img src="{{ site.baseurl }}/assets/img/services/service5.svg" alt="training">
@@ -30,14 +29,16 @@ keywords: "OpenStack training, Ceph training, OpenStack Ceph training, private c
       </aside>
     </div>
 
-    <!-- Block 2: Inhalt links, sticky Contact rechts -->
     <div class="questions_block">
 
       <div class="question">
         {% assign blocks = site.data.en.training %}
         {% for item in blocks %}
           {% if forloop.first == true %}
-            <h3>{{ item.main_title }}</h3>
+            <h3>{{ item.title }}</h3>
+            {{ item.content | markdownify }}
+            <br/>
+            <br/>
           {% else %}
             <div class="question_contet">
               <h4>{{ item.title }}</h4>
