@@ -24,16 +24,18 @@
     - Teams die eine neue Plattform einführen
 - title: '📅 Format & Verfügbarkeit'
   content: |
-    - Remote und Vor-Ort (DACH)<br/>
-    - 🇩🇪 Deutsch und 🇬🇧 Englisch<br/>
-    - Bis zu 3 Workshops pro Monat<br/>
-    - 3- und 5-tägige Formate<br/>
+    - Remote und Vor-Ort (DACH)
+    - 🇩🇪 Deutsch und 🇬🇧 Englisch
+    - Bis zu 3 Workshops pro Monat
+    - 3- und 5-tägige Formate (9:00 - 17:00)
+    - Halbtagesformat möglich (9:00 - 13:00), 6 und 10 Einheiten
 - title: '👨‍💻 Über den Trainer'
   content: |
     Über 10 Jahre praktische Erfahrung im Bereich Private Cloud und Open Source
-    Infrastruktur. OpenStack seit 2019, Ceph seit 2023. In 4 von 5
-    Projekten der entscheidende Faktor dafür, dass eine noch nicht erprobte
-    Technologie produktiv eingesetzt wurde.
+    Infrastruktur. OpenStack seit 2019, Ceph seit 2022. In den meisten
+    Projekten der entscheidende Faktor dafür, dass neue Technologien sicher
+    in den Produktivbetrieb überführt wurden.
+
     <br/>
     <br/>
     Kein Nachschlagewerk - die Methodik, die komplexe Umgebungen

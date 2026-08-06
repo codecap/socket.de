@@ -24,16 +24,16 @@
     - Teams onboarding to a new platform
 - title: '📅 Format & Availability'
   content: |
-    - Remote and on-site (DACH)<br/>
-    - 🇩🇪 German and 🇬🇧 English<br/>
-    - Up to 3 workshops per month<br/>
-    - 3-day and 5-day formats<br/>
+    - Remote and on-site (DACH)
+    - 🇩🇪 German and 🇬🇧 English
+    - Up to 3 workshops per month
+    - 3-day and 5-day formats (9:00 - 17:00)
+    - Half-day format available (9:00 - 13:00), 6 and 10 sessions
 - title: '👨‍💻 About the Trainer'
   content: |
     Over 10 years of hands-on experience in private cloud and open source
-    infrastructure. OpenStack since 2019, Ceph since 2023. In 4 out of 5
-    projects, the deciding factor in getting an untested technology into
-    production.
+    infrastructure. OpenStack since 2019, Ceph since 2022. In most
+    projects the deciding factor in getting a new technology into production.
     <br/>
     <br/>
     Not a reference manual, the methodology that makes complex environments
