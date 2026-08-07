@@ -18,7 +18,7 @@ pagination:
 
 <section class='page_section'>
     <div class="container">
-        <h1>{{ page.page_section_title }}</h1>
+        <h2>{{ page.page_section_title }}</h2>
         <div class="blog-list">
             {% assign posts = paginator.posts | sort: "date" | reverse %}
             {% for post in posts %}

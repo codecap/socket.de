@@ -9,7 +9,8 @@ permalink: /sitemap.xml
 {%- assign pages = site.pages | where_exp:"page", "page.sitemap != false" -%}
 
 {%- for page in pages -%}
-  {%- if page.path contains '_site'
+  {%- if page.published == false
+        or page.path contains '_site'
         or page.path contains '_includes'
         or page.path contains 'robots.txt'
         or page.path contains 'sitemap.xml'
@@ -22,8 +23,12 @@ permalink: /sitemap.xml
       {%- continue -%}
   {%- endif -%}
 
+  {%- unless page.url contains '/en/' or page.url contains '/de/' -%}
+      {%- continue -%}
+  {%- endunless -%}
+
   {%- capture loc_raw -%}{{ page.url | absolute_url }}{%- endcapture -%}
-  {%- assign loc = loc_raw | replace_first: "https:/", "https://" | replace: ".html", "" | replace: "//", "/" -%}
+  {%- assign loc = loc_raw | replace_first: "https:/", "https://" | replace: ".html", "" | replace: "/index/", "/" | replace: "//", "/" -%}
   {%- assign last_char = loc | slice: -1 -%}
   {%- if last_char != "/" and loc != site.url -%}{%- assign loc = loc | append: "/" -%}{%- endif -%}
 
@@ -31,41 +36,40 @@ permalink: /sitemap.xml
     <loc>{{ loc }}</loc>
     <lastmod>{{ page.last_modified_at | default: site.time | date_to_xmlschema }}</lastmod>
     <changefreq>monthly</changefreq>
-
     {%- if page.key and site.t[page.key] -%}
       {%- assign translations = site.t[page.key] -%}
       {%- assign default_href = "" -%}
       {%- for t in translations -%}
         {%- assign lang = t.first -%}
         {%- capture href_raw -%}{{ t.last | absolute_url }}{%- endcapture -%}
-        {%- assign href = href_raw | replace_first: "https:/", "https://" | replace: ".html", "" | replace: "//", "/" -%}
+        {%- assign href = href_raw | replace_first: "https:/", "https://" | replace: ".html", "" | replace: "/index/", "/" | replace: "//", "/" -%}
         {%- assign h_last = href | slice: -1 -%}
         {%- if h_last != "/" and href != site.url -%}{%- assign href = href | append: "/" -%}{%- endif -%}
-        <xhtml:link rel="alternate" hreflang="{{ lang }}" href="{{ href }}" />
+    <xhtml:link rel="alternate" hreflang="{{ lang }}" href="{{ href }}" />
         {%- if lang == site.default_language -%}{%- assign default_href = href -%}{%- endif -%}
       {%- endfor -%}
-      <xhtml:link rel="alternate" hreflang="x-default" href="{{ default_href | default: loc }}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ default_href | default: loc }}" />
     {%- else -%}
-      <xhtml:link rel="alternate" hreflang="x-default" href="{{ loc }}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ loc }}" />
     {%- endif -%}
   </url>
 {%- endfor -%}
 
-{%- for post in site.blog_en -%}
-  {%- if post.sitemap == false -%}{%- continue -%}{%- endif -%}
-
-  {%- capture loc_raw -%}{{ post.url | absolute_url }}{%- endcapture -%}
-  {%- assign loc = loc_raw | replace_first: "https:/", "https://" | replace: ".html", "" | replace: "//", "/" -%}
-  {%- assign last_char = loc | slice: -1 -%}
-  {%- if last_char != "/" and loc != site.url -%}{%- assign loc = loc | append: "/" -%}{%- endif -%}
+{%- for collection in site.collections -%}
+  {%- if collection.label == 'posts' -%}{%- continue -%}{%- endif -%}
+  {%- for item in collection.docs -%}
+    {%- if item.sitemap == false or item.published == false -%}{%- continue -%}{%- endif -%}
+    {%- capture loc_raw -%}{{ item.url | absolute_url }}{%- endcapture -%}
+    {%- assign loc = loc_raw | replace_first: "https:/", "https://" | replace: ".html", "" | replace: "//", "/" -%}
+    {%- assign last_char = loc | slice: -1 -%}
+    {%- if last_char != "/" and loc != site.url -%}{%- assign loc = loc | append: "/" -%}{%- endif -%}
 
   <url>
     <loc>{{ loc }}</loc>
-    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+    <lastmod>{{ item.date | default: item.last_modified_at | default: site.time | date_to_xmlschema }}</lastmod>
     <changefreq>weekly</changefreq>
-
-    {%- if post.key and site.t[post.key] -%}
-      {%- assign translations = site.t[post.key] -%}
+    {%- if item.key and site.t[item.key] -%}
+      {%- assign translations = site.t[item.key] -%}
       {%- assign default_href = "" -%}
       {%- for t in translations -%}
         {%- assign lang = t.first -%}
@@ -73,30 +77,14 @@ permalink: /sitemap.xml
         {%- assign href = href_raw | replace_first: "https:/", "https://" | replace: ".html", "" | replace: "//", "/" -%}
         {%- assign h_last = href | slice: -1 -%}
         {%- if h_last != "/" and href != site.url -%}{%- assign href = href | append: "/" -%}{%- endif -%}
-        <xhtml:link rel="alternate" hreflang="{{ lang }}" href="{{ href }}" />
+    <xhtml:link rel="alternate" hreflang="{{ lang }}" href="{{ href }}" />
         {%- if lang == site.default_language -%}{%- assign default_href = href -%}{%- endif -%}
       {%- endfor -%}
-      <xhtml:link rel="alternate" hreflang="x-default" href="{{ default_href | default: loc }}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ default_href | default: loc }}" />
     {%- else -%}
-      <xhtml:link rel="alternate" hreflang="x-default" href="{{ loc }}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ loc }}" />
     {%- endif -%}
   </url>
-{%- endfor -%}
-
-{%- for collection in site.collections -%}
-  {%- if collection.label == 'blog_en' or collection.label == 'posts' -%}{%- continue -%}{%- endif -%}
-  {%- for item in collection.docs -%}
-    {%- capture loc_raw -%}{{ item.url | absolute_url }}{%- endcapture -%}
-    {%- assign loc = loc_raw | replace_first: "https:/", "https://" | replace: ".html", "" | replace: "//", "/" -%}
-    {%- assign last_char = loc | slice: -1 -%}
-    {%- if last_char != "/" and loc != site.url -%}{%- assign loc = loc | append: "/" -%}{%- endif -%}
-
-    <url>
-      <loc>{{ loc }}</loc>
-      <lastmod>{{ item.last_modified_at | default: site.time | date_to_xmlschema }}</lastmod>
-      <changefreq>weekly</changefreq>
-      <xhtml:link rel="alternate" hreflang="x-default" href="{{ loc }}" />
-    </url>
   {%- endfor -%}
 {%- endfor -%}
 </urlset>

@@ -24,6 +24,7 @@ const LANG_PAGES_CONFIG = [
   { url: "/about", de: "/de/about/", en: "/en/about/" },
   { url: "/vna", de: "/de/vna/", en: "/en/vna/" },
   { url: "/training", de: "/de/training/", en: "/en/training/" },
+  { url: "/training", de: "/de/clients/", en: "/en/clients/" },
   { url: "/imprint", de: "/de/imprint/", en: "/en/imprint/" },
   { url: "/privatepolicy", de: "/de/privatepolicy/", en: "/en/privatepolicy/" }
 ];

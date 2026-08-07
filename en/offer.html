@@ -9,19 +9,36 @@ description: "Private cloud consulting, architecture, and implementation. Fixed 
 keywords: "OpenStack consulting, OpenStack architecture, private cloud consulting, OpenStack implementation, Ceph consulting, private cloud architecture Germany, OpenStack consultant DACH."
 ---
 {% include header.html %}
-<section class='page_section'>
+<section class="page_section">
 	<div class="container">
-		<h2 class="title_about">{{ site.data.en.offer.main_title }}</h2>
-		{{site.data.en.offer.main_content}}
+		{% assign main_title = site.data.en.offer.main_title %}
+		<h2 class="title_about">{{ main_title }}</h2>
+		<div class="about_block">
+			<div class="img_block">
+				<!-- <img src="{{ site.baseurl }}/assets/img/misc/offer.svg" alt="offer"> -->
+				<img src="{{ site.baseurl }}/assets/img/misc/about.svg" alt="{{ main_title }}">
+			</div>
+			<aside>
+				{{ site.data.en.offer.main_content | markdownify }}
+			</aside>
+		</div>
 		<div class="questions_block">
 			<div class="question">
-				<div class="list_block">
-					{% for i in site.data.en.offer.content %}
-					<div>
-						<p>{{i.title}}</p>
-						{{i.content | markdownify}}
+				<h3 class="title_about">{{ site.data.en.offer.block_title }}</h3>
+				{% assign blocks = site.data.en.offer.content %}
+				{% for block in blocks %}
+				<div class="question_contet">
+					<h4>{{ block.title }}</h4>
+					{{ block.content | markdownify }}
+				</div>
+				{% endfor %}
+			</div>	
+			<div class="contacts">
+				<div class="contact_block">
+					<h3>{{ site.data.en.contact.stitle.section_title }}</h3>
+					<div class="blocks_with_contact">
+						{% include contact.html %}
 					</div>
-					{% endfor %}
 				</div>
 			</div>
 		</div>

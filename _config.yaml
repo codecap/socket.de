@@ -59,6 +59,7 @@ menu:
   training:
     en: "Training"
     de: "Training"
+  
 
 # Path to the translated page
 t:
@@ -89,6 +90,7 @@ t:
   training:
     en: "/en/training"
     de: "/de/training"
+
 
 plugins:
   - jekyll-seo-tag
