@@ -13,14 +13,20 @@ keywords: "OpenStack Consulting, OpenStack Architektur, Private Cloud consulting
 	<div class="container">
 		{% assign main_title = site.data.de.offer.main_title %}
 		<h2 class="title_about">{{ main_title }}</h2>
-		
+
 		<div class="about_block">
 			<div class="img_block">
 				<!-- <img src="{{ site.baseurl }}/assets/img/misc/offer.svg" alt="offer"> -->
 				<img src="{{ site.baseurl }}/assets/img/misc/about.svg" alt="{{ main_title }}">
 			</div>
-			<aside>
-				{{ site.data.de.offer.main_content | markdownify }}
+			<aside class="about_blocks">
+				{% assign blocks  = site.data.de.offer.main_content | split: ". "       %}
+				{% assign len     = site.data.de.offer.main_content.size | minus: 1     %}
+				{% assign trimmed = site.data.de.offer.main_content | truncate: len, "" %}
+				{% assign blocks  = trimmed | split: ". " %}
+				{% for block in blocks %}
+					<div class="block"><p>{{ block }}</p></div>
+				{% endfor %}
 			</aside>
 		</div>
 		<div class="questions_block">

@@ -6,30 +6,38 @@ block_title: "Leistungsportfolio"
 content:
   - title: 'Technologie-Evaluierung'
     content: |
-      Sie haben ein Problem. Die richtige Technologie ist unklar.
-      Private Cloud, Migration, Architekturentscheidung - Sie brauchen eine
-      Empfehlung die Sie umsetzen können, keine Liste von Optionen. Sie
-      bekommen eine schriftliche Einschätzung: was zu Ihrem Kontext passt,
-      warum, und wie der nächste Schritt aussieht.
-      Erster Schritt: ein 60-minütiges Gespräch. Keine Vorbereitung nötig.
+      Du hast ein Problem. Die richtige Technologie ist unklar.<br/>
+      <br/>
+      Private Cloud, Migration, Architekturentscheidung - du brauchst eine
+      Empfehlung die du umsetzen kannst, keine Liste von Optionen. Du
+      bekommst eine schriftliche Einschätzung: was zu deinem Kontext passt,
+      warum, und wie der nächste Schritt aussieht.<br/>
+      <br/>
+      **Erster Schritt:** ein 60-minütiges Gespräch. Keine Vorbereitung nötig.
   - title: 'Consulting'
     content: |
-      Sie kennen die Richtung. Die Technologie ist komplex und die
-      Entscheidungen haben Gewicht.
-      OpenStack, Ceph, Private-Cloud-Infrastruktur - wir arbeiten neben Ihrem
+      Du kennst die Richtung. Die Technologie ist komplex und die
+      Entscheidungen haben Gewicht.<br/>
+      <br/>
+      OpenStack, Ceph, Private-Cloud-Infrastruktur - wir arbeiten neben deinem
       Team, beantworten die schwierigen Fragen und halten die Architektur
-      ehrlich. Sie konzentrieren sich auf Ihr Geschäft.
-      Erster Schritt: beschreiben Sie wo Sie stehen und was Sie blockiert.
+      ehrlich. Du konzentrierst dich auf dein Geschäft.<br/>
+      <br/>
+      **Erster Schritt:** beschreibe wo du stehst und was dich blockiert.
   - title: 'Architektur & Umsetzung'
     content: |
-      Sie wissen was Sie wollen. Sie brauchen jemanden der es richtig baut.
+      Du weißt was du willst. Du brauchst jemanden der es richtig baut.<br/>
+      <br/>
       Architektur und Umsetzung gehören zusammen - wir steigen nicht nach
-      einem fremden Plan ein. Sie bekommen eine funktionierende Umgebung,
-      dokumentiert, übergeben so dass Ihr Team sie betreiben kann.
-      Keine Black Box, keine Abhängigkeit.
-      Erster Schritt: beschreiben Sie Ihr Setup in wenigen Sätzen.
+      einem fremden Plan ein. Du bekommst eine funktionierende Umgebung,
+      dokumentiert, übergeben so dass dein Team sie betreiben kann.
+      Keine Black Box, keine Abhängigkeit.<br/>
+      <br/>
+      **Erster Schritt:** beschreibe dein Setup in wenigen Sätzen.
   - title: 'Training'
     content: |
-      Ihr Team muss betreiben was gebaut wurde.
-      Praxisnahe Schulungen - aufgebaut auf echten Umgebungen.
+      Dein Team braucht Wissen für den Betrieb.<br/>
+      <br/>
+      Praxisnahe Schulungen - aufgebaut auf echten Umgebungen.<br/>
+      <br/>
       → [socket.de/training](https://socket.de/training)

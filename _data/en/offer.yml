@@ -6,38 +6,37 @@ block_title: "Service Portfolio"
 content:
   - title: 'Technology Assessment'
     content: |
-      You have a problem. The right technology is unclear.
-
+      You have a problem. The right technology is unclear.<br/>
+      <br/>
       Private cloud, migration, architecture decision - you need a
       recommendation you can act on, not a list of options. You get a written
       assessment: what fits your context, why, and what the next step looks
-      like.
-
+      like.<br/>
+      <br/>
       **First step:** a 60-minute call. No preparation needed.
-
   - title: 'Consulting'
     content: |
       You know the direction. The technology is complex and the decisions
-      matter.
-
+      matter.<br/>
+      <br/>
       OpenStack, Ceph, private cloud infrastructure - we work alongside your
       team, answer the hard questions, and keep the architecture honest. You
-      focus on your business.
-
+      focus on your business.<br/>
+      <br/>
       **First step:** describe where you are and what's blocking you.
   - title: 'Architecture & Implementation'
     content: |
-      You know what you want. You need someone to build it right.
-
+      You know what you want. You need someone to build it right.<br/>
+      <br/>
       Architecture and implementation go together - we don't enter after
       someone else's plan. You get a working environment, documented, handed
-      over so your team can run it. No black box, no dependency.
-
+      over so your team can run it. No black box, no dependency.<br/>
+      <br/>
       **First step:** describe your setup in a few sentences.
-  - title: 'Your team needs to run what was built.'
+  - title: 'Training'
     content: |
-      Your team needs to run what was built.
-
-      Hands-on training - built around real working environments
-
+      Your team needs operational knowledge.<br/>
+      <br/>
+      Hands-on training - built around real working environments.<br/>
+      <br/>
       → [socket.de/training](https://socket.de/training)
