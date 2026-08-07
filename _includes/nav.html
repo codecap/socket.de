@@ -11,6 +11,12 @@
         <li><a href="{{ site.baseurl }}{{ site.t['about'][current_lang] }}"
                 class="{% if page.url contains '/about' %} current {% elsif page.url contains '/wir' %} current {%endif %}">{{
                 site.menu['about'][current_lang] }}</a></li>       
+        <li><a href="{{ site.baseurl }}{{ site.t['offer'][current_lang] }}"
+                class="{% if page.url contains '/offer' %} current {% elsif page.url contains '/offer' %} current {%endif %}">{{
+                site.menu['offer'][current_lang] }}</a></li>       
+        <li><a href="{{ site.baseurl }}{{ site.t['training'][current_lang] }}"
+                class="{% if page.url contains '/training' %} current {% elsif page.url contains '/training' %} current {%endif %}">{{
+                site.menu['training'][current_lang] }}</a></li>       
                 {% if include.navclass == "nav-footer" -%}
         <li><a href="{{ site.baseurl }}{{ site.t['imprint'][current_lang] }}"
                 class="{% if page.url contains '/imprint' %}current {%endif %}">{{ site.menu['imprint'][current_lang] }}</a></li>
